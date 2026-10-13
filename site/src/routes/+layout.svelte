@@ -44,6 +44,7 @@
 	{@render children()}
 </main>
 
+{#if page.url.pathname !== '/vote/'}
 <footer class="sans">
 	<div class="wide">
 		<p>
@@ -53,6 +54,7 @@
 		<p class="fine">An independent, non-partisan community project. Not affiliated with any government, party or candidate.</p>
 	</div>
 </footer>
+{/if}
 
 <style>
 	.election { background: var(--ink); color: #fff; font-size: 13px; padding: 8px 20px; text-align: center; }

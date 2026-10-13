@@ -50,8 +50,8 @@
 	}
 	const jump = go;
 	const active = $derived(step);
-	// Scenery behind stops that don't have their own illustration (the quiz has its own city).
-	const scene = $derived([0, -1, -1, -1, -1, -1, 4][step] ?? -1);
+	// Scenery only on the welcome screen; later stops have their own pictures and stay uncluttered.
+	const scene = $derived(step === 0 ? 0 : -1);
 
 	// City Hall stop: numbers for the charts come from the fact registry (each tap shows proof).
 	const num = (id: string) => Number(facts[id]?.value ?? 0);
@@ -246,9 +246,20 @@
 	</div>
 	<details class="method sans"><summary>How we made this</summary>
 		On {data.scan?.date ?? 'October 13'}, we read every mayoral campaign website on the City Clerk's certified candidate list. Quotes are copied word for word and link to the exact sentence on the candidate's own site, with a saved copy. Past results come from the City's official declaration. We don't use news reports or opponents' claims, and we don't predict what any promise would do.
-		Spotted a mistake? <a href="/sources/#corrections">Tell us</a>.
+		Spotted a mistake? <a href="/sources/#corrections">Tell us</a>. An independent, non-partisan community project, not affiliated with any government, party or candidate.
 	</details>
 </section>
+{/if}
+{#if step > 0}
+<nav class="stepnav {step === 4 ? 'wrap' : 'wide'} sans" aria-label="Move along the ride">
+	{#if step < stops.length - 1}
+		<button class="fwd" onclick={() => go(step + 1)}>Next stop<span class="full">: {stops[step + 1].label.split(': ')[1]}</span> →</button>
+	{:else}
+		<button class="fwd" onclick={share}>Share the ride ↗</button>
+		<span class="hint">{shared}</span>
+	{/if}
+	<button class="back" onclick={() => go(step - 1)}>‹ Back</button>
+</nav>
 {/if}
 </div>
 {/key}
@@ -280,29 +291,17 @@
 	</div>
 {/if}
 
-{#if step > 0}
-<nav class="stepnav sans" aria-label="Move along the ride">
-	<button class="back" onclick={() => go(step - 1)}>‹ Back</button>
-	<span class="where">{step ? `Stop ${step} of ${stops.length - 1}` : 'Ready?'}</span>
-	{#if step < stops.length - 1}
-		<button class="fwd" onclick={() => go(step + 1)}>Next stop<span class="full">: {stops[step + 1].label.split(': ')[1]}</span> →</button>
-	{:else}
-		<span class="hint">{shared}</span>
-		<button class="fwd" onclick={share}>Share the ride ↗</button>
-	{/if}
-</nav>
-{/if}
 
 <style>
-	.screenwrap { min-height: calc(100vh - 200px); padding-bottom: 110px; animation: slidein 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
+	.screenwrap { min-height: calc(100vh - 200px); padding-bottom: 48px; animation: slidein 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
 	@keyframes slidein { from { opacity: 0; transform: translateX(30px); } }
 	.hall { margin-top: 8vh; }
 	.hop { font: inherit; font-weight: 700; font-size: 18px; background: #da251d; color: #fff; border: 0; border-radius: 999px; padding: 14px 28px; margin-top: 22px; cursor: pointer; }
 	.howto { font-size: 13px; color: var(--mute); margin-top: 8px; }
-	.stepnav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 8; display: flex; align-items: center; gap: 12px; padding: 12px max(16px, calc((100vw - 1100px) / 2)); background: color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter: blur(6px); border-top: 1px solid var(--rule); }
-	.stepnav .where { flex: 1; font-size: 12px; color: var(--mute); text-align: center; }
+	.stepnav { display: flex; align-items: center; gap: 16px; margin-top: 24px; }
 	.stepnav button { font: inherit; font-weight: 700; font-size: 15px; border-radius: 999px; padding: 11px 18px; cursor: pointer; }
-	.stepnav .back { background: none; border: 1.5px solid var(--ink); }
+	.stepnav .back { background: none; border: 0; padding: 11px 4px; color: var(--mute); font-weight: 600; }
+	.stepnav .back:hover { color: var(--ink); }
 	.stepnav .back:disabled { opacity: 0.3; cursor: default; }
 	.stepnav .fwd { background: #da251d; color: #fff; border: 0; }
 	.head { display: flex; flex-direction: column; gap: 2px; }
@@ -317,7 +316,7 @@
 	.proofnote { font-size: 13px; color: var(--mute); margin: 12px 0 0; }
 	.stop { padding-top: 32px; }
 	.quiz h2 { font-size: clamp(24px, 3.5vw, 30px); margin: 0 0 4px; }
-	@media (max-width: 600px) { .quiz { padding-top: 20px; } .stepnav .where { display: none; } .stepnav { justify-content: space-between; } .hall { margin-top: 4vh; } }
+	@media (max-width: 600px) { .quiz { padding-top: 20px; } .hall { margin-top: 4vh; } }
 	@media (prefers-reduced-motion: reduce) { .screenwrap { animation: none; } }
 	.meet { padding-top: 32px; }
 	.charts { display: grid; grid-template-columns: 1fr 1.2fr; gap: 14px; margin: 16px 0 10px; }
