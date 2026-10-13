@@ -6,8 +6,25 @@
 	import { money } from '#lib/format.ts';
 	import type { BudgetNode } from '#lib/types.ts';
 	import type { PageProps } from './$types';
+	import { siteData } from '#lib/context.ts';
+	import Fact from '#lib/components/Fact.svelte';
 
 	let { data }: PageProps = $props();
+	const { facts } = siteData();
+	// Where Toronto's operating money comes from, straight from the City's Budget Summary (Figure 1).
+	const fv = (id: string) => Number(facts[id]?.value ?? 0);
+	const tor = fv('toronto.operating.2026.gross');
+	const sources = [
+		['property-tax', 'Property taxes', '#d9822b'],
+		['fed-prov', 'Province and Ottawa', '#2f5d9b'],
+		['rate-programs', 'Water, garbage and parking bills', '#3f7f74'],
+		['reserves', 'City savings (reserves)', '#7a5c99'],
+		['transit-fares', 'TTC fares', '#da251d'],
+		['other', 'Other', '#b9b3a6'],
+		['user-fees', 'User fees and fines', '#4a8c5c'],
+		['land-transfer-tax', 'Land transfer tax', '#c9a227'],
+		['investment-income', 'Investment income', '#8a857b']
+	].map(([k, label, color]) => ({ id: `toronto.revenue.2026.${k}`, label, color, v: fv(`toronto.revenue.2026.${k}`) }));
 
 	// svelte-ignore state_referenced_locally
 	let levelKey = $state(data.trees[0]?.key ?? 'toronto');
@@ -20,14 +37,18 @@
 	function choose(key: string) {
 		levelKey = key;
 		path = [];
+		leafNote = null;
 	}
 	let mapEl: HTMLDivElement | undefined = $state();
+	// A box with nothing inside: say so, instead of a tap that seems broken.
+	let leafNote = $state<BudgetNode | null>(null);
 	function open(n: BudgetNode, fromList = false) {
-		if (!n.children?.length) return;
+		if (!n.children?.length) { leafNote = n; return; }
+		leafNote = null;
 		path = [...path, n];
 		if (fromList) mapEl?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 	}
-	const back = (i: number) => (path = path.slice(0, i));
+	const back = (i: number) => { path = path.slice(0, i); leafNote = null; };
 
 	let width = $state(0);
 	const height = $derived(width < 600 ? 380 : 480);
@@ -87,6 +108,19 @@
 			</p>
 		</div>
 
+		{#if levelKey === 'toronto' && !path.length && tor}
+			<div class="comes sans">
+				<p class="ct">Where Toronto's <Fact id="toronto.operating.2026.gross" /> comes from</p>
+				<div class="stack">
+					{#each sources as x (x.id)}<span style="width:{(x.v / tor) * 100}%;background:{x.color}" title={x.label}></span>{/each}
+				</div>
+				<ul class="keys">
+					{#each sources as x (x.id)}<li><i style="background:{x.color}"></i>{x.label} <Fact id={x.id} /> <span>({Math.round((x.v / tor) * 100)}%)</span></li>{/each}
+				</ul>
+				<p class="cn">Property taxes pay for under a third of it. The boxes below show where it all goes. Source: City of Toronto 2026 Budget Summary, p. 10.</p>
+			</div>
+		{/if}
+
 		<div class="map" bind:this={mapEl} bind:clientWidth={width} style="height:{height}px">
 			{#each tiles as t (t.node.id)}
 				{@const big = t.w > 90 && t.h > 46}
@@ -108,6 +142,9 @@
 				</button>
 			{/each}
 		</div>
+		{#if leafNote}
+			<p class="leafnote sans" aria-live="polite"><b>{leafNote.name}</b>: {money(leafNote.gross)}. That's as detailed as the published budget gets for this one, so there's nothing smaller inside it.{#if leafNote.source} <a href={leafNote.source.url} target="_blank" rel="noopener">See the source ↗</a>{/if}</p>
+		{/if}
 		{#if root.note && !path.length}<p class="note sans">{root.note}</p>{/if}
 		{#if current.note && path.length}<p class="note sans">{current.note}</p>{/if}
 
@@ -162,7 +199,15 @@
 		background: var(--c); color: var(--t); display: flex; flex-direction: column; justify-content: flex-start; gap: 2px;
 		transition: left 0.5s, top 0.5s, width 0.5s, height 0.5s, filter 0.2s;
 	}
-	.tile.leaf { cursor: default; }
+	.tile.leaf { cursor: help; }
+	.comes { background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 12px 16px; margin: 0 0 14px; }
+	.ct { margin: 0 0 8px; font-weight: 700; font-size: 14.5px; }
+	.stack { display: flex; height: 18px; border-radius: 8px; overflow: hidden; gap: 2px; }
+	.keys { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 13px; }
+	.keys i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; }
+	.keys span, .cn { color: var(--mute); }
+	.cn { font-size: 12.5px; margin: 6px 0 0; }
+	.leafnote { margin: 10px 0 0; font-size: 14px; background: #fff; border: 1px solid var(--rule); border-left: 4px solid var(--ink); border-radius: 8px; padding: 10px 14px; }
 	.tile:hover { filter: brightness(1.1); }
 	.tname { font-size: 13px; font-weight: 600; line-height: 1.15; }
 	.tval { font-size: 12px; font-variant-numeric: tabular-nums; }

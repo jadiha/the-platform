@@ -228,3 +228,68 @@ toronto.city-building-levy.2024:
     - {title: "CTV News: council approves 2025 budget (5.4% plus 1.5% City Building Fund)", url: "https://www.ctvnews.ca/toronto/politics/toronto-city-hall/article/toronto-council-approves-mayor-chows-2025-budget-that-includes-69-per-cent-tax-hike-votes-to-eliminate-tesla-subsidy/", value: 1.5}
   status: verified
   as_of: 2026-10-13
+
+# ---------- Where the 2026 operating money comes from (Budget Summary, Figure 1) ----------
+toronto.revenue.2026.rate-programs:
+  value: 2250
+  unit: $M
+  label: "Water, solid waste and parking (rate-supported programs) in Toronto's 2026 operating budget"
+  basis: "budget"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 10, Figure 1"}
+  status: single
+  as_of: 2026-10-13
+
+toronto.revenue.2026.reserves:
+  value: 1731
+  unit: $M
+  label: "Drawn from City reserves in Toronto's 2026 operating budget"
+  basis: "budget"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 10, Figure 1"}
+  status: single
+  as_of: 2026-10-13
+
+toronto.revenue.2026.transit-fares:
+  value: 1186
+  unit: $M
+  label: "TTC fares in Toronto's 2026 operating budget"
+  basis: "budget"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 10, Figure 1"}
+  status: single
+  as_of: 2026-10-13
+
+toronto.revenue.2026.other:
+  value: 1154
+  unit: $M
+  label: "Other revenue in Toronto's 2026 operating budget"
+  basis: "budget"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 10, Figure 1"}
+  status: single
+  as_of: 2026-10-13
+
+toronto.revenue.2026.user-fees:
+  value: 1108
+  unit: $M
+  label: "User fees and fines in Toronto's 2026 operating budget"
+  basis: "budget"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 10, Figure 1"}
+  status: single
+  as_of: 2026-10-13
+
+toronto.revenue.2026.land-transfer-tax:
+  value: 850
+  unit: $M
+  label: "Municipal Land Transfer Tax in Toronto's 2026 operating budget"
+  basis: "budget"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 10, Figure 1"}
+  status: single
+  as_of: 2026-10-13
+
+toronto.revenue.2026.investment-income:
+  value: 309
+  unit: $M
+  label: "Investment income in Toronto's 2026 operating budget"
+  basis: "budget"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 10, Figure 1"}
+  status: single
+  as_of: 2026-10-13
+
