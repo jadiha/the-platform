@@ -83,14 +83,14 @@
 </section>
 
 <section class="stop wrap" use:stop={0}>
-	<p class="kicker k1">Stop 1 · Start</p>
+	<div class="sign sans"><span class="r">2</span>Start<small>Stop 1</small></div>
 	<h2>Whose job is it?</h2>
 	<p class="lede">The mayor can't fix everything. Guess who decides each of these.</p>
 	<WhoseJob cards={data.whoseJob} />
 </section>
 
 <section class="stop wrap" use:stop={1}>
-	<p class="kicker k2">Stop 2 · City Hall</p>
+	<div class="sign sans"><span class="r">2</span>City Hall<small>Stop 2</small></div>
 	<h2>Did it change anything?</h2>
 	<p class="lede">Yes. Here's what the people you elect decided over the last three years, in your money.</p>
 	<div class="bills sans">
@@ -124,6 +124,7 @@
 
 {#each withSite as c, i (c.ballot_name)}
 	<section class="cand" use:stop={i + 2}>
+		<div class="sign mini sans"><span class="r">2</span>{displayName(c.ballot_name)}</div>
 		<StoryCard
 			person={c}
 			profile={profileOf(c.ballot_name)}
@@ -138,7 +139,7 @@
 {/each}
 
 <section class="stop wrap" use:stop={withSite.length + 2}>
-	<p class="kicker k1">Also on your ballot</p>
+	<div class="sign sans"><span class="r">2</span>Also on your ballot</div>
 	<h2>{without.length} more names you'll see</h2>
 	<p class="lede sans">These candidates didn't list a campaign website with the City. Here's what they did list, and any public record.</p>
 	<ul class="also sans">
@@ -154,7 +155,7 @@
 </section>
 
 <section class="stop wrap exit" use:stop={withSite.length + 3}>
-	<p class="kicker k2">Kennedy · end of the line</p>
+	<div class="sign sans"><span class="r">2</span>Kennedy<small>End of the line</small></div>
 	<h2>Before you vote</h2>
 	{#if pins.length}
 		<div class="mywalk sans"><b>You pinned:</b> {pins.map(displayName).join(' · ')}<br /><span class="hint">Pins stay in this browser. Nothing is sent anywhere.</span></div>
@@ -179,9 +180,12 @@
 
 <style>
 	.hall { margin-top: 40px; }
+	.sign { display: flex; align-items: center; gap: 12px; background: #121212; color: #fff; font-weight: 700; font-size: 22px; letter-spacing: 0.5px; padding: 10px 16px; border-radius: 6px; border-bottom: 6px solid #00923f; margin-bottom: 14px; }
+	.sign .r { flex: none; width: 30px; height: 30px; border-radius: 50%; background: #00923f; display: grid; place-items: center; font-size: 16px; }
+	.sign small { margin-left: auto; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; color: #bbb; text-transform: uppercase; }
+	.sign.mini { max-width: 460px; margin: 0 auto 10px; font-size: 16px; padding: 7px 12px; border-bottom-width: 4px; }
+	.sign.mini .r { width: 22px; height: 22px; font-size: 12px; }
 	.kicker { color: #2f5d9b; }
-	.k1 { color: #d9822b; }
-	.k2 { color: #2f5d9b; }
 	.k3 { color: #4a8c5c; }
 	h1 { font-size: clamp(34px, 6vw, 52px); line-height: 1.04; margin: 10px 0 14px; letter-spacing: -1px; }
 	h1 span { color: #2f5d9b; }
