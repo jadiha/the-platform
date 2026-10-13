@@ -197,7 +197,7 @@ profiles:
       - {topic: transit, text: "No TTC fare increase in 2027.", url: "https://georgioskalkounisformayor.com/"}
       - {topic: safety, text: "Establish Toronto as a Zero-Tolerance Crime Zone under a pilot project with special municipal authority, enhanced enforcement, severe and irrevocable penalties, and full intergovernmental coordination.", url: "https://georgioskalkounisformayor.com/"}
     archive:
-      "https://georgioskalkounisformayor.com/": "https://web.archive.org/web/20261013045120/https://georgioskalkounisformayor.com/"
+      "https://georgioskalkounisformayor.com/": "https://web.archive.org/web/20261013184653/https://georgioskalkounisformayor.com/"
     status: draft
 
   - candidate: "Kyrlangitses, Isidoros"
