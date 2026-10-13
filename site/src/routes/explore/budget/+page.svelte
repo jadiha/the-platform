@@ -84,6 +84,7 @@
 	let mapEl: HTMLDivElement | undefined = $state();
 	// A box with nothing inside: say so, instead of a tap that seems broken.
 	let leafNote = $state<BudgetNode | null>(null);
+	let hoverOut = $state<string | null>(null);
 	function open(n: BudgetNode, fromList = false) {
 		if (!n.children?.length) { leafNote = n; return; }
 		leafNote = null;
@@ -146,26 +147,29 @@
 			<figure class="flow sans">
 				<figcaption>Follow the money: where the City's <Fact id="toronto.operating.2026.gross" /> comes from, and where it goes</figcaption>
 				<svg viewBox="-70 0 1270 {FH + TOP + 8}" role="img" aria-label="Money in and out of the City of Toronto's 2026 operating budget">
-					<text x="135" y="18" class="col" text-anchor="middle">Money in</text>
-					<text x="{BAR.x0 + 15}" y="18" class="col strong" text-anchor="middle">City of Toronto · {money(tor)}</text>
-					<text x="900" y="18" class="col" text-anchor="middle">Money out · tap one to open it</text>
+					<g class="steps">
+						<circle cx="40" cy="14" r="11" /><text x="40" y="15" class="n" text-anchor="middle" dominant-baseline="middle">1</text><text x="58" y="15" class="col" dominant-baseline="middle">Money comes in</text>
+						<circle cx={BAR.x0 - 40} cy="14" r="11" /><text x={BAR.x0 - 40} y="15" class="n" text-anchor="middle" dominant-baseline="middle">2</text><text x={BAR.x0 - 22} y="15" class="col strong" dominant-baseline="middle">The City</text>
+						<circle cx="712" cy="14" r="11" class="go" /><text x="712" y="15" class="n" text-anchor="middle" dominant-baseline="middle">3</text><text x="730" y="15" class="col go" dominant-baseline="middle">Where it goes · tap one</text>
+					</g>
 					{#each flowRows as r (r.id)}
 						<path d={r.ribbon} fill={r.color} opacity={r.hi ? 0.55 : 0.3} />
 						<rect x="260" y={r.y} width="12" height={r.h} rx="3" fill={r.color} />
 						<text x="250" y={r.y + r.h / 2} class="lbl" class:hi={r.hi} text-anchor="end" dominant-baseline="middle">{r.label}<tspan class="amt" dx="6">{r.per}¢</tspan></text>
 					{/each}
 					{#each outRows as r (r.label)}
-						<path d={r.ribbon} fill={r.color} opacity="0.45" />
+						<path d={r.ribbon} fill={r.color} opacity={hoverOut === r.label ? 0.85 : hoverOut ? 0.2 : 0.45} class="rib" />
 						{#if r.node}
 							{@const n = r.node}
 							<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
-							<g class="out" onclick={() => open(n, true)}>
+							<g class="out" class:on={hoverOut === r.label} onclick={() => open(n, true)} onmouseenter={() => (hoverOut = r.label)} onmouseleave={() => (hoverOut = null)}>
+								<rect x="718" y={r.y + r.h / 2 - Math.min(14, r.h / 2 + 2)} width={r.label.length * 7.6 + 74} height={Math.min(28, r.h + 4)} rx={Math.min(14, r.h / 2 + 2)} class="pill" />
 								<rect x="700" y={r.y} width="12" height={r.h} rx="3" fill={r.color} />
-								<text x="722" y={r.y + r.h / 2} class="lbl" dominant-baseline="middle">{r.label}<tspan class="amt" dx="6">{r.per}¢ ›</tspan></text>
+								<text x="730" y={r.y + r.h / 2} class="lbl" dominant-baseline="middle">{r.label}<tspan class="amt" dx="6">{r.per}¢</tspan><tspan class="arrow" dx="6">›</tspan></text>
 							</g>
 						{:else}
 							<rect x="700" y={r.y} width="12" height={r.h} rx="3" fill={r.color} />
-							<text x="722" y={r.y + r.h / 2} class="lbl" dominant-baseline="middle">{r.label}<tspan class="amt" dx="6">{r.per}¢</tspan></text>
+							<text x="730" y={r.y + r.h / 2} class="lbl" dominant-baseline="middle">{r.label}<tspan class="amt" dx="6">{r.per}¢</tspan></text>
 						{/if}
 					{/each}
 					<rect x={BAR.x0} y={TOP} width={BAR.x1 - BAR.x0} height={FH} rx="6" fill="#1f2a37" />
@@ -177,11 +181,11 @@
 					<ul>{#each outRows as r (r.label)}<li><i style="background:{r.color}"></i><span>{r.label}</span><b>{r.per}¢</b></li>{/each}</ul>
 				</div>
 				<p class="cn">Cents of every dollar. {#each flowRest as x, i (x.id)}{i ? ', ' : 'Smaller sources: '}{lc(x.label)} {Math.round((x.v / tor) * 100)}¢{/each}. <a href={facts['toronto.revenue.2026.property-tax']?.primary.url} target="_blank" rel="noopener">City Budget Summary, p. 10 ↗</a></p>
-				<button class="down" onclick={() => mapEl?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>Open the boxes <span aria-hidden="true">↓</span></button>
+				<button class="down" onclick={() => mapEl?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>See every program, box by box <span aria-hidden="true">↓</span></button>
 			</figure>
 		{/if}
 
-		<div class="head sans">
+		<div class="head sans" class:quiet={levelKey === 'toronto' && !path.length}>
 			<nav class="crumbs" aria-label="Where you are">
 				<button onclick={() => back(0)} disabled={!path.length}>{root.name}</button>
 				{#each path as n, i (n.id)}
@@ -280,10 +284,18 @@
 	.flow .lbl { font-size: 15px; font-weight: 600; fill: var(--ink-2); }
 	.flow .lbl.hi { fill: #b5631a; font-weight: 800; font-size: 17px; }
 	.flow .amt { font-size: 12.5px; fill: var(--mute); }
-	.flow .col { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; fill: var(--mute); }
+	.flow .col { font-size: 13px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; fill: var(--ink-2); }
 	.flow .col.strong { fill: var(--ink); font-size: 15px; }
 	.flow .out { cursor: pointer; }
-	.flow .out:hover .lbl { fill: var(--ink); text-decoration: underline; }
+	.flow .pill { fill: #f4f1ea; stroke: #e2ddd2; transition: fill 0.15s; }
+	.flow .out.on .pill { fill: #1f2a37; stroke: #1f2a37; }
+	.flow .out.on .lbl, .flow .out.on .amt, .flow .out.on .arrow { fill: #fff; }
+	.flow .arrow { font-size: 16px; font-weight: 700; fill: var(--ink-2); }
+	.flow .rib { transition: opacity 0.15s; }
+	.steps circle { fill: #1f2a37; } .steps circle.go { fill: #da251d; }
+	.steps .n { fill: #fff; font-size: 12px; font-weight: 800; }
+	.flow .col.go { fill: #da251d; }
+	.head.quiet .total { display: none; }
 	.down { display: flex; align-items: center; gap: 8px; margin: 12px auto 0; font: inherit; font-weight: 700; font-size: 15px; background: var(--ink); color: #fff; border: 0; border-radius: 999px; padding: 10px 20px; cursor: pointer; }
 	.down span { display: inline-block; animation: nudge 1.4s ease-in-out infinite; }
 	@keyframes nudge { 50% { transform: translateY(4px); } }
