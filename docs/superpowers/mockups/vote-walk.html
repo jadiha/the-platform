@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#fdfcf9;--ink:#121212;--mute:#6b6b6b;--rule:#e2dfd8;--blue:#2f5d9b;--orange:#d9822b;--green:#4a8c5c;--room:#2f5d9b}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Newsreader',Georgia,serif}
+  .mock{background:var(--ink);color:#fff;font:12px 'Libre Franklin';padding:6px 16px;text-align:center}
+  .ribbon{height:8px;background:linear-gradient(90deg,var(--blue) 0 33.3%,var(--orange) 33.3% 66.6%,var(--green) 66.6%)}
+  .mast{border-bottom:1px solid var(--ink);padding:14px 24px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .mast b{font-size:20px}
+  .mast nav{font:13px 'Libre Franklin';display:flex;gap:16px}
+  .mast nav span.on{font-weight:600;border-bottom:2px solid var(--blue)}
+
+  .hall{max-width:760px;margin:56px auto 20px;padding:0 20px}
+  .kicker{font:600 11px 'Libre Franklin';letter-spacing:2px;color:var(--blue)}
+  h1{font-size:clamp(34px,6vw,52px);line-height:1.04;margin:10px 0 14px;letter-spacing:-1px}
+  h1 span{color:var(--blue)}
+  .dek{font-size:20px;line-height:1.45;color:#333;margin:0}
+  .ticket{margin:28px 0 8px;border:1.5px dashed var(--blue);background:#f6f9fd;padding:18px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;position:relative}
+  .ticket:before,.ticket:after{content:"";position:absolute;top:50%;width:18px;height:18px;border-radius:50%;background:var(--paper);border:1.5px dashed var(--blue);transform:translateY(-50%)}
+  .ticket:before{left:-10px}.ticket:after{right:-10px}
+  .ticket .lbl{font:600 11px 'Libre Franklin';letter-spacing:2px;width:100%;color:var(--blue)}
+  .ticket button{font:500 14px 'Libre Franklin';background:#fff;border:1px solid var(--ink);border-radius:999px;padding:8px 14px;cursor:pointer;transition:all .25s}
+  .ticket button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+  .hint{font:12px 'Libre Franklin';color:var(--mute)}
+
+  .scrolly{display:grid;grid-template-columns:1fr 1fr;gap:44px;max-width:1140px;margin:0 auto;padding:0 20px}
+  .sticky{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center}
+  @media(max-width:860px){.scrolly{grid-template-columns:1fr;gap:0}.sticky{height:44vh;z-index:3;background:var(--paper);border-bottom:1px solid var(--rule)}}
+  .steps{padding:20vh 0 30vh}
+
+  /* each room owns one colour; candidates never get one */
+  .room[data-t="tax"]{--c:#d9822b;--t:#fbefe2}.room[data-t="transit"]{--c:#2f5d9b;--t:#e8eef7}.room[data-t="housing"]{--c:#4a8c5c;--t:#e7f1ea}
+  .room[data-t="build"]{--c:#3f7f74;--t:#e4f0ee}.room[data-t="safety"]{--c:#7a5c99;--t:#efe9f5}
+  .room{margin:0 0 50vh;opacity:.3;padding:22px 22px 26px;border-top:6px solid var(--c);border-radius:0 0 14px 14px;
+        background:linear-gradient(var(--t),var(--t)) top/100% 0 no-repeat;transition:opacity .5s,background-size .7s}
+  .room.on{opacity:1;background-size:100% 100%}
+  .room .n{font:600 11px 'Libre Franklin';letter-spacing:2px;color:var(--c)}
+  .room h2{font-size:32px;margin:6px 0 2px;letter-spacing:-.5px}
+  .room .place{font:500 13px 'Libre Franklin';color:var(--mute);margin-bottom:14px}
+  .exhibit{font-size:18px;line-height:1.55}
+  .big{font:700 46px/1 'Newsreader';display:block;margin:12px 0 4px;color:var(--c)}
+  .big small{font:500 13px 'Libre Franklin';color:var(--mute);display:block;margin-top:6px}
+  .decides{font:13px 'Libre Franklin';background:#fff;padding:8px 10px;margin:12px 0 18px;border-left:3px solid var(--c);border-radius:0 8px 8px 0}
+  .wall .h{font:600 11px 'Libre Franklin';letter-spacing:2px;margin:16px 0 8px;display:flex;justify-content:space-between}
+  .wall .h a{color:var(--ink);font-weight:500;letter-spacing:0}
+  .plaques{display:grid;gap:8px}
+  .plaque{background:#fff;border:1px solid var(--rule);border-left:4px solid var(--c);border-radius:0 10px 10px 0;padding:10px 12px;transform:translateY(8px);opacity:0;transition:all .5s}
+  .room.on .plaque{transform:none;opacity:1}
+  .room.on .plaque:nth-child(2){transition-delay:.12s}.room.on .plaque:nth-child(3){transition-delay:.24s}
+  .plaque .who{font:600 13px 'Libre Franklin'}
+  .plaque .who em{font-style:normal;font-weight:500;font-size:11px;background:var(--ink);color:#fff;padding:1px 6px;border-radius:999px;margin-left:6px}
+  .plaque q{display:block;font-style:italic;font-size:16px;margin:4px 0}
+  .plaque .src{font:11px 'Libre Franklin';color:var(--mute)}
+  .plaque.none q{font-style:normal;color:var(--mute);font-size:14px}
+  .plaque.none q:before,.plaque.none q:after{content:none}
+
+  /* map */
+  svg{overflow:visible}
+  svg text{font-family:'Libre Franklin',sans-serif}
+  .ward{fill:color-mix(in srgb,var(--room) 9%,#fff);stroke:#fff;stroke-width:3;stroke-linejoin:round;transition:fill .8s;cursor:pointer}
+  .ward:hover{fill:color-mix(in srgb,var(--room) 22%,#fff)}
+  .ward.mine{fill:url(#flow)}
+  .shadow{fill:none;stroke:color-mix(in srgb,var(--room) 35%,#bbb);stroke-width:6;stroke-linejoin:round;opacity:.25;filter:blur(4px);transition:stroke .8s}
+  #flow stop{transition:stop-color .8s}
+  .wl{font-size:11px;font-weight:600;fill:color-mix(in srgb,var(--room) 60%,#333);pointer-events:none;transition:fill .8s}
+  .wl.mine{fill:#fff}
+  .route{fill:none;stroke:#bdb8ad;stroke-width:2;stroke-dasharray:2 5;stroke-linecap:round}
+  .done{fill:none;stroke:var(--room);stroke-width:3.5;stroke-linecap:round;transition:stroke-dashoffset 1s ease,stroke .8s}
+  .stop circle{fill:#fff;stroke:#9a958b;stroke-width:1.5;transition:all .5s}
+  .stop.seen circle{fill:var(--ink);stroke:var(--ink)}
+  .stop.on circle{fill:var(--room);stroke:#fff;stroke-width:3;r:10}
+  .stop .halo{fill:none;stroke:var(--room);opacity:0}
+  .stop.on .halo{animation:halo 1.8s ease-out infinite}
+  @keyframes halo{from{r:10;opacity:.6}to{r:26;opacity:0}}
+  .stop text{font-size:11px;fill:var(--mute);paint-order:stroke;stroke:#fdfcf9;stroke-width:4px}
+  .stop.on text{fill:var(--ink);font-weight:600}
+  .traveller{fill:var(--room);transition:fill .8s}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;font:11px 'Libre Franklin';color:var(--mute);margin-top:6px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:-1px}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.traveller{display:none}}
+
+  .exit{max-width:760px;margin:0 auto 80px;padding:30px 20px 0;border-top:8px solid transparent;border-image:linear-gradient(90deg,var(--blue) 0 33.3%,var(--orange) 33.3% 66.6%,var(--green) 66.6%) 1}
+  .exit .kicker{color:var(--green)}
+  .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .cta span{font:600 14px 'Libre Franklin';border:1.5px solid;border-radius:999px;padding:10px 16px}
+  .cta span:nth-child(1){background:var(--blue);border-color:var(--blue);color:#fff}
+  .cta span:nth-child(2){border-color:var(--orange);color:#a65d14}
+  .cta span:nth-child(3){border-color:var(--green);color:#356b45}
+</style>
+</head>
+<body>
+<div class="mock">MOCKUP · candidate names and quotes are placeholders · ward shapes and budget numbers are real</div>
+<div class="ribbon"></div>
+<div class="mast"><b>Follow the Budget</b><nav><span class="on">2026 Election</span><span>Scarborough</span><span>Toronto</span><span>Ontario</span></nav></div>
+
+<section class="hall">
+  <div class="kicker">TORONTO VOTES · MONDAY, OCTOBER 26</div>
+  <h1>The <span>$18.9 billion</span> question</h1>
+  <p class="dek">Every year city council decides how $18.9 billion gets spent: your bus, your rent, your tax bill. On October 26 you choose who sits there. Walk through five rooms to see the money, then hear what each candidate has said about it.</p>
+  <div class="ticket">
+    <span class="lbl">YOUR TICKET · PICK YOUR WARD (OR TAP IT ON THE MAP)</span>
+    <button data-w="20">20 Southwest</button><button data-w="21">21 Centre</button><button data-w="22">22 Agincourt</button><button data-w="23">23 North</button><button data-w="24">24 Guildwood</button><button data-w="25">25 Rouge Park</button>
+    <span class="hint">Not sure? Enter your postal code · Outside Scarborough? See the mayor's race</span>
+  </div>
+</section>
+
+<div class="scrolly">
+  <div class="sticky">
+    <svg viewBox="0 0 440 400" width="100%" role="img" aria-label="Map of Scarborough's six wards with the walk route">
+      <defs>
+        <linearGradient id="flow" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="440" y2="120" spreadMethod="reflect">
+          <stop offset="0" style="stop-color:color-mix(in srgb,var(--room) 55%,#fff)"/>
+          <stop offset=".5" style="stop-color:var(--room)"/>
+          <stop offset="1" style="stop-color:color-mix(in srgb,var(--room) 55%,#fff)"/>
+          <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="440 120" dur="6s" repeatCount="indefinite"/>
+        </linearGradient>
+      </defs>
+      <path class="shadow" d="M145.2 379.0 L144.2 375.7 L143.3 373.1 L142.5 371.4 L141.9 370.4 L141.5 370.3 L139.4 364.4 L135.6 352.8 L130.2 335.4 L123.2 312.4 L125.5 292.8 L137.1 276.6 L158.0 263.9 L188.3 254.7 L211.6 249.6 L227.8 248.8 L237.0 252.1 L239.3 259.7 L240.5 266.0 L240.9 271.0 L240.2 274.7 L238.7 277.2 L237.5 279.2 L236.7 280.7 L236.3 281.7 L236.3 282.2 L236.1 282.6 L235.7 282.8 L235.2 283.0 L234.4 283.0 L233.5 283.6 L232.3 284.6 L230.9 286.1 L229.4 288.2 L228.0 290.3 L226.7 292.6 L225.7 295.0 L224.8 297.6 L224.2 299.8 L224.0 301.5 L224.0 302.9 L224.4 303.8 L224.5 304.7 L224.4 305.8 L224.1 306.8 L223.5 307.9 L223.2 309.0 L223.0 309.9 L223.0 310.7 L223.1 311.5 L223.1 311.9 L222.8 312.1 L222.3 311.9 L221.6 311.5 L221.1 311.0 L220.9 310.7 L221.0 310.3 L221.3 310.0 L221.7 309.3 L221.9 308.4 L222.2 307.1 L222.5 305.5 L222.4 304.2 L222.0 303.3 L221.3 302.7 L220.2 302.4 L219.4 302.4 L218.6 302.7 L218.0 303.2 L217.6 304.0 L217.3 304.7 L217.3 305.3 L217.6 305.7 L218.0 306.1 L218.3 306.2 L218.6 306.0 L218.7 305.6 L218.8 304.8 L219.0 304.3 L219.4 304.0 L219.9 303.9 L220.6 304.0 L221.1 304.1 L221.2 304.3 L221.1 304.6 L220.8 304.9 L220.5 305.3 L220.4 305.9 L220.4 306.6 L220.5 307.4 L220.5 308.0 L220.2 308.4 L219.8 308.6 L219.1 308.7 L218.8 308.7 L218.7 308.8 L218.8 308.9 L219.3 309.0 L219.5 309.3 L219.5 309.7 L219.3 310.2 L218.9 310.9 L218.6 311.3 L218.3 311.4 L218.1 311.3 L218.0 310.9 L217.7 310.6 L217.3 310.4 L216.8 310.3 L216.1 310.3 L215.7 310.1 L215.7 309.7 L216.0 309.0 L216.6 308.1 L217.0 307.4 L217.1 306.8 L216.9 306.5 L216.4 306.4 L215.9 306.4 L215.4 306.7 L214.8 307.1 L214.2 307.8 L213.7 308.5 L213.3 309.2 L213.0 310.0 L212.9 310.8 L213.1 311.7 L213.7 312.5 L214.7 313.4 L216.0 314.2 L217.1 314.7 L217.9 314.7 L218.6 314.4 L219.0 313.6 L219.4 313.0 L219.8 312.7 L220.2 312.5 L220.6 312.6 L220.8 312.9 L220.7 313.3 L220.4 313.8 L219.8 314.5 L219.3 315.2 L219.1 315.8 L218.9 316.4 L219.0 317.0 L218.8 317.4 L218.5 317.5 L217.9 317.4 L217.2 317.0 L216.5 316.9 L215.9 316.8 L215.4 316.9 L215.0 317.2 L214.7 317.3 L214.3 317.2 L214.0 316.9 L213.7 316.4 L213.5 315.9 L213.4 315.5 L213.5 315.0 L213.6 314.6 L213.6 314.2 L213.5 313.9 L213.2 313.7 L212.8 313.6 L212.5 313.7 L212.3 314.0 L212.2 314.6 L212.1 315.3 L211.8 316.1 L211.4 316.9 L210.7 317.7 L209.8 318.5 L209.2 319.4 L208.9 320.5 L208.9 321.6 L209.1 322.9 L209.1 323.7 L208.9 324.1 L208.5 324.0 L207.8 323.4 L207.1 323.1 L206.5 322.9 L205.9 322.8 L205.3 323.0 L205.1 322.8 L205.2 322.3 L205.7 321.6 L206.6 320.5 L207.2 319.6 L207.6 318.8 L207.6 318.2 L207.5 317.8 L207.2 317.5 L207.0 317.3 L206.8 317.3 L206.5 317.4 L206.2 317.5 L206.0 317.7 L205.8 317.9 L205.6 318.1 L205.6 318.3 L205.7 318.4 L205.9 318.5 L206.2 318.6 L206.3 318.8 L206.1 318.9 L205.6 319.1 L204.9 319.4 L204.5 319.6 L204.4 319.8 L204.7 320.1 L205.2 320.3 L205.6 320.6 L205.8 320.9 L205.8 321.2 L205.7 321.6 L205.4 321.8 L205.1 321.8 L204.7 321.7 L204.1 321.4 L203.6 321.2 L203.0 321.1 L202.4 321.2 L201.8 321.4 L201.2 321.8 L200.4 322.5 L199.7 323.5 L198.8 324.7 L197.2 326.3 L194.6 328.2 L191.1 330.6 L186.8 333.3 L183.3 335.7 L180.7 337.6 L178.8 339.2 L177.8 340.4 L177.0 341.6 L176.3 342.7 L175.7 343.8 L175.4 344.9 L174.0 347.0 L171.7 350.2 L168.4 354.5 L164.2 359.8 L160.9 364.0 L158.8 367.0 L157.6 368.8 L157.4 369.4 L157.3 369.8 L157.0 370.1 L156.7 370.3 L156.4 370.3 L155.7 371.1 L154.7 372.7 L153.3 375.2 L151.5 378.5 L150.1 381.0 L148.9 382.7 L148.1 383.7 L147.6 383.8 L146.9 383.1 L146.1 381.5 Z"/><path class="shadow" d="M191.0 199.7 L192.8 206.2 L195.0 210.9 L197.7 213.6 L200.9 214.4 L204.5 213.3 L207.9 214.6 L210.9 218.2 L213.6 224.2 L216.0 232.6 L211.2 240.9 L199.3 249.1 L180.2 257.3 L154.0 265.4 L134.2 271.5 L120.8 275.6 L113.9 277.6 L113.4 277.7 L111.9 273.6 L109.3 265.3 L105.8 252.9 L101.2 236.3 L97.4 222.5 L94.3 211.6 L91.9 203.5 L90.3 198.3 L89.9 194.3 L90.7 191.5 L92.8 189.9 L96.2 189.6 L103.7 187.8 L115.4 184.6 L131.3 180.0 L151.4 173.8 L166.9 170.8 L177.8 170.9 L184.1 174.1 L185.9 180.4 L187.6 186.8 L189.3 193.2 Z"/><path class="shadow" d="M90.8 190.4 L89.6 190.4 L86.8 184.5 L82.3 172.6 L76.2 154.9 L68.4 131.2 L66.5 112.2 L70.6 97.8 L80.6 88.0 L96.5 82.8 L109.0 80.9 L118.2 82.1 L124.0 86.6 L126.5 94.2 L128.8 100.7 L130.7 106.1 L132.3 110.4 L133.7 113.5 L135.8 119.2 L138.7 127.5 L142.2 138.5 L146.5 152.1 L146.5 163.3 L142.3 172.2 L133.9 178.7 L121.2 182.7 L111.1 185.9 L103.5 188.1 L98.6 189.4 L96.2 189.8 L94.1 190.1 L92.3 190.3 Z"/><path class="shadow" d="M225.3 48.4 L226.4 48.9 L227.3 49.5 L228.1 50.2 L228.6 51.2 L229.0 52.3 L229.0 53.2 L228.8 54.1 L228.3 54.8 L227.5 55.4 L227.0 56.1 L226.7 56.8 L226.6 57.5 L226.7 58.3 L227.0 59.0 L227.4 59.8 L228.0 60.5 L228.8 61.3 L229.6 61.8 L230.4 62.1 L231.2 62.3 L232.1 62.2 L232.9 62.4 L233.6 62.9 L234.2 63.6 L234.8 64.7 L233.9 66.0 L231.6 67.7 L227.7 69.7 L222.4 72.0 L218.5 74.1 L216.3 76.0 L215.5 77.6 L216.3 78.9 L216.8 80.1 L217.2 81.1 L217.2 81.9 L217.1 82.5 L217.5 84.3 L218.3 87.2 L219.7 91.2 L221.6 96.4 L223.5 100.7 L225.4 104.1 L227.3 106.6 L229.2 108.2 L230.9 109.9 L232.4 111.6 L233.6 113.5 L234.6 115.4 L235.3 117.4 L235.6 119.5 L235.5 121.6 L235.1 123.7 L235.1 126.2 L235.3 128.8 L235.9 131.8 L236.9 134.9 L237.0 137.6 L236.3 139.9 L234.7 141.7 L232.3 143.0 L229.9 144.4 L227.5 145.8 L225.1 147.4 L222.8 149.1 L220.1 150.8 L217.1 152.4 L213.8 154.0 L210.1 155.6 L204.2 157.7 L195.9 160.3 L185.3 163.4 L172.3 167.1 L161.6 166.4 L152.9 161.4 L146.5 152.1 L142.2 138.5 L138.8 128.0 L136.3 120.5 L134.6 116.2 L133.8 114.9 L132.5 111.5 L130.5 106.2 L128.0 98.7 L124.9 89.3 L128.9 80.2 L139.9 71.4 L158.0 63.0 L183.1 54.9 L202.1 49.1 L215.1 45.7 L221.9 44.6 L222.5 45.9 L223.3 46.9 L224.3 47.8 Z"/><path class="shadow" d="M288.7 215.6 L289.6 218.7 L289.5 221.7 L288.3 224.5 L286.0 227.2 L282.5 229.7 L279.2 232.6 L275.9 235.7 L272.6 239.3 L269.4 243.1 L266.6 246.4 L264.1 249.2 L262.0 251.5 L260.2 253.2 L258.6 254.6 L256.9 255.9 L255.4 256.9 L253.9 257.7 L252.5 258.7 L251.1 259.9 L249.7 261.3 L248.4 262.9 L247.4 264.2 L246.8 265.1 L246.5 265.7 L246.7 265.9 L246.5 266.4 L246.0 267.1 L245.3 268.1 L244.2 269.3 L242.8 268.3 L241.2 265.1 L239.3 259.7 L237.0 252.1 L234.5 246.7 L231.6 243.5 L228.4 242.4 L224.9 243.5 L221.6 242.2 L218.7 238.6 L216.0 232.6 L213.6 224.2 L210.9 218.2 L207.9 214.6 L204.5 213.3 L200.9 214.4 L197.3 212.0 L193.7 206.1 L190.2 196.8 L186.7 183.9 L186.2 173.6 L188.7 165.8 L194.1 160.6 L202.4 157.9 L210.1 155.0 L217.1 151.9 L223.4 148.6 L229.0 145.2 L234.9 142.2 L241.2 139.8 L247.9 137.8 L254.9 136.3 L260.4 136.5 L264.6 138.5 L267.3 142.2 L268.5 147.6 L270.5 155.1 L273.2 164.8 L276.7 176.5 L280.9 190.3 L284.3 201.4 L286.9 209.9 Z"/><path class="shadow" d="M319.0 62.3 L323.8 77.0 L327.7 88.4 L331.0 96.4 L333.6 101.0 L335.4 102.3 L336.8 103.5 L337.8 104.5 L338.5 105.3 L338.7 105.9 L339.0 106.4 L339.6 106.7 L340.3 106.9 L341.2 106.9 L341.9 106.8 L342.5 106.6 L342.8 106.4 L343.0 106.1 L343.1 106.0 L343.2 106.1 L343.3 106.4 L343.2 106.9 L343.4 107.3 L343.6 107.6 L343.9 107.8 L344.3 107.7 L344.7 107.9 L345.2 108.2 L345.7 108.6 L346.2 109.2 L346.7 109.8 L347.4 110.3 L348.2 110.8 L349.1 111.3 L350.0 111.6 L350.8 111.7 L351.7 111.6 L352.5 111.4 L353.3 111.3 L354.0 111.5 L354.7 111.8 L355.4 112.4 L355.9 113.4 L356.3 114.6 L356.6 116.2 L356.7 118.2 L356.7 119.9 L356.5 121.5 L356.1 122.8 L355.5 124.0 L355.5 124.7 L355.9 125.0 L357.0 124.9 L358.5 124.3 L359.9 124.1 L361.3 124.2 L362.6 124.6 L363.8 125.3 L364.9 125.9 L366.0 126.3 L367.0 126.6 L367.9 126.7 L368.6 127.1 L369.3 127.8 L369.7 128.8 L370.1 130.2 L370.6 131.2 L371.1 131.9 L371.9 132.2 L372.7 132.2 L373.4 132.4 L374.2 132.7 L374.8 133.2 L375.4 133.8 L375.8 134.5 L375.9 135.1 L375.9 135.8 L375.6 136.5 L376.0 137.1 L376.8 137.5 L378.3 137.7 L380.3 137.8 L381.6 137.9 L382.4 138.0 L382.4 138.2 L381.9 138.3 L381.2 138.8 L380.4 139.6 L379.4 140.7 L378.4 142.1 L377.6 143.3 L377.1 144.3 L376.9 145.0 L376.9 145.6 L376.5 146.7 L375.7 148.5 L374.4 151.0 L372.7 154.0 L371.2 156.4 L370.1 158.1 L369.3 159.1 L368.7 159.5 L367.6 160.7 L365.9 162.9 L363.6 165.9 L360.8 169.9 L358.6 173.1 L357.2 175.4 L356.4 177.0 L356.4 177.9 L356.2 178.5 L356.0 178.9 L355.6 179.1 L355.2 179.1 L354.6 179.4 L354.1 179.9 L353.6 180.8 L353.0 181.8 L352.2 183.0 L351.2 184.3 L350.0 185.8 L348.6 187.4 L347.5 188.5 L346.6 189.3 L345.9 189.6 L345.5 189.5 L344.8 189.8 L343.8 190.5 L342.5 191.7 L340.9 193.3 L339.1 195.3 L337.2 197.7 L335.0 200.6 L332.6 203.8 L330.3 206.4 L328.0 208.1 L325.8 209.1 L323.6 209.4 L321.2 209.8 L318.7 210.4 L315.9 211.1 L312.9 212.1 L309.5 213.4 L305.9 215.1 L301.9 217.2 L297.6 219.7 L293.1 217.3 L288.3 210.1 L283.4 198.0 L278.2 181.1 L274.0 167.1 L270.8 155.9 L268.5 147.6 L267.3 142.2 L264.6 138.4 L260.6 136.4 L255.2 136.1 L248.5 137.6 L243.1 137.8 L239.3 137.0 L236.9 134.9 L235.9 131.8 L235.3 128.8 L235.0 126.0 L235.0 123.4 L235.4 121.1 L235.4 118.9 L235.1 116.8 L234.4 114.9 L233.4 113.1 L232.2 111.4 L230.8 109.7 L229.1 108.1 L227.2 106.5 L225.4 104.0 L223.5 100.7 L221.6 96.4 L219.7 91.2 L218.3 87.2 L217.5 84.3 L217.1 82.5 L217.2 81.9 L217.2 81.1 L216.8 80.1 L216.3 78.9 L215.5 77.6 L216.3 76.0 L218.5 74.1 L222.4 72.0 L227.7 69.7 L231.6 67.7 L233.9 66.0 L234.8 64.7 L234.2 63.6 L233.6 62.9 L232.9 62.4 L232.1 62.2 L231.2 62.3 L230.4 62.1 L229.6 61.8 L228.8 61.3 L228.0 60.5 L227.4 59.8 L227.0 59.0 L226.7 58.3 L226.6 57.5 L226.7 56.8 L227.0 56.1 L227.5 55.4 L228.3 54.8 L228.8 54.1 L229.1 53.3 L229.0 52.5 L228.8 51.5 L228.2 50.6 L227.5 49.8 L226.5 49.2 L225.4 48.6 L224.3 47.9 L223.4 47.0 L222.5 45.9 L221.9 44.6 L226.5 42.0 L236.6 38.1 L252.0 32.7 L272.8 26.0 L288.9 22.5 L300.3 22.2 L307.0 25.1 L309.0 31.2 L311.7 39.4 L315.0 49.8 Z"/>
+      <path class="ward" data-w="20" d="M145.2 379.0 L144.2 375.7 L143.3 373.1 L142.5 371.4 L141.9 370.4 L141.5 370.3 L139.4 364.4 L135.6 352.8 L130.2 335.4 L123.2 312.4 L125.5 292.8 L137.1 276.6 L158.0 263.9 L188.3 254.7 L211.6 249.6 L227.8 248.8 L237.0 252.1 L239.3 259.7 L240.5 266.0 L240.9 271.0 L240.2 274.7 L238.7 277.2 L237.5 279.2 L236.7 280.7 L236.3 281.7 L236.3 282.2 L236.1 282.6 L235.7 282.8 L235.2 283.0 L234.4 283.0 L233.5 283.6 L232.3 284.6 L230.9 286.1 L229.4 288.2 L228.0 290.3 L226.7 292.6 L225.7 295.0 L224.8 297.6 L224.2 299.8 L224.0 301.5 L224.0 302.9 L224.4 303.8 L224.5 304.7 L224.4 305.8 L224.1 306.8 L223.5 307.9 L223.2 309.0 L223.0 309.9 L223.0 310.7 L223.1 311.5 L223.1 311.9 L222.8 312.1 L222.3 311.9 L221.6 311.5 L221.1 311.0 L220.9 310.7 L221.0 310.3 L221.3 310.0 L221.7 309.3 L221.9 308.4 L222.2 307.1 L222.5 305.5 L222.4 304.2 L222.0 303.3 L221.3 302.7 L220.2 302.4 L219.4 302.4 L218.6 302.7 L218.0 303.2 L217.6 304.0 L217.3 304.7 L217.3 305.3 L217.6 305.7 L218.0 306.1 L218.3 306.2 L218.6 306.0 L218.7 305.6 L218.8 304.8 L219.0 304.3 L219.4 304.0 L219.9 303.9 L220.6 304.0 L221.1 304.1 L221.2 304.3 L221.1 304.6 L220.8 304.9 L220.5 305.3 L220.4 305.9 L220.4 306.6 L220.5 307.4 L220.5 308.0 L220.2 308.4 L219.8 308.6 L219.1 308.7 L218.8 308.7 L218.7 308.8 L218.8 308.9 L219.3 309.0 L219.5 309.3 L219.5 309.7 L219.3 310.2 L218.9 310.9 L218.6 311.3 L218.3 311.4 L218.1 311.3 L218.0 310.9 L217.7 310.6 L217.3 310.4 L216.8 310.3 L216.1 310.3 L215.7 310.1 L215.7 309.7 L216.0 309.0 L216.6 308.1 L217.0 307.4 L217.1 306.8 L216.9 306.5 L216.4 306.4 L215.9 306.4 L215.4 306.7 L214.8 307.1 L214.2 307.8 L213.7 308.5 L213.3 309.2 L213.0 310.0 L212.9 310.8 L213.1 311.7 L213.7 312.5 L214.7 313.4 L216.0 314.2 L217.1 314.7 L217.9 314.7 L218.6 314.4 L219.0 313.6 L219.4 313.0 L219.8 312.7 L220.2 312.5 L220.6 312.6 L220.8 312.9 L220.7 313.3 L220.4 313.8 L219.8 314.5 L219.3 315.2 L219.1 315.8 L218.9 316.4 L219.0 317.0 L218.8 317.4 L218.5 317.5 L217.9 317.4 L217.2 317.0 L216.5 316.9 L215.9 316.8 L215.4 316.9 L215.0 317.2 L214.7 317.3 L214.3 317.2 L214.0 316.9 L213.7 316.4 L213.5 315.9 L213.4 315.5 L213.5 315.0 L213.6 314.6 L213.6 314.2 L213.5 313.9 L213.2 313.7 L212.8 313.6 L212.5 313.7 L212.3 314.0 L212.2 314.6 L212.1 315.3 L211.8 316.1 L211.4 316.9 L210.7 317.7 L209.8 318.5 L209.2 319.4 L208.9 320.5 L208.9 321.6 L209.1 322.9 L209.1 323.7 L208.9 324.1 L208.5 324.0 L207.8 323.4 L207.1 323.1 L206.5 322.9 L205.9 322.8 L205.3 323.0 L205.1 322.8 L205.2 322.3 L205.7 321.6 L206.6 320.5 L207.2 319.6 L207.6 318.8 L207.6 318.2 L207.5 317.8 L207.2 317.5 L207.0 317.3 L206.8 317.3 L206.5 317.4 L206.2 317.5 L206.0 317.7 L205.8 317.9 L205.6 318.1 L205.6 318.3 L205.7 318.4 L205.9 318.5 L206.2 318.6 L206.3 318.8 L206.1 318.9 L205.6 319.1 L204.9 319.4 L204.5 319.6 L204.4 319.8 L204.7 320.1 L205.2 320.3 L205.6 320.6 L205.8 320.9 L205.8 321.2 L205.7 321.6 L205.4 321.8 L205.1 321.8 L204.7 321.7 L204.1 321.4 L203.6 321.2 L203.0 321.1 L202.4 321.2 L201.8 321.4 L201.2 321.8 L200.4 322.5 L199.7 323.5 L198.8 324.7 L197.2 326.3 L194.6 328.2 L191.1 330.6 L186.8 333.3 L183.3 335.7 L180.7 337.6 L178.8 339.2 L177.8 340.4 L177.0 341.6 L176.3 342.7 L175.7 343.8 L175.4 344.9 L174.0 347.0 L171.7 350.2 L168.4 354.5 L164.2 359.8 L160.9 364.0 L158.8 367.0 L157.6 368.8 L157.4 369.4 L157.3 369.8 L157.0 370.1 L156.7 370.3 L156.4 370.3 L155.7 371.1 L154.7 372.7 L153.3 375.2 L151.5 378.5 L150.1 381.0 L148.9 382.7 L148.1 383.7 L147.6 383.8 L146.9 383.1 L146.1 381.5 Z"><title>Ward 20 Scarborough Southwest</title></path><path class="ward" data-w="21" d="M191.0 199.7 L192.8 206.2 L195.0 210.9 L197.7 213.6 L200.9 214.4 L204.5 213.3 L207.9 214.6 L210.9 218.2 L213.6 224.2 L216.0 232.6 L211.2 240.9 L199.3 249.1 L180.2 257.3 L154.0 265.4 L134.2 271.5 L120.8 275.6 L113.9 277.6 L113.4 277.7 L111.9 273.6 L109.3 265.3 L105.8 252.9 L101.2 236.3 L97.4 222.5 L94.3 211.6 L91.9 203.5 L90.3 198.3 L89.9 194.3 L90.7 191.5 L92.8 189.9 L96.2 189.6 L103.7 187.8 L115.4 184.6 L131.3 180.0 L151.4 173.8 L166.9 170.8 L177.8 170.9 L184.1 174.1 L185.9 180.4 L187.6 186.8 L189.3 193.2 Z"><title>Ward 21 Scarborough Centre</title></path><path class="ward" data-w="22" d="M90.8 190.4 L89.6 190.4 L86.8 184.5 L82.3 172.6 L76.2 154.9 L68.4 131.2 L66.5 112.2 L70.6 97.8 L80.6 88.0 L96.5 82.8 L109.0 80.9 L118.2 82.1 L124.0 86.6 L126.5 94.2 L128.8 100.7 L130.7 106.1 L132.3 110.4 L133.7 113.5 L135.8 119.2 L138.7 127.5 L142.2 138.5 L146.5 152.1 L146.5 163.3 L142.3 172.2 L133.9 178.7 L121.2 182.7 L111.1 185.9 L103.5 188.1 L98.6 189.4 L96.2 189.8 L94.1 190.1 L92.3 190.3 Z"><title>Ward 22 Scarborough-Agincourt</title></path><path class="ward" data-w="23" d="M225.3 48.4 L226.4 48.9 L227.3 49.5 L228.1 50.2 L228.6 51.2 L229.0 52.3 L229.0 53.2 L228.8 54.1 L228.3 54.8 L227.5 55.4 L227.0 56.1 L226.7 56.8 L226.6 57.5 L226.7 58.3 L227.0 59.0 L227.4 59.8 L228.0 60.5 L228.8 61.3 L229.6 61.8 L230.4 62.1 L231.2 62.3 L232.1 62.2 L232.9 62.4 L233.6 62.9 L234.2 63.6 L234.8 64.7 L233.9 66.0 L231.6 67.7 L227.7 69.7 L222.4 72.0 L218.5 74.1 L216.3 76.0 L215.5 77.6 L216.3 78.9 L216.8 80.1 L217.2 81.1 L217.2 81.9 L217.1 82.5 L217.5 84.3 L218.3 87.2 L219.7 91.2 L221.6 96.4 L223.5 100.7 L225.4 104.1 L227.3 106.6 L229.2 108.2 L230.9 109.9 L232.4 111.6 L233.6 113.5 L234.6 115.4 L235.3 117.4 L235.6 119.5 L235.5 121.6 L235.1 123.7 L235.1 126.2 L235.3 128.8 L235.9 131.8 L236.9 134.9 L237.0 137.6 L236.3 139.9 L234.7 141.7 L232.3 143.0 L229.9 144.4 L227.5 145.8 L225.1 147.4 L222.8 149.1 L220.1 150.8 L217.1 152.4 L213.8 154.0 L210.1 155.6 L204.2 157.7 L195.9 160.3 L185.3 163.4 L172.3 167.1 L161.6 166.4 L152.9 161.4 L146.5 152.1 L142.2 138.5 L138.8 128.0 L136.3 120.5 L134.6 116.2 L133.8 114.9 L132.5 111.5 L130.5 106.2 L128.0 98.7 L124.9 89.3 L128.9 80.2 L139.9 71.4 L158.0 63.0 L183.1 54.9 L202.1 49.1 L215.1 45.7 L221.9 44.6 L222.5 45.9 L223.3 46.9 L224.3 47.8 Z"><title>Ward 23 Scarborough North</title></path><path class="ward" data-w="24" d="M288.7 215.6 L289.6 218.7 L289.5 221.7 L288.3 224.5 L286.0 227.2 L282.5 229.7 L279.2 232.6 L275.9 235.7 L272.6 239.3 L269.4 243.1 L266.6 246.4 L264.1 249.2 L262.0 251.5 L260.2 253.2 L258.6 254.6 L256.9 255.9 L255.4 256.9 L253.9 257.7 L252.5 258.7 L251.1 259.9 L249.7 261.3 L248.4 262.9 L247.4 264.2 L246.8 265.1 L246.5 265.7 L246.7 265.9 L246.5 266.4 L246.0 267.1 L245.3 268.1 L244.2 269.3 L242.8 268.3 L241.2 265.1 L239.3 259.7 L237.0 252.1 L234.5 246.7 L231.6 243.5 L228.4 242.4 L224.9 243.5 L221.6 242.2 L218.7 238.6 L216.0 232.6 L213.6 224.2 L210.9 218.2 L207.9 214.6 L204.5 213.3 L200.9 214.4 L197.3 212.0 L193.7 206.1 L190.2 196.8 L186.7 183.9 L186.2 173.6 L188.7 165.8 L194.1 160.6 L202.4 157.9 L210.1 155.0 L217.1 151.9 L223.4 148.6 L229.0 145.2 L234.9 142.2 L241.2 139.8 L247.9 137.8 L254.9 136.3 L260.4 136.5 L264.6 138.5 L267.3 142.2 L268.5 147.6 L270.5 155.1 L273.2 164.8 L276.7 176.5 L280.9 190.3 L284.3 201.4 L286.9 209.9 Z"><title>Ward 24 Scarborough-Guildwood</title></path><path class="ward" data-w="25" d="M319.0 62.3 L323.8 77.0 L327.7 88.4 L331.0 96.4 L333.6 101.0 L335.4 102.3 L336.8 103.5 L337.8 104.5 L338.5 105.3 L338.7 105.9 L339.0 106.4 L339.6 106.7 L340.3 106.9 L341.2 106.9 L341.9 106.8 L342.5 106.6 L342.8 106.4 L343.0 106.1 L343.1 106.0 L343.2 106.1 L343.3 106.4 L343.2 106.9 L343.4 107.3 L343.6 107.6 L343.9 107.8 L344.3 107.7 L344.7 107.9 L345.2 108.2 L345.7 108.6 L346.2 109.2 L346.7 109.8 L347.4 110.3 L348.2 110.8 L349.1 111.3 L350.0 111.6 L350.8 111.7 L351.7 111.6 L352.5 111.4 L353.3 111.3 L354.0 111.5 L354.7 111.8 L355.4 112.4 L355.9 113.4 L356.3 114.6 L356.6 116.2 L356.7 118.2 L356.7 119.9 L356.5 121.5 L356.1 122.8 L355.5 124.0 L355.5 124.7 L355.9 125.0 L357.0 124.9 L358.5 124.3 L359.9 124.1 L361.3 124.2 L362.6 124.6 L363.8 125.3 L364.9 125.9 L366.0 126.3 L367.0 126.6 L367.9 126.7 L368.6 127.1 L369.3 127.8 L369.7 128.8 L370.1 130.2 L370.6 131.2 L371.1 131.9 L371.9 132.2 L372.7 132.2 L373.4 132.4 L374.2 132.7 L374.8 133.2 L375.4 133.8 L375.8 134.5 L375.9 135.1 L375.9 135.8 L375.6 136.5 L376.0 137.1 L376.8 137.5 L378.3 137.7 L380.3 137.8 L381.6 137.9 L382.4 138.0 L382.4 138.2 L381.9 138.3 L381.2 138.8 L380.4 139.6 L379.4 140.7 L378.4 142.1 L377.6 143.3 L377.1 144.3 L376.9 145.0 L376.9 145.6 L376.5 146.7 L375.7 148.5 L374.4 151.0 L372.7 154.0 L371.2 156.4 L370.1 158.1 L369.3 159.1 L368.7 159.5 L367.6 160.7 L365.9 162.9 L363.6 165.9 L360.8 169.9 L358.6 173.1 L357.2 175.4 L356.4 177.0 L356.4 177.9 L356.2 178.5 L356.0 178.9 L355.6 179.1 L355.2 179.1 L354.6 179.4 L354.1 179.9 L353.6 180.8 L353.0 181.8 L352.2 183.0 L351.2 184.3 L350.0 185.8 L348.6 187.4 L347.5 188.5 L346.6 189.3 L345.9 189.6 L345.5 189.5 L344.8 189.8 L343.8 190.5 L342.5 191.7 L340.9 193.3 L339.1 195.3 L337.2 197.7 L335.0 200.6 L332.6 203.8 L330.3 206.4 L328.0 208.1 L325.8 209.1 L323.6 209.4 L321.2 209.8 L318.7 210.4 L315.9 211.1 L312.9 212.1 L309.5 213.4 L305.9 215.1 L301.9 217.2 L297.6 219.7 L293.1 217.3 L288.3 210.1 L283.4 198.0 L278.2 181.1 L274.0 167.1 L270.8 155.9 L268.5 147.6 L267.3 142.2 L264.6 138.4 L260.6 136.4 L255.2 136.1 L248.5 137.6 L243.1 137.8 L239.3 137.0 L236.9 134.9 L235.9 131.8 L235.3 128.8 L235.0 126.0 L235.0 123.4 L235.4 121.1 L235.4 118.9 L235.1 116.8 L234.4 114.9 L233.4 113.1 L232.2 111.4 L230.8 109.7 L229.1 108.1 L227.2 106.5 L225.4 104.0 L223.5 100.7 L221.6 96.4 L219.7 91.2 L218.3 87.2 L217.5 84.3 L217.1 82.5 L217.2 81.9 L217.2 81.1 L216.8 80.1 L216.3 78.9 L215.5 77.6 L216.3 76.0 L218.5 74.1 L222.4 72.0 L227.7 69.7 L231.6 67.7 L233.9 66.0 L234.8 64.7 L234.2 63.6 L233.6 62.9 L232.9 62.4 L232.1 62.2 L231.2 62.3 L230.4 62.1 L229.6 61.8 L228.8 61.3 L228.0 60.5 L227.4 59.8 L227.0 59.0 L226.7 58.3 L226.6 57.5 L226.7 56.8 L227.0 56.1 L227.5 55.4 L228.3 54.8 L228.8 54.1 L229.1 53.3 L229.0 52.5 L228.8 51.5 L228.2 50.6 L227.5 49.8 L226.5 49.2 L225.4 48.6 L224.3 47.9 L223.4 47.0 L222.5 45.9 L221.9 44.6 L226.5 42.0 L236.6 38.1 L252.0 32.7 L272.8 26.0 L288.9 22.5 L300.3 22.2 L307.0 25.1 L309.0 31.2 L311.7 39.4 L315.0 49.8 Z"><title>Ward 25 Scarborough-Rouge Park</title></path>
+      <text class="wl" data-w="20" x="205" y="345" text-anchor="middle">20</text><text class="wl" data-w="21" x="145" y="213" text-anchor="middle">21</text><text class="wl" data-w="22" x="106" y="146" text-anchor="middle">22</text><text class="wl" data-w="23" x="236" y="122" text-anchor="middle">23</text><text class="wl" data-w="24" x="250" y="222" text-anchor="middle">24</text><text class="wl" data-w="25" x="323" y="150" text-anchor="middle">25</text>
+      <path class="route" id="route" d=""/>
+      <path class="done" id="done" d=""/>
+      <circle class="traveller" r="4"><animateMotion dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion></circle>
+      <g class="stop" data-s="1"><circle class="halo" cx="174.3" cy="307.3" r="10"/><circle cx="174.3" cy="307.3" r="7"/><text x="186.3" y="311.3">Home</text></g><g class="stop" data-s="2"><circle class="halo" cx="168.9" cy="262.6" r="10"/><circle cx="168.9" cy="262.6" r="7"/><text x="180.9" y="266.6">Kennedy Stn</text></g><g class="stop" data-s="3"><circle class="halo" cx="177.2" cy="176.3" r="10"/><circle cx="177.2" cy="176.3" r="7"/><text x="189.2" y="180.3">Scarborough Centre</text></g><g class="stop" data-s="4"><circle class="halo" cx="171.4" cy="100.0" r="10"/><circle cx="171.4" cy="100.0" r="7"/><text x="183.4" y="104.0">Finch LTC site</text></g><g class="stop" data-s="5"><circle class="halo" cx="278.7" cy="184.7" r="10"/><circle cx="278.7" cy="184.7" r="7"/><text x="290.7" y="188.7">43 Division</text></g>
+    </svg>
+    <div class="legend"><span><i style="background:#d9822b"></i>Taxes</span><span><i style="background:#2f5d9b"></i>Getting around</span><span><i style="background:#4a8c5c"></i>Housing</span><span><i style="background:#3f7f74"></i>Building</span><span><i style="background:#7a5c99"></i>Safety</span></div>
+  </div>
+
+  <div class="steps">
+    <article class="room" data-s="1" data-t="tax">
+      <div class="n">ROOM 1 OF 5</div>
+      <h2>Your tax bill</h2>
+      <div class="place">Home</div>
+      <div class="exhibit">The average Toronto home's city tax bill this year:
+        <span class="big">$4,252<small>up 2.2% from 2025. Renters pay it too, inside their rent.</small></span>
+        <div class="decides">Who decides: council votes on the tax increase every February.</div>
+      </div>
+      <div class="wall"><div class="h">WHAT YOUR WARD'S CANDIDATES HAVE SAID <a href="#">all candidates ›</a></div>
+        <div class="plaques">
+          <div class="plaque"><div class="who">Candidate A <em>holds this seat</em></div><q>Placeholder: an exact sentence from their own platform about property tax.</q><div class="src">campaign site ↗ · checked Oct 14 · also: voted on the 2026 budget ↓</div></div>
+          <div class="plaque none"><div class="who">Candidate B</div><q>Nothing published on this yet.</q></div>
+          <div class="plaque"><div class="who">Candidate C</div><q>Placeholder: another exact sentence, about 60 words at most.</q><div class="src">campaign site ↗ · checked Oct 14</div></div>
+        </div>
+        <div class="h" style="margin-top:14px">FOR MAYOR <a href="#">all candidates ›</a></div>
+      </div>
+    </article>
+
+    <article class="room" data-s="2" data-t="transit">
+      <div class="n">ROOM 2 OF 5</div>
+      <h2>Getting around</h2>
+      <div class="place">Kennedy Station · the TTC</div>
+      <div class="exhibit">Running the TTC costs
+        <span class="big">$3.0 billion<small>a year, 2026. The city itself pays $1.5B of it; fares and others pay the rest.</small></span>
+        That makes it the city's single biggest program.
+        <div class="decides">Who decides: city council sets the TTC's budget, fares and service levels each year.</div>
+      </div>
+      <div class="wall"><div class="h">WHAT YOUR WARD'S CANDIDATES HAVE SAID <a href="#">all candidates ›</a></div>
+        <div class="plaques">
+          <div class="plaque none"><div class="who">Candidate A <em>holds this seat</em></div><q>Nothing published on this yet.</q></div>
+          <div class="plaque"><div class="who">Candidate B</div><q>Placeholder quote.</q><div class="src">campaign site ↗ · checked Oct 14</div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="room" data-s="3" data-t="housing">
+      <div class="n">ROOM 3 OF 5</div>
+      <h2>Rent and housing</h2>
+      <div class="place">Scarborough Centre · shelters and housing</div>
+      <div class="exhibit">The city's shelter system costs
+        <span class="big">$786 million<small>a year, 2026, gross.</small></span>
+        <div class="decides">Who decides: council funds shelters and city housing programs; rent rules are set by the Province.</div>
+      </div>
+    </article>
+
+    <article class="room" data-s="4" data-t="build">
+      <div class="n">ROOM 4 OF 5</div>
+      <h2>What gets built here</h2>
+      <div class="place">4610 Finch Ave East · a long-term care home</div>
+      <div class="exhibit">The biggest city project planned in Scarborough:
+        <span class="big">$422.6 million<small>over 10 years, for a new long-term care home.</small></span>
+        <div class="decides">Who decides: council approves the 10-year capital plan each year.</div>
+      </div>
+    </article>
+
+    <article class="room" data-s="5" data-t="safety">
+      <div class="n">ROOM 5 OF 5</div>
+      <h2>Safety</h2>
+      <div class="place">43 Division · Toronto Police Service</div>
+      <div class="exhibit">The police budget is
+        <span class="big">$1.7 billion<small>a year, 2026, gross.</small></span>
+        <div class="decides">Who decides: council sets the total; the Police Services Board decides how it is spent.</div>
+      </div>
+    </article>
+  </div>
+</div>
+
+<section class="exit">
+  <div class="kicker">EXIT · YOUR BALLOT</div>
+  <h2 style="font-size:32px;margin:8px 0" id="exit-h">Everyone running in Ward 21</h2>
+  <p class="dek" style="font-size:17px">Full cards for every candidate, in ballot order: past offices, campaign site, and everything quoted above in one place.</p>
+  <div class="cta"><span>See all candidates in your ward</span><span>See the mayor's race</span><span>Where and when to vote (City of Toronto) ↗</span></div>
+</section>
+
+<script>
+  const COLORS={tax:'#d9822b',transit:'#2f5d9b',housing:'#4a8c5c',build:'#3f7f74',safety:'#7a5c99'};
+  const NAMES={"20": "Scarborough Southwest", "21": "Scarborough Centre", "22": "Scarborough-Agincourt", "23": "Scarborough North", "24": "Scarborough-Guildwood", "25": "Scarborough-Rouge Park"};
+  const STOPS=[[174.3, 307.3], [168.9, 262.6], [177.2, 176.3], [171.4, 100.0], [278.7, 184.7]];
+  // smooth curve through the stops (Catmull-Rom -> cubic Bezier)
+  function curve(P){let d=`M${P[0]}`;for(let i=0;i<P.length-1;i++){const p0=P[i-1]||P[i],p1=P[i],p2=P[i+1],p3=P[i+2]||p2;
+    const c1=[p1[0]+(p2[0]-p0[0])/6,p1[1]+(p2[1]-p0[1])/6],c2=[p2[0]-(p3[0]-p1[0])/6,p2[1]-(p3[1]-p1[1])/6];d+=` C${c1} ${c2} ${p2}`}return d}
+  const route=document.getElementById('route'),done=document.getElementById('done');
+  route.setAttribute('d',curve(STOPS));done.setAttribute('d',curve(STOPS));
+  const L=done.getTotalLength();done.style.strokeDasharray=L;done.style.strokeDashoffset=L;
+  // length along the route at each stop
+  const at=STOPS.map((p,i)=>{if(!i)return 0;let best=0,bd=1e9;for(let s=0;s<=L;s+=2){const q=done.getPointAtLength(s),d=(q.x-p[0])**2+(q.y-p[1])**2;if(d<bd){bd=d;best=s}}return best});
+  const root=document.documentElement;
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const n=+e.target.dataset.s;
+    document.querySelectorAll('.room').forEach(r=>r.classList.toggle('on',r===e.target));
+    document.querySelectorAll('.stop').forEach(s=>{s.classList.toggle('on',+s.dataset.s===n);s.classList.toggle('seen',+s.dataset.s<n)});
+    root.style.setProperty('--room',COLORS[e.target.dataset.t]);done.style.strokeDashoffset=L-at[n-1];
+  }),{rootMargin:'-45% 0px -45% 0px'});
+  document.querySelectorAll('.room').forEach(r=>io.observe(r));
+  function pick(w){
+    document.querySelectorAll('.ticket button').forEach(x=>x.classList.toggle('on',x.dataset.w===w));
+    document.querySelectorAll('.ward,.wl').forEach(x=>x.classList.toggle('mine',x.dataset.w===w));
+    document.getElementById('exit-h').textContent='Everyone running in Ward '+w+' '+NAMES[w];
+  }
+  document.querySelectorAll('[data-w]').forEach(b=>b.addEventListener('click',()=>pick(b.dataset.w)));
+  pick('21');
+</script>
+</body>
+</html>
