@@ -43,7 +43,9 @@
 	.st.big.passed { border-color: #da251d; }
 	.st::after { content: ''; position: absolute; inset: -10px -4px; }
 	.tram { position: absolute; bottom: 3px; width: 54px; margin-left: -27px; transition: left 0.8s cubic-bezier(0.45, 0, 0.2, 1); pointer-events: none; }
-	.tram.back :global(svg) { transform: scaleX(-1); }
+	/* The train is drawn facing left; face it the way it's travelling. */
+	.tram :global(svg) { transform: scaleX(-1); }
+	.tram.back :global(svg) { transform: none; }
 	@media (max-width: 640px) {
 		.ride { --mast: 0px; padding: 12px 14px 8px; }
 		.here { width: 110px; font-size: 12px; }
