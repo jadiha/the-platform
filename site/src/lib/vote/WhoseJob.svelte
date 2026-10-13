@@ -46,7 +46,8 @@
 
 	{#if !finished}
 		<p class="ask">
-			<span class="num">{idx + 1} of {cards.length} · Who decides…</span>
+			<span class="num">Question {idx + 1} of {cards.length}</span>
+			<span class="who">Who decides…</span>
 			<span class="thing">{card.thing}?</span>
 			<span class="hint">{pick ? '' : 'Tap the building that decides it.'}</span>
 		</p>
@@ -63,7 +64,7 @@
 						onclick={() => choose(l)}
 						aria-label="{PLACE[l].name}: {PLACE[l].level} government"
 					>
-						<svg viewBox="0 0 300 210" aria-hidden="true">
+						<svg viewBox="0 0 300 210" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
 							<rect width="300" height="210" class="sky" />
 							<ellipse cx="70" cy="34" rx="34" ry="6" fill="#fff" opacity=".8" /><ellipse cx="236" cy="22" rx="26" ry="5" fill="#fff" opacity=".7" />
 							{#if l === 'city'}
@@ -152,17 +153,20 @@
 	.progress .ok { background: #4a8c5c; }
 	.progress .miss { background: #d9822b; }
 	.ask { margin: 0 0 10px; display: flex; flex-direction: column; gap: 2px; }
+	.who { font-family: var(--sans); font-size: clamp(18px, 2.4vw, 24px); font-weight: 800; color: #da251d; line-height: 1.1; margin-top: 2px; }
 	.num { font-size: 12px; font-weight: 600; letter-spacing: 1.2px; color: var(--mute); text-transform: uppercase; }
 	.thing { font-family: var(--serif); font-size: clamp(22px, 3.6vw, 30px); font-weight: 700; line-height: 1.15; letter-spacing: -0.5px; }
 	.hint { font-size: 13px; color: var(--mute); min-height: 1em; }
 	/* Three postcards, one per government. Each fits a third of the play area, so the question,
 	   the buildings and the answer all fit on one screen. */
-	.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-self: center; max-width: calc(44vh * 3 * 300 / 210); width: 100%; margin: 0 auto; }
+	.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; width: 100%; height: clamp(220px, min(calc(100vh - 450px), 30cqw), 560px); }
 	.card { font: inherit; padding: 0; border: 2px solid transparent; border-radius: 16px; background: #fff; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08); transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, opacity 0.3s; }
-	.card svg { display: block; width: 100%; height: auto; }
+	.card svg { display: block; width: 100%; flex: 1; min-height: 0; }
+	.card.city { background: #dce8f5; } .card.province { background: #f6e6d6; } .card.federal { background: #dfeee3; }
+	.cap { background: #fff; }
 	.card.city .sky { fill: #dce8f5; } .card.province .sky { fill: #f6e6d6; } .card.federal .sky { fill: #dfeee3; }
 	.cap { display: flex; flex-direction: column; align-items: center; padding: 8px 6px 10px; line-height: 1.2; }
-	.cap b { font-size: 16px; } .cap small { font-size: 12px; color: var(--mute); }
+	.cap b { font-size: 18px; } .cap small { font-size: 13px; color: var(--mute); }
 	.card.city .cap b { color: #2f5d9b; } .card.province .cap b { color: #b56a1c; } .card.federal .cap b { color: #3d7a4e; }
 	.card:not(:disabled):hover, .card:focus-visible { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12); }
 	.card.city:not(:disabled):hover { border-color: #2f5d9b; } .card.province:not(:disabled):hover { border-color: #d9822b; } .card.federal:not(:disabled):hover { border-color: #4a8c5c; }
@@ -172,7 +176,7 @@
 	.card.correct .cap { color: #fff; } .card.correct .cap b, .card.correct .cap small { color: #fff; }
 	.card.correct.city .cap { background: #2f5d9b; } .card.correct.province .cap { background: #d9822b; } .card.correct.federal .cap { background: #4a8c5c; }
 	.card.wrong { opacity: 0.6; } .card.wrong .cap b { text-decoration: line-through; }
-	.play { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(240px, 1fr); gap: 16px; align-items: stretch; }
+	.play { container-type: inline-size; display: grid; grid-template-columns: minmax(0, 2.5fr) minmax(240px, 1fr); gap: 20px; align-items: center; }
 	.side { display: flex; }
 	.side .answer { margin: 0; width: 100%; }
 	.waiting { align-self: center; font-size: 15px; color: var(--ink-2); background: #fff; border: 1px dashed var(--rule); border-radius: 18px; padding: 18px; width: 100%; }
@@ -198,7 +202,7 @@
 	.hint { display: none; }
 	@media (max-width: 860px) { .play { grid-template-columns: 1fr; } .waiting { display: none; } .hint { display: block; } }
 	@media (max-width: 600px) {
-		.cards { gap: 6px; }
+		.cards { gap: 6px; height: auto; } .card svg { flex: none; height: auto; }
 		.card { border-radius: 12px; }
 		.cap { padding: 5px 2px 7px; } .cap b { font-size: 13px; } .cap small { font-size: 9.5px; }
 		.cols { grid-template-columns: 1fr; }
