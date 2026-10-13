@@ -64,7 +64,7 @@ function normalizeDates<T>(value: T): T {
 }
 
 // ---- 2026 election guide ----
-import type { CampaignPromise, OfficialCandidate, PromiseScan } from '#lib/types.ts';
+import type { CampaignPromise, OfficialCandidate, WardRaces, PromiseScan } from '#lib/types.ts';
 
 /** Mayoral promises. Drafts are only returned in dev (for review); the built site shows checked ones only. */
 export function loadMayorPromises(includeDrafts: boolean): { promises: CampaignPromise[]; scan: PromiseScan | null; reviewing: string[] } {
@@ -77,7 +77,12 @@ export function loadMayorPromises(includeDrafts: boolean): { promises: CampaignP
 	return { promises: all.filter((p) => includeDrafts || p.status === 'checked'), scan: d.scan ?? null, reviewing };
 }
 
-export function loadOfficialCandidates(): { source: { title: string; url: string }; mayor: OfficialCandidate[] } | null {
+export function loadOfficialCandidates(): {
+	source: { title: string; url: string };
+	school_chart: { title: string; url: string };
+	mayor: OfficialCandidate[];
+	wards: WardRaces[];
+} | null {
 	return readJSON('clean/candidates-official.json');
 }
 

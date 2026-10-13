@@ -5,7 +5,12 @@
 	import type { FeatureCollection, Geometry, Position } from 'geojson';
 	import wardsGeo from '#lib/geo/wards.json';
 
-	let { listUrl, guided = [] }: { listUrl: string; guided?: number[] } = $props();
+	type Person = { name: string; website: string | null };
+	type Race = { ward: number; councillor: Person[]; trustees: { board: string; kind: string; board_ward: string; candidates: Person[] }[] };
+	let { listUrl, chartUrl, races, guided = [] }: { listUrl: string; chartUrl: string; races: Race[]; guided?: number[] } = $props();
+	// School boards in the order the Clerk lists them. You vote on one: English public unless you've chosen another.
+	const BOARDS = ['TDSB', 'TCDSB', 'Viamonde', 'MonAvenir'];
+	let board = $state('TDSB');
 
 	const W = 640, H = 420;
 	const fc = wardsGeo as unknown as FeatureCollection<Geometry, { ward: number; name: string }>;
@@ -50,6 +55,8 @@
 	let hover = $state<number | null>(null);
 	let picked = $state<number | null>(null);
 	const shown = $derived(shapes.find((s) => s.ward === (hover ?? picked)));
+	const race = $derived(races.find((r) => r.ward === shown?.ward));
+	const trustee = $derived(race?.trustees.find((t) => t.board === board));
 </script>
 
 <div class="wardmap sans">
@@ -72,32 +79,70 @@
 		{/each}
 		{#each shapes as s (s.ward)}<text x={s.c[0]} y={s.c[1] + 4} class:on={s.ward === (hover ?? picked)}>{s.ward}</text>{/each}
 	</svg>
-	<div class="panel" aria-live="polite">
-		{#if shown}
+	<div class="panel" class:open={!!(shown && race)} aria-live="polite">
+		{#if shown && race}
+			<button class="close" aria-label="Close" onclick={() => { picked = null; hover = null; }}>×</button>
 			<span class="num">Ward {shown.ward}</span>
 			<b>{shown.name}</b>
-			<a class="go" href={listUrl} target="_blank" rel="noopener">See who's running ↗</a>
-			{#if guided.includes(shown.ward)}<span class="soon">Our full guide for this ward is coming this week.</span>{/if}
+			<div class="race">
+				<h3>City councillor <span>{race.councillor.length} running</span></h3>
+				<ul class="names" class:many={race.councillor.length > 8}>{#each race.councillor as c (c.name)}<li>{#if c.website}<a href={c.website} target="_blank" rel="noopener">{c.name}</a>{:else}{c.name}{/if}</li>{/each}</ul>
+			</div>
+			<div class="race">
+				<h3>School board trustee <span>you vote on one board</span></h3>
+				<div class="boards" role="tablist" aria-label="School board">
+					{#each BOARDS as b (b)}
+						{@const t = race.trustees.find((x) => x.board === b)}
+						<button role="tab" aria-selected={board === b} class:on={board === b} onclick={() => (board = b)}>{t?.kind ?? b}</button>
+					{/each}
+				</div>
+				{#if trustee}
+					<p class="bw">{trustee.board} Ward {trustee.board_ward} · {trustee.candidates.length === 1 ? 'only candidate, already elected by acclamation' : `${trustee.candidates.length} running`}</p>
+					<ul class="names" class:many={trustee.candidates.length > 6}>{#each trustee.candidates as c (c.name)}<li>{#if c.website}<a href={c.website} target="_blank" rel="noopener">{c.name}</a>{:else}{c.name}{/if}</li>{/each}</ul>
+				{/if}
+			</div>
+			<p class="fine">Ballot order. Names link to the website each candidate gave the City. <a href={listUrl} target="_blank" rel="noopener">Official list ↗</a> · <a href={chartUrl} target="_blank" rel="noopener">Which school ward ↗</a>{#if guided.includes(shown.ward)} · Our full guide for this ward is coming this week.{/if}</p>
 		{:else}
 			<span class="num">Your ward</span>
 			<b>Tap your part of the city</b>
-			<span class="hint">Then see who's running for councillor there.</span>
+			<span class="hint">See everyone running for city councillor and school board trustee there.</span>
 		{/if}
 	</div>
 </div>
 
 <style>
-	.wardmap { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(200px, 1fr); gap: 16px; align-items: center; }
+	.wardmap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(300px, 1fr); gap: 20px; align-items: center; }
 	svg { width: 100%; height: auto; max-height: 46vh; }
 	.w { fill: #ebe7df; stroke: var(--paper); stroke-width: 2.5; stroke-linejoin: round; cursor: pointer; transition: fill 0.2s; outline: none; }
 	.w:hover, .w.on { fill: #da251d; }
 	text { font-size: 11px; font-weight: 700; fill: #8a857b; text-anchor: middle; pointer-events: none; }
 	text.on { fill: #fff; }
-	.panel { display: flex; flex-direction: column; gap: 4px; background: #fff; border: 1px solid var(--rule); border-radius: 16px; padding: 16px; min-height: 140px; justify-content: center; }
+	.panel { display: flex; flex-direction: column; gap: 2px; background: #fff; border: 1px solid var(--rule); border-radius: 16px; padding: 16px; min-height: 140px; justify-content: center; align-self: start; }
 	.num { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #da251d; }
 	.panel b { font-family: var(--serif); font-size: 24px; line-height: 1.15; }
-	.go { align-self: flex-start; margin-top: 8px; font-weight: 700; font-size: 14px; text-decoration: none; background: var(--ink); color: #fff; border-radius: 999px; padding: 9px 16px; }
-	.soon, .hint { font-size: 12.5px; color: var(--mute); margin-top: 4px; }
-	@media (max-width: 700px) { .wardmap { grid-template-columns: 1fr; } .panel { min-height: 0; } }
+	.hint { font-size: 12.5px; color: var(--mute); margin-top: 4px; }
+	.race { border-top: 1px solid var(--rule); margin-top: 8px; padding-top: 7px; }
+	h3 { font-size: 13px; font-weight: 700; margin: 0 0 6px; display: flex; justify-content: space-between; gap: 8px; }
+	h3 span, .bw { font-weight: 400; font-size: 12px; color: var(--mute); }
+	.bw { margin: 6px 0 4px; }
+	.names { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 14px; font-size: 13px; line-height: 1.5; }
+	.names.many { columns: 3; font-size: 12.5px; line-height: 1.45; }
+	.names li { break-inside: avoid; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+	.names a { color: inherit; text-decoration: underline; text-decoration-color: #c9c4b9; text-underline-offset: 2px; }
+	.boards { display: flex; flex-wrap: wrap; gap: 4px; }
+	.boards button { font: inherit; font-size: 11.5px; border: 1px solid var(--rule); background: var(--paper); border-radius: 999px; padding: 3px 9px; cursor: pointer; color: var(--ink-2); }
+	.boards button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+	.fine { font-size: 11px; color: var(--mute); margin: 10px 0 0; line-height: 1.45; }
+	.fine a { color: inherit; }
+	.close { display: none; }
+	.panel { position: relative; }
+	@media (max-width: 700px) {
+		.names.many { columns: 2; font-size: 13px; }
+		.wardmap { grid-template-columns: 1fr; }
+		.panel { min-height: 0; }
+		/* On phones the ward opens as a sheet over the map, so the answer is on screen without scrolling. */
+		.panel.open { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; max-height: 78vh; overflow-y: auto; border-radius: 18px 18px 0 0; box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15); padding: 18px 16px 22px; }
+		.close { display: block; position: absolute; top: 8px; right: 10px; width: 36px; height: 36px; border: 0; background: none; font-size: 26px; line-height: 1; color: var(--mute); cursor: pointer; }
+	}
 	@media (prefers-reduced-motion: reduce) { .w { transition: none; } }
 </style>
