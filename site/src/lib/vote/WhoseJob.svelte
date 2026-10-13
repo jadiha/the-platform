@@ -1,10 +1,8 @@
 <script lang="ts">
-	// "Whose job is it?" as a streetcar ride: the question is on the streetcar's destination sign,
-	// you tap the building that decides it (City Hall, Queen's Park or Parliament Hill), the
-	// streetcar drives there, and the answer with its proof appears.
+	// "Whose job is it?": tap the building that decides it (City Hall, Queen's Park or Parliament
+	// Hill). It lights up, and the answer with its proof appears beside the scene.
 	import { siteData } from '#lib/context.ts';
 	import { pdfPageLink } from './links.ts';
-	import Streetcar from './Streetcar.svelte';
 	import type { WhoseJobCard } from '#lib/types.ts';
 
 	let { cards }: { cards: WhoseJobCard[] } = $props();
@@ -30,7 +28,7 @@
 		if (pick) return;
 		picks = [...picks.slice(0, idx), l];
 		arrived = false;
-		setTimeout(() => (arrived = true), still() ? 0 : 1000);
+		setTimeout(() => (arrived = true), still() ? 0 : 350);
 	}
 	const next = () => { idx += 1; arrived = false; };
 	const restart = () => { picks = []; idx = 0; arrived = false; };
@@ -39,7 +37,6 @@
 		const f = c.fact ? facts[c.fact] : undefined;
 		return f ? { title: f.primary.title + (f.primary.locator ? `, ${f.primary.locator}` : ''), url: pdfPageLink(f.primary.url, f.primary.locator) } : null;
 	};
-	const signText = (s: string) => (s.length > 28 ? s.slice(0, 27).trimEnd() + '…' : s).toUpperCase();
 </script>
 
 <div class="game sans">
@@ -122,9 +119,6 @@
 				</button>
 			{/each}
 
-			<div class="tram" class:moving={!!pick} style="left:{pick ? PLACE[pick].x : -2}%">
-				<Streetcar sign={signText(card.thing)} width={220} />
-			</div>
 				</div>
 			</div>
 			<div class="side" aria-live="polite">
@@ -134,10 +128,10 @@
 						<div class="arow"><span class="badge {card.answer}">{PLACE[card.answer].level}</span><span class="verdict">{pick === card.answer ? 'You got it!' : `Not quite. It's ${PLACE[card.answer].name}.`}</span></div>
 						<p class="explain">{card.explain}</p>
 						{#if p}<a class="proof" href={p.url} target="_blank" rel="noopener">Proof: {p.title} ↗</a>{/if}
-						<button class="go" onclick={next}>{idx === cards.length - 1 ? 'See your score' : 'Next stop →'}</button>
+						<button class="go" onclick={next}>{idx === cards.length - 1 ? 'See your score' : 'Next question →'}</button>
 					</div>
 				{:else if pick}
-					<div class="waiting">Riding to {PLACE[pick].name}…</div>
+					<div class="waiting">Checking {PLACE[pick].name}…</div>
 				{:else}
 					<div class="waiting">Tap the building that decides it: <b>City Hall</b>, <b>Queen's Park</b> or <b>Parliament Hill</b>.</div>
 				{/if}
@@ -186,7 +180,7 @@
 	.arow.foot .proof { margin: 0; flex: 1; min-width: 160px; }
 	.scene svg { display: block; width: 100%; height: auto; }
 	.bld { transition: filter 0.4s, transform 0.4s; transform-origin: center bottom; transform-box: fill-box; }
-	.bld.chosen { filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9)); }
+	.bld.chosen { filter: drop-shadow(0 0 14px rgba(255, 214, 102, 1)) brightness(1.08); transform: translateY(-4px); }
 	.pick { position: absolute; top: 18%; width: 30%; height: 62%; transform: translateX(-50%); background: none; border: 0; cursor: pointer; display: flex; align-items: flex-start; justify-content: center; padding: 0; }
 	.pick:disabled { cursor: default; }
 	.chip { display: flex; flex-direction: column; align-items: center; background: rgba(255, 255, 255, 0.94); border: 2px solid var(--ink); border-radius: 12px; padding: 5px 12px; line-height: 1.1; transition: transform 0.2s, background 0.2s; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); }
@@ -202,9 +196,6 @@
 	.pick.federal.correct .chip { background: #4a8c5c; }
 	.pick.correct .chip small { color: #fff; }
 	.pick.wrong .chip { text-decoration: line-through; opacity: 0.7; }
-	.tram { position: absolute; bottom: 4%; width: 26%; transform: translateX(-50%); }
-	.tram.moving { transition: left 1s cubic-bezier(0.45, 0, 0.2, 1); }
-	.tram :global(svg) { width: 100%; }
 	.answer { margin-top: 14px; background: #fff; border-radius: 18px; padding: 18px 20px; border: 1px solid var(--rule); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07); animation: pop 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
 	@keyframes pop { from { transform: translateY(12px); opacity: 0; } to { transform: none; opacity: 1; } }
 	.answer.lv-city { border-top: 7px solid #2f5d9b; }
@@ -229,8 +220,7 @@
 		.chip { padding: 3px 7px; border-radius: 9px; }
 		.chip b { font-size: 12px; }
 		.chip small { font-size: 9px; }
-		.tram { width: 34%; }
-		.cols { grid-template-columns: 1fr; }
+			.cols { grid-template-columns: 1fr; }
 	}
-	@media (prefers-reduced-motion: reduce) { .tram.moving, .chip, .answer, .bld { transition: none; animation: none; } }
+	@media (prefers-reduced-motion: reduce) { .chip, .answer, .bld { transition: none; animation: none; } }
 </style>

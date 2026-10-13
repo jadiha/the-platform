@@ -22,27 +22,34 @@
 	const withSite = $derived(mayor.filter((c) => profileOf(c.ballot_name)));
 	const without = $derived(mayor.filter((c) => !profileOf(c.ballot_name)));
 
-	// Stops on the ride: 0 Start, 1 City Hall, 2 Candidates, 3 Also on your ballot, 4 Last stop.
+	// One stop per screen. The streetcar bar shows where you are; "Next stop" moves you along.
 	const stops = [
-		{ label: 'Start: whose job is it?', big: true },
-		{ label: 'City Hall: did it change anything?', big: true },
-		{ label: 'Meet the candidates', big: true },
-		{ label: 'Also on your ballot', big: true },
-		{ label: 'Last stop: before you vote', big: true }
+		{ label: 'Hop on', big: true },
+		{ label: 'Stop 1: whose job is it?', big: true },
+		{ label: 'Stop 2: City Hall', big: true },
+		{ label: 'Stop 3: meet the candidates', big: true },
+		{ label: 'Stop 4: also on your ballot', big: true },
+		{ label: 'Stop 5: before you vote', big: true }
 	];
-	let section = $state(0);
-	const els: HTMLElement[] = [];
-	const smooth = () => (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth') as ScrollBehavior;
-	function stop(node: HTMLElement, i: number) {
-		els[i] = node;
-		const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && (section = i)), { rootMargin: '-40% 0px -55% 0px' });
-		io.observe(node);
-		return { destroy: () => io.disconnect() };
+	let step = $state(0);
+	// Keep the stop in the address bar so Back works and a stop can be shared.
+	$effect(() => {
+		const read = () => { const m = location.hash.match(/^#stop-(\d)$/); step = m ? Math.min(stops.length - 1, +m[1]) : 0; };
+		read();
+		addEventListener('hashchange', read);
+		return () => removeEventListener('hashchange', read);
+	});
+	function go(i: number) {
+		const n = Math.max(0, Math.min(stops.length - 1, i));
+		if (n === step) return;
+		history.pushState(null, '', n ? `#stop-${n}` : location.pathname);
+		step = n;
+		scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
 	}
-	const jump = (i: number) => els[i]?.scrollIntoView({ behavior: smooth(), block: 'start' });
-	const active = $derived(section);
+	const jump = go;
+	const active = $derived(step);
 	// Scenery behind stops that don't have their own illustration (the quiz has its own city).
-	const scene = $derived([-1, 1, 2, 3, 4][section] ?? -1);
+	const scene = $derived([0, -1, 1, 2, 3, 4][step] ?? -1);
 
 	// Every candidate is a tile; tapping one opens their full story card on top of the page.
 	let open = $state<number | null>(null);
@@ -100,7 +107,10 @@
 <LineStreet {stops} {active} onjump={jump} />
 <Scenery {scene} />
 
-<section class="hall wrap">
+{#key step}
+<div class="screenwrap">
+{#if step === 0}
+<section class="hall wrap screen">
 	<p class="kicker">Toronto votes · Monday, October 26</p>
 	<h1>The <span><Fact id="toronto.operating.2026.gross" plain /></span> question</h1>
 	<p class="dek">
@@ -108,14 +118,16 @@
 		on the ballot for mayor. Hop on the streetcar for a ride through the city: first, what the City actually controls; then, everyone running, in their own words.
 	</p>
 	<p class="proofnote sans">Every number and every quote links to its proof. Nothing here tells you who to vote for.</p>
+	<button class="hop sans" onclick={() => go(1)}>Hop on →</button>
+	<p class="howto sans">Five stops, about five minutes.</p>
 </section>
-
-<section class="stop wide quiz" use:stop={0}>
+{:else if step === 1}
+<section class="stop wide quiz">
 	<h2 class="head"><span class="stopno sans">Stop 1</span>Whose job is it?</h2>
 	<WhoseJob cards={data.whoseJob} />
 </section>
-
-<section class="stop wrap" use:stop={1}>
+{:else if step === 2}
+<section class="stop wrap">
 	<h2 class="head"><span class="stopno sans">Stop 2 · City Hall</span>Did it change anything?</h2>
 	<p class="lede">Yes. Here's what the people you elect decided over the last three years, in your money.</p>
 	<div class="bills sans">
@@ -131,8 +143,8 @@
 	</div>
 	<p class="lede">The mayor you choose on October 26 leads these decisions for the next four years.</p>
 </section>
-
-<section class="wide meet" use:stop={2}>
+{:else if step === 3}
+<section class="wide meet">
 	<h2 class="head"><span class="stopno sans">Stop 3 · Meet the candidates</span>Everyone running for mayor with a campaign website</h2>
 	<p class="lede sans">{withSite.length} candidates, in ballot order (alphabetical by last name). Tap anyone to see who they are, what they stand for, their numbers and their links.</p>
 	<div class="legend sans">{#each Object.entries(TOPIC) as [k, label] (k)}<span><i style="background:{TOPIC_COLOR[k as keyof typeof TOPIC]}"></i>{label}</span>{/each}</div>
@@ -149,6 +161,51 @@
 		{/each}
 	</ul>
 </section>
+{:else if step === 4}
+<section class="stop wrap">
+	<h2 class="head"><span class="stopno sans">Stop 4 · Also on your ballot</span>{without.length} more names you'll see</h2>
+	<p class="lede sans">These candidates didn't list a campaign website with the City. Here's what they did list, and any public record.</p>
+	<ul class="also sans">
+		{#each without as c (c.ballot_name)}
+			{@const rec = data.alsoRecords[c.ballot_name]?.[0]}
+			<li>
+				<b>{displayName(c.ballot_name)}</b>
+				<span class="meta">
+					{#if rec}<a href={data.recordSources[rec.src]?.url} target="_blank" rel="noopener">ran in 2023</a>{/if}
+					{#each c.social as s (s)}<a href={s} target="_blank" rel="noopener">{s.replace(/^https?:\/\/(www\.)?/, '').split('/')[0].replace('.com', '')}</a>{/each}
+					{#if !rec && !c.social.length}<span class="none">no links listed</span>{/if}
+				</span>
+			</li>
+		{/each}
+	</ul>
+	<p class="src sans"><a href={data.official?.source.url} target="_blank" rel="noopener">Proof: the City Clerk's certified list of candidates ↗</a></p>
+</section>
+{:else}
+<section class="stop wrap exit">
+	<h2 class="head"><span class="stopno sans">Stop 5 · Last stop</span>Before you vote</h2>
+	{#if pins.length}
+		<div class="mywalk sans"><b>You pinned:</b> {pins.map(displayName).join(' · ')}<br /><span class="hint">Pins stay in this browser. Nothing is sent anywhere.</span></div>
+	{/if}
+	<ul class="checklist sans">
+		<li><b>When:</b> Monday, October 26, 10 a.m. to 8 p.m.</li>
+		<li><b>Who can vote:</b> Canadian citizens, 18 or older, who live in Toronto or own or rent property here. Students: vote in your home ward.</li>
+		<li><b>Bring:</b> one piece of ID with your name and Toronto address.</li>
+	</ul>
+	<div class="cta sans">
+		<a href="https://www.toronto.ca/city-government/elections/" target="_blank" rel="noopener">Where and when to vote (City of Toronto) ↗</a>
+		<a href="https://www.toronto.ca/city-government/elections/voter-information/who-can-vote/" target="_blank" rel="noopener">Who can vote ↗</a>
+		<a href="/vote/mayor/">All {mayor.length} candidates on one page</a>
+	</div>
+	<p class="next sans"><b>Next stop: Scarborough.</b> Your ward's councillor and school trustee candidates, who they are and what they stand for. Coming this week.</p>
+	<button class="share sans" onclick={share}>Share the walk</button> <span class="hint sans">{shared}</span>
+	<p class="method sans">
+		How we made this: on {data.scan?.date ?? 'October 13'}, we read every mayoral campaign website on the City Clerk's certified candidate list. Quotes are copied word for word and link to the exact sentence on the candidate's own site, with a saved copy. Past results come from the City's official declaration. We don't use news reports or opponents' claims, and we don't predict what any promise would do.
+		Spotted a mistake? <a href="/sources/#corrections">Tell us</a>.
+	</p>
+</section>
+{/if}
+</div>
+{/key}
 
 {#if open !== null}
 	{@const c = withSite[open]}
@@ -177,46 +234,30 @@
 	</div>
 {/if}
 
-<section class="stop wrap" use:stop={3}>
-	<h2 class="head"><span class="stopno sans">Stop 4 · Also on your ballot</span>{without.length} more names you'll see</h2>
-	<p class="lede sans">These candidates didn't list a campaign website with the City. Here's what they did list, and any public record.</p>
-	<ul class="also sans">
-		{#each without as c (c.ballot_name)}
-			<li>
-				<b>{displayName(c.ballot_name)}</b>
-				{#each data.alsoRecords[c.ballot_name] ?? [] as r (r.text)}<span class="rec">{r.text} <a href={data.recordSources[r.src]?.url} target="_blank" rel="noopener">proof ↗</a></span>{/each}
-				{#each c.social as s (s)}<a href={s} target="_blank" rel="noopener">{s.replace(/^https?:\/\/(www\.)?/, '').split('/')[0]} ↗</a>{/each}
-			</li>
-		{/each}
-	</ul>
-	<p class="src sans"><a href={data.official?.source.url} target="_blank" rel="noopener">Proof: the City Clerk's certified list of candidates ↗</a></p>
-</section>
-
-<section class="stop wrap exit" use:stop={4}>
-	<h2 class="head"><span class="stopno sans">Stop 5 · Last stop</span>Before you vote</h2>
-	{#if pins.length}
-		<div class="mywalk sans"><b>You pinned:</b> {pins.map(displayName).join(' · ')}<br /><span class="hint">Pins stay in this browser. Nothing is sent anywhere.</span></div>
+{#if step > 0}
+<nav class="stepnav sans" aria-label="Move along the ride">
+	<button class="back" onclick={() => go(step - 1)}>‹ Back</button>
+	<span class="where">{step ? `Stop ${step} of ${stops.length - 1}` : 'Ready?'}</span>
+	{#if step < stops.length - 1}
+		<button class="fwd" onclick={() => go(step + 1)}>Next stop<span class="full">: {stops[step + 1].label.split(': ')[1]}</span> →</button>
+	{:else}
+		<button class="fwd" onclick={() => go(0)}>Ride again ↺</button>
 	{/if}
-	<ul class="checklist sans">
-		<li><b>When:</b> Monday, October 26, 10 a.m. to 8 p.m.</li>
-		<li><b>Who can vote:</b> Canadian citizens, 18 or older, who live in Toronto or own or rent property here. Students: vote in your home ward.</li>
-		<li><b>Bring:</b> one piece of ID with your name and Toronto address.</li>
-	</ul>
-	<div class="cta sans">
-		<a href="https://www.toronto.ca/city-government/elections/" target="_blank" rel="noopener">Where and when to vote (City of Toronto) ↗</a>
-		<a href="https://www.toronto.ca/city-government/elections/voter-information/who-can-vote/" target="_blank" rel="noopener">Who can vote ↗</a>
-		<a href="/vote/mayor/">All {mayor.length} candidates on one page</a>
-	</div>
-	<p class="next sans"><b>Next stop: Scarborough.</b> Your ward's councillor and school trustee candidates, who they are and what they stand for. Coming this week.</p>
-	<button class="share sans" onclick={share}>Share the walk</button> <span class="hint sans">{shared}</span>
-	<p class="method sans">
-		How we made this: on {data.scan?.date ?? 'October 13'}, we read every mayoral campaign website on the City Clerk's certified candidate list. Quotes are copied word for word and link to the exact sentence on the candidate's own site, with a saved copy. Past results come from the City's official declaration. We don't use news reports or opponents' claims, and we don't predict what any promise would do.
-		Spotted a mistake? <a href="/sources/#corrections">Tell us</a>.
-	</p>
-</section>
+</nav>
+{/if}
 
 <style>
-	.hall { margin-top: 28px; }
+	.screenwrap { min-height: calc(100vh - 200px); padding-bottom: 110px; animation: slidein 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
+	@keyframes slidein { from { opacity: 0; transform: translateX(30px); } }
+	.hall { margin-top: 8vh; }
+	.hop { font: inherit; font-weight: 700; font-size: 18px; background: #da251d; color: #fff; border: 0; border-radius: 999px; padding: 14px 28px; margin-top: 22px; cursor: pointer; }
+	.howto { font-size: 13px; color: var(--mute); margin-top: 8px; }
+	.stepnav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 8; display: flex; align-items: center; gap: 12px; padding: 12px max(16px, calc((100vw - 1100px) / 2)); background: color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter: blur(6px); border-top: 1px solid var(--rule); }
+	.stepnav .where { flex: 1; font-size: 12px; color: var(--mute); text-align: center; }
+	.stepnav button { font: inherit; font-weight: 700; font-size: 15px; border-radius: 999px; padding: 11px 18px; cursor: pointer; }
+	.stepnav .back { background: none; border: 1.5px solid var(--ink); }
+	.stepnav .back:disabled { opacity: 0.3; cursor: default; }
+	.stepnav .fwd { background: #da251d; color: #fff; border: 0; }
 	.head { display: flex; flex-direction: column; gap: 2px; }
 	.stopno { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #da251d; }
 
@@ -227,10 +268,11 @@
 	.dek { font-size: 20px; line-height: 1.45; color: var(--ink-2); margin: 0; }
 	.lede { font-size: 17px; color: var(--ink-2); margin: 0 0 6px; }
 	.proofnote { font-size: 13px; color: var(--mute); margin: 12px 0 0; }
-	.stop { padding-top: 40px; scroll-margin-top: 130px; }
+	.stop { padding-top: 32px; }
 	.quiz h2 { font-size: clamp(24px, 3.5vw, 30px); margin: 0 0 4px; }
-	@media (max-width: 600px) { .quiz { padding-top: 28px; } }
-	.meet { padding-top: 40px; }
+	@media (max-width: 600px) { .quiz { padding-top: 20px; } .stepnav .where { display: none; } .stepnav { justify-content: space-between; } .hall { margin-top: 4vh; } }
+	@media (prefers-reduced-motion: reduce) { .screenwrap { animation: none; } }
+	.meet { padding-top: 32px; }
 	.bills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0 6px; }
 	.bill { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 2px; border-top: 5px solid #d9822b; }
 	.yr { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; color: var(--mute); }
@@ -259,11 +301,11 @@
 	.sheet :global(.card) { max-width: none; }
 	@media (max-width: 600px) { .tiles { grid-template-columns: 1fr 1fr; gap: 8px; } .tile { grid-template-columns: 1fr; padding: 10px; } .ini { grid-row: auto; width: 34px; height: 34px; font-size: 13px; margin-bottom: 6px; } .nm { font-size: 14px; } }
 	@media (prefers-reduced-motion: reduce) { .tile, .overlay { transition: none; animation: none; } }
-	.also { list-style: none; padding: 0; margin: 12px 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; font-size: 13px; }
-	.also li { background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 10px; display: flex; flex-direction: column; gap: 3px; overflow-wrap: anywhere; }
-	.also b { font-size: 15px; }
-	.also a, .rec a { font-size: 12px; color: var(--mute); }
-	.rec { color: var(--ink-2); }
+	.also { list-style: none; padding: 0; margin: 12px 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px; font-size: 13px; }
+	.also li { background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px; }
+	.also b { font-size: 14px; }
+	.also .meta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 11.5px; }
+	.also .meta a, .also .none { color: var(--mute); }
 	.src { font-size: 12px; }
 	.exit { padding-bottom: 60px; }
 	.checklist { font-size: 15px; line-height: 1.5; padding-left: 18px; }
@@ -278,7 +320,8 @@
 	.hint { font-size: 12px; color: var(--mute); }
 	.method { font-size: 12.5px; color: var(--mute); margin-top: 24px; line-height: 1.5; }
 	@media (max-width: 600px) {
-		.bills { grid-template-columns: 1fr; }
-		.amt { font-size: 26px; }
+		.stepnav .full { display: none; }
+		.bill { padding: 10px 8px; }
+		.amt { font-size: 20px; }
 	}
 </style>
