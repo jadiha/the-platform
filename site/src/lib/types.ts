@@ -142,6 +142,14 @@ export interface OfficialCandidate {
 	nominated: string;
 }
 
+/** Everyone on the ballot in one city ward, from the Clerk's certified list. */
+export interface WardRaces {
+	ward: number;
+	name: string;
+	councillor: OfficialCandidate[];
+	trustees: { board: string; kind: string; board_ward: string; candidates: OfficialCandidate[] }[];
+}
+
 export interface PromiseScan {
 	date: string;
 	method: string;

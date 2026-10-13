@@ -3,6 +3,10 @@
     "title": "City of Toronto, 2026 certified candidate list",
     "url": "https://www.toronto.ca/city-government/elections/candidate-list/"
   },
+  "school_chart": {
+    "title": "City of Toronto, 2026 School Board Reference Chart",
+    "url": "https://www.toronto.ca/wp-content/uploads/2026/04/9600-2026-School-board-ward-reference-chart.pdf"
+  },
   "mayor": [
     {
       "ballot_name": "Abdulkadir, Imad",
@@ -461,6 +465,5287 @@
       "website": null,
       "social": [],
       "nominated": "05-Aug-2026"
+    }
+  ],
+  "wards": [
+    {
+      "ward": 1,
+      "name": "Etobicoke North",
+      "councillor": [
+        {
+          "ballot_name": "Abbey, Abraham",
+          "name": "Abraham Abbey",
+          "website": null,
+          "social": [],
+          "nominated": "08-May-2026"
+        },
+        {
+          "ballot_name": "Adib, Ala'a",
+          "name": "Ala'a Adib",
+          "website": "https://www.alaaadib.ca/",
+          "social": [
+            "https://www.instagram.com/alaaxadib"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Babar, Saima",
+          "name": "Saima Babar",
+          "website": null,
+          "social": [],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Brown, Chloe",
+          "name": "Chloe Brown",
+          "website": "https://www.cb4ward1.ca/",
+          "social": [
+            "https://www.tiktok.com/@chloebrown4to",
+            "https://www.instagram.com/chloe4councillor/"
+          ],
+          "nominated": "06-Aug-2026"
+        },
+        {
+          "ballot_name": "Crisanti, Vincent",
+          "name": "Vincent Crisanti",
+          "website": "https://www.votecrisanti.com/",
+          "social": [
+            "https://www.instagram.com/votevincentcrisanti/"
+          ],
+          "nominated": "12-May-2026"
+        },
+        {
+          "ballot_name": "Hamilton, Norman",
+          "name": "Norman Hamilton",
+          "website": "https://www.normanhamilton.ca/",
+          "social": [
+            "https://www.instagram.com/electnorman"
+          ],
+          "nominated": "12-May-2026"
+        },
+        {
+          "ballot_name": "Martino, Joseph",
+          "name": "Joseph Martino",
+          "website": null,
+          "social": [],
+          "nominated": "12-Aug-2026"
+        },
+        {
+          "ballot_name": "Masri, Nathen",
+          "name": "Nathen Masri",
+          "website": "https://www.nathenmazri.ca/",
+          "social": [
+            "https://www.instagram.com/nathenmazri"
+          ],
+          "nominated": "17-Aug-2026"
+        },
+        {
+          "ballot_name": "Parmar, Hard",
+          "name": "Hard Parmar",
+          "website": "http://hardparmar.com/",
+          "social": [
+            "https://www.instagram.com/hardparmarforward1"
+          ],
+          "nominated": "20-Aug-2026"
+        },
+        {
+          "ballot_name": "Santos, Kristian",
+          "name": "Kristian Santos",
+          "website": "https://kristiansantos.ca/",
+          "social": [],
+          "nominated": "18-Aug-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "1",
+          "candidates": [
+            {
+              "ballot_name": "Bryan, Rosemarie",
+              "name": "Rosemarie Bryan",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Clarke, Antonius",
+              "name": "Antonius Clarke",
+              "website": null,
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "de Dovitiis, Matias",
+              "name": "Matias de Dovitiis",
+              "website": "https://www.matiasdedovitiis.ca/",
+              "social": [
+                "https://www.instagram.com/dovitiis/"
+              ],
+              "nominated": "26-May-2026"
+            },
+            {
+              "ballot_name": "Hastings, Dennis",
+              "name": "Dennis Hastings",
+              "website": null,
+              "social": [],
+              "nominated": "13-Aug-2026"
+            },
+            {
+              "ballot_name": "Henry, Amberley Ryan",
+              "name": "Amberley Ryan Henry",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Kang, Lakhan",
+              "name": "Lakhan Kang",
+              "website": "https://www.lakhankang.com/",
+              "social": [
+                "https://www.linkedin.com/in/lakhan-kang/",
+                "https://www.instagram.com/lakhankang"
+              ],
+              "nominated": "25-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "1",
+          "candidates": [
+            {
+              "ballot_name": "Di Francesco, Jennifer",
+              "name": "Jennifer Di Francesco",
+              "website": "https://jennifer4ward1.com/",
+              "social": [
+                "https://www.instagram.com/jen4ward1/"
+              ],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Dias, Maria",
+              "name": "Maria Dias",
+              "website": null,
+              "social": [],
+              "nominated": "23-Jul-2026"
+            },
+            {
+              "ballot_name": "Pella, Robert",
+              "name": "Robert Pella",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Oger, Geneviève",
+              "name": "Geneviève Oger",
+              "website": "https://www.csv.genevieveoger.com/",
+              "social": [
+                "https://www.facebook.com/GenevieveOger.Viamonde/",
+                "https://www.x.com/GenevieveOger"
+              ],
+              "nominated": "08-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Aboungono, Josiane",
+              "name": "Josiane Aboungono",
+              "website": "https://josianeaboungono.com/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Nichilo, Yelena",
+              "name": "Yelena Nichilo",
+              "website": "https://www.voteyelenanichilo.ca/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Ogang, Angela",
+              "name": "Angela Ogang",
+              "website": "https://angelaogang.ca/",
+              "social": [
+                "https://www.facebook.com/profile.php?id=100090677427922",
+                "https://www.toronto.ca/city-government/elections/candidate-list/www.linkedin.com/in/angelaogang",
+                "https://www.x.com/law_ange"
+              ],
+              "nominated": "07-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 2,
+      "name": "Etobicoke Centre",
+      "councillor": [
+        {
+          "ballot_name": "Alexander, Jennifer",
+          "name": "Jennifer Alexander",
+          "website": "https://jenalexander.ca/",
+          "social": [
+            "https://x.com/JenAlexanderEC"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Andrachuk, Katie",
+          "name": "Katie Andrachuk",
+          "website": "https://www.votekatie.ca/",
+          "social": [],
+          "nominated": "18-Aug-2026"
+        },
+        {
+          "ballot_name": "Holyday, Stephen",
+          "name": "Stephen Holyday",
+          "website": "https://www.holyday.ca/",
+          "social": [],
+          "nominated": "10-Jul-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "2",
+          "candidates": [
+            {
+              "ballot_name": "Ellis, Timothy",
+              "name": "Timothy Ellis",
+              "website": "https://www.votetim.ca/",
+              "social": [
+                "https://www.instagram.com/votetim.ca/",
+                "https://www.facebook.com/VoteTim.ca"
+              ],
+              "nominated": "29-Jul-2026"
+            },
+            {
+              "ballot_name": "Voitsytskyi, Ivan",
+              "name": "Ivan Voitsytskyi",
+              "website": null,
+              "social": [],
+              "nominated": "27-Jul-2026"
+            },
+            {
+              "ballot_name": "Zaffino, Matthew",
+              "name": "Matthew Zaffino",
+              "website": "https://www.matthewzaffino.ca/",
+              "social": [
+                "https://www.facebook.com/profile.php?id=61590244349737",
+                "https://www.instagram.com/matthew.zaffino/"
+              ],
+              "nominated": "28-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "2",
+          "candidates": [
+            {
+              "ballot_name": "Concordia, Sara",
+              "name": "Sara Concordia",
+              "website": null,
+              "social": [
+                "https://www.instagram.com/saratcdsbward2/",
+                "https://www.facebook.com/profile.php?id=61589391968035"
+              ],
+              "nominated": "06-May-2026"
+            },
+            {
+              "ballot_name": "de Domenico, Markus",
+              "name": "Markus de Domenico",
+              "website": null,
+              "social": [
+                "https://www.facebook.com/markus4ward2/",
+                "https://www.instagram.com/markusdedomenico/?hl=en",
+                "https://x.com/Markus4Ward2"
+              ],
+              "nominated": "19-Aug-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Oger, Geneviève",
+              "name": "Geneviève Oger",
+              "website": "https://www.csv.genevieveoger.com/",
+              "social": [
+                "https://www.facebook.com/GenevieveOger.Viamonde/",
+                "https://www.x.com/GenevieveOger"
+              ],
+              "nominated": "08-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Aboungono, Josiane",
+              "name": "Josiane Aboungono",
+              "website": "https://josianeaboungono.com/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Nichilo, Yelena",
+              "name": "Yelena Nichilo",
+              "website": "https://www.voteyelenanichilo.ca/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Ogang, Angela",
+              "name": "Angela Ogang",
+              "website": "https://angelaogang.ca/",
+              "social": [
+                "https://www.facebook.com/profile.php?id=100090677427922",
+                "https://www.toronto.ca/city-government/elections/candidate-list/www.linkedin.com/in/angelaogang",
+                "https://www.x.com/law_ange"
+              ],
+              "nominated": "07-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 3,
+      "name": "Etobicoke-Lakeshore",
+      "councillor": [
+        {
+          "ballot_name": "Andrei, Mihaela",
+          "name": "Mihaela Andrei",
+          "website": "https://mihaelaandrei.ca/",
+          "social": [
+            "https://www.instagram.com/mihaela_andrei_4_ward3"
+          ],
+          "nominated": "20-Aug-2026"
+        },
+        {
+          "ballot_name": "Internicola, Anthony",
+          "name": "Anthony Internicola",
+          "website": "https://www.toronto4life.ca/",
+          "social": [],
+          "nominated": "11-Jun-2026"
+        },
+        {
+          "ballot_name": "Morley, Amber",
+          "name": "Amber Morley",
+          "website": "https://www.voteambermorley.ca/",
+          "social": [],
+          "nominated": "13-Jul-2026"
+        },
+        {
+          "ballot_name": "Opitz, Ted",
+          "name": "Ted Opitz",
+          "website": "https://tedopitz.ca/",
+          "social": [],
+          "nominated": "09-Jun-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "2",
+          "candidates": [
+            {
+              "ballot_name": "Ellis, Timothy",
+              "name": "Timothy Ellis",
+              "website": "https://www.votetim.ca/",
+              "social": [
+                "https://www.instagram.com/votetim.ca/",
+                "https://www.facebook.com/VoteTim.ca"
+              ],
+              "nominated": "29-Jul-2026"
+            },
+            {
+              "ballot_name": "Voitsytskyi, Ivan",
+              "name": "Ivan Voitsytskyi",
+              "website": null,
+              "social": [],
+              "nominated": "27-Jul-2026"
+            },
+            {
+              "ballot_name": "Zaffino, Matthew",
+              "name": "Matthew Zaffino",
+              "website": "https://www.matthewzaffino.ca/",
+              "social": [
+                "https://www.facebook.com/profile.php?id=61590244349737",
+                "https://www.instagram.com/matthew.zaffino/"
+              ],
+              "nominated": "28-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Borreca, Maria",
+              "name": "Maria Borreca",
+              "website": null,
+              "social": [],
+              "nominated": "17-Aug-2026"
+            },
+            {
+              "ballot_name": "Fracassi, Peter",
+              "name": "Peter Fracassi",
+              "website": null,
+              "social": [],
+              "nominated": "11-May-2026"
+            },
+            {
+              "ballot_name": "Lubinski, Teresa",
+              "name": "Teresa Lubinski",
+              "website": null,
+              "social": [],
+              "nominated": "22-Jul-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Oger, Geneviève",
+              "name": "Geneviève Oger",
+              "website": "https://www.csv.genevieveoger.com/",
+              "social": [
+                "https://www.facebook.com/GenevieveOger.Viamonde/",
+                "https://www.x.com/GenevieveOger"
+              ],
+              "nominated": "08-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Aboungono, Josiane",
+              "name": "Josiane Aboungono",
+              "website": "https://josianeaboungono.com/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Nichilo, Yelena",
+              "name": "Yelena Nichilo",
+              "website": "https://www.voteyelenanichilo.ca/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Ogang, Angela",
+              "name": "Angela Ogang",
+              "website": "https://angelaogang.ca/",
+              "social": [
+                "https://www.facebook.com/profile.php?id=100090677427922",
+                "https://www.toronto.ca/city-government/elections/candidate-list/www.linkedin.com/in/angelaogang",
+                "https://www.x.com/law_ange"
+              ],
+              "nominated": "07-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 4,
+      "name": "Parkdale-High Park",
+      "councillor": [
+        {
+          "ballot_name": "Corcoran, Michael",
+          "name": "Michael Corcoran",
+          "website": null,
+          "social": [],
+          "nominated": "19-Jun-2026"
+        },
+        {
+          "ballot_name": "Guerrera, Nadia",
+          "name": "Nadia Guerrera",
+          "website": "https://www.nadiaguerrera.ca/",
+          "social": [
+            "https://www.facebook.com/NadiaGuerreraTO/",
+            "https://www.instagram.com/nadiaguerrera/?hl=en",
+            "https://www.x.com/nadia_guerrera"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "King, Debbie",
+          "name": "Debbie King",
+          "website": "https://www.votedebbieking.ca/",
+          "social": [
+            "https://www.instagram.com/debbiekingphp/",
+            "https://www.facebook.com/DebbieKingTO/"
+          ],
+          "nominated": "29-May-2026"
+        },
+        {
+          "ballot_name": "McNally, Diana Chan",
+          "name": "Diana Chan McNally",
+          "website": "https://www.dianachanmcnally.ca/",
+          "social": [
+            "https://www.facebook.com/profile.php?id=61579458570515",
+            "https://www.instagram.com/dianachanmcnally/",
+            "https://x.com/DianaCMcNally"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Ogundipe, Bridget",
+          "name": "Bridget Ogundipe",
+          "website": "https://www.bridgetogundipe.ca/",
+          "social": [
+            "https://www.facebook.com/people/Bridget-Ogundipe/61588951936704",
+            "https://www.instagram.com/bridgetogundipe4you"
+          ],
+          "nominated": "05-May-2026"
+        },
+        {
+          "ballot_name": "Pham, Adam",
+          "name": "Adam Pham",
+          "website": "https://adampham.ca/",
+          "social": [
+            "https://www.instagram.com/adampham2026/",
+            "https://www.facebook.com/adam.pham.1481"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Potega, Andy",
+          "name": "Andy Potega",
+          "website": "https://potega.ca/",
+          "social": [
+            "https://www.instagram.com/andypotega/?hl=en",
+            "https://www.facebook.com/profile.php?id=61593414903930"
+          ],
+          "nominated": "19-Aug-2026"
+        },
+        {
+          "ballot_name": "Raponi, Vanessa",
+          "name": "Vanessa Raponi",
+          "website": "https://www.vanessaraponi.ca/",
+          "social": [
+            "https://www.linkedin.com/in/vanessaraponi/",
+            "https://www.instagram.com/vanessa_raponi",
+            "https://www.youtube.com/@Vanessa_Raponi"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Weber, Holly",
+          "name": "Holly Weber",
+          "website": "https://www.hollyweber.ca/",
+          "social": [
+            "https://www.facebook.com/profile.php?id=61590901230375",
+            "https://www.instagram.com/hollyweber4ward4/",
+            "https://www.x.com/hollyweber"
+          ],
+          "nominated": "09-Jun-2026"
+        },
+        {
+          "ballot_name": "Yuen, Steve",
+          "name": "Steve Yuen",
+          "website": "https://www.steveyuen.ca/",
+          "social": [
+            "https://www.linkedin.com/in/steve-yuen-631013109/",
+            "https://www.facebook.com/steve.yuen.5680",
+            "https://www.instagram.com/steveman21_/"
+          ],
+          "nominated": "21-Aug-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Banninga, Matt",
+              "name": "Matt Banninga",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Choi, Daniel",
+              "name": "Daniel Choi",
+              "website": null,
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Dawson, Alexis",
+              "name": "Alexis Dawson",
+              "website": "https://www.alexisdawson.ca/",
+              "social": [
+                "https://www.instagram.com/alexisdawson_to/?hl=en",
+                "https://www.facebook.com/AlexisDawsonTO/"
+              ],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Gural, Christina",
+              "name": "Christina Gural",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            },
+            {
+              "ballot_name": "Ishraq, Fatin",
+              "name": "Fatin Ishraq",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Mensah, Justin",
+              "name": "Justin Mensah",
+              "website": null,
+              "social": [],
+              "nominated": "04-May-2026"
+            },
+            {
+              "ballot_name": "Waters, Andrew",
+              "name": "Andrew Waters",
+              "website": "https://www.andrewwaters.ca/",
+              "social": [
+                "https://www.instagram.com/candidate_waters/",
+                "https://www.x.com/CandidateWaters"
+              ],
+              "nominated": "31-Jul-2026"
+            },
+            {
+              "ballot_name": "Webster, Jennifer",
+              "name": "Jennifer Webster",
+              "website": null,
+              "social": [
+                "https://www.instagram.com/jennwebster4ward3"
+              ],
+              "nominated": "15-Jul-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Borreca, Maria",
+              "name": "Maria Borreca",
+              "website": null,
+              "social": [],
+              "nominated": "17-Aug-2026"
+            },
+            {
+              "ballot_name": "Fracassi, Peter",
+              "name": "Peter Fracassi",
+              "website": null,
+              "social": [],
+              "nominated": "11-May-2026"
+            },
+            {
+              "ballot_name": "Lubinski, Teresa",
+              "name": "Teresa Lubinski",
+              "website": null,
+              "social": [],
+              "nominated": "22-Jul-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Oger, Geneviève",
+              "name": "Geneviève Oger",
+              "website": "https://www.csv.genevieveoger.com/",
+              "social": [
+                "https://www.facebook.com/GenevieveOger.Viamonde/",
+                "https://www.x.com/GenevieveOger"
+              ],
+              "nominated": "08-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Aboungono, Josiane",
+              "name": "Josiane Aboungono",
+              "website": "https://josianeaboungono.com/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Nichilo, Yelena",
+              "name": "Yelena Nichilo",
+              "website": "https://www.voteyelenanichilo.ca/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Ogang, Angela",
+              "name": "Angela Ogang",
+              "website": "https://angelaogang.ca/",
+              "social": [
+                "https://www.facebook.com/profile.php?id=100090677427922",
+                "https://www.toronto.ca/city-government/elections/candidate-list/www.linkedin.com/in/angelaogang",
+                "https://www.x.com/law_ange"
+              ],
+              "nominated": "07-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 5,
+      "name": "York South-Weston",
+      "councillor": [
+        {
+          "ballot_name": "Ali, Sharmarke",
+          "name": "Sharmarke Ali",
+          "website": "https://www.sharmarkeali.ca/",
+          "social": [
+            "https://www.instagram.com/sharmark_ali",
+            "https://www.facebook.com/share/18pUrrgXfD/?mibextid=wwXIfr"
+          ],
+          "nominated": "29-Jun-2026"
+        },
+        {
+          "ballot_name": "Boateng, Matthew",
+          "name": "Matthew Boateng",
+          "website": "https://www.matthewboateng.com/",
+          "social": [
+            "https://www.facebook.com/mkboateng1",
+            "https://www.instagram.com/m.boateng/",
+            "https://www.tiktok.com/@mattboateng"
+          ],
+          "nominated": "14-Aug-2026"
+        },
+        {
+          "ballot_name": "Di Giorgio, Daniel",
+          "name": "Daniel Di Giorgio",
+          "website": "https://www.danieldigiorgio.com/",
+          "social": [
+            "https://www.instagram.com/danieldigiorgio?igsh=MXdwNm5lMWttMG12NA%3D%3D&utm_source=qr",
+            "https://www.facebook.com/daniel.digiorgio.7/"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Farah, Maryama",
+          "name": "Maryama Farah",
+          "website": null,
+          "social": [],
+          "nominated": "18-Aug-2026"
+        },
+        {
+          "ballot_name": "Mawel, Ahmed",
+          "name": "Ahmed Mawel",
+          "website": null,
+          "social": [],
+          "nominated": "20-Aug-2026"
+        },
+        {
+          "ballot_name": "Nunziata, Frances",
+          "name": "Frances Nunziata",
+          "website": "https://votenunziata2026.ca/",
+          "social": [
+            "https://www.instagram.com/frances.nunziata",
+            "https://www.facebook.com/Frances.Nunziata.Ward5"
+          ],
+          "nominated": "17-Jul-2026"
+        },
+        {
+          "ballot_name": "Obasogie, Nekpen",
+          "name": "Nekpen Obasogie",
+          "website": "https://nekpenobasogie.ca/",
+          "social": [
+            "https://www.facebook.com/NekpenObasogieForYorkSouthWeston/",
+            "https://www.instagram.com/nekpen_obasogie/"
+          ],
+          "nominated": "08-May-2026"
+        },
+        {
+          "ballot_name": "Padovani, Chiara",
+          "name": "Chiara Padovani",
+          "website": "https://www.chiarapadovani.ca/",
+          "social": [
+            "https://www.facebook.com/chipadovani",
+            "https://www.instagram.com/chipadovani"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Phillips, Sileen",
+          "name": "Sileen Phillips",
+          "website": "https://www.sileenphillips-ysw.ca/",
+          "social": [
+            "https://www.facebook.com/share/1NWKaSVZ3K/",
+            "https://www.instagram.com/sileenphillips"
+          ],
+          "nominated": "15-Jun-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "6",
+          "candidates": [
+            {
+              "ballot_name": "Cline, Stacey",
+              "name": "Stacey Cline",
+              "website": "https://staceycline.ca/",
+              "social": [
+                "https://www.facebook.com/p/Stacey-Cline-4-Trustee-61573657731504/",
+                "https://www.instagram.com/staceyclinetrustee/"
+              ],
+              "nominated": "23-Jun-2026"
+            },
+            {
+              "ballot_name": "Osman, Saherla",
+              "name": "Saherla Osman",
+              "website": "https://www.saherlaosman.ca/",
+              "social": [
+                "https://www.instagram.com/saherla_trustee6/"
+              ],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Smithies, Sarah",
+              "name": "Sarah Smithies",
+              "website": "https://sarahward6.ca/",
+              "social": [
+                "https://www.facebook.com/people/Sarah-Smithies/61593571186898/",
+                "https://www.instagram.com/sarah_ward6/"
+              ],
+              "nominated": "31-Jul-2026"
+            },
+            {
+              "ballot_name": "Vassal, John",
+              "name": "John Vassal",
+              "website": null,
+              "social": [],
+              "nominated": "18-Aug-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "10",
+          "candidates": [
+            {
+              "ballot_name": "Araujo, Rosanna",
+              "name": "Rosanna Araujo",
+              "website": "https://www.rosannaaraujo.com/",
+              "social": [
+                "https://www.instagram.com/boymamaof4?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw=="
+              ],
+              "nominated": "07-Aug-2026"
+            },
+            {
+              "ballot_name": "Colonna, Teresa",
+              "name": "Teresa Colonna",
+              "website": "https://www.teresacolonna.ca/",
+              "social": [],
+              "nominated": "01-May-2026"
+            },
+            {
+              "ballot_name": "Loor Ruiz, Stephanie",
+              "name": "Stephanie Loor Ruiz",
+              "website": "https://stephloorruiz.com/",
+              "social": [
+                "https://www.facebook.com/Stephanie.Loor.420",
+                "https://www.instagram.com/stephloorruiz/"
+              ],
+              "nominated": "10-Aug-2026"
+            },
+            {
+              "ballot_name": "Piccininni, Sal",
+              "name": "Sal Piccininni",
+              "website": null,
+              "social": [],
+              "nominated": "17-Aug-2026"
+            },
+            {
+              "ballot_name": "Salvatori, Paul",
+              "name": "Paul Salvatori",
+              "website": null,
+              "social": [],
+              "nominated": "07-Jul-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Oger, Geneviève",
+              "name": "Geneviève Oger",
+              "website": "https://www.csv.genevieveoger.com/",
+              "social": [
+                "https://www.facebook.com/GenevieveOger.Viamonde/",
+                "https://www.x.com/GenevieveOger"
+              ],
+              "nominated": "08-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Aboungono, Josiane",
+              "name": "Josiane Aboungono",
+              "website": "https://josianeaboungono.com/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Nichilo, Yelena",
+              "name": "Yelena Nichilo",
+              "website": "https://www.voteyelenanichilo.ca/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Ogang, Angela",
+              "name": "Angela Ogang",
+              "website": "https://angelaogang.ca/",
+              "social": [
+                "https://www.facebook.com/profile.php?id=100090677427922",
+                "https://www.toronto.ca/city-government/elections/candidate-list/www.linkedin.com/in/angelaogang",
+                "https://www.x.com/law_ange"
+              ],
+              "nominated": "07-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 6,
+      "name": "York Centre",
+      "councillor": [
+        {
+          "ballot_name": "Artamonov, Alexander",
+          "name": "Alexander Artamonov",
+          "website": null,
+          "social": [
+            "https://www.instagram.com/vote4alexander.artamonov/"
+          ],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Irving, Conroy",
+          "name": "Conroy Irving",
+          "website": "https://www.voteconroyirving.ca/",
+          "social": [
+            "https://www.instagram.com/Voteconroyirving"
+          ],
+          "nominated": "08-Jun-2026"
+        },
+        {
+          "ballot_name": "Pasternak, James",
+          "name": "James Pasternak",
+          "website": "https://www.jamespasternak.com/",
+          "social": [
+            "https://www.facebook.com/PasternakTO/",
+            "https://www.instagram.com/jamespasternak",
+            "https://x.com/pasternakto"
+          ],
+          "nominated": "25-May-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Andrusyak, Ivanna",
+              "name": "Ivanna Andrusyak",
+              "website": null,
+              "social": [],
+              "nominated": "13-May-2026"
+            },
+            {
+              "ballot_name": "Choi, Brandon",
+              "name": "Brandon Choi",
+              "website": "https://www.brandonchoi.ca/",
+              "social": [
+                "https://www.instagram.com/brandonchoi.ca/"
+              ],
+              "nominated": "24-Jul-2026"
+            },
+            {
+              "ballot_name": "Delpero, Anthony",
+              "name": "Anthony Delpero",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Pei, Weidong",
+              "name": "Weidong Pei",
+              "website": "https://www.weidongpei.ca/",
+              "social": [
+                "https://x.com/DrPeiTO"
+              ],
+              "nominated": "04-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "5",
+          "candidates": [
+            {
+              "ballot_name": "Cristiano, Gianfranco",
+              "name": "Gianfranco Cristiano",
+              "website": null,
+              "social": [],
+              "nominated": "06-Aug-2026"
+            },
+            {
+              "ballot_name": "Rizzo, Maria",
+              "name": "Maria Rizzo",
+              "website": null,
+              "social": [],
+              "nominated": "05-Aug-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "2",
+          "candidates": [
+            {
+              "ballot_name": "Fortin, Benoit",
+              "name": "Benoit Fortin",
+              "website": null,
+              "social": [],
+              "nominated": "01-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Aboungono, Josiane",
+              "name": "Josiane Aboungono",
+              "website": "https://josianeaboungono.com/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Nichilo, Yelena",
+              "name": "Yelena Nichilo",
+              "website": "https://www.voteyelenanichilo.ca/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Ogang, Angela",
+              "name": "Angela Ogang",
+              "website": "https://angelaogang.ca/",
+              "social": [
+                "https://www.facebook.com/profile.php?id=100090677427922",
+                "https://www.toronto.ca/city-government/elections/candidate-list/www.linkedin.com/in/angelaogang",
+                "https://www.x.com/law_ange"
+              ],
+              "nominated": "07-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 7,
+      "name": "Humber River-Black Creek",
+      "councillor": [
+        {
+          "ballot_name": "Antwi, Lorna",
+          "name": "Lorna Antwi",
+          "website": "https://www.lornaantwi.com/",
+          "social": [
+            "https://ca.linkedin.com/in/lorna-antwi-0a38b51b4",
+            "https://www.instagram.com/lornaantwi_/"
+          ],
+          "nominated": "11-May-2026"
+        },
+        {
+          "ballot_name": "Coombs, Amanda",
+          "name": "Amanda Coombs",
+          "website": "https://www.voteamandacoombs.com/",
+          "social": [
+            "https://www.linkedin.com/in/amanda.coombs",
+            "https://www.instagram.com/_amanda.coombs",
+            "https://www.facebook.com/amanda.ingrid.coombs"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Perruzza, Anthony",
+          "name": "Anthony Perruzza",
+          "website": "https://www.voteanthonyperruzza.com/",
+          "social": [
+            "https://www.instagram.com/perruzza_to/",
+            "https://www.facebook.com/AnthonyPerruzza",
+            "https://x.com/PerruzzaTO"
+          ],
+          "nominated": "30-Jul-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "1",
+          "candidates": [
+            {
+              "ballot_name": "Bryan, Rosemarie",
+              "name": "Rosemarie Bryan",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Clarke, Antonius",
+              "name": "Antonius Clarke",
+              "website": null,
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "de Dovitiis, Matias",
+              "name": "Matias de Dovitiis",
+              "website": "https://www.matiasdedovitiis.ca/",
+              "social": [
+                "https://www.instagram.com/dovitiis/"
+              ],
+              "nominated": "26-May-2026"
+            },
+            {
+              "ballot_name": "Hastings, Dennis",
+              "name": "Dennis Hastings",
+              "website": null,
+              "social": [],
+              "nominated": "13-Aug-2026"
+            },
+            {
+              "ballot_name": "Henry, Amberley Ryan",
+              "name": "Amberley Ryan Henry",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Kang, Lakhan",
+              "name": "Lakhan Kang",
+              "website": "https://www.lakhankang.com/",
+              "social": [
+                "https://www.linkedin.com/in/lakhan-kang/",
+                "https://www.instagram.com/lakhankang"
+              ],
+              "nominated": "25-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Li Preti, Ida",
+              "name": "Ida Li Preti",
+              "website": "https://idalipreti.com/",
+              "social": [],
+              "nominated": "09-Jul-2026"
+            },
+            {
+              "ballot_name": "Munoz Plasencia, Susel",
+              "name": "Susel Munoz Plasencia",
+              "website": "https://www.susel4trusteeward3.com/",
+              "social": [
+                "https://www.instagram.com/susel4trustee/",
+                "https://www.x.com/susel4trustee"
+              ],
+              "nominated": "04-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Oger, Geneviève",
+              "name": "Geneviève Oger",
+              "website": "https://www.csv.genevieveoger.com/",
+              "social": [
+                "https://www.facebook.com/GenevieveOger.Viamonde/",
+                "https://www.x.com/GenevieveOger"
+              ],
+              "nominated": "08-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Aboungono, Josiane",
+              "name": "Josiane Aboungono",
+              "website": "https://josianeaboungono.com/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Nichilo, Yelena",
+              "name": "Yelena Nichilo",
+              "website": "https://www.voteyelenanichilo.ca/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Ogang, Angela",
+              "name": "Angela Ogang",
+              "website": "https://angelaogang.ca/",
+              "social": [
+                "https://www.facebook.com/profile.php?id=100090677427922",
+                "https://www.toronto.ca/city-government/elections/candidate-list/www.linkedin.com/in/angelaogang",
+                "https://www.x.com/law_ange"
+              ],
+              "nominated": "07-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 8,
+      "name": "Eglinton-Lawrence",
+      "councillor": [
+        {
+          "ballot_name": "Colle, Mike",
+          "name": "Mike Colle",
+          "website": "https://mikecolle2026.ca/",
+          "social": [
+            "https://www.instagram.com/mikecolleto/",
+            "https://www.facebook.com/collemike88"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Grade, Liz",
+          "name": "Liz Grade",
+          "website": "https://votelizgrade.ca/",
+          "social": [
+            "https://www.facebook.com/lizgrade8",
+            "https://www.instagram.com/liz.grade/",
+            "https://x.com/grade_liz"
+          ],
+          "nominated": "28-May-2026"
+        },
+        {
+          "ballot_name": "Maiolo, Domenico",
+          "name": "Domenico Maiolo",
+          "website": "https://domenicomaiolo.com/",
+          "social": [],
+          "nominated": "14-Aug-2026"
+        },
+        {
+          "ballot_name": "McDonald, Jason",
+          "name": "Jason McDonald",
+          "website": "https://jasonmcdonald.ca/",
+          "social": [
+            "https://www.instagram.com/voiceofward8/"
+          ],
+          "nominated": "07-May-2026"
+        },
+        {
+          "ballot_name": "Torrone, Enzo",
+          "name": "Enzo Torrone",
+          "website": "https://www.ward8torrone.ca/",
+          "social": [
+            "https://www.instagram.com/votetorroneward8/",
+            "https://www.facebook.com/profile.php?id=61589503934991"
+          ],
+          "nominated": "11-May-2026"
+        },
+        {
+          "ballot_name": "Trayes, Daniel",
+          "name": "Daniel Trayes",
+          "website": null,
+          "social": [
+            "https://www.youtube.com/@TorontoDann",
+            "https://x.com/TorontoDann"
+          ],
+          "nominated": "01-May-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "6",
+          "candidates": [
+            {
+              "ballot_name": "Cline, Stacey",
+              "name": "Stacey Cline",
+              "website": "https://staceycline.ca/",
+              "social": [
+                "https://www.facebook.com/p/Stacey-Cline-4-Trustee-61573657731504/",
+                "https://www.instagram.com/staceyclinetrustee/"
+              ],
+              "nominated": "23-Jun-2026"
+            },
+            {
+              "ballot_name": "Osman, Saherla",
+              "name": "Saherla Osman",
+              "website": "https://www.saherlaosman.ca/",
+              "social": [
+                "https://www.instagram.com/saherla_trustee6/"
+              ],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Smithies, Sarah",
+              "name": "Sarah Smithies",
+              "website": "https://sarahward6.ca/",
+              "social": [
+                "https://www.facebook.com/people/Sarah-Smithies/61593571186898/",
+                "https://www.instagram.com/sarah_ward6/"
+              ],
+              "nominated": "31-Jul-2026"
+            },
+            {
+              "ballot_name": "Vassal, John",
+              "name": "John Vassal",
+              "website": null,
+              "social": [],
+              "nominated": "18-Aug-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "5",
+          "candidates": [
+            {
+              "ballot_name": "Cristiano, Gianfranco",
+              "name": "Gianfranco Cristiano",
+              "website": null,
+              "social": [],
+              "nominated": "06-Aug-2026"
+            },
+            {
+              "ballot_name": "Rizzo, Maria",
+              "name": "Maria Rizzo",
+              "website": null,
+              "social": [],
+              "nominated": "05-Aug-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Oger, Geneviève",
+              "name": "Geneviève Oger",
+              "website": "https://www.csv.genevieveoger.com/",
+              "social": [
+                "https://www.facebook.com/GenevieveOger.Viamonde/",
+                "https://www.x.com/GenevieveOger"
+              ],
+              "nominated": "08-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Aboungono, Josiane",
+              "name": "Josiane Aboungono",
+              "website": "https://josianeaboungono.com/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Nichilo, Yelena",
+              "name": "Yelena Nichilo",
+              "website": "https://www.voteyelenanichilo.ca/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Ogang, Angela",
+              "name": "Angela Ogang",
+              "website": "https://angelaogang.ca/",
+              "social": [
+                "https://www.facebook.com/profile.php?id=100090677427922",
+                "https://www.toronto.ca/city-government/elections/candidate-list/www.linkedin.com/in/angelaogang",
+                "https://www.x.com/law_ange"
+              ],
+              "nominated": "07-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 9,
+      "name": "Davenport",
+      "councillor": [
+        {
+          "ballot_name": "Bravo, Alejandra",
+          "name": "Alejandra Bravo",
+          "website": "https://www.bravodavenport.ca/",
+          "social": [
+            "https://www.facebook.com/BravoDavenport/",
+            "https://www.instagram.com/bravodavenport/"
+          ],
+          "nominated": "17-Jul-2026"
+        },
+        {
+          "ballot_name": "Jansen, Ashley",
+          "name": "Ashley Jansen",
+          "website": null,
+          "social": [],
+          "nominated": "05-Aug-2026"
+        },
+        {
+          "ballot_name": "Martins, Marco",
+          "name": "Marco Martins",
+          "website": "https://www.votemarcomartins.ca/",
+          "social": [
+            "https://www.instagram.com/vote_marcomartins/",
+            "https://www.facebook.com/profile.php?id=61593355790955"
+          ],
+          "nominated": "10-Aug-2026"
+        },
+        {
+          "ballot_name": "Simon, Neil",
+          "name": "Neil Simon",
+          "website": "https://votensimon.ca/",
+          "social": [],
+          "nominated": "12-Jun-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Banninga, Matt",
+              "name": "Matt Banninga",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Choi, Daniel",
+              "name": "Daniel Choi",
+              "website": null,
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Dawson, Alexis",
+              "name": "Alexis Dawson",
+              "website": "https://www.alexisdawson.ca/",
+              "social": [
+                "https://www.instagram.com/alexisdawson_to/?hl=en",
+                "https://www.facebook.com/AlexisDawsonTO/"
+              ],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Gural, Christina",
+              "name": "Christina Gural",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            },
+            {
+              "ballot_name": "Ishraq, Fatin",
+              "name": "Fatin Ishraq",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Mensah, Justin",
+              "name": "Justin Mensah",
+              "website": null,
+              "social": [],
+              "nominated": "04-May-2026"
+            },
+            {
+              "ballot_name": "Waters, Andrew",
+              "name": "Andrew Waters",
+              "website": "https://www.andrewwaters.ca/",
+              "social": [
+                "https://www.instagram.com/candidate_waters/",
+                "https://www.x.com/CandidateWaters"
+              ],
+              "nominated": "31-Jul-2026"
+            },
+            {
+              "ballot_name": "Webster, Jennifer",
+              "name": "Jennifer Webster",
+              "website": null,
+              "social": [
+                "https://www.instagram.com/jennwebster4ward3"
+              ],
+              "nominated": "15-Jul-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "6",
+          "candidates": [
+            {
+              "ballot_name": "D'Amico, Frank",
+              "name": "Frank D'Amico",
+              "website": null,
+              "social": [],
+              "nominated": "01-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Oger, Geneviève",
+              "name": "Geneviève Oger",
+              "website": "https://www.csv.genevieveoger.com/",
+              "social": [
+                "https://www.facebook.com/GenevieveOger.Viamonde/",
+                "https://www.x.com/GenevieveOger"
+              ],
+              "nominated": "08-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Aboungono, Josiane",
+              "name": "Josiane Aboungono",
+              "website": "https://josianeaboungono.com/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Nichilo, Yelena",
+              "name": "Yelena Nichilo",
+              "website": "https://www.voteyelenanichilo.ca/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Ogang, Angela",
+              "name": "Angela Ogang",
+              "website": "https://angelaogang.ca/",
+              "social": [
+                "https://www.facebook.com/profile.php?id=100090677427922",
+                "https://www.toronto.ca/city-government/elections/candidate-list/www.linkedin.com/in/angelaogang",
+                "https://www.x.com/law_ange"
+              ],
+              "nominated": "07-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 10,
+      "name": "Spadina-Fort York",
+      "councillor": [
+        {
+          "ballot_name": "Cunningham, Ian",
+          "name": "Ian Cunningham",
+          "website": "https://www.iancunninghamto.ca/",
+          "social": [
+            "https://www.instagram.com/iancforto",
+            "https://www.x.com/IanCforTO"
+          ],
+          "nominated": "08-Jul-2026"
+        },
+        {
+          "ballot_name": "Ding, Xue",
+          "name": "Xue Ding",
+          "website": "https://www.votexueding.ca/",
+          "social": [
+            "https://www.instagram.com/xuedingalice",
+            "https://www.linkedin.com/in/alice-ding",
+            "https://x.com/XueDing144157"
+          ],
+          "nominated": "22-Jun-2026"
+        },
+        {
+          "ballot_name": "Hoàng-Lefranc, Andi",
+          "name": "Andi Hoàng-Lefranc",
+          "website": "https://www.andiforward10.ca/",
+          "social": [
+            "https://www.x.com/andiforward10",
+            "https://www.instagram.com/andiforward10",
+            "https://www.facebook.com/andiforward10"
+          ],
+          "nominated": "18-Jun-2026"
+        },
+        {
+          "ballot_name": "Kassir, Bashar",
+          "name": "Bashar Kassir",
+          "website": "https://www.basharkassir.ca/",
+          "social": [],
+          "nominated": "08-May-2026"
+        },
+        {
+          "ballot_name": "Malik, Ausma",
+          "name": "Ausma Malik",
+          "website": "https://www.ausma.ca/",
+          "social": [
+            "https://www.facebook.com/AusmaMalikTO/",
+            "https://www.instagram.com/ausmalik/",
+            "https://x.com/ausmalik"
+          ],
+          "nominated": "07-Jul-2026"
+        },
+        {
+          "ballot_name": "Nash, Paul",
+          "name": "Paul Nash",
+          "website": "https://paulnash.ca/",
+          "social": [
+            "https://www.facebook.com/profile.php?id=602308530"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Neemuchwala, Husain",
+          "name": "Husain Neemuchwala",
+          "website": "https://www.husainneem.ca/",
+          "social": [],
+          "nominated": "12-May-2026"
+        },
+        {
+          "ballot_name": "Vashistha, Aanchal",
+          "name": "Aanchal Vashistha",
+          "website": "https://www.voteforaanchal.ca/",
+          "social": [
+            "https://www.linkedin.com/in/aanchalvash/",
+            "https://www.instagram.com/aanchalvash/"
+          ],
+          "nominated": "27-May-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "5",
+          "candidates": [
+            {
+              "ballot_name": "Feyginberg, Elina",
+              "name": "Elina Feyginberg",
+              "website": "https://www.elina4trustee.ca/",
+              "social": [
+                "https://www.instagram.com/elina4trustee"
+              ],
+              "nominated": "03-Jul-2026"
+            },
+            {
+              "ballot_name": "Gregory, Andrene",
+              "name": "Andrene Gregory",
+              "website": "https://www.andrenegregory.ca/",
+              "social": [
+                "https://www.instagram.com/andrenegregory"
+              ],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Gulyas, David",
+              "name": "David Gulyas",
+              "website": null,
+              "social": [],
+              "nominated": "01-May-2026"
+            },
+            {
+              "ballot_name": "Kolb, Jared",
+              "name": "Jared Kolb",
+              "website": "https://www.votekolb.ca/",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Larkin, Maureen",
+              "name": "Maureen Larkin",
+              "website": null,
+              "social": [
+                "https://www.facebook.com/profile.php?id=61575815318589",
+                "https://www.instagram.com/maureenlarkinto/"
+              ],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Massey, Andrew",
+              "name": "Andrew Massey",
+              "website": "https://www.votemassey.ca/",
+              "social": [
+                "https://www.facebook.com/MasseyTO/",
+                "https://www.instagram.com/massey.to/",
+                "https://www.linkedin.com/company/masseyto"
+              ],
+              "nominated": "30-Jun-2026"
+            },
+            {
+              "ballot_name": "Stefanis, Gus",
+              "name": "Gus Stefanis",
+              "website": "https://sites.google.com/view/gus-stefanis",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Viret, Janine",
+              "name": "Janine Viret",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Volk, Jennifer",
+              "name": "Jennifer Volk",
+              "website": "https://www.jennifervolk.ca/",
+              "social": [
+                "https://www.instagram.com/elect_jenvolk/"
+              ],
+              "nominated": "20-Aug-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "9",
+          "candidates": [
+            {
+              "ballot_name": "Bonavota, Rosina",
+              "name": "Rosina Bonavota",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Fallico, Renato",
+              "name": "Renato Fallico",
+              "website": null,
+              "social": [],
+              "nominated": "07-Aug-2026"
+            },
+            {
+              "ballot_name": "Le, David",
+              "name": "David Le",
+              "website": null,
+              "social": [],
+              "nominated": "10-Aug-2026"
+            },
+            {
+              "ballot_name": "Santos, Jonathan",
+              "name": "Jonathan Santos",
+              "website": null,
+              "social": [],
+              "nominated": "02-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "L'Heureux, Jean-François",
+              "name": "Jean-François L'Heureux",
+              "website": "https://www.jflheureux.ca/",
+              "social": [
+                "https://www.linkedin.com/in/lheureuxjf/",
+                "https://x.com/jf_lheureux",
+                "https://www.instagram.com/jf_lheureux/"
+              ],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Ruszkowski, Anna-Karyna",
+              "name": "Anna-Karyna Ruszkowski",
+              "website": "https://www.votezannakaryna.ca/",
+              "social": [
+                "https://www.facebook.com/votezannakaryna/mentions/",
+                "https://www.instagram.com/votezannakaryna/"
+              ],
+              "nominated": "05-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Aboungono, Josiane",
+              "name": "Josiane Aboungono",
+              "website": "https://josianeaboungono.com/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Nichilo, Yelena",
+              "name": "Yelena Nichilo",
+              "website": "https://www.voteyelenanichilo.ca/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Ogang, Angela",
+              "name": "Angela Ogang",
+              "website": "https://angelaogang.ca/",
+              "social": [
+                "https://www.facebook.com/profile.php?id=100090677427922",
+                "https://www.toronto.ca/city-government/elections/candidate-list/www.linkedin.com/in/angelaogang",
+                "https://www.x.com/law_ange"
+              ],
+              "nominated": "07-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 11,
+      "name": "University-Rosedale",
+      "councillor": [
+        {
+          "ballot_name": "Courtis, Keenan",
+          "name": "Keenan Courtis",
+          "website": "https://www.keenancourtis.ca/",
+          "social": [],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Hawkes, Terri",
+          "name": "Terri Hawkes",
+          "website": "https://www.voteterrihawkes.ca/",
+          "social": [
+            "https://www.facebook.com/voteterrihawkes",
+            "https://www.instagram.com/voteterrihawkes",
+            "https://x.com/voteterrihawkes"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Layton, Mike",
+          "name": "Mike Layton",
+          "website": "https://www.mikelayton.ca/",
+          "social": [],
+          "nominated": "17-Aug-2026"
+        },
+        {
+          "ballot_name": "Lemke, Karina",
+          "name": "Karina Lemke",
+          "website": "https://www.votekarina.ca/",
+          "social": [
+            "https://www.instagram.com/karina_loves_toronto/"
+          ],
+          "nominated": "13-Jul-2026"
+        },
+        {
+          "ballot_name": "Li, Alice",
+          "name": "Alice Li",
+          "website": "https://www.aliceli.ca/",
+          "social": [
+            "https://www.tiktok.com/@aliceli_music",
+            "https://www.instagram.com/aliceli_official",
+            "https://www.linkedin.com/in/lialice"
+          ],
+          "nominated": "04-May-2026"
+        },
+        {
+          "ballot_name": "Lieu, Huy",
+          "name": "Huy Lieu",
+          "website": null,
+          "social": [],
+          "nominated": "07-May-2026"
+        },
+        {
+          "ballot_name": "Pileri, Gian",
+          "name": "Gian Pileri",
+          "website": "https://www.gianpileri.ca/",
+          "social": [
+            "https://www.instagram.com/gian.pileri"
+          ],
+          "nominated": "11-Jun-2026"
+        },
+        {
+          "ballot_name": "Viret, Paul",
+          "name": "Paul Viret",
+          "website": null,
+          "social": [],
+          "nominated": "20-Aug-2026"
+        },
+        {
+          "ballot_name": "Yoon, Diana",
+          "name": "Diana Yoon",
+          "website": "https://www.voteyoon.ca/",
+          "social": [
+            "https://www.linkedin.com/in/dianayoonto/",
+            "https://www.instagram.com/dianayoonto/",
+            "https://www.facebook.com/dianayoonTO"
+          ],
+          "nominated": "20-May-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "7",
+          "candidates": [
+            {
+              "ballot_name": "Arvizu, Axel",
+              "name": "Axel Arvizu",
+              "website": "https://axelarvizu5.wixsite.com/axelarvizu",
+              "social": [],
+              "nominated": "10-Jul-2026"
+            },
+            {
+              "ballot_name": "Cherrington, Gladstone",
+              "name": "Gladstone Cherrington",
+              "website": null,
+              "social": [
+                "https://www.facebook.com/p/Gladstone-Cherrington-61593231673284/"
+              ],
+              "nominated": "07-Aug-2026"
+            },
+            {
+              "ballot_name": "Golding, Adam",
+              "name": "Adam Golding",
+              "website": "https://www.adamgolding.ca/",
+              "social": [
+                "https://adamgolding.substack.com/archive",
+                "https://www.facebook.com/adamgolding"
+              ],
+              "nominated": "17-Aug-2026"
+            },
+            {
+              "ballot_name": "Kheiriddin, Tasha",
+              "name": "Tasha Kheiriddin",
+              "website": "https://www.votetasha.ca/",
+              "social": [
+                "https://www.x.com/tasha4trustee",
+                "https://www.facebook.com/tashakheiriddin1/",
+                "https://www.instagram.com/tasha4trustee"
+              ],
+              "nominated": "25-Jun-2026"
+            },
+            {
+              "ballot_name": "Mohammad, Nasir",
+              "name": "Nasir Mohammad",
+              "website": null,
+              "social": [],
+              "nominated": "01-May-2026"
+            },
+            {
+              "ballot_name": "Nalir, Shaffni",
+              "name": "Shaffni Nalir",
+              "website": "https://votenalir.ca/",
+              "social": [
+                "https://www.instagram.com/shaffni.nalir",
+                "https://www.linkedin.com/in/shaffni-nalir-2989b5319"
+              ],
+              "nominated": "15-May-2026"
+            },
+            {
+              "ballot_name": "Nazary, Theo",
+              "name": "Theo Nazary",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Williams, Deborah",
+              "name": "Deborah Williams",
+              "website": "https://www.votewilliamsto.ca/",
+              "social": [],
+              "nominated": "11-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "9",
+          "candidates": [
+            {
+              "ballot_name": "Bonavota, Rosina",
+              "name": "Rosina Bonavota",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Fallico, Renato",
+              "name": "Renato Fallico",
+              "website": null,
+              "social": [],
+              "nominated": "07-Aug-2026"
+            },
+            {
+              "ballot_name": "Le, David",
+              "name": "David Le",
+              "website": null,
+              "social": [],
+              "nominated": "10-Aug-2026"
+            },
+            {
+              "ballot_name": "Santos, Jonathan",
+              "name": "Jonathan Santos",
+              "website": null,
+              "social": [],
+              "nominated": "02-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "L'Heureux, Jean-François",
+              "name": "Jean-François L'Heureux",
+              "website": "https://www.jflheureux.ca/",
+              "social": [
+                "https://www.linkedin.com/in/lheureuxjf/",
+                "https://x.com/jf_lheureux",
+                "https://www.instagram.com/jf_lheureux/"
+              ],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Ruszkowski, Anna-Karyna",
+              "name": "Anna-Karyna Ruszkowski",
+              "website": "https://www.votezannakaryna.ca/",
+              "social": [
+                "https://www.facebook.com/votezannakaryna/mentions/",
+                "https://www.instagram.com/votezannakaryna/"
+              ],
+              "nominated": "05-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Aboungono, Josiane",
+              "name": "Josiane Aboungono",
+              "website": "https://josianeaboungono.com/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Nichilo, Yelena",
+              "name": "Yelena Nichilo",
+              "website": "https://www.voteyelenanichilo.ca/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Ogang, Angela",
+              "name": "Angela Ogang",
+              "website": "https://angelaogang.ca/",
+              "social": [
+                "https://www.facebook.com/profile.php?id=100090677427922",
+                "https://www.toronto.ca/city-government/elections/candidate-list/www.linkedin.com/in/angelaogang",
+                "https://www.x.com/law_ange"
+              ],
+              "nominated": "07-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 12,
+      "name": "Toronto-St. Paul's",
+      "councillor": [
+        {
+          "ballot_name": "Cottrell, David",
+          "name": "David Cottrell",
+          "website": "https://www.votecottrell.ca/",
+          "social": [
+            "https://www.instagram.com/davidforstpauls",
+            "https://www.facebook.com/DavidForStPauls",
+            "https://x.com/DavidForStPauls"
+          ],
+          "nominated": "11-Aug-2026"
+        },
+        {
+          "ballot_name": "Kalimbet, Jenny",
+          "name": "Jenny Kalimbet",
+          "website": "https://jennykalimbet.com/",
+          "social": [],
+          "nominated": "17-Jun-2026"
+        },
+        {
+          "ballot_name": "Kamal, Ahmed",
+          "name": "Ahmed Kamal",
+          "website": "https://www.voteforahmed.ca/",
+          "social": [
+            "https://www.instagram.com/ahmed.kamal365/"
+          ],
+          "nominated": "13-Jul-2026"
+        },
+        {
+          "ballot_name": "Matlow, Josh",
+          "name": "Josh Matlow",
+          "website": "https://www.reelectmatlow.com/",
+          "social": [
+            "https://www.instagram.com/joshmatlow/?hl=en",
+            "https://www.facebook.com/JMatlow/",
+            "https://x.com/JoshMatlow"
+          ],
+          "nominated": "04-Aug-2026"
+        },
+        {
+          "ballot_name": "Murphy, Bob",
+          "name": "Bob Murphy",
+          "website": null,
+          "social": [],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Nadimi, Mina",
+          "name": "Mina Nadimi",
+          "website": null,
+          "social": [],
+          "nominated": "10-Jun-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "7",
+          "candidates": [
+            {
+              "ballot_name": "Arvizu, Axel",
+              "name": "Axel Arvizu",
+              "website": "https://axelarvizu5.wixsite.com/axelarvizu",
+              "social": [],
+              "nominated": "10-Jul-2026"
+            },
+            {
+              "ballot_name": "Cherrington, Gladstone",
+              "name": "Gladstone Cherrington",
+              "website": null,
+              "social": [
+                "https://www.facebook.com/p/Gladstone-Cherrington-61593231673284/"
+              ],
+              "nominated": "07-Aug-2026"
+            },
+            {
+              "ballot_name": "Golding, Adam",
+              "name": "Adam Golding",
+              "website": "https://www.adamgolding.ca/",
+              "social": [
+                "https://adamgolding.substack.com/archive",
+                "https://www.facebook.com/adamgolding"
+              ],
+              "nominated": "17-Aug-2026"
+            },
+            {
+              "ballot_name": "Kheiriddin, Tasha",
+              "name": "Tasha Kheiriddin",
+              "website": "https://www.votetasha.ca/",
+              "social": [
+                "https://www.x.com/tasha4trustee",
+                "https://www.facebook.com/tashakheiriddin1/",
+                "https://www.instagram.com/tasha4trustee"
+              ],
+              "nominated": "25-Jun-2026"
+            },
+            {
+              "ballot_name": "Mohammad, Nasir",
+              "name": "Nasir Mohammad",
+              "website": null,
+              "social": [],
+              "nominated": "01-May-2026"
+            },
+            {
+              "ballot_name": "Nalir, Shaffni",
+              "name": "Shaffni Nalir",
+              "website": "https://votenalir.ca/",
+              "social": [
+                "https://www.instagram.com/shaffni.nalir",
+                "https://www.linkedin.com/in/shaffni-nalir-2989b5319"
+              ],
+              "nominated": "15-May-2026"
+            },
+            {
+              "ballot_name": "Nazary, Theo",
+              "name": "Theo Nazary",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Williams, Deborah",
+              "name": "Deborah Williams",
+              "website": "https://www.votewilliamsto.ca/",
+              "social": [],
+              "nominated": "11-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "9",
+          "candidates": [
+            {
+              "ballot_name": "Bonavota, Rosina",
+              "name": "Rosina Bonavota",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Fallico, Renato",
+              "name": "Renato Fallico",
+              "website": null,
+              "social": [],
+              "nominated": "07-Aug-2026"
+            },
+            {
+              "ballot_name": "Le, David",
+              "name": "David Le",
+              "website": null,
+              "social": [],
+              "nominated": "10-Aug-2026"
+            },
+            {
+              "ballot_name": "Santos, Jonathan",
+              "name": "Jonathan Santos",
+              "website": null,
+              "social": [],
+              "nominated": "02-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "L'Heureux, Jean-François",
+              "name": "Jean-François L'Heureux",
+              "website": "https://www.jflheureux.ca/",
+              "social": [
+                "https://www.linkedin.com/in/lheureuxjf/",
+                "https://x.com/jf_lheureux",
+                "https://www.instagram.com/jf_lheureux/"
+              ],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Ruszkowski, Anna-Karyna",
+              "name": "Anna-Karyna Ruszkowski",
+              "website": "https://www.votezannakaryna.ca/",
+              "social": [
+                "https://www.facebook.com/votezannakaryna/mentions/",
+                "https://www.instagram.com/votezannakaryna/"
+              ],
+              "nominated": "05-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Aboungono, Josiane",
+              "name": "Josiane Aboungono",
+              "website": "https://josianeaboungono.com/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Nichilo, Yelena",
+              "name": "Yelena Nichilo",
+              "website": "https://www.voteyelenanichilo.ca/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Ogang, Angela",
+              "name": "Angela Ogang",
+              "website": "https://angelaogang.ca/",
+              "social": [
+                "https://www.facebook.com/profile.php?id=100090677427922",
+                "https://www.toronto.ca/city-government/elections/candidate-list/www.linkedin.com/in/angelaogang",
+                "https://www.x.com/law_ange"
+              ],
+              "nominated": "07-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 13,
+      "name": "Toronto Centre",
+      "councillor": [
+        {
+          "ballot_name": "Cadeau, Joe",
+          "name": "Joe Cadeau",
+          "website": "https://www.votejoecadeau.ca/",
+          "social": [
+            "https://www.linkedin.com/in/joe-cadeau"
+          ],
+          "nominated": "06-May-2026"
+        },
+        {
+          "ballot_name": "Cai, Tom",
+          "name": "Tom Cai",
+          "website": "https://www.tomforward13.com/",
+          "social": [
+            "https://www.youtube.com/@TomCaiforWard13",
+            "https://www.instagram.com/tomcai.tc13"
+          ],
+          "nominated": "14-May-2026"
+        },
+        {
+          "ballot_name": "Davis, Victoria",
+          "name": "Victoria Davis",
+          "website": "https://www.victoriaforcentre.ca/",
+          "social": [],
+          "nominated": "26-May-2026"
+        },
+        {
+          "ballot_name": "Harris, Morgan",
+          "name": "Morgan Harris",
+          "website": null,
+          "social": [
+            "https://www.facebook.com/profile.php?id=61593334545324",
+            "https://www.linkedin.com/in/morgan-harris-cisa-pmp-b6843/"
+          ],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Khogali Ali, Walied",
+          "name": "Walied Khogali Ali",
+          "website": "https://www.votewalied.ca/",
+          "social": [],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "MacLeod, Norman",
+          "name": "Norman MacLeod",
+          "website": "https://fask.city/candidate/norman-macleod-ward-13#priorities",
+          "social": [
+            "https://www.facebook.com/NormanMacLeodWard13",
+            "https://www.linkedin.com/in/sevenup-macleod-2793a13b4?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+          ],
+          "nominated": "07-Aug-2026"
+        },
+        {
+          "ballot_name": "Marshall, Cleveland",
+          "name": "Cleveland Marshall",
+          "website": "https://clevelandmarshall.com/",
+          "social": [],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Moise, Chris",
+          "name": "Chris Moise",
+          "website": "https://www.chrismoise.vote/",
+          "social": [
+            "https://www.facebook.com/ChrisMoiseTO/",
+            "https://www.instagram.com/chrismoiseto"
+          ],
+          "nominated": "20-Jul-2026"
+        },
+        {
+          "ballot_name": "Stikuts, Curran",
+          "name": "Curran Stikuts",
+          "website": "https://www.votecurran.ca/",
+          "social": [
+            "https://www.facebook.com/votecurran",
+            "https://www.instagram.com/votecurranto",
+            "https://www.linkedin.com/in/curran-stikuts"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Tate, Daniel",
+          "name": "Daniel Tate",
+          "website": "https://www.votetate.ca/",
+          "social": [
+            "https://www.x.com/danieltateTO",
+            "https://www.instagram.com/dantateto",
+            "https://www.youtube.com/@dantateto"
+          ],
+          "nominated": "22-Jul-2026"
+        },
+        {
+          "ballot_name": "Ward, Nicki",
+          "name": "Nicki Ward",
+          "website": "https://www.nickiward.ca/",
+          "social": [
+            "https://www.facebook.com/Nicki.Ward.Candidate",
+            "https://www.linkedin.com/in/nichola-nicki-ward/",
+            "https://www.instagram.com/nichola.nicki.ward/"
+          ],
+          "nominated": "01-May-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "7",
+          "candidates": [
+            {
+              "ballot_name": "Arvizu, Axel",
+              "name": "Axel Arvizu",
+              "website": "https://axelarvizu5.wixsite.com/axelarvizu",
+              "social": [],
+              "nominated": "10-Jul-2026"
+            },
+            {
+              "ballot_name": "Cherrington, Gladstone",
+              "name": "Gladstone Cherrington",
+              "website": null,
+              "social": [
+                "https://www.facebook.com/p/Gladstone-Cherrington-61593231673284/"
+              ],
+              "nominated": "07-Aug-2026"
+            },
+            {
+              "ballot_name": "Golding, Adam",
+              "name": "Adam Golding",
+              "website": "https://www.adamgolding.ca/",
+              "social": [
+                "https://adamgolding.substack.com/archive",
+                "https://www.facebook.com/adamgolding"
+              ],
+              "nominated": "17-Aug-2026"
+            },
+            {
+              "ballot_name": "Kheiriddin, Tasha",
+              "name": "Tasha Kheiriddin",
+              "website": "https://www.votetasha.ca/",
+              "social": [
+                "https://www.x.com/tasha4trustee",
+                "https://www.facebook.com/tashakheiriddin1/",
+                "https://www.instagram.com/tasha4trustee"
+              ],
+              "nominated": "25-Jun-2026"
+            },
+            {
+              "ballot_name": "Mohammad, Nasir",
+              "name": "Nasir Mohammad",
+              "website": null,
+              "social": [],
+              "nominated": "01-May-2026"
+            },
+            {
+              "ballot_name": "Nalir, Shaffni",
+              "name": "Shaffni Nalir",
+              "website": "https://votenalir.ca/",
+              "social": [
+                "https://www.instagram.com/shaffni.nalir",
+                "https://www.linkedin.com/in/shaffni-nalir-2989b5319"
+              ],
+              "nominated": "15-May-2026"
+            },
+            {
+              "ballot_name": "Nazary, Theo",
+              "name": "Theo Nazary",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Williams, Deborah",
+              "name": "Deborah Williams",
+              "website": "https://www.votewilliamsto.ca/",
+              "social": [],
+              "nominated": "11-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "9",
+          "candidates": [
+            {
+              "ballot_name": "Bonavota, Rosina",
+              "name": "Rosina Bonavota",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Fallico, Renato",
+              "name": "Renato Fallico",
+              "website": null,
+              "social": [],
+              "nominated": "07-Aug-2026"
+            },
+            {
+              "ballot_name": "Le, David",
+              "name": "David Le",
+              "website": null,
+              "social": [],
+              "nominated": "10-Aug-2026"
+            },
+            {
+              "ballot_name": "Santos, Jonathan",
+              "name": "Jonathan Santos",
+              "website": null,
+              "social": [],
+              "nominated": "02-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "L'Heureux, Jean-François",
+              "name": "Jean-François L'Heureux",
+              "website": "https://www.jflheureux.ca/",
+              "social": [
+                "https://www.linkedin.com/in/lheureuxjf/",
+                "https://x.com/jf_lheureux",
+                "https://www.instagram.com/jf_lheureux/"
+              ],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Ruszkowski, Anna-Karyna",
+              "name": "Anna-Karyna Ruszkowski",
+              "website": "https://www.votezannakaryna.ca/",
+              "social": [
+                "https://www.facebook.com/votezannakaryna/mentions/",
+                "https://www.instagram.com/votezannakaryna/"
+              ],
+              "nominated": "05-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Aboungono, Josiane",
+              "name": "Josiane Aboungono",
+              "website": "https://josianeaboungono.com/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Nichilo, Yelena",
+              "name": "Yelena Nichilo",
+              "website": "https://www.voteyelenanichilo.ca/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Ogang, Angela",
+              "name": "Angela Ogang",
+              "website": "https://angelaogang.ca/",
+              "social": [
+                "https://www.facebook.com/profile.php?id=100090677427922",
+                "https://www.toronto.ca/city-government/elections/candidate-list/www.linkedin.com/in/angelaogang",
+                "https://www.x.com/law_ange"
+              ],
+              "nominated": "07-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 14,
+      "name": "Toronto-Danforth",
+      "councillor": [
+        {
+          "ballot_name": "Ahmad, Maqsood",
+          "name": "Maqsood Ahmad",
+          "website": "https://www.electmaqsood.com/",
+          "social": [
+            "https://www.facebook.com/profile.php?id=61594127775973&sk=about"
+          ],
+          "nominated": "20-Aug-2026"
+        },
+        {
+          "ballot_name": "Chapelle, Susan",
+          "name": "Susan Chapelle",
+          "website": "https://www.electsusanchapelle.com/",
+          "social": [],
+          "nominated": "01-Jun-2026"
+        },
+        {
+          "ballot_name": "Connor, Michael",
+          "name": "Michael Connor",
+          "website": null,
+          "social": [],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Corcoran, Dennis",
+          "name": "Dennis Corcoran",
+          "website": null,
+          "social": [],
+          "nominated": "19-Aug-2026"
+        },
+        {
+          "ballot_name": "Dagenais, Robb",
+          "name": "Robb Dagenais",
+          "website": null,
+          "social": [
+            "https://www.instagram.com/robbdagenaisto"
+          ],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "De Marco, Peter",
+          "name": "Peter De Marco",
+          "website": null,
+          "social": [],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Ehrhardt, Sara",
+          "name": "Sara Ehrhardt",
+          "website": "https://www.saraehrhardt.ca/",
+          "social": [
+            "https://www.x.com/SaraTorDan",
+            "https://www.instagram.com/saratorontodanforth/"
+          ],
+          "nominated": "20-Aug-2026"
+        },
+        {
+          "ballot_name": "Fawcett, George",
+          "name": "George Fawcett",
+          "website": "https://www.georgefawcett.com/",
+          "social": [
+            "https://www.instagram.com/george4ward14",
+            "https://www.facebook.com/George4Ward14/",
+            "https://ca.linkedin.com/in/georgefawcett"
+          ],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Fragedakis, Mary",
+          "name": "Mary Fragedakis",
+          "website": "https://maryfragedakis.ca/",
+          "social": [
+            "https://www.facebook.com/mfragedakis/",
+            "https://www.instagram.com/mfragedakis/",
+            "https://www.linkedin.com/in/mary-fragedakis/"
+          ],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Kladitis, John",
+          "name": "John Kladitis",
+          "website": "https://torontodanforthconnected.ca/",
+          "social": [],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Mitchell, Michael",
+          "name": "Michael Mitchell",
+          "website": "https://toronto-danforth.ca/",
+          "social": [
+            "https://x.com/EstoKeskToronto"
+          ],
+          "nominated": "20-Aug-2026"
+        },
+        {
+          "ballot_name": "Sa'd, Caryma",
+          "name": "Caryma Sa'd",
+          "website": "https://votesad.ca/",
+          "social": [
+            "https://www.instagram.com/vote4sad",
+            "https://x.com/vote4sad"
+          ],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Saxe, Dianne",
+          "name": "Dianne Saxe",
+          "website": "https://www.votesaxe.ca/",
+          "social": [
+            "https://www.instagram.com/dianne.saxe/",
+            "https://www.facebook.com/diannesaxeTO"
+          ],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Stackhouse, Devyn",
+          "name": "Devyn Stackhouse",
+          "website": "https://www.devynstackhouse.ca/",
+          "social": [
+            "https://x.com/DevynonEarth"
+          ],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Stevens, Jason",
+          "name": "Jason Stevens",
+          "website": "https://www.votejasons.com/",
+          "social": [],
+          "nominated": "29-May-2026"
+        },
+        {
+          "ballot_name": "Tetreault, Christiane",
+          "name": "Christiane Tetreault",
+          "website": "https://christianetetreault.ca/",
+          "social": [
+            "https://www.toronto.ca/city-government/elections/candidate-list/www.instagram.com/votechristianeward14"
+          ],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Voutsinas, Maria",
+          "name": "Maria Voutsinas",
+          "website": "https://votemaria.ca/",
+          "social": [
+            "https://ca.linkedin.com/in/maria-saras-voutsinas-8271825",
+            "https://www.instagram.com/votemariavoutsinas",
+            "https://www.facebook.com/p/Vote-Maria-Voutsinas-61593974880571/"
+          ],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Walcott, Denise",
+          "name": "Denise Walcott",
+          "website": "https://www.votewalcott.com/",
+          "social": [
+            "https://www.instagram.com/votewalcott/",
+            "https://www.facebook.com/votewalcott"
+          ],
+          "nominated": "17-Aug-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "5",
+          "candidates": [
+            {
+              "ballot_name": "Feyginberg, Elina",
+              "name": "Elina Feyginberg",
+              "website": "https://www.elina4trustee.ca/",
+              "social": [
+                "https://www.instagram.com/elina4trustee"
+              ],
+              "nominated": "03-Jul-2026"
+            },
+            {
+              "ballot_name": "Gregory, Andrene",
+              "name": "Andrene Gregory",
+              "website": "https://www.andrenegregory.ca/",
+              "social": [
+                "https://www.instagram.com/andrenegregory"
+              ],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Gulyas, David",
+              "name": "David Gulyas",
+              "website": null,
+              "social": [],
+              "nominated": "01-May-2026"
+            },
+            {
+              "ballot_name": "Kolb, Jared",
+              "name": "Jared Kolb",
+              "website": "https://www.votekolb.ca/",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Larkin, Maureen",
+              "name": "Maureen Larkin",
+              "website": null,
+              "social": [
+                "https://www.facebook.com/profile.php?id=61575815318589",
+                "https://www.instagram.com/maureenlarkinto/"
+              ],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Massey, Andrew",
+              "name": "Andrew Massey",
+              "website": "https://www.votemassey.ca/",
+              "social": [
+                "https://www.facebook.com/MasseyTO/",
+                "https://www.instagram.com/massey.to/",
+                "https://www.linkedin.com/company/masseyto"
+              ],
+              "nominated": "30-Jun-2026"
+            },
+            {
+              "ballot_name": "Stefanis, Gus",
+              "name": "Gus Stefanis",
+              "website": "https://sites.google.com/view/gus-stefanis",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Viret, Janine",
+              "name": "Janine Viret",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Volk, Jennifer",
+              "name": "Jennifer Volk",
+              "website": "https://www.jennifervolk.ca/",
+              "social": [
+                "https://www.instagram.com/elect_jenvolk/"
+              ],
+              "nominated": "20-Aug-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "11",
+          "candidates": [
+            {
+              "ballot_name": "Kennedy, Angela",
+              "name": "Angela Kennedy",
+              "website": null,
+              "social": [],
+              "nominated": "13-May-2026"
+            },
+            {
+              "ballot_name": "Perera, Anton",
+              "name": "Anton Perera",
+              "website": null,
+              "social": [],
+              "nominated": "26-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "L'Heureux, Jean-François",
+              "name": "Jean-François L'Heureux",
+              "website": "https://www.jflheureux.ca/",
+              "social": [
+                "https://www.linkedin.com/in/lheureuxjf/",
+                "https://x.com/jf_lheureux",
+                "https://www.instagram.com/jf_lheureux/"
+              ],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Ruszkowski, Anna-Karyna",
+              "name": "Anna-Karyna Ruszkowski",
+              "website": "https://www.votezannakaryna.ca/",
+              "social": [
+                "https://www.facebook.com/votezannakaryna/mentions/",
+                "https://www.instagram.com/votezannakaryna/"
+              ],
+              "nominated": "05-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Dechaine, Rhea",
+              "name": "Rhea Dechaine",
+              "website": "https://rheadechaine.com/",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Gustave, Clescadine",
+              "name": "Clescadine Gustave",
+              "website": null,
+              "social": [],
+              "nominated": "20-May-2026"
+            },
+            {
+              "ballot_name": "McNulty, Derek",
+              "name": "Derek McNulty",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 15,
+      "name": "Don Valley West",
+      "councillor": [
+        {
+          "ballot_name": "Chernos Lin, Rachel",
+          "name": "Rachel Chernos Lin",
+          "website": "https://www.voterachel.ca/",
+          "social": [
+            "https://www.facebook.com/RChernosLin/",
+            "https://www.instagram.com/rchernoslin/?hl=en",
+            "https://x.com/rchernoslin"
+          ],
+          "nominated": "22-Jul-2026"
+        },
+        {
+          "ballot_name": "Sharp, Sheena",
+          "name": "Sheena Sharp",
+          "website": "https://www.votesheenasharp.ca/",
+          "social": [
+            "https://www.instagram.com/votesheenasharp/"
+          ],
+          "nominated": "21-Jul-2026"
+        },
+        {
+          "ballot_name": "Tsang, Denis",
+          "name": "Denis Tsang",
+          "website": "https://votedenistsang.ca/",
+          "social": [],
+          "nominated": "13-Aug-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "8",
+          "candidates": [
+            {
+              "ballot_name": "Haddleton, Tracey",
+              "name": "Tracey Haddleton",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Hatia, Ibrahim",
+              "name": "Ibrahim Hatia",
+              "website": null,
+              "social": [],
+              "nominated": "15-Jun-2026"
+            },
+            {
+              "ballot_name": "Kapoglis, Spiros",
+              "name": "Spiros Kapoglis",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Khan, Imran",
+              "name": "Imran Khan",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            },
+            {
+              "ballot_name": "Lee III, Dewitt",
+              "name": "Dewitt Lee III",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "McGirr, Christine",
+              "name": "Christine McGirr",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Rajwani, Farzana",
+              "name": "Farzana Rajwani",
+              "website": "https://www.farzanarajwani.ca/",
+              "social": [
+                "https://www.instagram.com/rajwanitrustee"
+              ],
+              "nominated": "30-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "11",
+          "candidates": [
+            {
+              "ballot_name": "Kennedy, Angela",
+              "name": "Angela Kennedy",
+              "website": null,
+              "social": [],
+              "nominated": "13-May-2026"
+            },
+            {
+              "ballot_name": "Perera, Anton",
+              "name": "Anton Perera",
+              "website": null,
+              "social": [],
+              "nominated": "26-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "2",
+          "candidates": [
+            {
+              "ballot_name": "Fortin, Benoit",
+              "name": "Benoit Fortin",
+              "website": null,
+              "social": [],
+              "nominated": "01-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Dechaine, Rhea",
+              "name": "Rhea Dechaine",
+              "website": "https://rheadechaine.com/",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Gustave, Clescadine",
+              "name": "Clescadine Gustave",
+              "website": null,
+              "social": [],
+              "nominated": "20-May-2026"
+            },
+            {
+              "ballot_name": "McNulty, Derek",
+              "name": "Derek McNulty",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 16,
+      "name": "Don Valley East",
+      "councillor": [
+        {
+          "ballot_name": "Burnside, Jon",
+          "name": "Jon Burnside",
+          "website": "https://jonburnside.ca/",
+          "social": [
+            "https://www.instagram.com/jonburnside.ward16/"
+          ],
+          "nominated": "02-Jun-2026"
+        },
+        {
+          "ballot_name": "Erdemir, Sinan",
+          "name": "Sinan Erdemir",
+          "website": "https://www.votesinan.com/",
+          "social": [
+            "https://www.facebook.com/profile.php?id=61592866483705",
+            "https://www.instagram.com/sinanerdemirdve/"
+          ],
+          "nominated": "18-Jun-2026"
+        },
+        {
+          "ballot_name": "Moffat, Didi",
+          "name": "Didi Moffat",
+          "website": "https://iamdidimoffat.ca/",
+          "social": [
+            "https://www.linkedin.com/in/didimoffat",
+            "https://www.instagram.com/iamdidimoffat/"
+          ],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Moffatt, Stacey",
+          "name": "Stacey Moffatt",
+          "website": "https://www.electstacey.ca/",
+          "social": [
+            "https://www.linkedin.com/in/stacey-m-a2579449/",
+            "https://www.instagram.com/Stacey_for_Community"
+          ],
+          "nominated": "05-Jun-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "8",
+          "candidates": [
+            {
+              "ballot_name": "Haddleton, Tracey",
+              "name": "Tracey Haddleton",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Hatia, Ibrahim",
+              "name": "Ibrahim Hatia",
+              "website": null,
+              "social": [],
+              "nominated": "15-Jun-2026"
+            },
+            {
+              "ballot_name": "Kapoglis, Spiros",
+              "name": "Spiros Kapoglis",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Khan, Imran",
+              "name": "Imran Khan",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            },
+            {
+              "ballot_name": "Lee III, Dewitt",
+              "name": "Dewitt Lee III",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "McGirr, Christine",
+              "name": "Christine McGirr",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Rajwani, Farzana",
+              "name": "Farzana Rajwani",
+              "website": "https://www.farzanarajwani.ca/",
+              "social": [
+                "https://www.instagram.com/rajwanitrustee"
+              ],
+              "nominated": "30-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "11",
+          "candidates": [
+            {
+              "ballot_name": "Kennedy, Angela",
+              "name": "Angela Kennedy",
+              "website": null,
+              "social": [],
+              "nominated": "13-May-2026"
+            },
+            {
+              "ballot_name": "Perera, Anton",
+              "name": "Anton Perera",
+              "website": null,
+              "social": [],
+              "nominated": "26-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "2",
+          "candidates": [
+            {
+              "ballot_name": "Fortin, Benoit",
+              "name": "Benoit Fortin",
+              "website": null,
+              "social": [],
+              "nominated": "01-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Dechaine, Rhea",
+              "name": "Rhea Dechaine",
+              "website": "https://rheadechaine.com/",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Gustave, Clescadine",
+              "name": "Clescadine Gustave",
+              "website": null,
+              "social": [],
+              "nominated": "20-May-2026"
+            },
+            {
+              "ballot_name": "McNulty, Derek",
+              "name": "Derek McNulty",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 17,
+      "name": "Don Valley North",
+      "councillor": [
+        {
+          "ballot_name": "Adamson, Jeffery",
+          "name": "Jeffery Adamson",
+          "website": "https://www.votejeffward17.ca/",
+          "social": [
+            "https://www.linkedin.com/in/jeffery-adamson/"
+          ],
+          "nominated": "01-Jun-2026"
+        },
+        {
+          "ballot_name": "Carroll, Shelley",
+          "name": "Shelley Carroll",
+          "website": "https://www.voteshelleycarroll.ca/",
+          "social": [],
+          "nominated": "04-May-2026"
+        },
+        {
+          "ballot_name": "Kavod, Jethro Adir",
+          "name": "Jethro Adir Kavod",
+          "website": "https://jethroforward.ca/",
+          "social": [
+            "https://www.facebook.com/jethro.nzinga",
+            "https://www.instagram.com/jethro_oren_adir_kavod",
+            "https://www.linkedin.com/in/jethro-oren-adir-kavod-8408a724b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+          ],
+          "nominated": "05-Aug-2026"
+        },
+        {
+          "ballot_name": "Noor Mohamed, Hassan Mubarak",
+          "name": "Hassan Mubarak Noor Mohamed",
+          "website": "https://www.hassanmubarak.ca/",
+          "social": [
+            "https://www.instagram.com/hassandvn17/",
+            "https://www.facebook.com/profile.php?id=61592714256347",
+            "https://www.linkedin.com/company/hassan-mubarak-for-ward-17-dvn/"
+          ],
+          "nominated": "08-Jul-2026"
+        },
+        {
+          "ballot_name": "Samathanam, Roy",
+          "name": "Roy Samathanam",
+          "website": "https://www.royward17.com/",
+          "social": [
+            "https://www.instagram.com/roysamathanamward17/",
+            "https://www.facebook.com/share/1EMERfnijF/"
+          ],
+          "nominated": "01-Jun-2026"
+        },
+        {
+          "ballot_name": "Xiao, Hong",
+          "name": "Hong Xiao",
+          "website": null,
+          "social": [],
+          "nominated": "19-Aug-2026"
+        },
+        {
+          "ballot_name": "Zuniga, Sabrina",
+          "name": "Sabrina Zuniga",
+          "website": "https://sabrinazuniga.ca/",
+          "social": [
+            "https://www.instagram.com/sabrinazunigato",
+            "https://www.facebook.com/SabrinaZunigaTO/",
+            "https://www.youtube.com/@ZunigaDVN17"
+          ],
+          "nominated": "01-May-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "9",
+          "candidates": [
+            {
+              "ballot_name": "De Pass, Carey",
+              "name": "Carey De Pass",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Mammoliti, Christopher",
+              "name": "Christopher Mammoliti",
+              "website": "https://mammolitifortrustee.ca/",
+              "social": [],
+              "nominated": "01-Jun-2026"
+            },
+            {
+              "ballot_name": "Wu, Bill",
+              "name": "Bill Wu",
+              "website": "https://yongwu.ca/",
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Yeung, Sonny",
+              "name": "Sonny Yeung",
+              "website": "http://sonnyyeung.net/",
+              "social": [],
+              "nominated": "19-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "11",
+          "candidates": [
+            {
+              "ballot_name": "Kennedy, Angela",
+              "name": "Angela Kennedy",
+              "website": null,
+              "social": [],
+              "nominated": "13-May-2026"
+            },
+            {
+              "ballot_name": "Perera, Anton",
+              "name": "Anton Perera",
+              "website": null,
+              "social": [],
+              "nominated": "26-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "2",
+          "candidates": [
+            {
+              "ballot_name": "Fortin, Benoit",
+              "name": "Benoit Fortin",
+              "website": null,
+              "social": [],
+              "nominated": "01-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Dechaine, Rhea",
+              "name": "Rhea Dechaine",
+              "website": "https://rheadechaine.com/",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Gustave, Clescadine",
+              "name": "Clescadine Gustave",
+              "website": null,
+              "social": [],
+              "nominated": "20-May-2026"
+            },
+            {
+              "ballot_name": "McNulty, Derek",
+              "name": "Derek McNulty",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 18,
+      "name": "Willowdale",
+      "councillor": [
+        {
+          "ballot_name": "Cheng, Lily",
+          "name": "Lily Cheng",
+          "website": "https://www.votelilycheng.ca/",
+          "social": [
+            "https://www.facebook.com/LilyChengTO",
+            "https://www.instagram.com/lilychengto"
+          ],
+          "nominated": "27-Jul-2026"
+        },
+        {
+          "ballot_name": "Daneshvar, Nicole",
+          "name": "Nicole Daneshvar",
+          "website": null,
+          "social": [],
+          "nominated": "17-Aug-2026"
+        },
+        {
+          "ballot_name": "Magazzinich, David",
+          "name": "David Magazzinich",
+          "website": null,
+          "social": [],
+          "nominated": "14-Jul-2026"
+        },
+        {
+          "ballot_name": "Shakeri, Hamid",
+          "name": "Hamid Shakeri",
+          "website": "https://hamidshakeri.ca/",
+          "social": [
+            "https://www.linkedin.com/in/hamid-r-shakeri-84538037/",
+            "https://www.instagram.com/votehamidshakeri2026",
+            "https://www.youtube.com/channel/UCgkQ2mTeMEgXS9aZZnAZZrw"
+          ],
+          "nominated": "19-Aug-2026"
+        },
+        {
+          "ballot_name": "Yusifov, Nathan",
+          "name": "Nathan Yusifov",
+          "website": null,
+          "social": [],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Zarezade, Ardeshir",
+          "name": "Ardeshir Zarezade",
+          "website": "https://www.voteardeshir.ca/",
+          "social": [],
+          "nominated": "25-May-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Andrusyak, Ivanna",
+              "name": "Ivanna Andrusyak",
+              "website": null,
+              "social": [],
+              "nominated": "13-May-2026"
+            },
+            {
+              "ballot_name": "Choi, Brandon",
+              "name": "Brandon Choi",
+              "website": "https://www.brandonchoi.ca/",
+              "social": [
+                "https://www.instagram.com/brandonchoi.ca/"
+              ],
+              "nominated": "24-Jul-2026"
+            },
+            {
+              "ballot_name": "Delpero, Anthony",
+              "name": "Anthony Delpero",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Pei, Weidong",
+              "name": "Weidong Pei",
+              "website": "https://www.weidongpei.ca/",
+              "social": [
+                "https://x.com/DrPeiTO"
+              ],
+              "nominated": "04-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "5",
+          "candidates": [
+            {
+              "ballot_name": "Cristiano, Gianfranco",
+              "name": "Gianfranco Cristiano",
+              "website": null,
+              "social": [],
+              "nominated": "06-Aug-2026"
+            },
+            {
+              "ballot_name": "Rizzo, Maria",
+              "name": "Maria Rizzo",
+              "website": null,
+              "social": [],
+              "nominated": "05-Aug-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "2",
+          "candidates": [
+            {
+              "ballot_name": "Fortin, Benoit",
+              "name": "Benoit Fortin",
+              "website": null,
+              "social": [],
+              "nominated": "01-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "Aboungono, Josiane",
+              "name": "Josiane Aboungono",
+              "website": "https://josianeaboungono.com/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Nichilo, Yelena",
+              "name": "Yelena Nichilo",
+              "website": "https://www.voteyelenanichilo.ca/",
+              "social": [],
+              "nominated": "18-Aug-2026"
+            },
+            {
+              "ballot_name": "Ogang, Angela",
+              "name": "Angela Ogang",
+              "website": "https://angelaogang.ca/",
+              "social": [
+                "https://www.facebook.com/profile.php?id=100090677427922",
+                "https://www.toronto.ca/city-government/elections/candidate-list/www.linkedin.com/in/angelaogang",
+                "https://www.x.com/law_ange"
+              ],
+              "nominated": "07-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 19,
+      "name": "Beaches-East York",
+      "councillor": [
+        {
+          "ballot_name": "Ali, Syeda Jaana",
+          "name": "Syeda Jaana Ali",
+          "website": "https://jaanasyedaali.ca/",
+          "social": [
+            "https://www.facebook.com/profile.php?id=61591475914604",
+            "https://x.com/jaanasyeda",
+            "https://www.instagram.com/jaanasyedaali"
+          ],
+          "nominated": "30-Jun-2026"
+        },
+        {
+          "ballot_name": "Dann, James",
+          "name": "James Dann",
+          "website": "https://jamesdann.ca/",
+          "social": [
+            "https://ca.linkedin.com/in/james-douglas-dann",
+            "https://www.instagram.com/james.dann.toronto/"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Erskine-Smith, Nate",
+          "name": "Nate Erskine-Smith",
+          "website": "https://www.nateerskinesmith.ca/",
+          "social": [],
+          "nominated": "19-Aug-2026"
+        },
+        {
+          "ballot_name": "Ibrahimi, Fatima",
+          "name": "Fatima Ibrahimi",
+          "website": "https://www.fatimaward19.ca/",
+          "social": [
+            "https://www.instagram.com/_fatimaibrahimi"
+          ],
+          "nominated": "19-Aug-2026"
+        },
+        {
+          "ballot_name": "Johnson, Natalie",
+          "name": "Natalie Johnson",
+          "website": "https://votenataliejohnson.ca/",
+          "social": [
+            "https://www.facebook.com/people/Natalie-Johnson-for-Beaches-East-York/61589682867338/",
+            "https://www.instagram.com/nataliejohnsontoronto"
+          ],
+          "nominated": "11-May-2026"
+        },
+        {
+          "ballot_name": "Morrison, Kevin",
+          "name": "Kevin Morrison",
+          "website": "https://electkevinmorrison.com/",
+          "social": [
+            "https://www.facebook.com/profile.php?id=61588228466376",
+            "https://www.instagram.com/kmorrison4bey"
+          ],
+          "nominated": "05-May-2026"
+        },
+        {
+          "ballot_name": "Riedel, Karsten",
+          "name": "Karsten Riedel",
+          "website": null,
+          "social": [],
+          "nominated": "20-Aug-2026"
+        },
+        {
+          "ballot_name": "Shabani, Mohammad",
+          "name": "Mohammad Shabani",
+          "website": "https://www.vote4shabani.ca/",
+          "social": [
+            "https://www.facebook.com/vote4shabani",
+            "https://www.instagram.com/vote4shabani/"
+          ],
+          "nominated": "20-Aug-2026"
+        },
+        {
+          "ballot_name": "Smith, Adam",
+          "name": "Adam Smith",
+          "website": "https://www.adamsmithward19.ca/",
+          "social": [
+            "https://www.instagram.com/adamsmith21stc/",
+            "https://www.facebook.com/adamsmith21stc",
+            "https://www.youtube.com/@adamsmith21stc"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Vieira, Austin",
+          "name": "Austin Vieira",
+          "website": null,
+          "social": [
+            "https://www.instagram.com/austinvieira1/",
+            "https://www.facebook.com/profile.php?id=61576284055156"
+          ],
+          "nominated": "07-May-2026"
+        },
+        {
+          "ballot_name": "Wahl, Jeff",
+          "name": "Jeff Wahl",
+          "website": "https://www.jeffwahlbey.com/",
+          "social": [
+            "https://www.instagram.com/votejeff4bey?igsh=bnlqMzIwcTU3d2V6"
+          ],
+          "nominated": "08-May-2026"
+        },
+        {
+          "ballot_name": "Wilkins, Devin",
+          "name": "Devin Wilkins",
+          "website": "https://www.votedevinwilkins.ca/",
+          "social": [
+            "https://www.facebook.com/profile.php?id=61591981551838",
+            "https://www.instagram.com/devin.wilkins7/",
+            "https://www.youtube.com/@WalkWithDevin"
+          ],
+          "nominated": "09-Jun-2026"
+        },
+        {
+          "ballot_name": "Worden, Jennie",
+          "name": "Jennie Worden",
+          "website": "https://www.jennieworden.ca/",
+          "social": [
+            "https://www.facebook.com/beyjennieworden/",
+            "https://www.instagram.com/beyjennieworden/"
+          ],
+          "nominated": "21-May-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "10",
+          "candidates": [
+            {
+              "ballot_name": "Ahmad, Malik",
+              "name": "Malik Ahmad",
+              "website": "https://malikahmad.ca/",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Dewan, Azim",
+              "name": "Azim Dewan",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Emerson, Karen",
+              "name": "Karen Emerson",
+              "website": "https://www.voteemerson.ca/",
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Hassan, Ahnaaf",
+              "name": "Ahnaaf Hassan",
+              "website": "https://www.ahnaafhassan.ca/",
+              "social": [
+                "https://www.facebook.com/ahnaaf4trustee",
+                "https://www.instagram.com/ahnaafhassan",
+                "http://www.linkedin.com/in/ahnaafhassan"
+              ],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Islam, Md Sazibul",
+              "name": "Md Sazibul Islam",
+              "website": null,
+              "social": [],
+              "nominated": "26-Jun-2026"
+            },
+            {
+              "ballot_name": "Kremp, Glenn",
+              "name": "Glenn Kremp",
+              "website": "https://www.glennkremp.com/",
+              "social": [
+                "https://www.instagram.com/glenn.kremp"
+              ],
+              "nominated": "19-Aug-2026"
+            },
+            {
+              "ballot_name": "Li, Shawn",
+              "name": "Shawn Li",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Poirier, Jocelyne",
+              "name": "Jocelyne Poirier",
+              "website": "http://jocelynepoirier.ca/",
+              "social": [
+                "https://www.instagram.com/joce4trustee/",
+                "https://ca.linkedin.com/in/jocelynepoirier",
+                "https://x.com/joce4trustee?s=11"
+              ],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Sterling, Marisa",
+              "name": "Marisa Sterling",
+              "website": "https://www.votesterling.ca/",
+              "social": [
+                "https://www.instagram.com/sterling4trustee/",
+                "https://www.facebook.com/electmarisasterling/",
+                "https://www.linkedin.com/in/marisasterling/"
+              ],
+              "nominated": "19-Aug-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "11",
+          "candidates": [
+            {
+              "ballot_name": "Kennedy, Angela",
+              "name": "Angela Kennedy",
+              "website": null,
+              "social": [],
+              "nominated": "13-May-2026"
+            },
+            {
+              "ballot_name": "Perera, Anton",
+              "name": "Anton Perera",
+              "website": null,
+              "social": [],
+              "nominated": "26-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "3",
+          "candidates": [
+            {
+              "ballot_name": "L'Heureux, Jean-François",
+              "name": "Jean-François L'Heureux",
+              "website": "https://www.jflheureux.ca/",
+              "social": [
+                "https://www.linkedin.com/in/lheureuxjf/",
+                "https://x.com/jf_lheureux",
+                "https://www.instagram.com/jf_lheureux/"
+              ],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Ruszkowski, Anna-Karyna",
+              "name": "Anna-Karyna Ruszkowski",
+              "website": "https://www.votezannakaryna.ca/",
+              "social": [
+                "https://www.facebook.com/votezannakaryna/mentions/",
+                "https://www.instagram.com/votezannakaryna/"
+              ],
+              "nominated": "05-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Dechaine, Rhea",
+              "name": "Rhea Dechaine",
+              "website": "https://rheadechaine.com/",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Gustave, Clescadine",
+              "name": "Clescadine Gustave",
+              "website": null,
+              "social": [],
+              "nominated": "20-May-2026"
+            },
+            {
+              "ballot_name": "McNulty, Derek",
+              "name": "Derek McNulty",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 20,
+      "name": "Scarborough Southwest",
+      "councillor": [
+        {
+          "ballot_name": "Choudhury, Laikul",
+          "name": "Laikul Choudhury",
+          "website": null,
+          "social": [],
+          "nominated": "10-Aug-2026"
+        },
+        {
+          "ballot_name": "Kaid, Naser",
+          "name": "Naser Kaid",
+          "website": null,
+          "social": [],
+          "nominated": "07-Aug-2026"
+        },
+        {
+          "ballot_name": "Kandavel, Parthi",
+          "name": "Parthi Kandavel",
+          "website": "https://parthikandavel.ca/",
+          "social": [
+            "https://www.instagram.com/parthikandavel"
+          ],
+          "nominated": "07-Aug-2026"
+        },
+        {
+          "ballot_name": "Karokis, Ariel-Rachel",
+          "name": "Ariel-Rachel Karokis",
+          "website": null,
+          "social": [
+            "https://www.instagram.com/arielkarokis.ward20?stkn=dDRvb3o1dmppaWl3"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Lisciandro, Luigi",
+          "name": "Luigi Lisciandro",
+          "website": null,
+          "social": [],
+          "nominated": "05-Aug-2026"
+        },
+        {
+          "ballot_name": "Nasrin, Sharmina",
+          "name": "Sharmina Nasrin",
+          "website": "https://www.sharminanasrin.ca/",
+          "social": [
+            "https://www.facebook.com/share/1E1uz8AYew/?mibextid=wwXIfr",
+            "https://www.facebook.com/share/1Jm4gHoA1s/?mibextid=wwXIfr",
+            "https://www.linkedin.com/in/sharmina-nasrin"
+          ],
+          "nominated": "01-Jun-2026"
+        },
+        {
+          "ballot_name": "Reza, Mohammad Ali",
+          "name": "Mohammad Ali Reza",
+          "website": "https://vote4reza.ca/",
+          "social": [],
+          "nominated": "05-Jun-2026"
+        },
+        {
+          "ballot_name": "Rupasinghe, Kevin",
+          "name": "Kevin Rupasinghe",
+          "website": "https://www.kevinrupasinghe.ca/",
+          "social": [
+            "https://www.facebook.com/KevinRupasinghe",
+            "https://www.instagram.com/kevinrupasinghe"
+          ],
+          "nominated": "16-Jun-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "10",
+          "candidates": [
+            {
+              "ballot_name": "Ahmad, Malik",
+              "name": "Malik Ahmad",
+              "website": "https://malikahmad.ca/",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Dewan, Azim",
+              "name": "Azim Dewan",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Emerson, Karen",
+              "name": "Karen Emerson",
+              "website": "https://www.voteemerson.ca/",
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Hassan, Ahnaaf",
+              "name": "Ahnaaf Hassan",
+              "website": "https://www.ahnaafhassan.ca/",
+              "social": [
+                "https://www.facebook.com/ahnaaf4trustee",
+                "https://www.instagram.com/ahnaafhassan",
+                "http://www.linkedin.com/in/ahnaafhassan"
+              ],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Islam, Md Sazibul",
+              "name": "Md Sazibul Islam",
+              "website": null,
+              "social": [],
+              "nominated": "26-Jun-2026"
+            },
+            {
+              "ballot_name": "Kremp, Glenn",
+              "name": "Glenn Kremp",
+              "website": "https://www.glennkremp.com/",
+              "social": [
+                "https://www.instagram.com/glenn.kremp"
+              ],
+              "nominated": "19-Aug-2026"
+            },
+            {
+              "ballot_name": "Li, Shawn",
+              "name": "Shawn Li",
+              "website": null,
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Poirier, Jocelyne",
+              "name": "Jocelyne Poirier",
+              "website": "http://jocelynepoirier.ca/",
+              "social": [
+                "https://www.instagram.com/joce4trustee/",
+                "https://ca.linkedin.com/in/jocelynepoirier",
+                "https://x.com/joce4trustee?s=11"
+              ],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Sterling, Marisa",
+              "name": "Marisa Sterling",
+              "website": "https://www.votesterling.ca/",
+              "social": [
+                "https://www.instagram.com/sterling4trustee/",
+                "https://www.facebook.com/electmarisasterling/",
+                "https://www.linkedin.com/in/marisasterling/"
+              ],
+              "nominated": "19-Aug-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "12",
+          "candidates": [
+            {
+              "ballot_name": "Crawford, Nancy",
+              "name": "Nancy Crawford",
+              "website": null,
+              "social": [],
+              "nominated": "07-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "2",
+          "candidates": [
+            {
+              "ballot_name": "Fortin, Benoit",
+              "name": "Benoit Fortin",
+              "website": null,
+              "social": [],
+              "nominated": "01-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Dechaine, Rhea",
+              "name": "Rhea Dechaine",
+              "website": "https://rheadechaine.com/",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Gustave, Clescadine",
+              "name": "Clescadine Gustave",
+              "website": null,
+              "social": [],
+              "nominated": "20-May-2026"
+            },
+            {
+              "ballot_name": "McNulty, Derek",
+              "name": "Derek McNulty",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 21,
+      "name": "Scarborough Centre",
+      "councillor": [
+        {
+          "ballot_name": "Ahmed, Taiba",
+          "name": "Taiba Ahmed",
+          "website": "https://www.taibafor21.ca/",
+          "social": [
+            "https://www.facebook.com/share/19Gq8BBrxW/",
+            "https://www.instagram.com/taibafor21",
+            "https://www.linkedin.com/in/taibaahmed?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+          ],
+          "nominated": "08-May-2026"
+        },
+        {
+          "ballot_name": "Barahmand, Bahareh",
+          "name": "Bahareh Barahmand",
+          "website": null,
+          "social": [
+            "https://www.instagram.com/bahareh.barahmand/",
+            "https://www.facebook.com/BaharehBarahmand"
+          ],
+          "nominated": "31-Jul-2026"
+        },
+        {
+          "ballot_name": "Evbagharu, Patience",
+          "name": "Patience Evbagharu",
+          "website": "https://www.patienceinaction.ca/",
+          "social": [],
+          "nominated": "24-Jun-2026"
+        },
+        {
+          "ballot_name": "Ganesh, Uthish",
+          "name": "Uthish Ganesh",
+          "website": "https://ganeshforward21.ca/",
+          "social": [
+            "https://www.instagram.com/uthishganesh/"
+          ],
+          "nominated": "31-Jul-2026"
+        },
+        {
+          "ballot_name": "Kargiannakis, Stella",
+          "name": "Stella Kargiannakis",
+          "website": "https://www.citizenreview.ca/",
+          "social": [],
+          "nominated": "06-Aug-2026"
+        },
+        {
+          "ballot_name": "Lalla, Akina",
+          "name": "Akina Lalla",
+          "website": null,
+          "social": [],
+          "nominated": "24-Jul-2026"
+        },
+        {
+          "ballot_name": "Nisha Kumari,",
+          "name": "Nisha Kumari,",
+          "website": null,
+          "social": [
+            "https://www.instagram.com/voicewithnisha?stkn=MWpwa2I4cTVnbnJkNw%3D%3D&utm_source=qr"
+          ],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Reodica, Willie",
+          "name": "Willie Reodica",
+          "website": "https://willie.reodica.ca/",
+          "social": [],
+          "nominated": "07-Aug-2026"
+        },
+        {
+          "ballot_name": "Shanmugaratnam, Madura",
+          "name": "Madura Shanmugaratnam",
+          "website": "https://madura4ward21.ca/",
+          "social": [
+            "https://www.instagram.com/madura4ward21"
+          ],
+          "nominated": "11-May-2026"
+        },
+        {
+          "ballot_name": "Thompson, Michael",
+          "name": "Michael Thompson",
+          "website": "https://www.reelectmichaelthompson.ca/",
+          "social": [
+            "https://www.instagram.com/michaelthompsonto/"
+          ],
+          "nominated": "22-Jul-2026"
+        },
+        {
+          "ballot_name": "Veerasingam, Krissan",
+          "name": "Krissan Veerasingam",
+          "website": "https://www.krissan4scarb.ca/",
+          "social": [
+            "https://www.facebook.com/krissan4scarb",
+            "https://www.instagram.com/krissan4scarb"
+          ],
+          "nominated": "01-May-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "11",
+          "candidates": [
+            {
+              "ballot_name": "Deus, Dedan",
+              "name": "Dedan Deus",
+              "website": null,
+              "social": [],
+              "nominated": "10-Aug-2026"
+            },
+            {
+              "ballot_name": "Grant, Angus",
+              "name": "Angus Grant",
+              "website": null,
+              "social": [
+                "https://www.linkedin.com/in/angusgrant/"
+              ],
+              "nominated": "17-Aug-2026"
+            },
+            {
+              "ballot_name": "Halstead, Dameon",
+              "name": "Dameon Halstead",
+              "website": "https://dameonhalstead.ca/",
+              "social": [],
+              "nominated": "09-Jun-2026"
+            },
+            {
+              "ballot_name": "Jack, Curtis",
+              "name": "Curtis Jack",
+              "website": "https://www.votecurtisjack.ca/",
+              "social": [
+                "https://www.instagram.com/votecurtisjack/",
+                "https://www.linkedin.com/in/cujack/"
+              ],
+              "nominated": "29-Jul-2026"
+            },
+            {
+              "ballot_name": "Mohammed, Abdul Azeem",
+              "name": "Abdul Azeem Mohammed",
+              "website": "https://www.voteazeem.ca/",
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Ravinthiran, Ravicha",
+              "name": "Ravicha Ravinthiran",
+              "website": "https://ravicharavi.ca/",
+              "social": [
+                "https://www.linkedin.com/in/ravicharavi/",
+                "https://www.instagram.com/ravicharavi/"
+              ],
+              "nominated": "05-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "7",
+          "candidates": [
+            {
+              "ballot_name": "DiNova, Celine",
+              "name": "Celine DiNova",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Largo, Marissa",
+              "name": "Marissa Largo",
+              "website": "https://trusteelargo.ca/",
+              "social": [
+                "https://www.instagram.com/trusteelargo/",
+                "https://www.facebook.com/people/Elect-Marissa-Largo-for-TCDSB-Trustee-Ward-7/61593869284368/"
+              ],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Rodriguez, Gregory",
+              "name": "Gregory Rodriguez",
+              "website": "https://rodriguez4trustee.david-064.workers.dev/",
+              "social": [],
+              "nominated": "27-Jul-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "2",
+          "candidates": [
+            {
+              "ballot_name": "Fortin, Benoit",
+              "name": "Benoit Fortin",
+              "website": null,
+              "social": [],
+              "nominated": "01-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Dechaine, Rhea",
+              "name": "Rhea Dechaine",
+              "website": "https://rheadechaine.com/",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Gustave, Clescadine",
+              "name": "Clescadine Gustave",
+              "website": null,
+              "social": [],
+              "nominated": "20-May-2026"
+            },
+            {
+              "ballot_name": "McNulty, Derek",
+              "name": "Derek McNulty",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 22,
+      "name": "Scarborough-Agincourt",
+      "councillor": [
+        {
+          "ballot_name": "Azad, Madhuri",
+          "name": "Madhuri Azad",
+          "website": "https://www.madhuriazad.ca/",
+          "social": [],
+          "nominated": "19-May-2026"
+        },
+        {
+          "ballot_name": "Chan, Bill",
+          "name": "Bill Chan",
+          "website": null,
+          "social": [],
+          "nominated": "15-Jul-2026"
+        },
+        {
+          "ballot_name": "Ho, Jackson",
+          "name": "Jackson Ho",
+          "website": "https://www.voteforjackson.ca/",
+          "social": [
+            "https://www.facebook.com/profile.php?id=61590462034283",
+            "https://www.instagram.com/jax.ho/",
+            "https://www.youtube.com/channel/UCfGJV0v7dqAMKLaD8ITP2kg"
+          ],
+          "nominated": "12-Jun-2026"
+        },
+        {
+          "ballot_name": "Khatchadourian, Serge",
+          "name": "Serge Khatchadourian",
+          "website": "https://www.4ward22.ca/",
+          "social": [],
+          "nominated": "20-Aug-2026"
+        },
+        {
+          "ballot_name": "Kotecha, Rakhee",
+          "name": "Rakhee Kotecha",
+          "website": "https://www.letsdobetterto.ca/",
+          "social": [],
+          "nominated": "22-Jul-2026"
+        },
+        {
+          "ballot_name": "Lal, Aaron",
+          "name": "Aaron Lal",
+          "website": null,
+          "social": [
+            "https://www.facebook.com/people/Scarborough-agincourt-election/61572891562671/"
+          ],
+          "nominated": "20-Aug-2026"
+        },
+        {
+          "ballot_name": "Lovell, Dan",
+          "name": "Dan Lovell",
+          "website": "https://danlovell.ca/",
+          "social": [
+            "https://www.facebook.com/DanLovell4Ward22",
+            "https://www.youtube.com/@DanLovell4Ward22",
+            "https://www.instagram.com/danlovellscarboroughagincourt/"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Mantas, Nick",
+          "name": "Nick Mantas",
+          "website": null,
+          "social": [],
+          "nominated": "20-Jul-2026"
+        },
+        {
+          "ballot_name": "Morgan, Donny",
+          "name": "Donny Morgan",
+          "website": "https://www.donnymorgan.ca/",
+          "social": [
+            "https://www.instagram.com/donnymorgancouncilor"
+          ],
+          "nominated": "19-Jun-2026"
+        },
+        {
+          "ballot_name": "Vijayarajan, Sindia",
+          "name": "Sindia Vijayarajan",
+          "website": "https://www.sindia.ca/",
+          "social": [
+            "https://www.instagram.com/sindia.ca",
+            "https://www.facebook.com/people/Sindia-Vijayarajan/61595274055163/",
+            "https://www.tiktok.com/@sindia.ca"
+          ],
+          "nominated": "20-Aug-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "9",
+          "candidates": [
+            {
+              "ballot_name": "De Pass, Carey",
+              "name": "Carey De Pass",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Mammoliti, Christopher",
+              "name": "Christopher Mammoliti",
+              "website": "https://mammolitifortrustee.ca/",
+              "social": [],
+              "nominated": "01-Jun-2026"
+            },
+            {
+              "ballot_name": "Wu, Bill",
+              "name": "Bill Wu",
+              "website": "https://yongwu.ca/",
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Yeung, Sonny",
+              "name": "Sonny Yeung",
+              "website": "http://sonnyyeung.net/",
+              "social": [],
+              "nominated": "19-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "7",
+          "candidates": [
+            {
+              "ballot_name": "DiNova, Celine",
+              "name": "Celine DiNova",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Largo, Marissa",
+              "name": "Marissa Largo",
+              "website": "https://trusteelargo.ca/",
+              "social": [
+                "https://www.instagram.com/trusteelargo/",
+                "https://www.facebook.com/people/Elect-Marissa-Largo-for-TCDSB-Trustee-Ward-7/61593869284368/"
+              ],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Rodriguez, Gregory",
+              "name": "Gregory Rodriguez",
+              "website": "https://rodriguez4trustee.david-064.workers.dev/",
+              "social": [],
+              "nominated": "27-Jul-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "2",
+          "candidates": [
+            {
+              "ballot_name": "Fortin, Benoit",
+              "name": "Benoit Fortin",
+              "website": null,
+              "social": [],
+              "nominated": "01-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Dechaine, Rhea",
+              "name": "Rhea Dechaine",
+              "website": "https://rheadechaine.com/",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Gustave, Clescadine",
+              "name": "Clescadine Gustave",
+              "website": null,
+              "social": [],
+              "nominated": "20-May-2026"
+            },
+            {
+              "ballot_name": "McNulty, Derek",
+              "name": "Derek McNulty",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 23,
+      "name": "Scarborough North",
+      "councillor": [
+        {
+          "ballot_name": "Chen, Shaun",
+          "name": "Shaun Chen",
+          "website": "https://www.shaunchen.ca/",
+          "social": [
+            "https://www.instagram.com/shaunchento",
+            "https://www.facebook.com/ShaunChenTO/",
+            "https://x.com/ShaunChenTO"
+          ],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Dong, Han",
+          "name": "Han Dong",
+          "website": "https://www.votehandong.ca/",
+          "social": [
+            "https://www.facebook.com/HanDongOntario/",
+            "https://www.instagram.com/handongontario/",
+            "https://x.com/handongontario?lang=en"
+          ],
+          "nominated": "17-Jun-2026"
+        },
+        {
+          "ballot_name": "Javed, Sajawal",
+          "name": "Sajawal Javed",
+          "website": null,
+          "social": [
+            "https://www.instagram.com/sajdhillon/"
+          ],
+          "nominated": "15-Jul-2026"
+        },
+        {
+          "ballot_name": "Li, Kevin",
+          "name": "Kevin Li",
+          "website": "https://www.votekevinli.com/",
+          "social": [
+            "https://www.instagram.com/votekevinli/"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Myers, Jamaal",
+          "name": "Jamaal Myers",
+          "website": "https://www.electjamaalmyers.com/",
+          "social": [
+            "https://www.instagram.com/electjamaalmyers/",
+            "https://www.facebook.com/electjamaalmyers",
+            "https://www.tiktok.com/@electjamaalmyers"
+          ],
+          "nominated": "19-May-2026"
+        },
+        {
+          "ballot_name": "Oleh, John-Mark",
+          "name": "John-Mark Oleh",
+          "website": "https://www.johnmarkoleh.ca/",
+          "social": [
+            "https://x.com/johnmarkoleh?s=11",
+            "https://www.instagram.com/johnmarkoleh?utm_source=qr"
+          ],
+          "nominated": "14-Jul-2026"
+        },
+        {
+          "ballot_name": "Phen, Ronald",
+          "name": "Ronald Phen",
+          "website": null,
+          "social": [],
+          "nominated": "19-Aug-2026"
+        },
+        {
+          "ballot_name": "Sathiyanantham, Piravena",
+          "name": "Piravena Sathiyanantham",
+          "website": null,
+          "social": [
+            "https://www.instagram.com/piravena_sathiy/",
+            "https://www.facebook.com/profile.php?id=61594264563390"
+          ],
+          "nominated": "20-Aug-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "11",
+          "candidates": [
+            {
+              "ballot_name": "Deus, Dedan",
+              "name": "Dedan Deus",
+              "website": null,
+              "social": [],
+              "nominated": "10-Aug-2026"
+            },
+            {
+              "ballot_name": "Grant, Angus",
+              "name": "Angus Grant",
+              "website": null,
+              "social": [
+                "https://www.linkedin.com/in/angusgrant/"
+              ],
+              "nominated": "17-Aug-2026"
+            },
+            {
+              "ballot_name": "Halstead, Dameon",
+              "name": "Dameon Halstead",
+              "website": "https://dameonhalstead.ca/",
+              "social": [],
+              "nominated": "09-Jun-2026"
+            },
+            {
+              "ballot_name": "Jack, Curtis",
+              "name": "Curtis Jack",
+              "website": "https://www.votecurtisjack.ca/",
+              "social": [
+                "https://www.instagram.com/votecurtisjack/",
+                "https://www.linkedin.com/in/cujack/"
+              ],
+              "nominated": "29-Jul-2026"
+            },
+            {
+              "ballot_name": "Mohammed, Abdul Azeem",
+              "name": "Abdul Azeem Mohammed",
+              "website": "https://www.voteazeem.ca/",
+              "social": [],
+              "nominated": "20-Aug-2026"
+            },
+            {
+              "ballot_name": "Ravinthiran, Ravicha",
+              "name": "Ravicha Ravinthiran",
+              "website": "https://ravicharavi.ca/",
+              "social": [
+                "https://www.linkedin.com/in/ravicharavi/",
+                "https://www.instagram.com/ravicharavi/"
+              ],
+              "nominated": "05-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "8",
+          "candidates": [
+            {
+              "ballot_name": "Allen, Carla",
+              "name": "Carla Allen",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Paul, Mary Cury",
+              "name": "Mary Cury Paul",
+              "website": "https://www.maryfortrustee.ca/",
+              "social": [
+                "https://www.facebook.com/share/1CUBYzj18q/",
+                "https://www.instagram.com/mary_trustee?stkn=MWJiMHVmNDdwMzFkeQ=="
+              ],
+              "nominated": "17-Aug-2026"
+            },
+            {
+              "ballot_name": "Tanuan, Garry",
+              "name": "Garry Tanuan",
+              "website": null,
+              "social": [],
+              "nominated": "12-Aug-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "2",
+          "candidates": [
+            {
+              "ballot_name": "Fortin, Benoit",
+              "name": "Benoit Fortin",
+              "website": null,
+              "social": [],
+              "nominated": "01-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Dechaine, Rhea",
+              "name": "Rhea Dechaine",
+              "website": "https://rheadechaine.com/",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Gustave, Clescadine",
+              "name": "Clescadine Gustave",
+              "website": null,
+              "social": [],
+              "nominated": "20-May-2026"
+            },
+            {
+              "ballot_name": "McNulty, Derek",
+              "name": "Derek McNulty",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 24,
+      "name": "Scarborough-Guildwood",
+      "councillor": [
+        {
+          "ballot_name": "Ainslie, Paul",
+          "name": "Paul Ainslie",
+          "website": "https://www.voteainslie.ca/",
+          "social": [
+            "https://x.com/voteainslie",
+            "https://www.instagram.com/ward24ainslie",
+            "https://www.facebook.com/people/Paul-Ainslie/pfbid0qXCuCKNHyR25EPkXuWurYUPN43f9q6vNkbFdZLkfUNQhXHBt1PR9VGhFGD14XUTpl/"
+          ],
+          "nominated": "29-Jul-2026"
+        },
+        {
+          "ballot_name": "Bazil, Robert",
+          "name": "Robert Bazil",
+          "website": "https://www.voterobertbazilscarboroughguildwood.ca/",
+          "social": [
+            "https://www.facebook.com/people/RobertBazil4Scarborough-Guildwood/61593570782812/"
+          ],
+          "nominated": "20-Aug-2026"
+        },
+        {
+          "ballot_name": "Mulamalla, Jithender",
+          "name": "Jithender Mulamalla",
+          "website": null,
+          "social": [],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Ramasamy, Nachi",
+          "name": "Nachi Ramasamy",
+          "website": null,
+          "social": [],
+          "nominated": "14-Aug-2026"
+        },
+        {
+          "ballot_name": "Sivanandan, Arun",
+          "name": "Arun Sivanandan",
+          "website": null,
+          "social": [
+            "https://www.instagram.com/arunsivanandan_for_ward24"
+          ],
+          "nominated": "21-Aug-2026"
+        },
+        {
+          "ballot_name": "Wu, An",
+          "name": "An Wu",
+          "website": null,
+          "social": [],
+          "nominated": "19-Aug-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "12",
+          "candidates": [
+            {
+              "ballot_name": "Ansari, Safiya",
+              "name": "Safiya Ansari",
+              "website": null,
+              "social": [],
+              "nominated": "09-Jun-2026"
+            },
+            {
+              "ballot_name": "Frake, Darren",
+              "name": "Darren Frake",
+              "website": null,
+              "social": [],
+              "nominated": "17-Aug-2026"
+            },
+            {
+              "ballot_name": "Garcia, Aria",
+              "name": "Aria Garcia",
+              "website": "https://www.podomatic.com/podcasts/mariagarciaremerata",
+              "social": [
+                "https://www.x.com/Ariamg2026"
+              ],
+              "nominated": "05-May-2026"
+            },
+            {
+              "ballot_name": "McBean, Gary",
+              "name": "Gary McBean",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            },
+            {
+              "ballot_name": "Nantheeswarar, Vimuththan",
+              "name": "Vimuththan Nantheeswarar",
+              "website": "https://www.voteforwe.ca/",
+              "social": [],
+              "nominated": "10-Aug-2026"
+            },
+            {
+              "ballot_name": "Purohit, Ketan",
+              "name": "Ketan Purohit",
+              "website": "https://www.ketanpurohit.ca/",
+              "social": [
+                "https://www.facebook.com/share/1PXbDRo6CG/"
+              ],
+              "nominated": "25-May-2026"
+            },
+            {
+              "ballot_name": "Sriskandarajah, Anu",
+              "name": "Anu Sriskandarajah",
+              "website": null,
+              "social": [
+                "https://www.instagram.com/dr.anu.sriskandarajah/"
+              ],
+              "nominated": "17-Aug-2026"
+            },
+            {
+              "ballot_name": "Williams, Sherri",
+              "name": "Sherri Williams",
+              "website": null,
+              "social": [],
+              "nominated": "11-Aug-2026"
+            },
+            {
+              "ballot_name": "Wilson, Marcia",
+              "name": "Marcia Wilson",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "12",
+          "candidates": [
+            {
+              "ballot_name": "Crawford, Nancy",
+              "name": "Nancy Crawford",
+              "website": null,
+              "social": [],
+              "nominated": "07-May-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "2",
+          "candidates": [
+            {
+              "ballot_name": "Fortin, Benoit",
+              "name": "Benoit Fortin",
+              "website": null,
+              "social": [],
+              "nominated": "01-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Dechaine, Rhea",
+              "name": "Rhea Dechaine",
+              "website": "https://rheadechaine.com/",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Gustave, Clescadine",
+              "name": "Clescadine Gustave",
+              "website": null,
+              "social": [],
+              "nominated": "20-May-2026"
+            },
+            {
+              "ballot_name": "McNulty, Derek",
+              "name": "Derek McNulty",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ward": 25,
+      "name": "Scarborough-Rouge Park",
+      "councillor": [
+        {
+          "ballot_name": "Allen, Shawn",
+          "name": "Shawn Allen",
+          "website": "https://electshawnallen.ca/",
+          "social": [
+            "https://www.linkedin.com/in/shawn-e-allen"
+          ],
+          "nominated": "01-May-2026"
+        },
+        {
+          "ballot_name": "Casinathen, Dharshan",
+          "name": "Dharshan Casinathen",
+          "website": "https://www.torontoward25.ca/",
+          "social": [],
+          "nominated": "17-Aug-2026"
+        },
+        {
+          "ballot_name": "Fernando, Ashan",
+          "name": "Ashan Fernando",
+          "website": "https://electashanfernando.ca/",
+          "social": [
+            "https://www.tiktok.com/@officialashanfernando?_r=1&_t=ZS-97T5AtyogbY",
+            "https://youtube.com/@officialashanfernando?si=nimRsyQ6HVXygsFI",
+            "https://www.facebook.com/share/1LLpSfJszy/?mibextid=wwXIfr"
+          ],
+          "nominated": "22-Jun-2026"
+        },
+        {
+          "ballot_name": "Kaneshapillai, Somas",
+          "name": "Somas Kaneshapillai",
+          "website": null,
+          "social": [],
+          "nominated": "19-Aug-2026"
+        },
+        {
+          "ballot_name": "Lumley, Jannette",
+          "name": "Jannette Lumley",
+          "website": "https://jannettelumley.ca/",
+          "social": [
+            "https://www.toronto.ca/city-government/elections/candidate-list/www.linkedin.com/in/jannette-lumley-677877435"
+          ],
+          "nominated": "15-May-2026"
+        },
+        {
+          "ballot_name": "Patel, Zakir",
+          "name": "Zakir Patel",
+          "website": "https://votezakir.ca/",
+          "social": [
+            "https://www.facebook.com/zakir.patel.90260403/",
+            "https://www.instagram.com/zakir4rouge/",
+            "https://www.tiktok.com/music/original-sound-7551997168861678337"
+          ],
+          "nominated": "20-Jul-2026"
+        },
+        {
+          "ballot_name": "Robinson, Dianna",
+          "name": "Dianna Robinson",
+          "website": null,
+          "social": [],
+          "nominated": "17-Aug-2026"
+        },
+        {
+          "ballot_name": "S'ree Jr, Kannan",
+          "name": "Kannan S'ree Jr",
+          "website": null,
+          "social": [],
+          "nominated": "19-Aug-2026"
+        },
+        {
+          "ballot_name": "Shan, Neethan",
+          "name": "Neethan Shan",
+          "website": "https://neethanshan.ca/",
+          "social": [
+            "https://www.instagram.com/Neethan",
+            "https://www.facebook.com/neethan.shan/",
+            "https://x.com/neethanshan"
+          ],
+          "nominated": "15-Jul-2026"
+        },
+        {
+          "ballot_name": "Stavrev, Vane",
+          "name": "Vane Stavrev",
+          "website": null,
+          "social": [],
+          "nominated": "18-Aug-2026"
+        }
+      ],
+      "trustees": [
+        {
+          "board": "TDSB",
+          "kind": "English public",
+          "board_ward": "12",
+          "candidates": [
+            {
+              "ballot_name": "Ansari, Safiya",
+              "name": "Safiya Ansari",
+              "website": null,
+              "social": [],
+              "nominated": "09-Jun-2026"
+            },
+            {
+              "ballot_name": "Frake, Darren",
+              "name": "Darren Frake",
+              "website": null,
+              "social": [],
+              "nominated": "17-Aug-2026"
+            },
+            {
+              "ballot_name": "Garcia, Aria",
+              "name": "Aria Garcia",
+              "website": "https://www.podomatic.com/podcasts/mariagarciaremerata",
+              "social": [
+                "https://www.x.com/Ariamg2026"
+              ],
+              "nominated": "05-May-2026"
+            },
+            {
+              "ballot_name": "McBean, Gary",
+              "name": "Gary McBean",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            },
+            {
+              "ballot_name": "Nantheeswarar, Vimuththan",
+              "name": "Vimuththan Nantheeswarar",
+              "website": "https://www.voteforwe.ca/",
+              "social": [],
+              "nominated": "10-Aug-2026"
+            },
+            {
+              "ballot_name": "Purohit, Ketan",
+              "name": "Ketan Purohit",
+              "website": "https://www.ketanpurohit.ca/",
+              "social": [
+                "https://www.facebook.com/share/1PXbDRo6CG/"
+              ],
+              "nominated": "25-May-2026"
+            },
+            {
+              "ballot_name": "Sriskandarajah, Anu",
+              "name": "Anu Sriskandarajah",
+              "website": null,
+              "social": [
+                "https://www.instagram.com/dr.anu.sriskandarajah/"
+              ],
+              "nominated": "17-Aug-2026"
+            },
+            {
+              "ballot_name": "Williams, Sherri",
+              "name": "Sherri Williams",
+              "website": null,
+              "social": [],
+              "nominated": "11-Aug-2026"
+            },
+            {
+              "ballot_name": "Wilson, Marcia",
+              "name": "Marcia Wilson",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            }
+          ]
+        },
+        {
+          "board": "TCDSB",
+          "kind": "English Catholic",
+          "board_ward": "8",
+          "candidates": [
+            {
+              "ballot_name": "Allen, Carla",
+              "name": "Carla Allen",
+              "website": null,
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Paul, Mary Cury",
+              "name": "Mary Cury Paul",
+              "website": "https://www.maryfortrustee.ca/",
+              "social": [
+                "https://www.facebook.com/share/1CUBYzj18q/",
+                "https://www.instagram.com/mary_trustee?stkn=MWJiMHVmNDdwMzFkeQ=="
+              ],
+              "nominated": "17-Aug-2026"
+            },
+            {
+              "ballot_name": "Tanuan, Garry",
+              "name": "Garry Tanuan",
+              "website": null,
+              "social": [],
+              "nominated": "12-Aug-2026"
+            }
+          ]
+        },
+        {
+          "board": "Viamonde",
+          "kind": "French public",
+          "board_ward": "2",
+          "candidates": [
+            {
+              "ballot_name": "Fortin, Benoit",
+              "name": "Benoit Fortin",
+              "website": null,
+              "social": [],
+              "nominated": "01-Jun-2026"
+            }
+          ]
+        },
+        {
+          "board": "MonAvenir",
+          "kind": "French Catholic",
+          "board_ward": "4",
+          "candidates": [
+            {
+              "ballot_name": "Dechaine, Rhea",
+              "name": "Rhea Dechaine",
+              "website": "https://rheadechaine.com/",
+              "social": [],
+              "nominated": "21-Aug-2026"
+            },
+            {
+              "ballot_name": "Gustave, Clescadine",
+              "name": "Clescadine Gustave",
+              "website": null,
+              "social": [],
+              "nominated": "20-May-2026"
+            },
+            {
+              "ballot_name": "McNulty, Derek",
+              "name": "Derek McNulty",
+              "website": null,
+              "social": [],
+              "nominated": "19-Aug-2026"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

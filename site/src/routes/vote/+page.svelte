@@ -81,7 +81,7 @@
 		if (r.some((x) => x.text.startsWith('Mayor'))) return 'Current mayor';
 		if (r.some((x) => x.text.startsWith('City Councillor'))) return 'City councillor';
 		if (r.some((x) => x.text.includes('2023'))) return 'Ran in 2023';
-		return 'First run for mayor';
+		return 'First run';
 	};
 	function onKey(e: KeyboardEvent) {
 		if (open === null) return;
@@ -187,16 +187,15 @@
 {:else if step === 3}
 <section class="wide meet">
 	<h2 class="head"><span class="stopno sans">Stop 3 · Meet the candidates</span>Everyone running for mayor with a campaign website</h2>
-	<p class="lede sans">{withSite.length} candidates, in ballot order (alphabetical by last name). Tap anyone to see who they are, what they stand for, their numbers and their links.</p>
+	<p class="lede sans">{withSite.length} candidates in ballot order. Tap anyone to open their card.</p>
 	<div class="legend sans">{#each Object.entries(TOPIC) as [k, label] (k)}<span><i style="background:{TOPIC_COLOR[k as keyof typeof TOPIC]}"></i>{label}</span>{/each}</div>
 	<ul class="tiles sans">
 		{#each withSite as c, i (c.ballot_name)}
 			<li>
 				<button class="tile" onclick={() => (open = i)} aria-label="Open {displayName(c.ballot_name)}">
 					<span class="ini">{initials(c.ballot_name)}</span>
-					<span class="nm">{displayName(c.ballot_name)}{#if pins.includes(c.ballot_name)} <span class="pinmark" title="Pinned">●</span>{/if}</span>
-					<span class="sub">{firstLine(c.ballot_name)}{profileOf(c.ballot_name)?.note ? ' · campaign ended' : ''}</span>
-					<span class="dots">{#each topicsOf(c.ballot_name) as t (t)}<i style="background:{TOPIC_COLOR[t]}" title={TOPIC[t]}></i>{/each}</span>
+					<span class="nm"><span class="full">{displayName(c.ballot_name)}</span><span class="ln">{c.ballot_name.split(',')[0]}</span>{#if pins.includes(c.ballot_name)} <span class="pinmark" title="Pinned">●</span>{/if}</span>
+					<span class="sub">{firstLine(c.ballot_name)}{profileOf(c.ballot_name)?.note ? ' · ended' : ''}<span class="dots" aria-hidden="true">{#each topicsOf(c.ballot_name) as t (t)}<i style="background:{TOPIC_COLOR[t]}"></i>{/each}</span></span>
 				</button>
 			</li>
 		{/each}
@@ -224,9 +223,9 @@
 {:else if step === 5}
 <section class="stop wide wardstop">
 	<h2 class="head"><span class="stopno sans">Stop 5 · Your ward</span>Who's running in your ward?</h2>
-	<p class="wardp sans">You also vote for a city councillor in your ward.
+	<p class="wardp sans">You also pick a city councillor and a school board trustee for your ward.
 		<a href="https://www.toronto.ca/city-government/data-research-maps/neighbourhoods-communities/ward-profiles/" target="_blank" rel="noopener">Not sure of your ward? ↗</a></p>
-	<TorontoWardMap listUrl="https://www.toronto.ca/city-government/elections/candidate-list/#tabCouncillor" guided={data.wards.filter((w) => w.scarborough).map((w) => w.ward)} />
+	<TorontoWardMap listUrl="https://www.toronto.ca/city-government/elections/candidate-list/" chartUrl={data.official?.school_chart.url ?? ''} races={data.races} guided={data.wards.filter((w) => w.scarborough).map((w) => w.ward)} />
 </section>
 {:else}
 <section class="stop wide exit">
@@ -318,7 +317,8 @@
 	.quiz h2 { font-size: clamp(24px, 3.5vw, 30px); margin: 0 0 4px; }
 	@media (max-width: 600px) { .quiz { padding-top: 20px; } .hall { margin-top: 4vh; } }
 	@media (prefers-reduced-motion: reduce) { .screenwrap { animation: none; } }
-	.meet { padding-top: 32px; }
+	.meet { padding-top: 24px; }
+	.meet .legend { margin: 6px 0 12px; }
 	.charts { display: grid; grid-template-columns: 1fr 1.2fr; gap: 14px; margin: 16px 0 10px; }
 	.chart { margin: 0; background: #fff; border: 1px solid var(--rule); border-radius: 16px; padding: 14px 16px 10px; }
 	figcaption { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
@@ -341,15 +341,16 @@
 	.decisions .tag { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: var(--ink); color: #fff; border-radius: 4px; padding: 2px 6px; margin-right: 6px; }
 	.legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--mute); margin: 10px 0 12px; }
 	.legend i, .dots i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 4px; vertical-align: 0; }
-	.tiles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
-	.tile { font: inherit; width: 100%; height: 100%; text-align: left; display: grid; grid-template-columns: 42px 1fr; grid-template-rows: auto auto auto; column-gap: 10px; align-items: center; background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 12px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
+	.tiles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+	.tile { font: inherit; width: 100%; height: 100%; text-align: left; display: grid; grid-template-columns: 34px 1fr; grid-template-rows: auto auto; column-gap: 10px; align-items: center; background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 8px 10px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
 	.tile:hover, .tile:focus-visible { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); border-color: #bdb8ad; }
-	.ini { grid-row: 1 / 4; width: 42px; height: 42px; border-radius: 50%; background: #2b2b2b; color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 15px; letter-spacing: 0.5px; }
-	.nm { font-weight: 700; font-size: 15px; line-height: 1.2; }
+	.ini { grid-row: 1 / 3; width: 34px; height: 34px; border-radius: 50%; background: #2b2b2b; color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 12.5px; letter-spacing: 0.5px; }
+	.nm { font-weight: 700; font-size: 14px; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+	.nm .ln { display: none; }
 	.pinmark { color: #da251d; font-size: 10px; }
-	.sub { font-size: 12px; color: var(--mute); }
-	.dots { display: flex; gap: 2px; margin-top: 3px; min-height: 9px; }
-	.dots i { margin: 0; }
+	.sub { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--mute); white-space: nowrap; overflow: hidden; }
+	.dots { display: inline-flex; gap: 2px; }
+	.dots i { margin: 0; width: 7px; height: 7px; }
 	.overlay { position: fixed; inset: 0; z-index: 50; background: rgba(20, 20, 20, 0.45); backdrop-filter: blur(3px); display: grid; place-items: center; padding: 16px; animation: fade 0.2s ease; }
 	@keyframes fade { from { opacity: 0; } }
 	.sheet { width: min(480px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; }
@@ -358,7 +359,18 @@
 	.sheetnav button:disabled { opacity: 0.35; cursor: default; }
 	.sheetnav .close { margin-left: auto; font-size: 15px; }
 	.sheet :global(.card) { max-width: none; }
-	@media (max-width: 600px) { .tiles { grid-template-columns: 1fr 1fr; gap: 8px; } .tile { grid-template-columns: 1fr; padding: 10px; } .ini { grid-row: auto; width: 34px; height: 34px; font-size: 13px; margin-bottom: 6px; } .nm { font-size: 14px; } }
+	@media (max-width: 900px) { .tiles { grid-template-columns: repeat(4, 1fr); } }
+	@media (max-width: 600px) {
+		.tiles { grid-template-columns: repeat(5, 1fr); gap: 6px; }
+		.tile { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: 8px 2px; row-gap: 4px; }
+		.ini { grid-row: auto; width: 32px; height: 32px; font-size: 12px; }
+		.nm { font-size: 11px; max-width: 100%; }
+		.nm .full { display: none; } .nm .ln { display: inline; }
+		.sub { font-size: 0; justify-content: center; }
+		.meet .legend { gap: 8px; font-size: 11px; margin: 4px 0 8px; }
+		.meet h2 { font-size: 24px; }
+		.meet .lede { font-size: 15px; }
+	}
 	@media (prefers-reduced-motion: reduce) { .tile, .overlay { transition: none; animation: none; } }
 	.also { list-style: none; padding: 0; margin: 12px 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px; font-size: 13px; }
 	.also li { background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px; }
@@ -376,7 +388,8 @@
 	.vote3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; font-size: 14px; line-height: 1.4; }
 	.vote3 div { background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 10px 12px; }
 	.vote3 b { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #da251d; margin-bottom: 2px; }
-	.wardp { font-size: 15px; color: var(--ink-2); margin: 4px 0 12px; }
+	.wardp { font-size: 15px; color: var(--ink-2); margin: 4px 0 8px; }
+	.wardstop { padding-top: 20px; }
 	.wardp a { font-size: 12px; color: var(--mute); }
 	.method summary { cursor: pointer; }
 	.hint { font-size: 12px; color: var(--mute); }
