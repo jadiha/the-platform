@@ -61,7 +61,6 @@
 		{ year: 2026, bill: 'toronto.property-tax.2026.avg-bill', inc: 'toronto.property-tax.2026.increase' }
 	].map((y) => ({ ...y, v: num(y.bill) }));
 	const billMax = Math.max(...billYears.map((y) => y.v));
-	const billMin = Math.min(...billYears.map((y) => y.v));
 	const bigBudgets = [
 		{ id: 'toronto.ttc.2026.gross', label: 'TTC', color: '#2f5d9b' },
 		{ id: 'toronto.police.2026.gross', label: 'Police', color: '#7a5c99' },
@@ -160,13 +159,13 @@
 					<div class="step">
 						<span class="val"><Fact id={y.bill} /></span>
 						{#if i > 0}<span class="jump">+${(y.v - billYears[i - 1].v).toLocaleString('en-CA')}</span>{/if}
-						<div class="bar" style="height:{16 + ((y.v - billMin) / (billMax - billMin)) * 64}px"></div>
+						<div class="bar" style="height:{(y.v / billMax) * 90}px"></div>
 						<span class="yr">{y.year}</span>
 						<span class="pc">up <Fact id={y.inc} plain /></span>
 					</div>
 				{/each}
 			</div>
-			<p class="note">Renters pay it too, inside their rent. Bars don't start at zero.</p>
+			<p class="note">Renters pay it too, inside their rent.</p>
 		</figure>
 		<figure class="chart">
 			<figcaption>Where the biggest City budgets go, 2026</figcaption>
@@ -184,7 +183,7 @@
 	</div>
 	<div class="who sans">
 		<p><b>Who decided</b> Mayor Olivia Chow proposed each of these budgets, and City Council approved them. <a href="https://www.toronto.ca/news/city-of-torontos-2026-budget-now-final-focuses-on-affordability-service-stability-and-financial-sustainability/" target="_blank" rel="noopener">proof ↗</a></p>
-		<p><b>Your TTC fare</b> <Fact id="toronto.ttc.fares.2026" plain />, and free after <Fact id="toronto.ttc.fare-cap.2026" plain /> paid trips in a month. <a href={facts['toronto.ttc.fares.2026']?.primary.url} target="_blank" rel="noopener">proof ↗</a></p>
+		<p><b>Your TTC fare</b> Fares are <Fact id="toronto.ttc.fares.2026" plain />, and rides are free after <Fact id="toronto.ttc.fare-cap.2026" plain /> paid trips in a month. <a href={facts['toronto.ttc.fares.2026']?.primary.url} target="_blank" rel="noopener">proof ↗</a></p>
 	</div>
 </section>
 {:else if step === 3}
