@@ -23,8 +23,8 @@
 </script>
 
 <svelte:head>
-	<title>Sources and methods · Next Stop: Ballot</title>
-	<meta name="description" content="Every dataset behind Next Stop: Ballot, how we grouped spending into categories, and what we know we can't show yet." />
+	<title>Sources and methods · The 6ix Votes</title>
+	<meta name="description" content="Every dataset behind The 6ix Votes, how we grouped spending into categories, and what we know we can't show yet." />
 </svelte:head>
 
 <div class="wrap page">

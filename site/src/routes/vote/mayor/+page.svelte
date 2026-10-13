@@ -12,7 +12,7 @@
 </script>
 
 <svelte:head>
-	<title>Every candidate for mayor · Toronto 2026 · Next Stop: Ballot</title>
+	<title>Every candidate for mayor · Toronto 2026 · The 6ix Votes</title>
 	<meta name="description" content="Everyone on Toronto's 2026 mayoral ballot, in ballot order, with their campaign links and published promises." />
 </svelte:head>
 

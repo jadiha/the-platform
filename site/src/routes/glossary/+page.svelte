@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>Glossary · Next Stop: Ballot</title>
+	<title>Glossary · The 6ix Votes</title>
 	<meta name="description" content="Budget jargon explained in plain language." />
 </svelte:head>
 

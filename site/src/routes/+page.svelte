@@ -132,7 +132,7 @@
 </script>
 
 <svelte:head>
-	<title>Next Stop: Ballot · where Scarborough’s money goes</title>
+	<title>The 6ix Votes · where Scarborough’s money goes</title>
 	<meta name="description" content="A walk through Scarborough showing how the City of Toronto and the Province of Ontario spend public money, and who decides. Every number is sourced." />
 </svelte:head>
 

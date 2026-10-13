@@ -55,7 +55,7 @@
 </script>
 
 <svelte:head>
-	<title>Explore the budget · Next Stop: Ballot</title>
+	<title>Explore the budget · The 6ix Votes</title>
 	<meta name="description" content="Tap through Ontario's, Toronto's and Scarborough's budgets, from the big categories down to individual programs." />
 </svelte:head>
 
