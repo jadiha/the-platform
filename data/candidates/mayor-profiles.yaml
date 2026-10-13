@@ -225,6 +225,7 @@ profiles:
       - {topic: housing, text: "Provide more housing options and support services", url: "https://www.michaellamoureux.ca/"}
       - {topic: money, text: "Rationalize City spending to prevent budget deficits and reallocate funds to the above priorities", url: "https://www.michaellamoureux.ca/"}
     archive:
+      "https://michaellamoureux.ca/about-michael-lamoureux": "https://web.archive.org/web/20261013203343/https://michaellamoureux.ca/about-michael-lamoureux"
       "https://www.michaellamoureux.ca/": "https://web.archive.org/web/20261013042804/https://michaellamoureux.ca/"
     status: draft
 
@@ -251,6 +252,7 @@ profiles:
       - {topic: safety, text: "Investment in harm reduction and mental health services including a review of emergency response protocols", url: "https://www.odessaformayor.ca/my-fresh-platform"}
       - {topic: housing, text: "Review of predatory residential rental practices and appropriate recourse (i.e. ending bidding wars on rental units)", url: "https://www.odessaformayor.ca/my-fresh-platform"}
     archive:
+      "https://www.odessaformayor.ca/blog/confronting-crime-amp-safety": "https://web.archive.org/web/20261013203508/https://www.odessaformayor.ca/blog/confronting-crime-amp-safety"
       "https://www.odessaformayor.ca/": "https://web.archive.org/web/20261013050436/https://www.odessaformayor.ca/"
     status: draft
 
