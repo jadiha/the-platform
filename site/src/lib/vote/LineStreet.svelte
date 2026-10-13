@@ -2,7 +2,7 @@
 	// The journey bar: one slim line with a streetcar that moves as you scroll, and the current
 	// stop's name. Big stops are places; candidates are small ticks. Colour belongs to the route,
 	// never to a candidate.
-	import Streetcar from './Streetcar.svelte';
+	import SubwayTrain from './SubwayTrain.svelte';
 	let { stops, active, onjump }: { stops: { label: string; big: boolean }[]; active: number; onjump: (i: number) => void } = $props();
 	const at = $derived(Math.max(active, 0));
 	// Places get more room on the route than the candidate stops between them.
@@ -26,7 +26,7 @@
 			{#each stops as s, i (i)}
 				<button class="st" class:big={s.big} class:passed={i <= at} style="left:{pct(i)}%" aria-label="Go to {s.label}" onclick={() => onjump(i)}></button>
 			{/each}
-			<div class="tram" class:back={dir < 0} style="left:{pct(at)}%"><Streetcar width={54} /></div>
+			<div class="tram" class:back={dir < 0} style="left:{pct(at)}%"><SubwayTrain width={54} /></div>
 		</div>
 	</div>
 </nav>
