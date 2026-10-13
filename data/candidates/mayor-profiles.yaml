@@ -112,6 +112,8 @@ profiles:
       - {topic: other, text: "Champion Toronto to become its own Province in Canada and keep more of our tax dollars in Toronto.", url: "https://authorpaulcollinstorontomayor.weebly.com/"}
       - {topic: transit, text: "Have the TTC subway, running more frequently and have it run 24 hours a day and it would be cheaper to use just the subway.", url: "https://authorpaulcollinstorontomayor.weebly.com/"}
       - {topic: transit, text: "Keep Bike Lanes where they are stop wasting tax payers money!", url: "https://authorpaulcollinstorontomayor.weebly.com/"}
+      - {topic: safety, text: "Have more community policing initiatives and expand the Neighborhood Watch program with the Crime Prevention Association of Toronto.", url: "https://authorpaulcollinstorontomayor.weebly.com/"}
+      - {topic: transit, text: "I want all levels of government to sign a pledge not to privatize the TTC.", url: "https://authorpaulcollinstorontomayor.weebly.com/"}
     archive:
       "https://authorpaulcollinstorontomayor.weebly.com/": "https://web.archive.org/web/20261013044558/https://authorpaulcollinstorontomayor.weebly.com/"
     status: draft
@@ -149,9 +151,14 @@ profiles:
     priorities:
       - {topic: housing, text: "THERE ARE FIVE WAYS TO MAKE RENT MORE AFFORDABLE IN TORONTO USING MUNICIPAL INSTRUMENTS.", url: "https://www.deville2026.ca/policy/toronto-rental-affordability"}
       - {topic: housing, text: "Toronto needs to convert under utilized real estate assets into residential properties.", url: "https://www.deville2026.ca/policy/toronto-rental-affordability"}
+      - {topic: housing, text: "Toronto needs to buy two and three story houses, and convert them into micro bachelor units or self contained rooms with a shower and bathroom.", url: "https://www.deville2026.ca/policy/toronto-rental-affordability"}
+      - {topic: money, text: "All of my Municipal Policies are built within the ~$19 Billion Dollar Toronto Operational Budget.", url: "https://www.deville2026.ca/policy/financing-policy"}
+      - {topic: other, text: "Every city owned residential conversion under our broader Cost of Living Strategy includes a rooftop hydroponic tower farm.", url: "https://www.deville2026.ca/policy/toronto-vertical-farms"}
     archive:
       "https://www.deville2026.ca/policy": "https://web.archive.org/web/20261013045917/https://www.deville2026.ca/policy"
       "https://www.deville2026.ca/policy/toronto-rental-affordability": "https://web.archive.org/web/20261013045939/https://www.deville2026.ca/policy/toronto-rental-affordability"
+      "https://www.deville2026.ca/policy/financing-policy": "https://web.archive.org/web/20261013184118/https://www.deville2026.ca/policy/financing-policy"
+      "https://www.deville2026.ca/policy/toronto-vertical-farms": "https://web.archive.org/web/20261013184237/https://www.deville2026.ca/policy/toronto-vertical-farms"
     status: draft
 
   - candidate: "Haider, Faizan"
@@ -186,7 +193,9 @@ profiles:
     priorities:
       - {topic: money, text: "Freeze new municipal debt accumulation and launch a department-by-department budget audit targeting a 15% reduction in operating expenditures by 2027", url: "https://georgioskalkounisformayor.com/"}
       - {topic: housing, text: "Reform the social housing system — limiting it to those in absolute, demonstrable need and converting selected facilities into Youth Hubs and training centers", url: "https://georgioskalkounisformayor.com/"}
-      - {topic: safety, text: "Safe streets. Low taxes. Total accountability.", url: "https://georgioskalkounisformayor.com/"}
+      - {topic: tax, text: "No residential tax increase in 2027.", url: "https://georgioskalkounisformayor.com/"}
+      - {topic: transit, text: "No TTC fare increase in 2027.", url: "https://georgioskalkounisformayor.com/"}
+      - {topic: safety, text: "Establish Toronto as a Zero-Tolerance Crime Zone under a pilot project with special municipal authority, enhanced enforcement, severe and irrevocable penalties, and full intergovernmental coordination.", url: "https://georgioskalkounisformayor.com/"}
     archive:
       "https://georgioskalkounisformayor.com/": "https://web.archive.org/web/20261013045120/https://georgioskalkounisformayor.com/"
     status: draft
@@ -196,8 +205,14 @@ profiles:
     record: []
     priorities:
       - {topic: other, text: "10 million people • 10 million trees", url: "https://www.ambitioustoronto.com/"}
+      - {topic: tax, text: "Remove the land transfer tax so we don’t punish those trying to downsize or those trying to move closer to work", url: "https://www.ambitioustoronto.com/new-page-2"}
+      - {topic: housing, text: "Purchase undesirable condos to expand the public housing capacity", url: "https://www.ambitioustoronto.com/new-page-2"}
+      - {topic: transit, text: "Stop weekend subway closure and determine a better maintenance plan", url: "https://www.ambitioustoronto.com/new-page-3"}
+      - {topic: other, text: "Make 4am last call an easier option to spread when people can congregate", url: "https://www.ambitioustoronto.com/new-page-3"}
     archive:
       "https://www.ambitioustoronto.com/": "https://web.archive.org/web/20261013045737/https://www.ambitioustoronto.com/"
+      "https://www.ambitioustoronto.com/new-page-2": "https://web.archive.org/web/20261013183700/https://www.ambitioustoronto.com/new-page-2"
+      "https://www.ambitioustoronto.com/new-page-3": "https://web.archive.org/web/20261013183829/https://www.ambitioustoronto.com/new-page-3"
     status: draft
 
   - candidate: "Lamoureux, Michael"
@@ -300,11 +315,13 @@ profiles:
   - candidate: "Tang, Weizhen"
     about: {text: "Weizhen Tang is a respected financial strategist known globally as “The Chinese Warren Buffett.”", url: "https://weizhentang.today/"}
     record: [{text: "Ran for mayor in the 2023 by-election: 125 votes", src: by2023}]
-    priorities: []
+    priorities:
+      - {topic: housing, text: "the City must partner with private property owners to upgrade, inspect, and immediately activate existing vacant rooms and multi-tenant housing.", url: "https://weizhentang.today/f/headline%EF%BC%9Asolving-torontos-housing-crisis-why-we-must-activate"}
+      - {topic: housing, text: "Ensure that municipal and provincial shelter allowances are routed directly to housing providers or escrow accounts.", url: "https://weizhentang.today/f/headline%EF%BC%9Asolving-torontos-housing-crisis-why-we-must-activate"}
     archive:
       "https://weizhentang.today/": "https://web.archive.org/web/20261013045710/https://weizhentang.today/"
-    status: checked
-    checked_on: 2026-10-13
+      "https://weizhentang.today/f/headline%EF%BC%9Asolving-torontos-housing-crisis-why-we-must-activate": "https://web.archive.org/web/20261013183956/https://weizhentang.today/f/headline%EF%BC%9Asolving-torontos-housing-crisis-why-we-must-activate"
+    status: draft
 
   - candidate: "Thompson, Joshua"
     about: {text: "I'm Josh Thompson. I'm a comedian.", url: "https://joshthompsonformayor.ca/"}
