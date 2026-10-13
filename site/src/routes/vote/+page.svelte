@@ -101,6 +101,7 @@
 	}
 
 	let shared = $state('');
+	let how = $state(false);
 	async function share() {
 		const text = "I walked through who's running for mayor of Toronto, and what the City actually controls. Election day is Monday, October 26.";
 		const url = location.origin + '/vote/';
@@ -247,11 +248,13 @@
 			<a class="where" href="https://www.toronto.ca/city-government/elections/" target="_blank" rel="noopener">Find where to vote ↗</a>
 		</div>
 	</div>
-	<p class="more sans"><a href="https://www.toronto.ca/city-government/elections/voter-information/who-can-vote/" target="_blank" rel="noopener">Full voting rules ↗</a> · <a href="/vote/mayor/">All {mayor.length} mayoral candidates</a></p>
-	<details class="method sans"><summary>How we made this</summary>
-		On {data.scan?.date ?? 'October 13'}, we read every mayoral campaign website on the City Clerk's certified candidate list. Quotes are copied word for word and link to the exact sentence on the candidate's own site, with a saved copy. Past results come from the City's official declaration. We don't use news reports or opponents' claims, and we don't predict what any promise would do.
-		Spotted a mistake? <a href="/sources/#corrections">Tell us</a>. An independent, non-partisan community project, not affiliated with any government, party or candidate.
-	</details>
+	<p class="more sans">
+		<a href="https://www.toronto.ca/city-government/elections/voter-information/who-can-vote/" target="_blank" rel="noopener">Full voting rules ↗</a>
+		<a href="/vote/mayor/">All {mayor.length} mayoral candidates</a>
+		<button class="how" aria-expanded={how} onclick={() => (how = !how)}>How we made this {how ? '−' : '+'}</button>
+	</p>
+	{#if how}<p class="method sans">On {data.scan?.date ? new Date(data.scan.date).toLocaleDateString('en-CA', { month: 'long', day: 'numeric', timeZone: 'UTC' }) : 'October 13'}, we read every mayoral campaign website on the City Clerk's certified candidate list. Quotes are copied word for word and link to the exact sentence on the candidate's own site, with a saved copy. Past results come from the City's official declaration. Councillor and school trustee candidates come from the City Clerk's certified list. We don't use news reports or opponents' claims, and we don't predict what any promise would do.
+		Spotted a mistake? <a href="/sources/#corrections">Tell us</a>. An independent, non-partisan community project, not affiliated with any government, party or candidate.</p>{/if}
 </section>
 {/if}
 {#if step > 0}
@@ -390,7 +393,7 @@
 	.wardp { font-size: 15px; color: var(--ink-2); margin: 8px 0 0; }
 	.wardstop { padding-top: 20px; }
 	.wardp a { font-size: 12px; color: var(--mute); }
-	.ticket { display: grid; grid-template-columns: 210px 1fr; margin: 16px 0 10px; max-width: 860px; background: #fff; border: 1px solid var(--rule); border-radius: 18px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); overflow: hidden; }
+	.ticket { display: grid; grid-template-columns: 210px 1fr; margin: 16px 0 10px; background: #fff; border: 1px solid var(--rule); border-radius: 18px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); overflow: hidden; }
 	.stub { position: relative; background: #da251d; color: #fff; display: flex; flex-direction: column; justify-content: center; padding: 22px 24px; border-right: 2px dashed rgba(255, 255, 255, 0.7); }
 	.stub::before, .stub::after { content: ''; position: absolute; right: -11px; width: 20px; height: 20px; border-radius: 50%; background: var(--paper); }
 	.stub::before { top: -10px; } .stub::after { bottom: -10px; }
@@ -404,8 +407,10 @@
 	.ballot { display: flex; flex-wrap: wrap; gap: 6px; }
 	.ballot i { font-style: normal; font-weight: 600; font-size: 13px; border: 1.5px solid var(--ink); border-radius: 6px; padding: 2px 9px; }
 	.where { align-self: flex-start; margin-top: 4px; background: var(--ink); color: #fff; text-decoration: none; font-weight: 700; font-size: 15px; border-radius: 999px; padding: 10px 20px; }
-	.more { font-size: 13px; color: var(--mute); margin: 8px 0 0; }
-	.more a { color: var(--ink-2); }
+	.more { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 13px; margin: 14px 0 0; }
+	.more a, .how { color: var(--ink-2); }
+	.how { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+	.exit .method { max-width: 860px; }
 	@media (max-width: 600px) {
 		.ticket { grid-template-columns: 1fr; }
 		.stub { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; padding: 16px 18px; border-right: 0; border-bottom: 2px dashed rgba(255, 255, 255, 0.7); }
@@ -414,7 +419,6 @@
 		.tk { width: 100%; } .day, .hrs { margin: 0; } .date { font-size: 36px; }
 		.body { padding: 14px 16px; } .row { grid-template-columns: 1fr; gap: 2px; font-size: 14px; }
 	}
-	.method summary { cursor: pointer; }
 	.hint { font-size: 12px; color: var(--mute); }
 	.method { font-size: 12.5px; color: var(--mute); margin-top: 24px; line-height: 1.5; }
 	@media (max-width: 600px) {
