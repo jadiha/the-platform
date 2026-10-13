@@ -127,3 +127,24 @@ toronto.capital.2026-2035.total:
   status: single
   note: "Pipeline-checked. The City's Open Data capital-by-ward file adds up to the same total."
   as_of: 2026-10-12
+
+toronto.transportation.2026.gross:
+  value: 516
+  unit: $M
+  label: "Transportation Services 2026 operating budget (roads, traffic signals, road safety)"
+  basis: "gross expenditures, approved budget"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 264, Appendix 1.1.2"}
+  status: single
+  note: "Pipeline-checked. $516.0 million; the TTC is a separate budget."
+  as_of: 2026-10-13
+
+toronto.ttc.fare-cap.2026:
+  value: 47
+  unit: count
+  label: "TTC monthly fare cap: paid trips in a calendar month, after which the rest of the month is free"
+  basis: "PRESTO, PRESTO in mobile wallet, debit or credit card; in effect since September 1, 2026; drops to 40 trips in 2027"
+  primary: {title: "TTC: Monthly fare capping", url: "https://ttc.ca/farecapping"}
+  crosscheck:
+    - {title: "TTC news: Monthly fare capping now in effect at the TTC", url: "https://www.ttc.ca/news/2026/September/Monthly-fare-capping-now-in-effect-at-the-TTC", value: 47}
+  status: verified
+  as_of: 2026-10-13

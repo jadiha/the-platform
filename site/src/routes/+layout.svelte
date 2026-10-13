@@ -10,6 +10,7 @@
 	setSiteData({ facts: data.facts, people: data.people });
 
 	const nav = [
+		['/vote/', '2026 Election'],
 		['/', 'The walk'],
 		['/explore/budget/', 'Explore the budget'],
 		['/people/', "Who's responsible"],
@@ -66,6 +67,7 @@
 	nav { display: flex; gap: 18px; font-size: 13px; flex-wrap: wrap; }
 	nav a { text-decoration: none; color: var(--mute); }
 	nav a[aria-current='page'], nav a:hover { color: var(--ink); text-decoration: underline; }
+	nav a:first-child { color: #2f5d9b; font-weight: 600; }
 	footer { border-top: 1px solid var(--ink); margin-top: 80px; padding: 24px 0 40px; font-size: 13px; color: var(--ink-2); }
 	.fine { color: var(--mute); }
 	@media (max-width: 640px) {

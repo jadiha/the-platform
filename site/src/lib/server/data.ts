@@ -62,3 +62,21 @@ function normalizeDates<T>(value: T): T {
 	}
 	return value;
 }
+
+// ---- 2026 election guide ----
+import type { CampaignPromise, OfficialCandidate, PromiseScan } from '#lib/types.ts';
+
+/** Mayoral promises. Drafts are only returned in dev (for review); the built site shows checked ones only. */
+export function loadMayorPromises(includeDrafts: boolean): { promises: CampaignPromise[]; scan: PromiseScan | null; reviewing: string[] } {
+	const text = readText('candidates/mayor-promises.yaml');
+	if (!text) return { promises: [], scan: null, reviewing: [] };
+	const d = normalizeDates(yaml.load(text) as { promises: CampaignPromise[]; scan: PromiseScan });
+	const all = d.promises ?? [];
+	// Rooms with unchecked promises can't honestly say "no promise found" for anyone yet.
+	const reviewing = includeDrafts ? [] : [...new Set(all.filter((p) => p.status !== 'checked').map((p) => p.room))];
+	return { promises: all.filter((p) => includeDrafts || p.status === 'checked'), scan: d.scan ?? null, reviewing };
+}
+
+export function loadOfficialCandidates(): { source: { title: string; url: string }; mayor: OfficialCandidate[] } | null {
+	return readJSON('clean/candidates-official.json');
+}
