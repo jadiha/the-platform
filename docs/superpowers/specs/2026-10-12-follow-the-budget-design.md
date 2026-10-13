@@ -24,6 +24,7 @@ The site is written for someone who knows nothing about budgets. Every number ha
 | `/` | Scroll story, a "memory palace walk" through Scarborough (see §4) | 1 |
 | `/explore/budget` | Zoomable treemap: Ontario → Toronto → category → line item | 1 |
 | `/explore/map` | Map of capital projects and schools, with wards shaded by $ per resident | 2 |
+| `/people` | Who's responsible: one card per decision-maker, with votes and sourced quotes | 1 |
 | `/glossary` | Every jargon term, explained in plain language | 1 |
 | `/sources` | Every dataset, the date it was pulled, how categories were mapped, and known gaps | 1 |
 
@@ -41,6 +42,18 @@ A scrollytelling layout. A schematic map of Scarborough stays pinned on one side
 | 6 | Queen's Park | Ontario budget by sector; education and health | Ontario spending by sector |
 | 7 | What changed | 5-year trends: biggest increases and cuts at each level | Small multiples, one line chart per category |
 | 8 | Who represents you | Enter a postal code to get your councillor, MPP, MP and school trustee, plus an election banner | Representative cards |
+
+### "Who's responsible": named accountability (on stops 2–6, plus a `/people` page)
+
+Each stop names the people who made the decisions behind its numbers. At the city level that means the mayor, the budget chief and the Scarborough councillors. At the provincial level it means the Premier, the Finance and Education Ministers and the Scarborough MPPs. For schools it means the TDSB supervisor. Each person gets a card showing their **role**, **what they decided or voted for** (with links to the vote record or Hansard), and **what they said publicly** (quoted, with a source and date).
+
+Ground rules. These are non-negotiable, because they keep the site credible and keep it from being dismissed as an attack page:
+
+1. **Only the public record.** Sources are recorded votes (Toronto Open Data voting record, Ontario Hansard divisions), official documents, and direct, sourced quotes. No opinions about motives, and no characterizations such as "cut", "betrayed" or "failed" unless the person used that word or the numbers literally show it.
+2. **Same treatment for everyone.** Every party and every incumbent gets the same card fields and the same level of scrutiny. If a councillor voted against something, the card says so, and it equally says when they voted for things.
+3. **Show the vote, not a verdict.** For example: "Voted YES on the 2026 budget (final vote tally from the record), which included +$93M for police." Readers draw their own conclusions.
+4. **No "vote for / against" messaging.** During the 2026 municipal campaign, the site stays factual and informational. Content that promotes or opposes a candidate may count as third-party election advertising under Ontario's Municipal Elections Act, which has registration rules. Before launch, check toronto.ca's third-party advertiser guidance. This is not legal advice; if unsure, ask the City Clerk's elections office.
+5. **Corrections policy.** A visible "spot an error?" link, plus a dated corrections log on `/sources`.
 
 ### Beginner features (on every stop)
 
