@@ -40,6 +40,8 @@ def derived_facts() -> dict[str, float]:
     scar = [w for w in wards["wards"] if w["ward"] in SCARBOROUGH_WARDS]
     fig1 = {i["label"]: i["value"] for i in bs["figure1"]["items"]}
     g = bs["glance"]
+    tor = json.loads((CLEAN / "budget-toronto-2026.json").read_text())
+    transport = next(k for c in tor["children"] for k in c.get("children") or [] if k["id"] == "toronto.transportation-services")
     finch = sum(p["amount10yr"] for w in scar for p in w["topProjects"] if p["name"] == "4610 Finch Ave East")
     return {
         "toronto.operating.2026.gross": sum(fig1.values()),
@@ -52,6 +54,7 @@ def derived_facts() -> dict[str, float]:
         "toronto.police.2026.gross": g["Toronto Police Service"]["gross"],
         "toronto.police.2026.net": g["Toronto Police Service"]["net"],
         "toronto.shelter.2026.gross": g["Toronto Shelter and Support Services"]["gross"],
+        "toronto.transportation.2026.gross": transport["gross"],
         "toronto.capital.2026-2035.total": bs["capital"]["capital10yrGross"],
         "scarborough.population.2021": sum(w["population"] for w in scar),
         "scarborough.capital.2026-2035.ward-tagged": sum(w["capital10yr"] for w in scar),

@@ -105,3 +105,47 @@ export interface DataSource {
 	sha256?: string;
 	file?: string;
 }
+
+// ---- 2026 election guide (spec: docs/superpowers/specs/2026-10-12-election-guide-design.md) ----
+
+export type RoomId = 'tax' | 'transit' | 'housing' | 'build' | 'safety';
+
+export interface PromiseRule {
+	type: 'freeze' | 'percent' | 'weekly-cap' | 'fare-free' | 'fare-free-phased' | 'fare-freeze' | 'homes' | 'officers' | 'other';
+	years?: number;
+	value?: number;
+	trips?: number;
+	count?: number;
+	by?: string;
+	[k: string]: unknown;
+}
+
+export interface CampaignPromise {
+	candidate: string; // ballot name, exactly as on the City Clerk's list
+	room: RoomId;
+	rule: PromiseRule;
+	text: string; // word for word from the campaign's own page
+	url: string;
+	archive?: string;
+	retrieved: string;
+	status: 'draft' | 'checked';
+	checked_on?: string;
+	note?: string;
+	cost_text?: string;
+}
+
+export interface OfficialCandidate {
+	ballot_name: string;
+	name: string;
+	website: string | null;
+	social: string[];
+	nominated: string;
+}
+
+export interface PromiseScan {
+	date: string;
+	method: string;
+	no_website: string[];
+	social_only: string[];
+	unreadable?: string[];
+}
