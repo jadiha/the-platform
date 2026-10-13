@@ -256,13 +256,14 @@
 {/if}
 {#if step > 0}
 <nav class="stepnav {step === 4 ? 'wrap' : 'wide'} sans" aria-label="Move along the ride">
+	<button class="back" onclick={() => go(step - 1)}>‹ Back</button>
+	<span class="gap"></span>
 	{#if step < stops.length - 1}
 		<button class="fwd" onclick={() => go(step + 1)}>Next stop<span class="full">: {stops[step + 1].label.split(': ')[1]}</span> →</button>
 	{:else}
-		<button class="fwd" onclick={share}>Share the ride ↗</button>
 		<span class="hint">{shared}</span>
+		<button class="fwd" onclick={share}>Share the ride ↗</button>
 	{/if}
-	<button class="back" onclick={() => go(step - 1)}>‹ Back</button>
 </nav>
 {/if}
 </div>
@@ -303,8 +304,9 @@
 	.hop { font: inherit; font-weight: 700; font-size: 18px; background: #da251d; color: #fff; border: 0; border-radius: 999px; padding: 14px 28px; margin-top: 22px; cursor: pointer; }
 	.howto { font-size: 13px; color: var(--mute); margin-top: 8px; }
 	.stepnav { display: flex; align-items: center; gap: 16px; margin-top: 24px; }
+	.stepnav .gap { flex: 1; }
 	.stepnav button { font: inherit; font-weight: 700; font-size: 15px; border-radius: 999px; padding: 11px 18px; cursor: pointer; }
-	.stepnav .back { background: none; border: 0; padding: 11px 4px; color: var(--mute); font-weight: 600; }
+	.stepnav .back { background: none; border: 0; padding: 11px 0; color: var(--mute); font-weight: 600; }
 	.stepnav .back:hover { color: var(--ink); }
 	.stepnav .back:disabled { opacity: 0.3; cursor: default; }
 	.stepnav .fwd { background: #da251d; color: #fff; border: 0; }
