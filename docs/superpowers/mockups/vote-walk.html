@@ -91,13 +91,41 @@
   .cta span:nth-child(1){background:var(--blue);border-color:var(--blue);color:#fff}
   .cta span:nth-child(2){border-color:var(--orange);color:#a65d14}
   .cta span:nth-child(3){border-color:var(--green);color:#356b45}
+
+  /* passport */
+  .passport{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--rule);display:flex;gap:8px;align-items:center;justify-content:center;padding:8px;font:600 11px 'Libre Franklin';letter-spacing:1.5px}
+  .passport i{width:22px;height:22px;border-radius:50%;border:1.5px dashed #aaa;display:inline-block;transition:all .4s;transform:scale(.9)}
+  .passport i.got{border-style:solid;transform:scale(1) rotate(-8deg)}
+  /* what-if */
+  .whatif{margin-top:18px;background:#fff;border:1.5px solid var(--c);border-radius:14px;padding:14px 16px}
+  .whatif .wh{font:600 11px 'Libre Franklin';letter-spacing:2px;color:var(--c);margin-bottom:4px}
+  .whatif h3{margin:0 0 8px;font-size:20px}
+  .whatif label{font:13px 'Libre Franklin';display:flex;gap:10px;align-items:center;margin:8px 0}
+  .whatif input[type=range]{flex:1;accent-color:var(--c)}
+  .bars{display:grid;gap:7px;margin:10px 0;font:13px 'Libre Franklin'}
+  .bar{display:grid;grid-template-columns:120px 1fr 64px;gap:8px;align-items:center}
+  .bar .track{height:18px;background:#f1eee7;border-radius:999px;overflow:hidden}
+  .bar .fill{height:100%;background:var(--c);border-radius:999px;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+  .bar.now .fill{background:#bdb8ad}
+  .bar b{text-align:right;font-variant-numeric:tabular-nums}
+  .fine{font:11.5px/1.45 'Libre Franklin';color:var(--mute);margin:8px 0 0}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+  .chips button{font:500 12px 'Libre Franklin';border:1px solid var(--ink);background:#fff;border-radius:999px;padding:6px 11px;cursor:pointer}
+  .chips button.on{background:var(--ink);color:#fff}
+  .dots{display:grid;grid-template-columns:repeat(50,1fr);gap:2px;margin:10px 0}
+  .dots span{aspect-ratio:1;border-radius:50%;background:#e3dfd6;transition:background .4s}
+  .dots span.lit{background:var(--c)}
+  .pin{float:right;font:500 11px 'Libre Franklin';border:1px solid var(--rule);background:#fff;border-radius:999px;padding:3px 8px;cursor:pointer}
+  .pin.on{background:var(--ink);color:#fff}
+  .mywalk{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:16px;margin-top:18px;font:14px 'Libre Franklin'}
 </style>
 </head>
 <body>
-<div class="mock">MOCKUP · candidate names and quotes are placeholders · ward shapes and budget numbers are real</div>
+<div class="mock">MOCKUP · candidate names, quotes and promises are placeholders · ward shapes and budget numbers are real</div>
 <div class="ribbon"></div>
 <div class="mast"><b>Follow the Budget</b><nav><span class="on">2026 Election</span><span>Scarborough</span><span>Toronto</span><span>Ontario</span></nav></div>
 
+<div class="passport">YOUR WALK <i data-p="1"></i><i data-p="2"></i><i data-p="3"></i><i data-p="4"></i><i data-p="5"></i></div>
 <section class="hall">
   <div class="kicker">TORONTO VOTES · MONDAY, OCTOBER 26</div>
   <h1>The <span>$18.9 billion</span> question</h1>
@@ -142,21 +170,31 @@
       </div>
       <div class="wall"><div class="h">WHAT YOUR WARD'S CANDIDATES HAVE SAID <a href="#">all candidates ›</a></div>
         <div class="plaques">
-          <div class="plaque"><div class="who">Candidate A <em>holds this seat</em></div><q>Placeholder: an exact sentence from their own platform about property tax.</q><div class="src">campaign site ↗ · checked Oct 14 · also: voted on the 2026 budget ↓</div></div>
+          <div class="plaque"><button class="pin">Pin</button><div class="who">Candidate A <em>holds this seat</em></div><q>Placeholder: an exact sentence from their own platform about property tax.</q><div class="src">campaign site ↗ · checked Oct 14 · also: voted on the 2026 budget ↓</div></div>
           <div class="plaque none"><div class="who">Candidate B</div><q>Nothing published on this yet.</q></div>
-          <div class="plaque"><div class="who">Candidate C</div><q>Placeholder: another exact sentence, about 60 words at most.</q><div class="src">campaign site ↗ · checked Oct 14</div></div>
+          <div class="plaque"><button class="pin">Pin</button><div class="who">Candidate C</div><q>Placeholder: another exact sentence, about 60 words at most.</q><div class="src">campaign site ↗ · checked Oct 14</div></div>
         </div>
         <div class="h" style="margin-top:14px">FOR MAYOR <a href="#">all candidates ›</a></div>
+      </div>
+    
+      <div class="whatif">
+        <div class="wh">WHAT IF THEY DO IT?</div>
+        <h3>Your 2027 tax bill, under each mayoral promise</h3>
+        <label>Assume inflation of <input type="range" id="infl" min="0" max="5" step="0.1" value="2"> <b id="inflv">2.0%</b></label>
+        <div class="bars" id="taxbars"></div>
+        <p class="fine" id="taxrev"></p>
+        <p class="fine">Arithmetic on each promise exactly as the campaign worded it, applied to this year's average bill. It doesn't predict whether a promise is kept, or what would change in services. Candidates with no tax promise published aren't shown here: see the list above.</p>
       </div>
     </article>
 
     <article class="room" data-s="2" data-t="transit">
       <div class="n">ROOM 2 OF 5</div>
       <h2>Getting around</h2>
-      <div class="place">Kennedy Station · the TTC</div>
+      <div class="place">Kennedy Station · the TTC, roads and traffic</div>
       <div class="exhibit">Running the TTC costs
         <span class="big">$3.0 billion<small>a year, 2026. The city itself pays $1.5B of it; fares and others pay the rest.</small></span>
-        That makes it the city's single biggest program.
+        That makes it the city's single biggest program. Roads, traffic signals and road safety are a separate budget:
+        <span class="big" style="font-size:34px">$516 million<small>Transportation Services, a year, 2026. Traffic is the top problem in two recent polls.</small></span>
         <div class="decides">Who decides: city council sets the TTC's budget, fares and service levels each year.</div>
       </div>
       <div class="wall"><div class="h">WHAT YOUR WARD'S CANDIDATES HAVE SAID <a href="#">all candidates ›</a></div>
@@ -174,6 +212,14 @@
       <div class="exhibit">The city's shelter system costs
         <span class="big">$786 million<small>a year, 2026, gross.</small></span>
         <div class="decides">Who decides: council funds shelters and city housing programs; rent rules are set by the Province.</div>
+      </div>
+    
+      <div class="whatif">
+        <div class="wh">WHAT IF THEY DO IT?</div>
+        <h3>The city's target: 65,000 rental homes by 2030</h3>
+        <div class="chips" id="hchips"><button data-n="0" class="on">Today's target</button><button data-n="100">Candidate B: "10,000 started in 2027"</button></div>
+        <div class="dots" id="dots"></div>
+        <p class="fine">Each dot is 100 homes. Lit dots show the promise as stated; it doesn't predict whether they'll be built.<br>Candidate A: "no homes number published". Their housing promise is a tax cut. <b>Campaign's own estimate: $300M a year less city revenue</b>, about 1.6% of the operating budget.</p>
       </div>
     </article>
 
@@ -203,6 +249,7 @@
   <div class="kicker">EXIT · YOUR BALLOT</div>
   <h2 style="font-size:32px;margin:8px 0" id="exit-h">Everyone running in Ward 21</h2>
   <p class="dek" style="font-size:17px">Full cards for every candidate, in ballot order: past offices, campaign site, and everything quoted above in one place.</p>
+  <div class="mywalk"><b>Your walk</b> · <span id="stampcount">0</span> of 5 rooms · <span id="pincount">0</span> quotes pinned<br><span class="hint">Pins stay on your phone. Nothing about who you liked is shared or sent anywhere.</span><br><br><b>Share:</b> "I walked through Toronto's $18.9 billion budget before I voted. Oct 26." <span class="hint">(link only, no candidate)</span></div>
   <div class="cta"><span>See all candidates in your ward</span><span>See the mayor's race</span><span>Where and when to vote (City of Toronto) ↗</span></div>
 </section>
 
@@ -232,6 +279,28 @@
   }
   document.querySelectorAll('[data-w]').forEach(b=>b.addEventListener('click',()=>pick(b.dataset.w)));
   pick('21');
+
+  // passport stamps
+  const stampColor=['#d9822b','#2f5d9b','#4a8c5c','#3f7f74','#7a5c99'];
+  const seen=new Set();
+  const io2=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const n=+e.target.dataset.s;seen.add(n);
+    const st=document.querySelector(`.passport i[data-p="${n}"]`);st.classList.add('got');st.style.background=stampColor[n-1];st.style.borderColor=stampColor[n-1];
+    document.getElementById('stampcount').textContent=seen.size}),{rootMargin:'-45% 0px -45% 0px'});
+  document.querySelectorAll('.room').forEach(r=>io2.observe(r));
+  // pins
+  document.querySelectorAll('.pin').forEach(b=>b.onclick=()=>{b.classList.toggle('on');b.textContent=b.classList.contains('on')?'Pinned':'Pin';
+    document.getElementById('pincount').textContent=document.querySelectorAll('.pin.on').length});
+  // tax what-if: avg bill $4,252 (2026), property tax revenue $5,791M (2026)
+  const BILL=4252,REV=5791,BUDGET=18864;
+  function tax(){const i=+document.getElementById('infl').value/100;document.getElementById('inflv').textContent=(i*100).toFixed(1)+'%';
+    const rows=[['2026 (actual)',BILL,'now'],['Candidate A: "freeze in year one"',BILL,''],['Candidate B: "at or around inflation"',BILL*(1+i),'']];
+    const max=BILL*1.06;document.getElementById('taxbars').innerHTML=rows.map(([l,v,c])=>`<div class="bar ${c}"><span>${l}</span><div class="track"><div class="fill" style="width:${(v/max*100).toFixed(1)}%"></div></div><b>$${Math.round(v).toLocaleString()}</b></div>`).join('');
+    const gap=REV*i;document.getElementById('taxrev').innerHTML=`Difference between the two in 2027: <b>$${Math.round(BILL*i)} on the average bill</b>, and about <b>$${Math.round(gap)}M</b> in city revenue (${(gap/BUDGET*100).toFixed(1)}% of this year's operating budget).`}
+  document.getElementById('infl').oninput=tax;tax();
+  // housing dots: 650 dots x 100 homes = 65,000
+  const dots=document.getElementById('dots');dots.innerHTML='<span></span>'.repeat(650);
+  document.querySelectorAll('#hchips button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#hchips button').forEach(x=>x.classList.toggle('on',x===b));
+    [...dots.children].forEach((d,k)=>setTimeout(()=>d.classList.toggle('lit',k<+b.dataset.n),k*4))});
 </script>
 </body>
 </html>
