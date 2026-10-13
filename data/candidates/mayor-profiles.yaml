@@ -22,7 +22,8 @@ profiles:
       - {topic: safety, text: "Guns and trafficking, violence interruption, the drug crisis as safety and health, a safer TTC, and ending human trafficking, with accountable policing and real supports.", url: "https://bahira.ca/"}
     archive:
       "https://bahira.ca/": "https://web.archive.org/web/20261013042202/https://bahira.ca/"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
 
   - candidate: "Alexander, Chris"
     note: "Chris Alexander ended his campaign on October 6, 2026. His name is still on the ballot."
@@ -36,7 +37,8 @@ profiles:
     archive:
       "https://chrisalexander.ca/": "https://web.archive.org/web/20261013044909/https://www.chrisalexander.ca/"
       "https://www.chrisalexander.ca/policies/build-affordable-housing": "https://web.archive.org/web/20261013042717/https://www.chrisalexander.ca/policies/build-affordable-housing"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
 
   - candidate: "Atkinson, Jamie"
     about: {text: "A city where you can afford to build a life, get home sooner, feel safe, find opportunity and believe your children can have an even better future.", url: "https://jamieatkinson.ca/"}
@@ -98,6 +100,8 @@ profiles:
       - {topic: safety, text: "Olivia will invest more in youth violence prevention programs that work, providing mentorship, job opportunities and recreation.", url: "https://www.oliviachow.ca/plan?active=keeping_neighbourhoods_safe"}
       - {topic: other, text: "Olivia will never override local communities by using strong mayor powers.", url: "https://www.oliviachow.ca/plan"}
     archive:
+      "https://www.oliviachow.ca/plan?active=building_more_housing": "https://web.archive.org/web/20261013043027/https://www.oliviachow.ca/plan?active=building_more_housing"
+      "https://www.oliviachow.ca/plan?active=keeping_neighbourhoods_safe": "https://web.archive.org/web/20261013205003/https://www.oliviachow.ca/plan?active=keeping_neighbourhoods_safe"
       "https://www.oliviachow.ca/": "https://web.archive.org/web/20261013050616/https://www.oliviachow.ca/"
       "https://www.oliviachow.ca/plan": "https://web.archive.org/web/20261013050757/https://www.oliviachow.ca/plan"
     status: draft
@@ -206,6 +210,7 @@ profiles:
       - {topic: transit, text: "Stop weekend subway closure and determine a better maintenance plan", url: "https://www.ambitioustoronto.com/new-page-3"}
       - {topic: other, text: "Make 4am last call an easier option to spread when people can congregate", url: "https://www.ambitioustoronto.com/new-page-3"}
     archive:
+      "https://www.ambitioustoronto.com/new-page-1": "https://web.archive.org/web/20261013205022/https://www.ambitioustoronto.com/new-page-1"
       "https://www.ambitioustoronto.com/": "https://web.archive.org/web/20261013045737/https://www.ambitioustoronto.com/"
       "https://www.ambitioustoronto.com/new-page-2": "https://web.archive.org/web/20261013183700/https://www.ambitioustoronto.com/new-page-2"
       "https://www.ambitioustoronto.com/new-page-3": "https://web.archive.org/web/20261013183829/https://www.ambitioustoronto.com/new-page-3"
@@ -248,6 +253,7 @@ profiles:
       - {topic: safety, text: "Investment in harm reduction and mental health services including a review of emergency response protocols", url: "https://www.odessaformayor.ca/my-fresh-platform"}
       - {topic: housing, text: "Review of predatory residential rental practices and appropriate recourse (i.e. ending bidding wars on rental units)", url: "https://www.odessaformayor.ca/my-fresh-platform"}
     archive:
+      "https://www.odessaformayor.ca/my-fresh-platform": "https://web.archive.org/web/20261013203615/https://www.odessaformayor.ca/my-fresh-platform"
       "https://www.odessaformayor.ca/blog/confronting-crime-amp-safety": "https://web.archive.org/web/20261013203508/https://www.odessaformayor.ca/blog/confronting-crime-amp-safety"
       "https://www.odessaformayor.ca/": "https://web.archive.org/web/20261013050436/https://www.odessaformayor.ca/"
     status: draft
@@ -283,6 +289,7 @@ profiles:
     priorities:
       - {topic: transit, text: "FREE THE TTC", url: "https://www.sanders4mayor.ca/TTC.html"}
     archive:
+      "https://www.sanders4mayor.ca/TTC.html": "https://web.archive.org/web/20261013185211/https://www.sanders4mayor.ca/TTC.html"
       "https://www.sanders4mayor.ca/": "https://web.archive.org/web/20261013050931/https://www.sanders4mayor.ca/"
     status: checked
     checked_on: 2026-10-13

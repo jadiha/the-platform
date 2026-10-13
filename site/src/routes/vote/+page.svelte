@@ -204,9 +204,9 @@
 	</ul>
 </section>
 {:else if step === 4}
-<section class="stop wrap">
+<section class="stop wide alsostop" style="padding-top:20px">
 	<h2 class="head"><span class="stopno sans">Stop 4 · Also on your ballot</span>{without.length} more names you'll see</h2>
-	<p class="lede sans">These candidates didn't list a campaign website with the City. Here's what they did list, and any public record.</p>
+	<p class="lede sans">They didn't list a campaign website with the City. Here's what they did list, and any public record.</p>
 	<ul class="also sans">
 		{#each without as c (c.ballot_name)}
 			{@const rec = data.alsoRecords[c.ballot_name]?.[0]}
@@ -215,7 +215,7 @@
 				<span class="meta">
 					{#if rec}<a href={data.recordSources[rec.src]?.url} target="_blank" rel="noopener">ran in 2023</a>{/if}
 					{#each c.social as s (s)}<a href={s} target="_blank" rel="noopener">{s.replace(/^https?:\/\/(www\.)?/, '').split('/')[0].replace('.com', '')}</a>{/each}
-					{#if !rec && !c.social.length}<span class="none">no links listed</span>{/if}
+					{#if !rec && !c.social.length}<span class="none">no links</span>{/if}
 				</span>
 			</li>
 		{/each}
@@ -259,7 +259,7 @@
 </section>
 {/if}
 {#if step > 0}
-<nav class="stepnav {step === 4 ? 'wrap' : 'wide'} sans" aria-label="Move along the ride">
+<nav class="stepnav wide sans" aria-label="Move along the ride">
 	<button class="back" onclick={() => go(step - 1)}>‹ Back</button>
 	<span class="gap"></span>
 	{#if step < stops.length - 1}
@@ -385,10 +385,12 @@
 		.meet .lede { font-size: 15px; }
 	}
 	@media (prefers-reduced-motion: reduce) { .tile, .overlay { transition: none; animation: none; } }
-	.also { list-style: none; padding: 0; margin: 12px 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px; font-size: 13px; }
-	.also li { background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px; }
-	.also b { font-size: 14px; }
-	.also .meta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 11.5px; }
+	.also { list-style: none; padding: 0; margin: 10px 0 6px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px 8px; font-size: 13px; }
+	.also li { background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 4px 10px; display: flex; flex-direction: column; gap: 0; min-width: 0; }
+	.also b { font-size: 13.5px; }
+	.also .meta { display: flex; flex-wrap: wrap; gap: 0 7px; font-size: 11px; }
+	@media (max-width: 900px) { .also { grid-template-columns: repeat(2, 1fr); } }
+	@media (max-width: 600px) { .also { grid-template-columns: repeat(3, 1fr); gap: 4px; } .also li { padding: 4px 6px; } .also b { font-size: 11.5px; line-height: 1.2; } .also .meta { font-size: 9.5px; gap: 0 5px; } .alsostop { padding-top: 16px; } .alsostop .lede { font-size: 13px; margin: 0; } .alsostop h2 { font-size: 22px; } .alsostop .src { margin: 0; } }
 	.also .meta a, .also .none { color: var(--mute); }
 	.src { font-size: 12px; }
 	.exit .method { margin-top: 14px; }
@@ -426,6 +428,8 @@
 	.method { font-size: 12.5px; color: var(--mute); margin-top: 24px; line-height: 1.5; }
 	@media (max-width: 600px) {
 			.stepnav .full { display: none; }
+		.stepnav { margin-top: 12px; }
+		.screenwrap { padding-bottom: 20px; }
 		.charts { grid-template-columns: 1fr; }
 		.who { grid-template-columns: 1fr; }
 		.hbars li { grid-template-columns: 84px 1fr 54px; }
