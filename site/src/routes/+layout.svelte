@@ -32,7 +32,7 @@
 </div>
 
 <header class="masthead">
-	<a class="name" href="/vote/">Follow the Budget</a>
+	<a class="name" href="/vote/">Next Stop: Ballot</a>
 	<nav class="sans" aria-label="Main">
 		{#each nav as [href, label]}
 			<a {href} aria-current={page.url.pathname === href ? 'page' : undefined}>{label}</a>

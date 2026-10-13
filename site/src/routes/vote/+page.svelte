@@ -105,7 +105,7 @@
 		const text = "I walked through who's running for mayor of Toronto, and what the City actually controls. Election day is Monday, October 26.";
 		const url = location.origin + '/vote/';
 		try {
-			if (navigator.share) return await navigator.share({ title: 'Follow the Budget', text, url });
+			if (navigator.share) return await navigator.share({ title: 'Next Stop: Ballot', text, url });
 			await navigator.clipboard.writeText(`${text} ${url}`);
 			shared = 'Link copied.';
 		} catch { /* dismissed */ }
@@ -113,7 +113,7 @@
 </script>
 
 <svelte:head>
-	<title>Who's running for mayor, and what the City controls · Toronto votes October 26 · Follow the Budget</title>
+	<title>Who's running for mayor, and what the City controls · Toronto votes October 26 · Next Stop: Ballot</title>
 	<meta name="description" content="Ride a streetcar through Toronto's mayoral race: what the City controls, what changed, and every candidate in their own words, with proof." />
 	<meta property="og:title" content="The {headline} question" />
 	<meta property="og:description" content="Toronto votes Monday, October 26. Meet every mayoral candidate in their own words, with every number linked to its proof." />
