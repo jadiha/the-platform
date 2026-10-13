@@ -99,7 +99,43 @@ The front end **never hard-codes a number in prose**. Text references a fact ID,
 - *Toronto Police budget* (Open Data, 2020–2026).
 - TTC / Metrolinx project pages, for project status.
 
-**Ontario and schools:** *[filled in from the pending Ontario research: Budget/Public Accounts by ministry, the 5-year series, Core Education Funding for TDSB/TCDSB, school locations, repair backlog]*. Cross-check source: the FAO's *2026 Ontario Budget Note* (2025-26 spending $238.4B; deficit $13.8B in 2026-27).
+**Ontario**
+
+- *2026 Ontario Budget*, chapter 3 (HTML tables only, scraped).
+  - Table 3.1: totals. 2026-27 plan is $244.2B total expense and a $13.8B deficit.
+  - Table 3.7: by sector. Health $101.2B, Education $40.8B, Postsecondary $14.0B.
+  - Table 3.10: by ministry.
+  - Table 3.12: the restated 10-year series, used for the 5-year totals.
+- *Public Accounts 2025-26* (released 2026-09-24): actuals, with a 2025-26 deficit of $13.0B. Its ministry CSV on data.ontario.ca is in whole dollars and non-consolidated.
+- *First Quarter Finances 2026-27*: the deficit is unchanged.
+- Cross-checks:
+  - FAO's *2026 Budget Note*, *Summer 2026 EBO*, and *Ministry of Education Spending Plan Review* (2026-09-23).
+  - CBC / CP / Globe and Mail confirm $244.2B and $13.8B.
+
+**Schools**
+
+- *Core Education Funding projections 2026-27* (ministry PDF). TDSB gets $3.375B, a 1.1% decrease; TCDSB gets $1.269B. Note that TDSB's own document says $3,377.7M; never mix the two sources.
+- *TDSB 2026-27 Budget*: revenue $3,594.2M, expenses $3,609.2M, deficit $15.0M.
+- *School board financial reports* (EFIS CSV, data.ontario.ca). Wide format; read it using the Cell Name Reference Guide.
+- *School Information and Student Demographics* (lat/lng, 2024-25 file). Schools are assigned to Scarborough by mapping their coordinates against the ward boundaries, not by the "City" field, which is unreliable.
+- *Ontario school board oversight page*: TDSB has been under a supervisor since 2025-06-27.
+- Facility condition:
+  - TDSB per-school FCI comes from scraping tdsb.on.ca, data as of January 2025 (Phase 2).
+  - FAO's *School Boards Capital 2024*: a $6.5B backlog province-wide.
+
+**Ontario and schools traps**
+
+- **Education sector vs. ministry.** The sector figure ($40.8B) excludes the teachers' pension; the ministry figure ($42.5B) includes it. Never put both in one chart.
+- **Budget, Estimates and Public Accounts are three different bases.** Each chart uses one basis and says which.
+- **Restatements.** Each new document revises earlier years. A 5-year chart uses Table 3.12 for totals, and the latest document for each year's sector figures. Each point is labelled Actual, Interim or Plan. COVID-era funding appears as its own line, with a footnote.
+- **FAO numbers are forecasts.** They are used for context, not as a cross-check of actuals.
+
+**Open questions (must be resolved from primary text before publishing)**
+
+- TCDSB's 2026-27 deficit: $39.5M in news reports vs. $44.3M in EFIS.
+- Which law capped trustees at 12. One research pass found Bill 33 (2025), another Bill 101 (Royal Assent 2026-05-07). Read the bill text on ola.org.
+- Scarborough school closures: none verified.
+- Which named capital projects are actually in Scarborough: to be matched by coordinates.
 
 **Representatives**
 
