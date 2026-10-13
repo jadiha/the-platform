@@ -143,7 +143,7 @@
 			{/each}
 		</div>
 		{#if leafNote}
-			<p class="leafnote sans" aria-live="polite"><b>{leafNote.name}</b>: {money(leafNote.gross)}. That's as detailed as the published budget gets for this one, so there's nothing smaller inside it.{#if leafNote.source} <a href={leafNote.source.url} target="_blank" rel="noopener">See the source ↗</a>{/if}</p>
+			<p class="leafnote sans" aria-live="polite"><b>{leafNote.name}</b>: {money(leafNote.gross)}. That's as detailed as the published budget gets for this one, so there's nothing smaller inside it.{#if leafNote.source}&nbsp;<a href={leafNote.source.url} target="_blank" rel="noopener">See the source ↗</a>{/if}</p>
 		{/if}
 		{#if root.note && !path.length}<p class="note sans">{root.note}</p>{/if}
 		{#if current.note && path.length}<p class="note sans">{current.note}</p>{/if}
