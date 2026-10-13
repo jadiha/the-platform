@@ -123,37 +123,29 @@
 </svelte:head>
 
 <div class="wide page">
-	<p class="kicker">Explore the budget</p>
-	<h1>Open up the budget yourself</h1>
-	<p class="dek">Each box is sized by how much money it gets. Tap a box to see what's inside it.</p>
+	<div class="top">
+		<div>
+			<p class="kicker">Explore the budget</p>
+			<h1>Open up the budget yourself</h1>
+		</div>
+		{#if level}
+			<div class="tabs sans" role="tablist">
+				{#each data.trees as t (t.key)}
+					<button role="tab" aria-selected={levelKey === t.key} onclick={() => choose(t.key)}>{t.label}</button>
+				{/each}
+			</div>
+		{/if}
+	</div>
 
 	{#if !level}
 		<p class="sans">Budget data is being prepared.</p>
 	{:else}
-		<div class="tabs sans" role="tablist">
-			{#each data.trees as t (t.key)}
-				<button role="tab" aria-selected={levelKey === t.key} onclick={() => choose(t.key)}>{t.label}</button>
-			{/each}
-		</div>
 
-		<div class="head sans">
-			<nav class="crumbs" aria-label="Where you are">
-				<button onclick={() => back(0)} disabled={!path.length}>{root.name}</button>
-				{#each path as n, i (n.id)}
-					<span aria-hidden="true">›</span>
-					<button onclick={() => back(i + 1)} disabled={i === path.length - 1}>{n.name}</button>
-				{/each}
-			</nav>
-			<p class="total">
-				<strong>{money(current.gross)}</strong>
-				<span>{root.basis}{root.basis?.includes(root.year ?? '') ? '' : `, ${root.year}`}</span>
-			</p>
-		</div>
 
 		{#if levelKey === 'toronto' && !path.length && tor}
 			<figure class="flow sans">
 				<figcaption>Follow the money: where the City's <Fact id="toronto.operating.2026.gross" /> comes from, and where it goes</figcaption>
-				<svg viewBox="0 0 1200 {FH + TOP + 8}" role="img" aria-label="Money in and out of the City of Toronto's 2026 operating budget">
+				<svg viewBox="-70 0 1270 {FH + TOP + 8}" role="img" aria-label="Money in and out of the City of Toronto's 2026 operating budget">
 					<text x="135" y="18" class="col" text-anchor="middle">Money in</text>
 					<text x="{BAR.x0 + 15}" y="18" class="col strong" text-anchor="middle">City of Toronto · {money(tor)}</text>
 					<text x="900" y="18" class="col" text-anchor="middle">Money out · tap one to open it</text>
@@ -185,9 +177,23 @@
 					<ul>{#each outRows as r (r.label)}<li><i style="background:{r.color}"></i><span>{r.label}</span><b>{r.per}¢</b></li>{/each}</ul>
 				</div>
 				<p class="cn">Cents of every dollar. {#each flowRest as x, i (x.id)}{i ? ', ' : 'Smaller sources: '}{lc(x.label)} {Math.round((x.v / tor) * 100)}¢{/each}. <a href={facts['toronto.revenue.2026.property-tax']?.primary.url} target="_blank" rel="noopener">City Budget Summary, p. 10 ↗</a></p>
-				<p class="down">↓ Every box below is one of these. Tap to open it.</p>
+				<button class="down" onclick={() => mapEl?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>Open the boxes <span aria-hidden="true">↓</span></button>
 			</figure>
 		{/if}
+
+		<div class="head sans">
+			<nav class="crumbs" aria-label="Where you are">
+				<button onclick={() => back(0)} disabled={!path.length}>{root.name}</button>
+				{#each path as n, i (n.id)}
+					<span aria-hidden="true">›</span>
+					<button onclick={() => back(i + 1)} disabled={i === path.length - 1}>{n.name}</button>
+				{/each}
+			</nav>
+			<p class="total">
+				<strong>{money(current.gross)}</strong>
+				<span>{root.basis}{root.basis?.includes(root.year ?? '') ? '' : `, ${root.year}`}</span>
+			</p>
+		</div>
 
 		<div class="map" bind:this={mapEl} bind:clientWidth={width} style="height:{height}px">
 			{#each tiles as t (t.node.id)}
@@ -249,10 +255,10 @@
 </div>
 
 <style>
-	.page { margin-top: 44px; }
-	h1 { font-size: clamp(32px, 5vw, 46px); margin: 8px 0 10px; }
-	.dek { color: var(--ink-2); font-size: 20px; margin: 0 0 18px; }
-	.tabs { display: flex; border-bottom: 1px solid var(--ink); margin-bottom: 12px; }
+	.page { margin-top: 28px; }
+	.top { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px 24px; flex-wrap: wrap; border-bottom: 1px solid var(--ink); margin-bottom: 14px; }
+	h1 { font-size: clamp(28px, 4vw, 40px); margin: 6px 0 10px; }
+	.tabs { display: flex; }
 	.tabs button { font: inherit; font-size: 15px; font-weight: 600; background: none; border: 0; padding: 8px 16px; cursor: pointer; color: var(--mute); border-bottom: 3px solid transparent; margin-bottom: -1px; }
 	.tabs button[aria-selected='true'] { color: var(--ink); border-bottom-color: var(--ink); }
 	.head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
@@ -268,7 +274,7 @@
 		transition: left 0.5s, top 0.5s, width 0.5s, height 0.5s, filter 0.2s;
 	}
 	.tile.leaf { cursor: help; }
-	.flow { margin: 6px 0 22px; background: #fff; border: 1px solid var(--rule); border-radius: 16px; padding: 18px 22px 14px; }
+	.flow { margin: 0 0 22px; background: #fff; border: 1px solid var(--rule); border-radius: 16px; padding: 18px 22px 14px; }
 	.flow figcaption { font-weight: 700; font-size: 16px; margin-bottom: 12px; }
 	.flow svg { width: 100%; height: auto; display: block; }
 	.flow .lbl { font-size: 15px; font-weight: 600; fill: var(--ink-2); }
@@ -278,7 +284,12 @@
 	.flow .col.strong { fill: var(--ink); font-size: 15px; }
 	.flow .out { cursor: pointer; }
 	.flow .out:hover .lbl { fill: var(--ink); text-decoration: underline; }
-	.down { margin: 10px 0 0; font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
+	.down { display: flex; align-items: center; gap: 8px; margin: 12px auto 0; font: inherit; font-weight: 700; font-size: 15px; background: var(--ink); color: #fff; border: 0; border-radius: 999px; padding: 10px 20px; cursor: pointer; }
+	.down span { display: inline-block; animation: nudge 1.4s ease-in-out infinite; }
+	@keyframes nudge { 50% { transform: translateY(4px); } }
+	@media (prefers-reduced-motion: reduce) { .down span { animation: none; } }
+	.flow svg { max-height: calc(100vh - 330px); }
+	.map { scroll-margin-top: 90px; }
 	.flowlist .col { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--mute); margin: 8px 0 4px; }
 	.flowlist ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 5px; }
 	.flowlist { display: none; list-style: none; padding: 0; margin: 0; }
