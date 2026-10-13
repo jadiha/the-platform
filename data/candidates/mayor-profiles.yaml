@@ -50,7 +50,9 @@ profiles:
       - {topic: other, text: "Make Toronto the central champion of a faster Windsor–Toronto–Ottawa–Montréal–Québec City corridor.", url: "https://jamieatkinson.ca/"}
     archive:
       "https://jamieatkinson.ca/": "https://web.archive.org/web/20261013045155/https://jamieatkinson.ca/"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "Bradford, Brad"
     about: {text: "An urban planner, City Councillor, husband, and dad of two, Brad has spent his career on the work of how cities actually get built and how City Hall actually works.", url: "https://bradford26.ca/"}
@@ -104,7 +106,9 @@ profiles:
       "https://www.oliviachow.ca/plan?active=keeping_neighbourhoods_safe": "https://web.archive.org/web/20261013205003/https://www.oliviachow.ca/plan?active=keeping_neighbourhoods_safe"
       "https://www.oliviachow.ca/": "https://web.archive.org/web/20261013050616/https://www.oliviachow.ca/"
       "https://www.oliviachow.ca/plan": "https://web.archive.org/web/20261013050757/https://www.oliviachow.ca/plan"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "Collins, Paul"
     about: {text: "Collins is a freelance commercial director.", url: "https://authorpaulcollinstorontomayor.weebly.com/"}
@@ -117,7 +121,9 @@ profiles:
       - {topic: transit, text: "I want all levels of government to sign a pledge not to privatize the TTC.", url: "https://authorpaulcollinstorontomayor.weebly.com/"}
     archive:
       "https://authorpaulcollinstorontomayor.weebly.com/": "https://web.archive.org/web/20261013044558/https://authorpaulcollinstorontomayor.weebly.com/"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "Curto, Roberto"
     about: {text: "I’m a transit rider, avid traveller and unapologetic city nerd who believes Toronto can learn from the best ideas elsewhere while still doing things in a way that feels distinctly our own.", url: "https://curto.ca/"}
@@ -131,7 +137,9 @@ profiles:
     archive:
       "https://curto.ca/": "https://web.archive.org/web/20261013044934/https://curto.ca/"
       "https://curto.ca/ideas/": "https://web.archive.org/web/20261013044959/https://curto.ca/ideas/"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "Dean, Laura"
     about: {text: "For over a decade, I worked as a municipal and land use planning lawyer at a well-known Toronto law firm.", url: "https://lauradeanformayor.ca/"}
@@ -144,7 +152,9 @@ profiles:
       - {topic: transit, text: "Install platform screen doors on the subway, starting with major stations.", url: "https://lauradeanformayor.ca/"}
     archive:
       "https://lauradeanformayor.ca/": "https://web.archive.org/web/20261013045524/https://lauradeanformayor.ca/"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "Deville, Cory"
     about: {text: "I spent 15 years in the small to medium business space, working with startups and high growth ventures to help them scale.", url: "https://www.deville2026.ca/policy"}
@@ -159,33 +169,39 @@ profiles:
       "https://www.deville2026.ca/policy/toronto-rental-affordability": "https://web.archive.org/web/20261013045939/https://www.deville2026.ca/policy/toronto-rental-affordability"
       "https://www.deville2026.ca/policy/financing-policy": "https://web.archive.org/web/20261013184118/https://www.deville2026.ca/policy/financing-policy"
       "https://www.deville2026.ca/policy/toronto-vertical-farms": "https://web.archive.org/web/20261013184237/https://www.deville2026.ca/policy/toronto-vertical-farms"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "Haider, Faizan"
     about: {text: "FROM SCARBOROUGH IMMIGRANT TO LUXURY ENTERPRISE FOUNDER, FAIZAN HAIDER BEAT THE ODDS.", url: "https://www.faizanhaider.ca/"}
     record: []
     priorities:
-      - {topic: other, text: "STAND UP TO DOUG FORD", url: "https://www.faizanhaider.ca/the-6ix-promises"}
+      - {topic: other, text: "Toronto doesn’t need an airport expansion at Billy Bishop.", url: "https://www.faizanhaider.ca/the-6ix-promises"}
       - {topic: transit, text: "Lets fare cap to 8 rides a week, and then its free.", url: "https://www.faizanhaider.ca/the-6ix-promises"}
       - {topic: safety, text: "We don’t need more enforcement.", url: "https://www.faizanhaider.ca/the-6ix-promises"}
-      - {topic: housing, text: "Everyone deserves a roof over their head and food on their table.", url: "https://www.faizanhaider.ca/the-6ix-promises"}
+      - {topic: housing, text: "We have the resources to put an end to homelessness through alternative housing solutions, counselling and therapy.", url: "https://www.faizanhaider.ca/the-6ix-promises"}
       - {topic: other, text: "Students need a curriculum and teachers need training that’s up to date in a rapidly advancing digital world.", url: "https://www.faizanhaider.ca/the-6ix-promises"}
     archive:
       "https://www.faizanhaider.ca/": "https://web.archive.org/web/20261013050030/https://www.faizanhaider.ca/"
       "https://www.faizanhaider.ca/the-6ix-promises": "https://web.archive.org/web/20261013042739/https://www.faizanhaider.ca/the-6ix-promises"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "Hartley, Jack"
     about: {text: "Jack grew up above a hardware store on a Toronto main street, took the 512 to school every morning, and spent a decade running a neighbourhood non-profit before six years on community and housing boards across the city.", url: "https://hartley4mayor.netlify.app/"}
     record: []
     priorities:
-      - {topic: money, text: "This campaign will not accept a single dollar in donations", url: "https://hartley4mayor.netlify.app/"}
+      - {topic: other, text: "This campaign will not accept a single dollar in donations", url: "https://hartley4mayor.netlify.app/"}
       - {topic: tax, text: "We will also decrease Torontonians' property taxes by 53%", url: "https://hartley4mayor.netlify.app/"}
       - {topic: transit, text: "the 401 will be expanded to 100 lanes", url: "https://hartley4mayor.netlify.app/"}
       - {topic: housing, text: "Under Hartley control, homelessness will be made a top-degree felony.", url: "https://hartley4mayor.netlify.app/"}
     archive:
       "https://hartley4mayor.netlify.app/": "https://web.archive.org/web/20261013042507/https://hartley4mayor.netlify.app/"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "Kalkounis, Georgios"
     about: {text: "Engineer. Business Consultant. Public-Service Professional. Candidate for Mayor.", url: "https://georgioskalkounisformayor.com/"}
@@ -198,7 +214,9 @@ profiles:
       - {topic: safety, text: "Establish Toronto as a Zero-Tolerance Crime Zone under a pilot project with special municipal authority, enhanced enforcement, severe and irrevocable penalties, and full intergovernmental coordination.", url: "https://georgioskalkounisformayor.com/"}
     archive:
       "https://georgioskalkounisformayor.com/": "https://web.archive.org/web/20261013184653/https://georgioskalkounisformayor.com/"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "Kyrlangitses, Isidoros"
     about: {text: "Growth while improving quality of life.", url: "https://www.ambitioustoronto.com/"}
@@ -214,7 +232,9 @@ profiles:
       "https://www.ambitioustoronto.com/": "https://web.archive.org/web/20261013045737/https://www.ambitioustoronto.com/"
       "https://www.ambitioustoronto.com/new-page-2": "https://web.archive.org/web/20261013183700/https://www.ambitioustoronto.com/new-page-2"
       "https://www.ambitioustoronto.com/new-page-3": "https://web.archive.org/web/20261013183829/https://www.ambitioustoronto.com/new-page-3"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "Lamoureux, Michael"
     about: {text: "I am a finance and accounting professional with over 20 years of senior experience in technology industries", url: "https://michaellamoureux.ca/about-michael-lamoureux"}
@@ -228,20 +248,24 @@ profiles:
     archive:
       "https://michaellamoureux.ca/about-michael-lamoureux": "https://web.archive.org/web/20261013203343/https://michaellamoureux.ca/about-michael-lamoureux"
       "https://www.michaellamoureux.ca/": "https://web.archive.org/web/20261013042804/https://michaellamoureux.ca/"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "McVie, Sarah"
     about: {text: "Our leaders need to keep power and profit in residents' pockets.", url: "https://mayormcvie.ca/"}
     record: []
     priorities:
       - {topic: housing, text: "Inventory City-owned buildings for housing redevelopment (first 60 days), to be released for cooperative ownership models (co-ops), clear the co-op housing waitlist, and pilot grocery co-ops and vertical farms.", url: "https://mayormcvie.ca/"}
-      - {topic: transit, text: "transform the decommissioned RT into the Scarborough Sky Line park.", url: "https://mayormcvie.ca/"}
+      - {topic: other, text: "transform the decommissioned RT into the Scarborough Sky Line park.", url: "https://mayormcvie.ca/"}
       - {topic: tax, text: "Freeze property taxes for two years, conduct a core services review to streamline services, and diversify municipal revenue streams.", url: "https://mayormcvie.ca/"}
       - {topic: transit, text: "We will also pilot Free TTC Fridays to stimulate economic growth by encouraging residents and tourists to explore other areas of the city.", url: "https://mayormcvie.ca/platform"}
     archive:
       "https://mayormcvie.ca/": "https://web.archive.org/web/20261013203014/https://mayormcvie.ca/"
       "https://mayormcvie.ca/platform": "https://web.archive.org/web/20261013042558/https://mayormcvie.ca/platform"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "Parker, Odessa Paloma"
     about: {text: "As someone who grew up in Scarborough and has lived in both the city’s midtown and west end as a renter and owner, I have seen the spectrum of crime committed in Toronto.", url: "https://www.odessaformayor.ca/blog/confronting-crime-amp-safety"}
@@ -256,7 +280,9 @@ profiles:
       "https://www.odessaformayor.ca/my-fresh-platform": "https://web.archive.org/web/20261013203615/https://www.odessaformayor.ca/my-fresh-platform"
       "https://www.odessaformayor.ca/blog/confronting-crime-amp-safety": "https://web.archive.org/web/20261013203508/https://www.odessaformayor.ca/blog/confronting-crime-amp-safety"
       "https://www.odessaformayor.ca/": "https://web.archive.org/web/20261013050436/https://www.odessaformayor.ca/"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "Razi, Faisal"
     about: {text: "I want a city where people can afford to live, get around more easily, feel safe, and enjoy the neighbourhoods they call home.", url: "https://www.faiformayor.com/"}
@@ -268,7 +294,9 @@ profiles:
       - {topic: transit, text: "The cyclists must be educated along with drivers on how to work safely with the traffic around them", url: "https://www.faiformayor.com/"}
     archive:
       "https://www.faiformayor.com/": "https://web.archive.org/web/20261013050004/https://www.faiformayor.com/"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "Rosen, Amy"
     about: {text: "As a travel writer I’ve compared Toronto to cities worldwide for 20 years", url: "https://www.rosenformayor.ca/"}
@@ -281,7 +309,9 @@ profiles:
       - {topic: other, text: "AS YOUR MAYOR, I will ensure roads and sidewalks are cleared of snow quickly, consistently, and fairly in every neighbourhood.", url: "https://www.rosenformayor.ca/"}
     archive:
       "https://www.rosenformayor.ca/": "https://web.archive.org/web/20261013050858/https://www.rosenformayor.ca/"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "Sanders, Lyall"
     about: {text: "Lyall Sanders is a Toronto community leader, Métis educator, and father of eight", url: "https://www.sanders4mayor.ca/"}
@@ -313,7 +343,9 @@ profiles:
     archive:
       "https://sandeepsrivastavafortorontomayor.wordpress.com/about/": "https://web.archive.org/web/20261013203743/https://sandeepsrivastavafortorontomayor.wordpress.com/about/"
       "https://sandeepsrivastavafortorontomayor.wordpress.com/platform/": "https://web.archive.org/web/20261013043055/https://sandeepsrivastavafortorontomayor.wordpress.com/platform/"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "Tang, Weizhen"
     about: {text: "Weizhen Tang is a respected financial strategist known globally as “The Chinese Warren Buffett.”", url: "https://weizhentang.today/"}
@@ -338,7 +370,9 @@ profiles:
       - {topic: housing, text: "Build the houses.", url: "https://joshthompsonformayor.ca/"}
     archive:
       "https://joshthompsonformayor.ca/": "https://web.archive.org/web/20261013045358/https://joshthompsonformayor.ca/"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
   - candidate: "Tunney, Jeffery"
     about: {text: "Dedicated to creating positive change, promoting transparency, and building a stronger future for Toronto’s families, businesses, and communities.", url: "https://www.jefferytunney4mayor.com/"}
@@ -348,11 +382,13 @@ profiles:
       - {topic: other, text: "More entry-level and career-track jobs open to young Torontonians", url: "https://jefferytunney4mayor.com/platform/"}
       - {topic: other, text: "Disaster response plans that are ready before they're needed", url: "https://jefferytunney4mayor.com/platform/"}
       - {topic: housing, text: "More housing that people can actually afford", url: "https://jefferytunney4mayor.com/platform/"}
-      - {topic: money, text: "Ease the tax burden on workers and small businesses", url: "https://jefferytunney4mayor.com/platform/"}
+      - {topic: tax, text: "Ease the tax burden on workers and small businesses", url: "https://jefferytunney4mayor.com/platform/"}
     archive:
       "https://jefferytunney4mayor.com/platform/": "https://web.archive.org/web/20261013045326/https://jefferytunney4mayor.com/platform/"
       "https://www.jefferytunney4mayor.com/": "https://web.archive.org/web/20261013050129/https://jefferytunney4mayor.com/"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
+    checked_by: automated recheck (live page + archive, word for word)
 
 # On the ballot without a campaign website on the City Clerk's list; records from City results.
 also_records:
