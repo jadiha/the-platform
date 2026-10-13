@@ -181,7 +181,7 @@
 	.scene svg { display: block; width: 100%; height: auto; }
 	.bld { transition: filter 0.4s, transform 0.4s; transform-origin: center bottom; transform-box: fill-box; }
 	.bld.chosen { filter: drop-shadow(0 0 14px rgba(255, 214, 102, 1)) brightness(1.08); transform: translateY(-4px); }
-	.pick { position: absolute; top: 18%; width: 30%; height: 62%; transform: translateX(-50%); background: none; border: 0; cursor: pointer; display: flex; align-items: flex-start; justify-content: center; padding: 0; }
+	.pick { position: absolute; top: 14%; bottom: 0; width: 30%; transform: translateX(-50%); background: none; border: 0; cursor: pointer; display: flex; align-items: flex-end; justify-content: center; padding: 0 0 3.5%; }
 	.pick:disabled { cursor: default; }
 	.chip { display: flex; flex-direction: column; align-items: center; background: rgba(255, 255, 255, 0.94); border: 2px solid var(--ink); border-radius: 12px; padding: 5px 12px; line-height: 1.1; transition: transform 0.2s, background 0.2s; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); }
 	.chip b { font-size: 15px; }
