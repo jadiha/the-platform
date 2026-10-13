@@ -30,8 +30,6 @@
 		arrived = false;
 		setTimeout(() => (arrived = true), still() ? 0 : 350);
 	}
-	// Mid-sentence lower case, keeping acronyms like TTC.
-	const lc = (t: string) => (/^[A-Z][A-Z]/.test(t) ? t : t[0].toLowerCase() + t.slice(1));
 	const next = () => { idx += 1; arrived = false; };
 	const restart = () => { picks = []; idx = 0; arrived = false; };
 	const proof = (c: WhoseJobCard) => {
@@ -48,8 +46,8 @@
 
 	{#if !finished}
 		<p class="ask">
-			<span class="num">Question {idx + 1} of {cards.length}</span>
-			<span class="thing">Who decides {lc(card.thing)}?</span>
+			<span class="num">{idx + 1} of {cards.length} · <b>Who decides…</b></span>
+			<span class="thing">{card.thing}?</span>
 			<span class="hint">{pick ? '' : 'Tap the building that decides it.'}</span>
 		</p>
 
@@ -154,8 +152,9 @@
 	.progress .ok { background: #4a8c5c; }
 	.progress .miss { background: #d9822b; }
 	.ask { margin: 0 0 10px; display: flex; flex-direction: column; gap: 2px; }
+	.num b { font-size: 16px; color: var(--ink); letter-spacing: 1.6px; }
 	.num { font-size: 12px; font-weight: 600; letter-spacing: 1.2px; color: var(--mute); text-transform: uppercase; }
-	.thing { font-family: var(--serif); font-size: clamp(24px, 3.8vw, 34px); font-weight: 700; line-height: 1.15; letter-spacing: -0.5px; }
+	.thing { font-family: var(--serif); font-size: clamp(22px, 3.6vw, 30px); font-weight: 700; line-height: 1.15; letter-spacing: -0.5px; }
 	.hint { font-size: 13px; color: var(--mute); min-height: 1em; }
 	/* Three postcards, one per government. Each fits a third of the play area, so the question,
 	   the buildings and the answer all fit on one screen. */
