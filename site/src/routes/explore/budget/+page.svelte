@@ -10,7 +10,7 @@
 	let { data }: PageProps = $props();
 
 	// svelte-ignore state_referenced_locally
-	let levelKey = $state(data.trees[0]?.key ?? 'ontario');
+	let levelKey = $state(data.trees[0]?.key ?? 'toronto');
 	const level = $derived(data.trees.find((t) => t.key === levelKey) ?? data.trees[0]);
 	let path = $state<BudgetNode[]>([]);
 	const root = $derived(level?.tree as BudgetNode);
@@ -56,7 +56,7 @@
 
 <svelte:head>
 	<title>Explore the budget · The 6ix Votes</title>
-	<meta name="description" content="Tap through Ontario's, Toronto's and Scarborough's budgets, from the big categories down to individual programs." />
+	<meta name="description" content="Tap through Toronto's and Ontario's budgets, from the big categories down to individual programs." />
 </svelte:head>
 
 <div class="wide page">
