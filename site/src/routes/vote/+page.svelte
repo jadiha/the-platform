@@ -114,6 +114,7 @@
 </script>
 
 <svelte:head>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;700&family=VT323&display=swap" />
 	<title>Who's running for mayor, and what the City controls · Toronto votes October 26 · The 6ix Votes</title>
 	<meta name="description" content="Ride a streetcar through Toronto's mayoral race: what the City controls, what changed, and every candidate in their own words, with proof." />
 	<meta property="og:title" content="The {headline} question" />
@@ -243,53 +244,21 @@
 	{#if pins.length}
 		<div class="mywalk sans"><b>You pinned:</b> {pins.map(displayName).join(' · ')}<br /><span class="hint">Pins stay in this browser. Nothing is sent anywhere.</span></div>
 	{/if}
-	<div class="wall">
-		<svg class="city" viewBox="0 0 1000 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-			<g fill="#fff" opacity=".7">{#each [[80, 30], [190, 70], [330, 24], [430, 60], [610, 36], [760, 18], [880, 64], [950, 30]] as [x, y] (x)}<circle cx={x} cy={y} r="1.6" />{/each}</g>
-			<g transform="translate(0 70)">
-			<g fill="#1a2038">
-				<rect x="20" y="150" width="60" height="110" /><rect x="90" y="110" width="44" height="150" /><rect x="142" y="135" width="70" height="125" /><rect x="220" y="95" width="38" height="165" />
-				<rect x="266" y="140" width="56" height="120" /><rect x="330" y="120" width="40" height="140" />
-				<rect x="560" y="128" width="50" height="132" /><rect x="618" y="90" width="42" height="170" /><rect x="668" y="118" width="64" height="142" />
-				<rect x="740" y="80" width="36" height="180" /><rect x="784" y="132" width="58" height="128" /><rect x="850" y="105" width="46" height="155" /><rect x="904" y="145" width="80" height="115" />
-				<path d="M450 260 L462 70 L474 70 L486 260 Z" /><ellipse cx="468" cy="78" rx="20" ry="10" /><rect x="465.5" y="0" width="5" height="72" /><ellipse cx="468" cy="42" rx="6" ry="4" />
-			</g>
-			<ellipse cx="468" cy="80" rx="20" ry="3" fill="#ff8ad8" opacity=".9" />
-			<g fill="#ffd27a" opacity=".85">{#each [[100, 130], [112, 160], [160, 150], [180, 180], [228, 120], [240, 170], [280, 160], [340, 140], [575, 150], [630, 110], [640, 160], [690, 140], [700, 190], [752, 100], [760, 150], [800, 160], [862, 130], [870, 180], [930, 170]] as [x, y] (x * 1000 + y)}<rect {x} {y} width="6" height="8" />{/each}</g>
-			</g>
-			<rect y="224" width="1000" height="36" fill="#2a2f44" />
-			<g stroke="#5a6080" stroke-width="2"><line x1="0" y1="250" x2="1000" y2="250" /><line x1="0" y1="256" x2="1000" y2="256" /></g>
-			<g transform="translate(700 200) scale(.8)">
-				<rect width="150" height="44" rx="10" fill="#da251d" /><rect y="30" width="150" height="6" fill="#fff" />
-				<g fill="#fff3c4">{#each [14, 40, 66, 92, 118] as x (x)}<rect {x} y="8" width="18" height="15" rx="3" />{/each}</g>
-				<circle cx="30" cy="46" r="6" fill="#111" /><circle cx="120" cy="46" r="6" fill="#111" />
-				<line x1="75" y1="0" x2="95" y2="-30" stroke="#888" stroke-width="2" />
-			</g>
-			<g transform="translate(150 190)">
-				<rect x="0" y="6" width="30" height="34" rx="3" fill="#2f7d4a" /><rect x="-2" y="2" width="34" height="7" rx="2" fill="#256a3d" />
-				<ellipse cx="15" cy="-4" rx="11" ry="8" fill="#7d7f86" /><path d="M7 -10 L9 -16 L12 -10 Z M18 -10 L21 -16 L23 -10 Z" fill="#7d7f86" />
-				<ellipse cx="15" cy="-4" rx="8" ry="3" fill="#2b2b2e" /><circle cx="12" cy="-4" r="1.3" fill="#fff" /><circle cx="18" cy="-4" r="1.3" fill="#fff" />
-				<path d="M26 0 q14 -4 12 -16" stroke="#7d7f86" stroke-width="5" fill="none" stroke-linecap="round" />
-			</g>
-		</svg>
-		<div class="title">
-			<span class="stopno sans">Stop 6 · Last stop</span>
-			<h2>Before you vote</h2>
+	<div class="platform">
+		<div class="board" role="img" aria-label="Next train: Election Day, Monday October 26, 10 a.m. to 8 p.m.">
+			<span class="lbl">Next train</span>
+			<span class="dest">Election Day</span>
+			<span class="when">Mon Oct 26 · 10:00–20:00</span>
 		</div>
-		<div class="ticket sans">
-		<div class="stub">
-			<span class="tk">Valid one day only</span>
-			<span class="day">Mon</span>
-			<span class="date">Oct 26</span>
-			<span class="hrs">10 a.m. – 8 p.m.</span>
+		<div class="tiles-wall">
+			<div class="band"><span class="stopno-sub">Stop 6 · Last stop</span><h2>Before you vote</h2></div>
+			<div class="panels sans">
+				<div class="pnl"><b>On your ballot</b><span class="ballot"><i>Mayor</i><i>Councillor</i><i>School trustee</i></span></div>
+				<div class="pnl"><b>You can vote if</b><span>You're a Canadian citizen, 18 or older, and live in Toronto (or own or rent property here). Students: vote where your home is.</span></div>
+				<div class="pnl"><b>Bring</b><span>One ID with your name and Toronto address.</span></div>
+			</div>
+			<a class="where sans" href="https://www.toronto.ca/city-government/elections/" target="_blank" rel="noopener">Find where to vote ↗</a>
 		</div>
-		<div class="body">
-			<div class="row"><b>On your ballot</b><span class="ballot"><i>Mayor</i><i>Councillor</i><i>School trustee</i></span></div>
-			<div class="row"><b>You can vote if</b><span>you're a Canadian citizen, 18 or older, and live in Toronto (or own or rent property here). Students: vote where your home is.</span></div>
-			<div class="row"><b>Bring</b><span>One ID with your name and Toronto address.</span></div>
-			<a class="where" href="https://www.toronto.ca/city-government/elections/" target="_blank" rel="noopener">Find where to vote ↗</a>
-		</div>
-	</div>
 	</div>
 	<p class="more sans">
 		<a href="https://www.toronto.ca/city-government/elections/voter-information/who-can-vote/" target="_blank" rel="noopener">Full voting rules ↗</a>
@@ -344,19 +313,21 @@
 
 
 <style>
-	.screenwrap { min-height: calc(100vh - 200px); padding-bottom: 48px; animation: slidein 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
+	.screenwrap { min-height: calc(100vh - 200px); padding-bottom: 96px; animation: slidein 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
 	@keyframes slidein { from { opacity: 0; transform: translateX(30px); } }
 	.hall { margin-top: 8vh; }
 	.hoprow { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 18px; margin-top: 22px; }
 	.hop { font-family: var(--sans); font-weight: 700; font-size: 17px; background: #da251d; color: #fff; border: 0; border-radius: 999px; padding: 13px 26px; cursor: pointer; }
 	.howto { font-size: 13.5px; color: var(--mute); }
-	.stepnav { display: flex; align-items: center; gap: 16px; margin-top: 24px; }
+	/* Back and Next float in the same spot on every stop (no bar behind them). */
+	.stepnav { position: fixed; left: 0; right: 0; bottom: 20px; z-index: 8; display: flex; align-items: center; gap: 16px; pointer-events: none; }
+	.stepnav > * { pointer-events: auto; }
 	.stepnav .gap { flex: 1; }
 	.stepnav button { font: inherit; font-weight: 700; font-size: 15px; border-radius: 999px; padding: 11px 18px; cursor: pointer; }
-	.stepnav .back { background: none; border: 0; padding: 11px 0; color: var(--mute); font-weight: 600; }
+	.stepnav .back { background: color-mix(in srgb, var(--paper) 90%, transparent); backdrop-filter: blur(4px); border: 1px solid var(--rule); padding: 10px 16px; color: var(--ink-2); font-weight: 600; }
 	.stepnav .back:hover { color: var(--ink); }
 	.stepnav .back:disabled { opacity: 0.3; cursor: default; }
-	.stepnav .fwd { background: #da251d; color: #fff; border: 0; }
+	.stepnav .fwd { background: #da251d; color: #fff; border: 0; box-shadow: 0 8px 20px rgba(218, 37, 29, 0.3); }
 	.head { display: flex; flex-direction: column; gap: 2px; }
 	.stopno { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #da251d; }
 
@@ -440,28 +411,35 @@
 	.src { font-size: 12px; }
 	.exit { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; min-height: calc(100vh - 300px); justify-content: center; padding-top: 8px; }
 	.exit .method { margin-top: 14px; }
-	.wall { position: relative; width: 100%; max-width: 980px; border-radius: 24px; overflow: hidden; padding: 20px 40px 150px; background: linear-gradient(#141a33 0%, #3b2f5c 45%, #b8577a 75%, #f29a5b 100%); box-shadow: 0 20px 50px rgba(20, 26, 51, 0.25); }
-	.title { position: relative; text-align: center; margin-bottom: 14px; }
-	.title .stopno { color: #ffd27a; letter-spacing: 3px; }
-	.title h2 { color: #fff; margin: 4px 0 0; font-size: clamp(30px, 4.6vw, 44px); }
-	.city { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 255px; }
-	.wall .ticket { position: relative; margin: 0; }
 	.exit .more { justify-content: center; }
+	/* Last stop as a TTC platform: amber arrival board, cream Vitrolite tiles, the station name on
+	   a black band in Toronto-Subway-style capitals (Jost stands in for the TTC's own face). */
+	.platform { width: 100%; max-width: 940px; }
+	.board { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; background: #0d0d0f; border-radius: 10px 10px 0 0; padding: 12px 22px; font-family: 'VT323', ui-monospace, monospace; color: #ffb43a; text-shadow: 0 0 6px rgba(255, 170, 40, 0.6); font-size: 26px; line-height: 1; }
+	.board .lbl { color: #ffd48a; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; }
+	.board .dest { font-size: 32px; text-transform: uppercase; }
+	.board .when { margin-left: auto; }
+	.tiles-wall { background-color: #efe6c8; background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 60%), linear-gradient(#d9cda4 2px, transparent 2px), linear-gradient(90deg, #d9cda4 2px, transparent 2px); background-size: 100% 100%, 90px 45px, 90px 45px; border-radius: 0 0 14px 14px; padding: 0 0 26px; text-align: center; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12); }
+	.band { background: #141414; color: #fff; padding: 14px 20px 16px; border-top: 6px solid #b8a46a; border-bottom: 6px solid #b8a46a; }
+	.band h2 { font-family: 'Jost', var(--sans); font-weight: 700; text-transform: uppercase; letter-spacing: 6px; margin: 2px 0 0; font-size: clamp(28px, 5vw, 52px); color: #fff; }
+	.stopno-sub { font-family: 'Jost', var(--sans); font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #b8a46a; }
+	.panels { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 12px; padding: 22px 26px 4px; text-align: left; }
+	.pnl { background: rgba(255, 255, 255, 0.92); border-radius: 10px; padding: 12px 14px; font-size: 14.5px; line-height: 1.45; display: flex; flex-direction: column; gap: 6px; border: 1px solid #d9cda4; }
+	.pnl b { font-family: 'Jost', var(--sans); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #da251d; }
+	.ballot { display: flex; flex-wrap: wrap; gap: 6px; }
+	.ballot i { font-style: normal; font-weight: 600; font-size: 13px; border: 1.5px solid var(--ink); border-radius: 6px; padding: 2px 9px; }
+	.where { display: inline-block; margin-top: 16px; background: #da251d; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; border-radius: 999px; padding: 12px 26px; box-shadow: 0 6px 16px rgba(218, 37, 29, 0.3); }
+	@media (max-width: 700px) {
+		.board { font-size: 20px; gap: 6px 12px; padding: 10px 14px; } .board .dest { font-size: 24px; } .board .when { margin-left: 0; }
+		.band h2 { letter-spacing: 3px; }
+		.panels { grid-template-columns: 1fr; padding: 14px 12px 0; gap: 8px; }
+		.pnl { padding: 9px 12px; font-size: 13.5px; }
+	}
+
 	.mywalk { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 9px 14px; font-size: 14px; margin: 10px 0; }
 	.wardp { font-size: 15px; color: var(--ink-2); margin: 8px 0 0; }
 	.wardstop { padding-top: 20px; }
 	.wardp a { font-size: 12px; color: var(--mute); }
-	.ticket { display: grid; grid-template-columns: 210px 1fr; margin: 16px 0 10px; background: #fff; border: 1px solid var(--rule); border-radius: 18px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); overflow: hidden; }
-	.stub { position: relative; background: #da251d; color: #fff; display: flex; flex-direction: column; justify-content: center; padding: 22px 24px; border-right: 2px dashed rgba(255, 255, 255, 0.7); }
-	.stub::before, .stub::after { content: ''; position: absolute; right: -11px; width: 20px; height: 20px; border-radius: 50%; background: var(--paper); }
-	.stub::before { top: -10px; } .stub::after { bottom: -10px; }
-	.tk { font-size: 10px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; opacity: 0.85; }
-	.day { font-family: var(--serif); font-size: 22px; margin-top: 10px; }
-	.date { font-family: var(--serif); font-weight: 700; font-size: 46px; line-height: 1; letter-spacing: -1px; }
-	.hrs { font-size: 14px; font-weight: 600; margin-top: 8px; }
-	.body { padding: 18px 22px; display: flex; flex-direction: column; gap: 10px; }
-	.row { display: grid; grid-template-columns: 130px 1fr; gap: 12px; font-size: 14.5px; line-height: 1.45; border-bottom: 1px dashed var(--rule); padding-bottom: 10px; }
-	.row b { font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: #da251d; padding-top: 3px; }
 	.ballot { display: flex; flex-wrap: wrap; gap: 6px; }
 	.ballot i { font-style: normal; font-weight: 600; font-size: 13px; border: 1.5px solid var(--ink); border-radius: 6px; padding: 2px 9px; }
 	.where { align-self: flex-start; margin-top: 4px; background: var(--ink); color: #fff; text-decoration: none; font-weight: 700; font-size: 15px; border-radius: 999px; padding: 10px 20px; }
@@ -470,21 +448,14 @@
 	.how { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
 	.exit .method { max-width: 860px; text-align: center; }
 	@media (max-width: 600px) {
-		.ticket { grid-template-columns: 1fr; }
-		.wall { padding: 14px; border-radius: 16px; }
-				.exit { min-height: 0; }
-		.stub { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; padding: 16px 18px; border-right: 0; border-bottom: 2px dashed rgba(255, 255, 255, 0.7); }
-		.stub::before, .stub::after { top: auto; bottom: -11px; right: auto; }
-		.stub::before { left: -10px; } .stub::after { right: -10px; }
-		.tk { width: 100%; } .day, .hrs { margin: 0; } .date { font-size: 36px; }
-		.body { padding: 14px 16px; } .row { grid-template-columns: 1fr; gap: 2px; font-size: 14px; }
-	}
+						.exit { min-height: 0; }
+						}
 	.hint { font-size: 12px; color: var(--mute); }
 	.method { font-size: 12.5px; color: var(--mute); margin-top: 24px; line-height: 1.5; }
 	@media (max-width: 600px) {
 			.stepnav .full { display: none; }
-		.stepnav { margin-top: 12px; }
-		.screenwrap { padding-bottom: 20px; }
+		.stepnav { bottom: 12px; }
+		.screenwrap { padding-bottom: 80px; }
 		.charts { grid-template-columns: 1fr; }
 		.who { grid-template-columns: 1fr; }
 		.hbars li { grid-template-columns: 84px 1fr 54px; }
