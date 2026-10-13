@@ -187,7 +187,7 @@
 			<ul>
 				<li><span>The gap:</span> going into 2024, the City needed <Fact id="toronto.budget.2024.opening-gap" /> more than it had, mostly for shelter space (including for refugee claimants) and because TTC fare revenue was down.</li>
 				<li><span>The fix:</span> it found <Fact id="toronto.budget.2024.savings" /> in savings and offsets, and raised property taxes for much of the rest.</li>
-				<li><span>Every year:</span> <Fact id="toronto.city-building-levy.2024" plain /> points of the increase go to the City Building Fund for transit and housing.</li>
+				<li><span>Every year:</span> part of the increase is a <Fact id="toronto.city-building-levy.2024" plain /> City Building Fund levy, set aside for transit and housing.</li>
 				<li><span>Who decides:</span> the mayor proposes each budget, and City Council votes on it. <a href={facts['toronto.budget.2024.opening-gap']?.primary.url} target="_blank" rel="noopener">proof ↗</a></li>
 			</ul>
 		</div>
@@ -350,7 +350,7 @@
 	@media (max-width: 600px) { .quiz { padding-top: 20px; } .hall { margin-top: 4vh; } }
 	@media (prefers-reduced-motion: reduce) { .screenwrap { animation: none; } }
 	.meet { padding-top: 24px; }
-	.meet .legend { margin: 6px 0 12px; }
+	.meet .legend { margin: 8px 0 18px; gap: 16px; }
 	.who { display: grid; grid-template-columns: 1.7fr 1fr; gap: 10px; margin-top: 2px; }
 	.who .why { font-size: 13.5px; line-height: 1.4; color: var(--ink-2); background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 10px 14px; }
 	.why ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
@@ -377,11 +377,11 @@
 	.note { font-size: 11.5px; color: var(--mute); margin: 10px 0 0; }
 	.legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--mute); margin: 10px 0 12px; }
 	.legend i, .dots i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 4px; vertical-align: 0; }
-	.tiles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
-	.tile { font: inherit; width: 100%; height: 100%; text-align: left; display: grid; grid-template-columns: 34px 1fr; grid-template-rows: auto auto; column-gap: 10px; align-items: center; background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 8px 10px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
+	.tiles { list-style: none; padding: 0; margin: 4px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px 14px; }
+	.tile { font: inherit; width: 100%; height: 100%; text-align: left; display: grid; grid-template-columns: 34px 1fr; grid-template-rows: auto auto; column-gap: 12px; row-gap: 3px; align-items: center; background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 9px 14px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
 	.tile:hover, .tile:focus-visible { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); border-color: #bdb8ad; }
 	.ini { grid-row: 1 / 3; width: 34px; height: 34px; border-radius: 50%; background: #2b2b2b; color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 12.5px; letter-spacing: 0.5px; }
-	.nm { font-weight: 700; font-size: 14px; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+	.nm { font-weight: 700; font-size: 14px; line-height: 1.2; }
 	.nm .ln { display: none; }
 	.pinmark { color: #da251d; font-size: 10px; }
 	.sub { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--mute); white-space: nowrap; overflow: hidden; }
@@ -423,7 +423,7 @@
 	.sign { display: inline-block; background: #1b1b1d; color: #fff; font-size: clamp(22px, 3.4vw, 30px); font-weight: 700; letter-spacing: 0.5px; padding: 10px 26px; border-radius: 8px; margin: 6px 0 16px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); }
 	.wall .ticket { position: relative; margin: 0; }
 	.exit .more { justify-content: center; }
-	.mywalk { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 12px 14px; font-size: 14px; margin: 10px 0; }
+	.mywalk { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 9px 14px; font-size: 14px; margin: 10px 0; }
 	.wardp { font-size: 15px; color: var(--ink-2); margin: 8px 0 0; }
 	.wardstop { padding-top: 20px; }
 	.wardp a { font-size: 12px; color: var(--mute); }

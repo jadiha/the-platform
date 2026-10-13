@@ -27,7 +27,7 @@
 	<meta name="description" content="Every dataset behind The 6ix Votes, how we grouped spending into categories, and what we know we can't show yet." />
 </svelte:head>
 
-<div class="wrap page">
+<div class="wide page">
 	<p class="kicker">Sources and methods</p>
 	<h1>Where every number comes from</h1>
 	<p class="dek">
@@ -37,10 +37,10 @@
 
 	<h2>How we rate each number</h2>
 	<ul class="rules sans">
-		<li><strong class="st-verified">{STATUS_LABEL.verified}</strong>: from an official source, and an independent source agrees.</li>
-		<li><strong class="st-single">{STATUS_LABEL.single}</strong>: from an official source; we haven't found an independent check yet.</li>
-		<li><strong class="st-disagree">{STATUS_LABEL.disagree}</strong>: official sources give different numbers. We show both and explain why.</li>
-		<li><strong class="st-reported">{STATUS_LABEL.reported}</strong>: reported in the news but not in any official document. Never presented as fact.</li>
+		<li><strong class="st-verified">{STATUS_LABEL.verified}</strong><span>From an official source, and an independent source agrees.</span></li>
+		<li><strong class="st-single">{STATUS_LABEL.single}</strong><span>From an official source; we haven't found an independent check yet.</span></li>
+		<li><strong class="st-disagree">{STATUS_LABEL.disagree}</strong><span>Official sources give different numbers. We show both and explain why.</span></li>
+		<li><strong class="st-reported">{STATUS_LABEL.reported}</strong><span>Reported in the news but not in any official document. Never presented as fact.</span></li>
 	</ul>
 	<p>
 		We also say whether each number is a <strong>budget</strong> (a plan) or an <strong>actual</strong> (what was really spent), and whether it is
@@ -93,7 +93,7 @@
 	</div>
 </div>
 
-<div class="wrap page">
+<div class="wide page">
 	<h2 id="categories">How we grouped spending</h2>
 	<p>
 		Toronto and Ontario organize their budgets differently. To compare them, we put every budget line into one shared set of categories.
@@ -155,11 +155,18 @@
 </div>
 
 <style>
-	.page { margin-top: 44px; }
+	/* One page width throughout, so sections line up on the same left edge; prose keeps a readable measure. */
+	.page { margin-top: 36px; }
+	.page > p, .page > .dek { max-width: 720px; }
+	.page + .page { margin-top: 0; }
 	h1 { font-size: clamp(32px, 5vw, 46px); margin: 8px 0 12px; }
-	h2 { font-size: 26px; margin: 44px 0 12px; scroll-margin-top: 80px; }
+	h2 { font-size: 26px; margin: 48px 0 12px; padding-top: 28px; border-top: 1px solid var(--rule); scroll-margin-top: 80px; }
 	.dek { color: var(--ink-2); font-size: 20px; }
-	.rules { font-size: 15px; display: grid; gap: 6px; padding-left: 18px; }
+	.rules { list-style: none; padding: 0; margin: 14px 0 18px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; font-size: 13.5px; }
+	.rules li { background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; line-height: 1.4; color: var(--ink-2); }
+	.rules strong { font-size: 14.5px; }
+	@media (max-width: 800px) { .rules { grid-template-columns: 1fr 1fr; } }
+	@media (max-width: 480px) { .rules { grid-template-columns: 1fr; } }
 	.small { font-size: 13px; }
 	.muted { color: var(--mute); }
 	.scroll { overflow-x: auto; }
