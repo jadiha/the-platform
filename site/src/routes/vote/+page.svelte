@@ -138,8 +138,10 @@
 		on the ballot for mayor. Hop on the streetcar for a ride through the city: first, what the City actually controls; then, everyone running, in their own words.
 	</p>
 	<p class="proofnote sans">Every number and every quote links to its proof. Nothing here tells you who to vote for.</p>
-	<button class="hop sans" onclick={() => go(1)}>Hop on →</button>
-	<p class="howto sans">Six stops, about five minutes.</p>
+	<div class="hoprow sans">
+		<button class="hop" onclick={() => go(1)}>Hop on →</button>
+		<span class="howto">Six stops · about five minutes</span>
+	</div>
 </section>
 {:else if step === 1}
 <section class="stop wide quiz">
@@ -180,9 +182,9 @@
 			<p class="note">Tap any number for its proof.</p>
 		</figure>
 	</div>
-	<div class="decisions sans">
-		<div><span class="tag">Decided</span> TTC fares <Fact id="toronto.ttc.fares.2026" plain /> <a href={facts['toronto.ttc.fares.2026']?.primary.url} target="_blank" rel="noopener">proof ↗</a></div>
-		<div><span class="tag">Decided</span> Free after <Fact id="toronto.ttc.fare-cap.2026" plain /> paid TTC trips a month <a href={facts['toronto.ttc.fare-cap.2026']?.primary.url} target="_blank" rel="noopener">proof ↗</a></div>
+	<div class="who sans">
+		<p><b>Who decided</b> Mayor Olivia Chow proposed each of these budgets, and City Council approved them. <a href="https://www.toronto.ca/news/city-of-torontos-2026-budget-now-final-focuses-on-affordability-service-stability-and-financial-sustainability/" target="_blank" rel="noopener">proof ↗</a></p>
+		<p><b>Your TTC fare</b> <Fact id="toronto.ttc.fares.2026" plain />, and free after <Fact id="toronto.ttc.fare-cap.2026" plain /> paid trips in a month. <a href={facts['toronto.ttc.fares.2026']?.primary.url} target="_blank" rel="noopener">proof ↗</a></p>
 	</div>
 </section>
 {:else if step === 3}
@@ -304,8 +306,9 @@
 	.screenwrap { min-height: calc(100vh - 200px); padding-bottom: 48px; animation: slidein 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
 	@keyframes slidein { from { opacity: 0; transform: translateX(30px); } }
 	.hall { margin-top: 8vh; }
-	.hop { font: inherit; font-weight: 700; font-size: 18px; background: #da251d; color: #fff; border: 0; border-radius: 999px; padding: 14px 28px; margin-top: 22px; cursor: pointer; }
-	.howto { font-size: 13px; color: var(--mute); margin-top: 8px; }
+	.hoprow { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 18px; margin-top: 22px; }
+	.hop { font-family: var(--sans); font-weight: 700; font-size: 17px; background: #da251d; color: #fff; border: 0; border-radius: 999px; padding: 13px 26px; cursor: pointer; }
+	.howto { font-size: 13.5px; color: var(--mute); }
 	.stepnav { display: flex; align-items: center; gap: 16px; margin-top: 24px; }
 	.stepnav .gap { flex: 1; }
 	.stepnav button { font: inherit; font-weight: 700; font-size: 15px; border-radius: 999px; padding: 11px 18px; cursor: pointer; }
@@ -329,6 +332,10 @@
 	@media (prefers-reduced-motion: reduce) { .screenwrap { animation: none; } }
 	.meet { padding-top: 24px; }
 	.meet .legend { margin: 6px 0 12px; }
+	.who { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 2px; }
+	.who p { margin: 0; font-size: 14px; line-height: 1.45; color: var(--ink-2); background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 10px 14px; }
+	.who b { display: block; font-size: 10.5px; letter-spacing: 1.4px; text-transform: uppercase; color: #da251d; margin-bottom: 2px; }
+	.who a { font-size: 12px; color: var(--mute); margin-left: 4px; }
 	.charts { display: grid; grid-template-columns: 1fr 1.2fr; gap: 14px; margin: 16px 0 10px; }
 	.chart { margin: 0; background: #fff; border: 1px solid var(--rule); border-radius: 16px; padding: 14px 16px 10px; }
 	figcaption { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
@@ -346,9 +353,6 @@
 	.hbars .fill { height: 100%; border-radius: 6px; }
 	.hbars .val { text-align: right; font-weight: 700; }
 	.note { font-size: 11.5px; color: var(--mute); margin: 10px 0 0; }
-	.decisions { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; margin-bottom: 12px; }
-	.decisions a { font-size: 11.5px; color: var(--mute); margin-left: 4px; }
-	.decisions .tag { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: var(--ink); color: #fff; border-radius: 4px; padding: 2px 6px; margin-right: 6px; }
 	.legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--mute); margin: 10px 0 12px; }
 	.legend i, .dots i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 4px; vertical-align: 0; }
 	.tiles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
@@ -424,6 +428,7 @@
 	@media (max-width: 600px) {
 			.stepnav .full { display: none; }
 		.charts { grid-template-columns: 1fr; }
+		.who { grid-template-columns: 1fr; }
 		.hbars li { grid-template-columns: 84px 1fr 54px; }
 	}
 </style>
