@@ -1,0 +1,1037 @@
+{
+  "asOf": "2026-10-13",
+  "capitalPlan": "2026–2035",
+  "populationSource": "2021 Census, persons in private households (City of Toronto Ward Profiles)",
+  "cityWide": {
+    "capital10yr": 55030.6,
+    "share": 0.873
+  },
+  "total10yr": 63058.3,
+  "wards": [
+    {
+      "ward": 1,
+      "name": "Etobicoke North",
+      "scarborough": false,
+      "population": 115120,
+      "capital10yr": 42.4,
+      "capital2026": 3.4,
+      "perResident10yr": 368.0,
+      "topProjects": [
+        {
+          "name": "Ambulance Post Program",
+          "program": "Toronto Paramedic Services",
+          "amount10yr": 13.5,
+          "category": "fire-paramedics"
+        },
+        {
+          "name": "Kipling Acres Shell Space",
+          "program": "Seniors Services and Long-Term Care",
+          "amount10yr": 11.8,
+          "category": "health"
+        },
+        {
+          "name": "Woodbine Casino Child Care Centre",
+          "program": "Children's Services",
+          "amount10yr": 11.0,
+          "category": "social-services"
+        },
+        {
+          "name": "SPIF Community Parkland",
+          "program": "Seniors Services and Long-Term Care",
+          "amount10yr": 2.5,
+          "category": "health"
+        },
+        {
+          "name": "Major Maintenance",
+          "program": "Economic Development & Culture",
+          "amount10yr": 1.9,
+          "category": "parks-rec-culture"
+        }
+      ]
+    },
+    {
+      "ward": 2,
+      "name": "Etobicoke Centre",
+      "scarborough": false,
+      "population": 117200,
+      "capital10yr": 170.2,
+      "capital2026": 15.8,
+      "perResident10yr": 1451.9,
+      "topProjects": [
+        {
+          "name": "Community Centres",
+          "program": "Parks & Recreation",
+          "amount10yr": 86.2,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "TCHC Building Repair Capital",
+          "program": "Toronto Community Housing Corporation",
+          "amount10yr": 19.6,
+          "category": "housing-shelter"
+        },
+        {
+          "name": "New Shelter Capital Project HSCIS",
+          "program": "Toronto Shelter and Support Services",
+          "amount10yr": 18.9,
+          "category": "housing-shelter"
+        },
+        {
+          "name": "Outdoor Recreation Centres",
+          "program": "Parks & Recreation",
+          "amount10yr": 17.2,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Park Development",
+          "program": "Parks & Recreation",
+          "amount10yr": 17.0,
+          "category": "parks-rec-culture"
+        }
+      ]
+    },
+    {
+      "ward": 3,
+      "name": "Etobicoke-Lakeshore",
+      "scarborough": false,
+      "population": 139920,
+      "capital10yr": 508.5,
+      "capital2026": 112.6,
+      "perResident10yr": 3634.3,
+      "topProjects": [
+        {
+          "name": "Real Estate Services",
+          "program": "Corporate Real Estate Management",
+          "amount10yr": 373.6,
+          "category": "government-debt"
+        },
+        {
+          "name": "Community Centres",
+          "program": "Parks & Recreation",
+          "amount10yr": 31.0,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Etobicoke Civic Centre New Construction",
+          "program": "Toronto Public Library",
+          "amount10yr": 24.7,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "New Shelter Capital Project HSCIS",
+          "program": "Toronto Shelter and Support Services",
+          "amount10yr": 24.4,
+          "category": "housing-shelter"
+        },
+        {
+          "name": "Park Development",
+          "program": "Parks & Recreation",
+          "amount10yr": 14.5,
+          "category": "parks-rec-culture"
+        }
+      ]
+    },
+    {
+      "ward": 4,
+      "name": "Parkdale-High Park",
+      "scarborough": false,
+      "population": 104715,
+      "capital10yr": 345.6,
+      "capital2026": 9.4,
+      "perResident10yr": 3300.5,
+      "topProjects": [
+        {
+          "name": "Community Centres",
+          "program": "Parks & Recreation",
+          "amount10yr": 209.8,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Parkdale Reconstruction & Expansion",
+          "program": "Toronto Public Library",
+          "amount10yr": 44.4,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "High Park Renovation and Expansion",
+          "program": "Toronto Public Library",
+          "amount10yr": 26.9,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Real Estate Services",
+          "program": "Corporate Real Estate Management",
+          "amount10yr": 17.7,
+          "category": "government-debt"
+        },
+        {
+          "name": "Park Development",
+          "program": "Parks & Recreation",
+          "amount10yr": 10.2,
+          "category": "parks-rec-culture"
+        }
+      ]
+    },
+    {
+      "ward": 5,
+      "name": "York South-Weston",
+      "scarborough": false,
+      "population": 115675,
+      "capital10yr": 52.1,
+      "capital2026": 9.3,
+      "perResident10yr": 450.3,
+      "topProjects": [
+        {
+          "name": "Community Centres",
+          "program": "Parks & Recreation",
+          "amount10yr": 17.5,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "New Shelter Capital Project HSCIS",
+          "program": "Toronto Shelter and Support Services",
+          "amount10yr": 12.4,
+          "category": "housing-shelter"
+        },
+        {
+          "name": "Weston Renovation & Expansion",
+          "program": "Toronto Public Library",
+          "amount10yr": 6.4,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Mechanical and Electrical",
+          "program": "Corporate Real Estate Management",
+          "amount10yr": 5.2,
+          "category": "government-debt"
+        },
+        {
+          "name": "Park Development",
+          "program": "Parks & Recreation",
+          "amount10yr": 4.5,
+          "category": "parks-rec-culture"
+        }
+      ]
+    },
+    {
+      "ward": 6,
+      "name": "York Centre",
+      "scarborough": false,
+      "population": 107355,
+      "capital10yr": 197.3,
+      "capital2026": 16.9,
+      "perResident10yr": 1837.9,
+      "topProjects": [
+        {
+          "name": "Community Centres",
+          "program": "Parks & Recreation",
+          "amount10yr": 115.0,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "New Shelter Capital Project HSCIS",
+          "program": "Toronto Shelter and Support Services",
+          "amount10yr": 51.0,
+          "category": "housing-shelter"
+        },
+        {
+          "name": "Centennial Reconstruction & Expansion",
+          "program": "Toronto Public Library",
+          "amount10yr": 15.9,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Mechanical and Electrical",
+          "program": "Corporate Real Estate Management",
+          "amount10yr": 7.0,
+          "category": "government-debt"
+        },
+        {
+          "name": "3393 Keele Street Child Care Centre",
+          "program": "Children's Services",
+          "amount10yr": 6.9,
+          "category": "social-services"
+        }
+      ]
+    },
+    {
+      "ward": 7,
+      "name": "Humber River-Black Creek",
+      "scarborough": false,
+      "population": 111200,
+      "capital10yr": 167.3,
+      "capital2026": 25.8,
+      "perResident10yr": 1504.7,
+      "topProjects": [
+        {
+          "name": "Community Centres",
+          "program": "Parks & Recreation",
+          "amount10yr": 118.4,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "TRCA ADMINISTRATIVE INFRASTRUCTURE PROJECT",
+          "program": "Toronto & Region Conservation Authority",
+          "amount10yr": 9.6,
+          "category": "other"
+        },
+        {
+          "name": "Western North York Child Care",
+          "program": "Children's Services",
+          "amount10yr": 9.5,
+          "category": "social-services"
+        },
+        {
+          "name": "TCH Needle Firway",
+          "program": "Children's Services",
+          "amount10yr": 7.9,
+          "category": "social-services"
+        },
+        {
+          "name": "Arena",
+          "program": "Parks & Recreation",
+          "amount10yr": 7.8,
+          "category": "parks-rec-culture"
+        }
+      ]
+    },
+    {
+      "ward": 8,
+      "name": "Eglinton-Lawrence",
+      "scarborough": false,
+      "population": 114820,
+      "capital10yr": 286.0,
+      "capital2026": 15.0,
+      "perResident10yr": 2490.5,
+      "topProjects": [
+        {
+          "name": "Community Centres",
+          "program": "Parks & Recreation",
+          "amount10yr": 126.6,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Northern District Renovation",
+          "program": "Toronto Public Library",
+          "amount10yr": 60.7,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "New Shelter Capital Project HSCIS",
+          "program": "Toronto Shelter and Support Services",
+          "amount10yr": 31.5,
+          "category": "housing-shelter"
+        },
+        {
+          "name": "Park Development",
+          "program": "Parks & Recreation",
+          "amount10yr": 25.7,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Lawrence Heights Child Care Centre",
+          "program": "Children's Services",
+          "amount10yr": 12.9,
+          "category": "social-services"
+        }
+      ]
+    },
+    {
+      "ward": 9,
+      "name": "Davenport",
+      "scarborough": false,
+      "population": 104730,
+      "capital10yr": 66.9,
+      "capital2026": 20.7,
+      "perResident10yr": 639.1,
+      "topProjects": [
+        {
+          "name": "New Shelter Capital Project HSCIS",
+          "program": "Toronto Shelter and Support Services",
+          "amount10yr": 34.6,
+          "category": "housing-shelter"
+        },
+        {
+          "name": "Park Development",
+          "program": "Parks & Recreation",
+          "amount10yr": 20.7,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Wallace Emerson Child Care Centre",
+          "program": "Children's Services",
+          "amount10yr": 3.0,
+          "category": "social-services"
+        },
+        {
+          "name": "Antler Lappin",
+          "program": "Transportation Services",
+          "amount10yr": 2.5,
+          "category": "infrastructure"
+        },
+        {
+          "name": "Structural/Building Envelope",
+          "program": "Corporate Real Estate Management",
+          "amount10yr": 1.8,
+          "category": "government-debt"
+        }
+      ]
+    },
+    {
+      "ward": 10,
+      "name": "Spadina-Fort York",
+      "scarborough": false,
+      "population": 135400,
+      "capital10yr": 951.9,
+      "capital2026": 100.0,
+      "perResident10yr": 7030.5,
+      "topProjects": [
+        {
+          "name": "Park Development",
+          "program": "Parks & Recreation",
+          "amount10yr": 155.2,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Quayside",
+          "program": "Waterfront Revitalization Initiative",
+          "amount10yr": 112.4,
+          "category": "infrastructure"
+        },
+        {
+          "name": "Liberty Village New Street Project",
+          "program": "Transportation Services",
+          "amount10yr": 75.4,
+          "category": "infrastructure"
+        },
+        {
+          "name": "John Street Revitalization Project",
+          "program": "Transportation Services",
+          "amount10yr": 68.9,
+          "category": "infrastructure"
+        },
+        {
+          "name": "Structural/Building Envelope",
+          "program": "Corporate Real Estate Management",
+          "amount10yr": 67.4,
+          "category": "government-debt"
+        }
+      ]
+    },
+    {
+      "ward": 11,
+      "name": "University-Rosedale",
+      "scarborough": false,
+      "population": 102385,
+      "capital10yr": 1661.6,
+      "capital2026": 133.2,
+      "perResident10yr": 16228.5,
+      "topProjects": [
+        {
+          "name": "Yonge Bloor Capacity Improvements",
+          "program": "Toronto Transit Commission",
+          "amount10yr": 1315.6,
+          "category": "transit"
+        },
+        {
+          "name": "Community Centres",
+          "program": "Parks & Recreation",
+          "amount10yr": 138.0,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Multi-Function Station #3",
+          "program": "Toronto Paramedic Services",
+          "amount10yr": 100.5,
+          "category": "fire-paramedics"
+        },
+        {
+          "name": "TRL Renvoation",
+          "program": "Toronto Public Library",
+          "amount10yr": 51.9,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Yorkville Renovation",
+          "program": "Toronto Public Library",
+          "amount10yr": 16.7,
+          "category": "parks-rec-culture"
+        }
+      ]
+    },
+    {
+      "ward": 12,
+      "name": "Toronto-St. Paul's",
+      "scarborough": false,
+      "population": 114095,
+      "capital10yr": 86.6,
+      "capital2026": 35.5,
+      "perResident10yr": 758.9,
+      "topProjects": [
+        {
+          "name": "Pool",
+          "program": "Parks & Recreation",
+          "amount10yr": 35.1,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Restoration/Preservation of Heritage Elements",
+          "program": "Economic Development & Culture",
+          "amount10yr": 25.7,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Land Acquisition",
+          "program": "Parks & Recreation",
+          "amount10yr": 6.7,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "CP 12/CP 223 (JV) 30 Alvin Ave",
+          "program": "Toronto Parking Authority",
+          "amount10yr": 5.3,
+          "category": "other"
+        },
+        {
+          "name": "Leasehold Improvements",
+          "program": "Toronto Employment & Social Services",
+          "amount10yr": 4.4,
+          "category": "social-services"
+        }
+      ]
+    },
+    {
+      "ward": 13,
+      "name": "Toronto Centre",
+      "scarborough": false,
+      "population": 116930,
+      "capital10yr": 1001.5,
+      "capital2026": 54.7,
+      "perResident10yr": 8564.6,
+      "topProjects": [
+        {
+          "name": "GEORGE STREET REVITALIZATION (GSR)",
+          "program": "Toronto Shelter and Support Services",
+          "amount10yr": 555.8,
+          "category": "housing-shelter"
+        },
+        {
+          "name": "Community Centres",
+          "program": "Parks & Recreation",
+          "amount10yr": 103.0,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Mechanical and Electrical",
+          "program": "Corporate Real Estate Management",
+          "amount10yr": 65.6,
+          "category": "government-debt"
+        },
+        {
+          "name": "Net Zero Carbon Plan Program",
+          "program": "Corporate Real Estate Management",
+          "amount10yr": 52.2,
+          "category": "government-debt"
+        },
+        {
+          "name": "Parliament Street Relocation and Expansion",
+          "program": "Toronto Public Library",
+          "amount10yr": 32.4,
+          "category": "parks-rec-culture"
+        }
+      ]
+    },
+    {
+      "ward": 14,
+      "name": "Toronto-Danforth",
+      "scarborough": false,
+      "population": 104555,
+      "capital10yr": 680.2,
+      "capital2026": 79.6,
+      "perResident10yr": 6505.3,
+      "topProjects": [
+        {
+          "name": "Next Phase of Waterfront Revitiliation",
+          "program": "Waterfront Revitalization Initiative",
+          "amount10yr": 255.7,
+          "category": "infrastructure"
+        },
+        {
+          "name": "Broadview Eastern Flood Protection",
+          "program": "Waterfront Revitalization Initiative",
+          "amount10yr": 168.5,
+          "category": "infrastructure"
+        },
+        {
+          "name": "Broadview Extension Phase 1",
+          "program": "Transportation Services",
+          "amount10yr": 119.5,
+          "category": "infrastructure"
+        },
+        {
+          "name": "Toronto Waterfront Revitalization Initiative",
+          "program": "Waterfront Revitalization Initiative",
+          "amount10yr": 28.8,
+          "category": "infrastructure"
+        },
+        {
+          "name": "Port Lands Flood Protection",
+          "program": "Waterfront Revitalization Initiative",
+          "amount10yr": 28.7,
+          "category": "infrastructure"
+        }
+      ]
+    },
+    {
+      "ward": 15,
+      "name": "Don Valley West",
+      "scarborough": false,
+      "population": 101025,
+      "capital10yr": 116.8,
+      "capital2026": 11.1,
+      "perResident10yr": 1155.7,
+      "topProjects": [
+        {
+          "name": "Overlea Blvd and Don Mills Rd Improvement",
+          "program": "Transportation Services",
+          "amount10yr": 94.0,
+          "category": "infrastructure"
+        },
+        {
+          "name": "Park Development",
+          "program": "Parks & Recreation",
+          "amount10yr": 12.9,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Community Centres",
+          "program": "Parks & Recreation",
+          "amount10yr": 4.7,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Restoration/Preservation of Heritage Elements",
+          "program": "Economic Development & Culture",
+          "amount10yr": 1.6,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Environmental Initiatives",
+          "program": "Parks & Recreation",
+          "amount10yr": 1.6,
+          "category": "parks-rec-culture"
+        }
+      ]
+    },
+    {
+      "ward": 16,
+      "name": "Don Valley East",
+      "scarborough": false,
+      "population": 94335,
+      "capital10yr": 224.3,
+      "capital2026": 6.5,
+      "perResident10yr": 2378.0,
+      "topProjects": [
+        {
+          "name": "Arena",
+          "program": "Parks & Recreation",
+          "amount10yr": 172.8,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Backup Communications Centre Upgrades",
+          "program": "Toronto Paramedic Services",
+          "amount10yr": 28.9,
+          "category": "fire-paramedics"
+        },
+        {
+          "name": "MF#5 (FACILITY) - 18 Dyas Road",
+          "program": "Toronto Paramedic Services",
+          "amount10yr": 8.0,
+          "category": "fire-paramedics"
+        },
+        {
+          "name": "Don Mills Crossing Bridge",
+          "program": "Transportation Services",
+          "amount10yr": 4.5,
+          "category": "infrastructure"
+        },
+        {
+          "name": "Ambulance Post Program",
+          "program": "Toronto Paramedic Services",
+          "amount10yr": 2.9,
+          "category": "fire-paramedics"
+        }
+      ]
+    },
+    {
+      "ward": 17,
+      "name": "Don Valley North",
+      "scarborough": false,
+      "population": 112590,
+      "capital10yr": 30.8,
+      "capital2026": 11.2,
+      "perResident10yr": 273.4,
+      "topProjects": [
+        {
+          "name": "TCHC Building Repair Capital",
+          "program": "Toronto Community Housing Corporation",
+          "amount10yr": 14.0,
+          "category": "housing-shelter"
+        },
+        {
+          "name": "Pleasant View Library Renovation & Expansion",
+          "program": "Toronto Public Library",
+          "amount10yr": 11.7,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Restoration/Preservation of Heritage Elements",
+          "program": "Economic Development & Culture",
+          "amount10yr": 3.3,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Park Development",
+          "program": "Parks & Recreation",
+          "amount10yr": 1.4,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Sheppard Bridge over Highway 404 Public Realm Imp",
+          "program": "Transportation Services",
+          "amount10yr": 0.4,
+          "category": "infrastructure"
+        }
+      ]
+    },
+    {
+      "ward": 18,
+      "name": "Willowdale",
+      "scarborough": false,
+      "population": 117130,
+      "capital10yr": 133.0,
+      "capital2026": 12.8,
+      "perResident10yr": 1135.9,
+      "topProjects": [
+        {
+          "name": "New Shelter Capital Project HSCIS",
+          "program": "Toronto Shelter and Support Services",
+          "amount10yr": 37.0,
+          "category": "housing-shelter"
+        },
+        {
+          "name": "Beecroft Exterion",
+          "program": "Transportation Services",
+          "amount10yr": 19.3,
+          "category": "infrastructure"
+        },
+        {
+          "name": "Park Development",
+          "program": "Parks & Recreation",
+          "amount10yr": 18.5,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "North York Service Road Extension",
+          "program": "Transportation Services",
+          "amount10yr": 12.4,
+          "category": "infrastructure"
+        },
+        {
+          "name": "Net Zero Carbon Plan Program",
+          "program": "Corporate Real Estate Management",
+          "amount10yr": 9.2,
+          "category": "government-debt"
+        }
+      ]
+    },
+    {
+      "ward": 19,
+      "name": "Beaches-East York",
+      "scarborough": false,
+      "population": 108500,
+      "capital10yr": 166.9,
+      "capital2026": 10.0,
+      "perResident10yr": 1538.2,
+      "topProjects": [
+        {
+          "name": "Community Centres",
+          "program": "Parks & Recreation",
+          "amount10yr": 119.0,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Dawes Road Library Reconstruction & Expansion",
+          "program": "Toronto Public Library",
+          "amount10yr": 36.6,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Mechanical and Electrical",
+          "program": "Corporate Real Estate Management",
+          "amount10yr": 3.2,
+          "category": "government-debt"
+        },
+        {
+          "name": "WATERFRONT DEVELOPMENT",
+          "program": "Toronto & Region Conservation Authority",
+          "amount10yr": 2.5,
+          "category": "other"
+        },
+        {
+          "name": "Structural/Building Envelope",
+          "program": "Corporate Real Estate Management",
+          "amount10yr": 2.0,
+          "category": "government-debt"
+        }
+      ]
+    },
+    {
+      "ward": 20,
+      "name": "Scarborough Southwest",
+      "scarborough": true,
+      "population": 110095,
+      "capital10yr": 109.9,
+      "capital2026": 22.3,
+      "perResident10yr": 998.6,
+      "topProjects": [
+        {
+          "name": "TRCA - Asset & Infrastructure Management Plan",
+          "program": "Toronto & Region Conservation Authority",
+          "amount10yr": 66.0,
+          "category": "other"
+        },
+        {
+          "name": "Community Centres",
+          "program": "Parks & Recreation",
+          "amount10yr": 17.2,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "New Shelter Capital Project HSCIS",
+          "program": "Toronto Shelter and Support Services",
+          "amount10yr": 17.2,
+          "category": "housing-shelter"
+        },
+        {
+          "name": "Outdoor Recreation Centres",
+          "program": "Parks & Recreation",
+          "amount10yr": 6.6,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Land Acquisition",
+          "program": "Parks & Recreation",
+          "amount10yr": 1.5,
+          "category": "parks-rec-culture"
+        }
+      ]
+    },
+    {
+      "ward": 21,
+      "name": "Scarborough Centre",
+      "scarborough": true,
+      "population": 111560,
+      "capital10yr": 190.0,
+      "capital2026": 25.7,
+      "perResident10yr": 1702.7,
+      "topProjects": [
+        {
+          "name": "Multi-Function Station #2",
+          "program": "Toronto Paramedic Services",
+          "amount10yr": 122.3,
+          "category": "fire-paramedics"
+        },
+        {
+          "name": "Environmental",
+          "program": "Corporate Real Estate Management",
+          "amount10yr": 13.0,
+          "category": "government-debt"
+        },
+        {
+          "name": "Renovations",
+          "program": "Corporate Real Estate Management",
+          "amount10yr": 12.3,
+          "category": "government-debt"
+        },
+        {
+          "name": "David and Mary Thomson (Child Care Centre 7)",
+          "program": "Children's Services",
+          "amount10yr": 11.5,
+          "category": "social-services"
+        },
+        {
+          "name": "Arena",
+          "program": "Parks & Recreation",
+          "amount10yr": 8.1,
+          "category": "parks-rec-culture"
+        }
+      ]
+    },
+    {
+      "ward": 22,
+      "name": "Scarborough-Agincourt",
+      "scarborough": true,
+      "population": 103690,
+      "capital10yr": 30.7,
+      "capital2026": 1.0,
+      "perResident10yr": 295.9,
+      "topProjects": [
+        {
+          "name": "Outdoor Recreation Centres",
+          "program": "Parks & Recreation",
+          "amount10yr": 14.8,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Arena",
+          "program": "Parks & Recreation",
+          "amount10yr": 6.9,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "McNicoll Bus Garage Facility",
+          "program": "Toronto Transit Commission",
+          "amount10yr": 4.0,
+          "category": "transit"
+        },
+        {
+          "name": "Bridletown Community Centre (Child Care Centre 6)",
+          "program": "Children's Services",
+          "amount10yr": 3.9,
+          "category": "social-services"
+        },
+        {
+          "name": "Parking Lots and Tennis Courts",
+          "program": "Parks & Recreation",
+          "amount10yr": 1.1,
+          "category": "parks-rec-culture"
+        }
+      ]
+    },
+    {
+      "ward": 23,
+      "name": "Scarborough North",
+      "scarborough": true,
+      "population": 94025,
+      "capital10yr": 446.1,
+      "capital2026": 26.6,
+      "perResident10yr": 4744.2,
+      "topProjects": [
+        {
+          "name": "4610 Finch Ave East",
+          "program": "Seniors Services and Long-Term Care",
+          "amount10yr": 422.6,
+          "category": "health"
+        },
+        {
+          "name": "Woodside Square Relocation & Expansion",
+          "program": "Toronto Public Library",
+          "amount10yr": 10.9,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Ambulance Post Program",
+          "program": "Toronto Paramedic Services",
+          "amount10yr": 9.0,
+          "category": "fire-paramedics"
+        },
+        {
+          "name": "Playgrounds/Waterplay",
+          "program": "Parks & Recreation",
+          "amount10yr": 1.4,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "St. Bartholomew Catholic School",
+          "program": "Children's Services",
+          "amount10yr": 1.2,
+          "category": "social-services"
+        }
+      ]
+    },
+    {
+      "ward": 24,
+      "name": "Scarborough-Guildwood",
+      "scarborough": true,
+      "population": 102755,
+      "capital10yr": 17.7,
+      "capital2026": 4.2,
+      "perResident10yr": 171.8,
+      "topProjects": [
+        {
+          "name": "TRCA - Asset & Infrastructure Management Plan",
+          "program": "Toronto & Region Conservation Authority",
+          "amount10yr": 4.8,
+          "category": "other"
+        },
+        {
+          "name": "Park Development",
+          "program": "Parks & Recreation",
+          "amount10yr": 3.7,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Outdoor Recreation Centres",
+          "program": "Parks & Recreation",
+          "amount10yr": 2.9,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Restoration/Preservation of Heritage Elements",
+          "program": "Economic Development & Culture",
+          "amount10yr": 1.9,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Playgrounds/Waterplay",
+          "program": "Parks & Recreation",
+          "amount10yr": 1.2,
+          "category": "parks-rec-culture"
+        }
+      ]
+    },
+    {
+      "ward": 25,
+      "name": "Scarborough-Rouge Park",
+      "scarborough": true,
+      "population": 101485,
+      "capital10yr": 343.6,
+      "capital2026": 52.0,
+      "perResident10yr": 3386.2,
+      "topProjects": [
+        {
+          "name": "Building & Services Refurbishment",
+          "program": "Toronto Zoo",
+          "amount10yr": 76.5,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Carbon Budget-Equipment Replacement",
+          "program": "Toronto Zoo",
+          "amount10yr": 64.6,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Savanna Indoor Winter Holding & Viewing",
+          "program": "Toronto Zoo",
+          "amount10yr": 55.5,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Welcome Area Redesign",
+          "program": "Toronto Zoo",
+          "amount10yr": 30.4,
+          "category": "parks-rec-culture"
+        },
+        {
+          "name": "Exhibit Refurbishment",
+          "program": "Toronto Zoo",
+          "amount10yr": 28.0,
+          "category": "parks-rec-culture"
+        }
+      ]
+    }
+  ]
+}

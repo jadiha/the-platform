@@ -1,0 +1,218 @@
+[
+  {
+    "id": "ontario-budget-2026-ch3",
+    "title": "2026 Ontario Budget, Chapter 3: Ontario's Fiscal Plan and Outlook (HTML tables)",
+    "url": "https://budget.ontario.ca/2026/chapter-3.html",
+    "fetchedAt": "2026-10-13T01:20:49+00:00",
+    "sha256": "5b1f85e165bc2834a814f4e43b8eac21903c951c05a3c6a2f6b55c12642dda43",
+    "file": "data/raw/ontario-budget-2026-ch3.html"
+  },
+  {
+    "id": "toronto-budget-summary-2026",
+    "title": "2026 City of Toronto Budget Summary (PDF)",
+    "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+    "fetchedAt": "2026-10-13T00:56:32+00:00",
+    "sha256": "033c57818eb03c7c0b5c4aeb4a77d987e7f3164b8c74d66ed2ce9171a6c57600",
+    "file": "data/raw/toronto-budget-summary-2026.pdf"
+  },
+  {
+    "id": "toronto-capital-2019",
+    "title": "Budget - Capital Budget & Plan By Ward (10 yr Approved): 2019-2028",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/7d3bcf2f-8eca-4ed5-a352-a34adb130931/resource/0f9f831c-dc02-4a83-a1d8-26de61918e19/download/2019-2028-capital-budget-and-plan-details.xlsx",
+    "fetchedAt": "2026-10-13T00:56:33+00:00",
+    "sha256": "77d7bf0fa20365619b978340e53a43284052f4d65ba2d3feef0ebb7f266c6421",
+    "file": "data/raw/toronto-capital-2019.xlsx"
+  },
+  {
+    "id": "toronto-capital-2020",
+    "title": "Budget - Capital Budget & Plan By Ward (10 yr Approved): 2020-2029",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/7d3bcf2f-8eca-4ed5-a352-a34adb130931/resource/29116047-2f52-4eda-85e4-761370a3735f/download/2020-2029-capital-budget-and-plan-details.xlsx",
+    "fetchedAt": "2026-10-13T00:56:33+00:00",
+    "sha256": "25f8f1a99b63687b738c944ea1b6b8c7b25dd571e1f771d085bed3a49a91ba55",
+    "file": "data/raw/toronto-capital-2020.xlsx"
+  },
+  {
+    "id": "toronto-capital-2021",
+    "title": "Budget - Capital Budget & Plan By Ward (10 yr Approved): 2021-2030",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/7d3bcf2f-8eca-4ed5-a352-a34adb130931/resource/921832d8-d3cd-4e30-84f8-2e76b9b23191/download/2021-2030-capital-budget-and-plan-details.xlsx",
+    "fetchedAt": "2026-10-13T00:56:33+00:00",
+    "sha256": "73ef83dfb1bdc9e791eddcdc2989d141fdaaf29dd481f4fdfb9c397d93e431d8",
+    "file": "data/raw/toronto-capital-2021.xlsx"
+  },
+  {
+    "id": "toronto-capital-2022",
+    "title": "Budget - Capital Budget & Plan By Ward (10 yr Approved): 2022-2031",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/7d3bcf2f-8eca-4ed5-a352-a34adb130931/resource/2640ca61-9eae-4d0d-89b2-523952c2b611/download/2022-2031-capital-budget-and-plan-details.xlsx",
+    "fetchedAt": "2026-10-13T00:56:33+00:00",
+    "sha256": "06054ccafc191eabd2f860834b5e7e77f27e9cde3bb9b1c309c86b071e8683b1",
+    "file": "data/raw/toronto-capital-2022.xlsx"
+  },
+  {
+    "id": "toronto-capital-2023",
+    "title": "Budget - Capital Budget & Plan By Ward (10 yr Approved): 2023-2032",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/7d3bcf2f-8eca-4ed5-a352-a34adb130931/resource/50f76ab0-3ed3-41b4-8350-49c2c52911f9/download/2023-2032-capital-budget-and-plan-details.xlsx",
+    "fetchedAt": "2026-10-13T00:56:33+00:00",
+    "sha256": "dc1ec8b5bc0cd3b0deda305fdb8c991b3a8807e5870840b065ae8d76bca37be8",
+    "file": "data/raw/toronto-capital-2023.xlsx"
+  },
+  {
+    "id": "toronto-capital-2024",
+    "title": "Budget - Capital Budget & Plan By Ward (10 yr Approved): 2024-2033",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/7d3bcf2f-8eca-4ed5-a352-a34adb130931/resource/6b774b3a-5e1a-4362-ba31-a3b07fce31db/download/2024-2033-capital-budget-and-plan-details-1.xlsx",
+    "fetchedAt": "2026-10-13T00:56:34+00:00",
+    "sha256": "b3bde9b376321ff2f210082f625ce05eebb7553a6a50e853e73999eb16dc66ec",
+    "file": "data/raw/toronto-capital-2024.xlsx"
+  },
+  {
+    "id": "toronto-capital-2025",
+    "title": "Budget - Capital Budget & Plan By Ward (10 yr Approved): 2025-2034",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/7d3bcf2f-8eca-4ed5-a352-a34adb130931/resource/745d4ae3-2d64-4bac-8d3f-161f1e68b087/download/2025-2034-capital-budget-and-plan-details.xlsx",
+    "fetchedAt": "2026-10-13T00:56:34+00:00",
+    "sha256": "1afdb6a527986f5f9cfcd227bd4d0e51ad233b6feeb3c6fd0307ffaafbdcbedd",
+    "file": "data/raw/toronto-capital-2025.xlsx"
+  },
+  {
+    "id": "toronto-capital-2026",
+    "title": "Budget - Capital Budget & Plan By Ward (10 yr Approved): 2026-2035",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/7d3bcf2f-8eca-4ed5-a352-a34adb130931/resource/d5502528-02f8-49bf-8783-b3e5ff700ded/download/2026-2035-capital-budget-and-plan-details.xlsx",
+    "fetchedAt": "2026-10-13T00:56:34+00:00",
+    "sha256": "0c66c330f364610c834efb2db67f873d19b43f9f2886c5a58a8558b556289286",
+    "file": "data/raw/toronto-capital-2026.xlsx"
+  },
+  {
+    "id": "toronto-council-votes-2022-2026",
+    "title": "Members of Toronto City Council - Voting Record: 2022-2026 term",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/datastore/dump/55ead013-2331-4686-9895-9e8145b94189",
+    "fetchedAt": "2026-10-13T01:31:52+00:00",
+    "sha256": "e84fcfc508be77df70efc38582760b6f256a3e71967544d7094218bc49a359e9",
+    "file": "data/raw/toronto-council-votes-2022-2026.csv"
+  },
+  {
+    "id": "toronto-operating-2019",
+    "title": "Budget - Operating Budget Program Summary by Expenditure Category: 2019 approved",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/2c90a5d3-5598-4c02-abf2-169456c8f1f1/resource/27bc496e-1507-4d2e-b9f8-4392b1d44b5c/download/approved-operating-budget-summary-2019.xlsx",
+    "fetchedAt": "2026-10-13T00:56:34+00:00",
+    "sha256": "e6103e1e3fcbcd5208cfc2156991d31e6d15bdff7bc2a5c38366a031e3e9d832",
+    "file": "data/raw/toronto-operating-2019.xlsx"
+  },
+  {
+    "id": "toronto-operating-2020",
+    "title": "Budget - Operating Budget Program Summary by Expenditure Category: 2020 approved",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/2c90a5d3-5598-4c02-abf2-169456c8f1f1/resource/4e58558a-4773-4cd0-a16a-de481f25cb4d/download/2020-operating-open-data.xlsx",
+    "fetchedAt": "2026-10-13T00:56:34+00:00",
+    "sha256": "f6e91577074401a3c77615990ccd8e93727763a85eb85c8e5a6c858c5bc5fdff",
+    "file": "data/raw/toronto-operating-2020.xlsx"
+  },
+  {
+    "id": "toronto-operating-2021",
+    "title": "Budget - Operating Budget Program Summary by Expenditure Category: 2021 approved",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/2c90a5d3-5598-4c02-abf2-169456c8f1f1/resource/930502fa-87f1-4d71-8b71-4435df594b38/download/2021-open-data2.xlsx",
+    "fetchedAt": "2026-10-13T00:56:35+00:00",
+    "sha256": "b7414feef5b841ef10c227c9bae8106eeefabf940387473d1b3020d616d367f2",
+    "file": "data/raw/toronto-operating-2021.xlsx"
+  },
+  {
+    "id": "toronto-operating-2022",
+    "title": "Budget - Operating Budget Program Summary by Expenditure Category: 2022 approved",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/2c90a5d3-5598-4c02-abf2-169456c8f1f1/resource/9e5f9a63-fdeb-46e4-9f5f-8143038de56d/download/approved-operating-budget-summary-2022.xlsx",
+    "fetchedAt": "2026-10-13T00:56:35+00:00",
+    "sha256": "0e4f156a5fc60212f89a6797863e4fc4035ddc10ffbd2ea71c1123b8de092f5d",
+    "file": "data/raw/toronto-operating-2022.xlsx"
+  },
+  {
+    "id": "toronto-operating-2023",
+    "title": "Budget - Operating Budget Program Summary by Expenditure Category: 2023 approved",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/2c90a5d3-5598-4c02-abf2-169456c8f1f1/resource/a6f7a8e8-e497-4f77-9881-daba429ea981/download/approved-operating-budget-summary-2023.xlsx",
+    "fetchedAt": "2026-10-13T00:56:35+00:00",
+    "sha256": "cbf8a9cd9cfe7ca4dcc3d19bdcf95ed1d9198f3fe498d41e3b0a5f820bf714e1",
+    "file": "data/raw/toronto-operating-2023.xlsx"
+  },
+  {
+    "id": "toronto-operating-2024",
+    "title": "Budget - Operating Budget Program Summary by Expenditure Category: 2024 approved",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/2c90a5d3-5598-4c02-abf2-169456c8f1f1/resource/ee996e45-c0a4-4b52-9d5d-a408b3f9cbfa/download/approved-operating-budget-summary-2024.xlsx",
+    "fetchedAt": "2026-10-13T00:56:35+00:00",
+    "sha256": "d2ee71e18dae774d051766ace91be145108074a249c33b3288f2f2cf8a99ea4d",
+    "file": "data/raw/toronto-operating-2024.xlsx"
+  },
+  {
+    "id": "toronto-operating-2025",
+    "title": "Budget - Operating Budget Program Summary by Expenditure Category: 2025 approved",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/2c90a5d3-5598-4c02-abf2-169456c8f1f1/resource/f9def3c1-a97f-4d31-bc58-c0494d750b80/download/approved-operating-budget-summary-2025.xlsx",
+    "fetchedAt": "2026-10-13T00:56:35+00:00",
+    "sha256": "690a43b5b192ff960f378a4fbee5fcc59c8b4dffade42e43253d6fa7088f448f",
+    "file": "data/raw/toronto-operating-2025.xlsx"
+  },
+  {
+    "id": "toronto-police-budget-2020",
+    "title": "Toronto Police Budget: 2020",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/668434ee-9541-40a8-adb6-0ad805fcc9b6/resource/6db9ded4-04ee-42ef-bc54-4b0a795ffc8a/download/tps-budget-2020.csv",
+    "fetchedAt": "2026-10-13T00:56:36+00:00",
+    "sha256": "1777c2f71475f3c1459e97ce96feb922e98f3a47298156ff659b6af59ce11073",
+    "file": "data/raw/toronto-police-budget-2020.csv"
+  },
+  {
+    "id": "toronto-police-budget-2021",
+    "title": "Toronto Police Budget: 2021",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/668434ee-9541-40a8-adb6-0ad805fcc9b6/resource/5348f406-8824-477e-9eb6-4d52cd355490/download/tps-budget-2021.csv",
+    "fetchedAt": "2026-10-13T00:56:36+00:00",
+    "sha256": "74aa3c03d72817cdab6cfef2eee9617a3b14ff667144c8113d4b99657d581f2c",
+    "file": "data/raw/toronto-police-budget-2021.csv"
+  },
+  {
+    "id": "toronto-police-budget-2022",
+    "title": "Toronto Police Budget: 2022",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/668434ee-9541-40a8-adb6-0ad805fcc9b6/resource/ff0c38b7-5958-427c-9fd2-33e5085094a0/download/tps-budget-2022.csv",
+    "fetchedAt": "2026-10-13T00:56:36+00:00",
+    "sha256": "08403428f77d08a858742a0030126d2cc552e89ce1cc4290bd7f0df641f3eecc",
+    "file": "data/raw/toronto-police-budget-2022.csv"
+  },
+  {
+    "id": "toronto-police-budget-2023",
+    "title": "Toronto Police Budget: 2023",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/668434ee-9541-40a8-adb6-0ad805fcc9b6/resource/da1853dc-aa4a-4a8d-8610-cba63e3a3e11/download/tps-budget-2023.csv",
+    "fetchedAt": "2026-10-13T00:56:37+00:00",
+    "sha256": "286303b0f7a09b63d7953b68887f6a3fdcc2059fe8efc66290ded57285cc789a",
+    "file": "data/raw/toronto-police-budget-2023.csv"
+  },
+  {
+    "id": "toronto-police-budget-2024",
+    "title": "Toronto Police Budget: 2024",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/668434ee-9541-40a8-adb6-0ad805fcc9b6/resource/5aa80739-3ea4-42db-9df8-b21ad590a7fb/download/tps-budget-2024.csv",
+    "fetchedAt": "2026-10-13T00:56:37+00:00",
+    "sha256": "c74dd5b27d55c0635b373c5f08363c6a81f67ab14d8b171e97d3e91af314b278",
+    "file": "data/raw/toronto-police-budget-2024.csv"
+  },
+  {
+    "id": "toronto-police-budget-2025",
+    "title": "Toronto Police Budget: 2025",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/668434ee-9541-40a8-adb6-0ad805fcc9b6/resource/1096a60e-1a72-40d8-b0ba-3e772f3545aa/download/tps-budget-2025.csv",
+    "fetchedAt": "2026-10-13T00:56:37+00:00",
+    "sha256": "1b5a51b395edd63a7da3b18eeca464bb51fbcc6b29772badccb3ab270cb48888",
+    "file": "data/raw/toronto-police-budget-2025.csv"
+  },
+  {
+    "id": "toronto-police-budget-2026",
+    "title": "Toronto Police Budget: 2026",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/668434ee-9541-40a8-adb6-0ad805fcc9b6/resource/de165e1c-7113-4945-be83-267e34c5e68f/download/tps-budget-2026.csv",
+    "fetchedAt": "2026-10-13T00:56:37+00:00",
+    "sha256": "cec1a8ba63f979969a21d7b2cb40508d7be64d5813a3dce8ddf47d00d317884f",
+    "file": "data/raw/toronto-police-budget-2026.csv"
+  },
+  {
+    "id": "toronto-ward-profiles-2021",
+    "title": "Ward Profiles (25-Ward Model): 2011-2021 Census data",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/6678e1a6-d25f-4dff-b2b7-aa8f042bc2eb/resource/16a31e1d-b4d9-4cf0-b5b3-2e3937cb4121/download/2023-wardprofiles-2011-2021-censusdata_rev0719.xlsx",
+    "fetchedAt": "2026-10-13T00:56:37+00:00",
+    "sha256": "2e01e86c0be60a1198c928a9b21ea466841f3544d9de6a90113f44b0230545fb",
+    "file": "data/raw/toronto-ward-profiles-2021.xlsx"
+  },
+  {
+    "id": "toronto-wards-geojson",
+    "title": "City Wards (WGS84 GeoJSON)",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/5e7a8234-f805-43ac-820f-03d7c360b588/resource/737b29e0-8329-4260-b6af-21555ab24f28/download/city-wards-data-4326.geojson",
+    "fetchedAt": "2026-10-13T00:56:37+00:00",
+    "sha256": "a35851f39c83e492c7dde7a8949847844ef1697a3155bb670155a3d1812daf64",
+    "file": "data/raw/toronto-wards-geojson.geojson"
+  }
+]

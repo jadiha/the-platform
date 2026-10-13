@@ -1,0 +1,71 @@
+# Schools fact registry. Money in $ millions.
+# Core Ed = Ministry of Education, "Core Education Funding: Projections for the 2026-27 School Year" (Spring 2026).
+
+schools.tdsb.core-ed.2024-25:
+  value: 3389.6
+  unit: $M
+  label: "Provincial Core Education Funding for TDSB, 2024-25"
+  basis: "actual"
+  primary: {title: "Ministry of Education, Core Education Funding Projections 2026-27", url: "https://ontario.ca/files/2026-05/edu-2026-27-core-ed-projections-en-2026-05-08.pdf", locator: "p. 66, (12) Toronto DSB, 2024-25 Actuals: $3,389,613,106"}
+  status: single
+  as_of: 2026-10-12
+
+schools.tdsb.core-ed.2025-26:
+  value: 3411.7
+  unit: $M
+  label: "Provincial Core Education Funding for TDSB, 2025-26"
+  basis: "revised estimates"
+  primary: {title: "Ministry of Education, Core Education Funding Projections 2026-27", url: "https://ontario.ca/files/2026-05/edu-2026-27-core-ed-projections-en-2026-05-08.pdf", locator: "p. 66, 2025-26 Revised Estimates: $3,411,709,036"}
+  status: single
+  as_of: 2026-10-12
+
+schools.tdsb.core-ed.2026-27:
+  value: 3375.3
+  unit: $M
+  label: "Provincial Core Education Funding for TDSB, 2026-27"
+  basis: "ministry projection"
+  primary: {title: "Ministry of Education, Core Education Funding Projections 2026-27", url: "https://ontario.ca/files/2026-05/edu-2026-27-core-ed-projections-en-2026-05-08.pdf", locator: "p. 66, 2026-27 Projections: $3,375,341,941"}
+  status: single
+  note: "TDSB's own 2026-27 budget uses a slightly different figure ($3,377.7M) because it was prepared on its own enrolment estimate. We use the Ministry's number throughout."
+  as_of: 2026-10-12
+
+schools.tdsb.core-ed.change:
+  value: -1.1
+  unit: "%"
+  label: "Change in TDSB's provincial Core Education Funding, 2025-26 to 2026-27"
+  basis: "ministry projection vs. revised estimates"
+  primary: {title: "Ministry of Education, Core Education Funding Projections 2026-27", url: "https://ontario.ca/files/2026-05/edu-2026-27-core-ed-projections-en-2026-05-08.pdf", locator: "p. 66, % Change: (1.1%)"}
+  status: single
+  note: "A drop of $36.4M. TDSB's projected enrolment falls by 4,892 students (2.1%) over the same period, and funding per student rises 1.1%. Not adjusted for inflation."
+  as_of: 2026-10-12
+
+schools.tdsb.enrolment.2026-27:
+  value: 227543
+  unit: people
+  label: "TDSB projected enrolment (average daily enrolment), 2026-27"
+  basis: "ministry projection"
+  primary: {title: "Ministry of Education, Core Education Funding Projections 2026-27", url: "https://ontario.ca/files/2026-05/edu-2026-27-core-ed-projections-en-2026-05-08.pdf", locator: "p. 66, ADE total"}
+  status: single
+  as_of: 2026-10-12
+
+schools.tdsb.supervision-start:
+  value: "June 27, 2025"
+  unit: date
+  label: "Date the Province put TDSB under a supervisor"
+  basis: "announced by the Minister of Education"
+  primary: {title: "TDSB news: update on provincial supervision", url: "https://www.tdsb.on.ca/home/ctl/Details/mid/43823/itemid/516"}
+  crosscheck:
+    - {title: "CP24: Ontario appointing supervisors to TDSB and TCDSB following spending probe", url: "https://www.cp24.com/news/2025/06/27/ontario-appointing-supervisors-to-tdsb-and-tcdsb-following-spending-probe", date: 2025-06-27}
+  status: verified
+  note: "While a supervisor is in place, elected trustees can't vote and their honorariums are suspended. The Province cited TDSB's projected deficits."
+  as_of: 2026-10-12
+
+schools.fao.shortfall-2028-29:
+  value: 2000
+  unit: $M
+  label: "FAO: gap between Ontario's Ministry of Education spending plan and the cost of maintaining services, 2028-29"
+  basis: "FAO projection (forecast, not an actual)"
+  primary: {title: "Financial Accountability Office of Ontario, Ministry of Education: 2026 Spending Plan Review", url: "https://fao-on.org/en/report/estimates-2026-edu/", date: 2026-09-23}
+  status: single
+  note: "The FAO says the plan is $0.7B below its cost projection in 2026-27, $1.2B in 2027-28 and $2.0B in 2028-29. This is a forecast: it shows the gap that would open if costs grow as the FAO expects and the plan doesn't change."
+  as_of: 2026-10-12

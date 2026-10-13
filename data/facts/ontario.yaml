@@ -1,0 +1,533 @@
+# Ontario fact registry. Format: docs/data-contract.md. All money in $ millions unless unit says otherwise.
+# Budget = 2026 Ontario Budget (tabled 2026-03-26), https://budget.ontario.ca/2026/chapter-3.html
+# PA = Public Accounts of Ontario 2025-26 (released 2026-09-24), https://www.ontario.ca/page/public-accounts-2025-26-annual-report
+# Values in Budget tables shown in $ billions (one decimal) are converted to $M (e.g. 101.2 -> 101200).
+
+# ---------- Headline totals, 2026-27 plan ----------
+ontario.expense.2026-27.total:
+  value: 244200
+  unit: $M
+  label: "Ontario total spending, 2026-27 plan"
+  basis: "consolidated total expense (programs + interest), budget plan"
+  primary: {title: "2026 Ontario Budget, Chapter 3, Tables 3.1 and 3.12", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.12, Plan 2026-27: 244,200"}
+  crosscheck:
+    - {title: "FAO, 2026 Ontario Budget Note", url: "https://fao-on.org/en/report/2026-ontario-budget-note/", date: 2026-04, value: 244200, note: "Figures 5.1/5.3 show $244.2B for 2026-27"}
+    - {title: "CTV News (J. Freeman), 'Ontario deficit nearly doubles as province tables $244.2-billion budget'", url: "https://www.ctvnews.ca/toronto/politics/queens-park/article/ontario-deficit-nearly-doubles-as-province-tables-2442-billion-budget-in-face-of-unpredictable-economic-shocks/", date: 2026-03-26, value: 244200}
+  status: verified
+  note: "This is the plan made in March 2026. The First Quarter Finances (Aug 14, 2026) raised it slightly to $244,340M."
+  as_of: 2026-10-12
+
+ontario.expense.2026-27.total-q1:
+  value: 244340
+  unit: $M
+  label: "Ontario total spending, 2026-27, updated outlook (Q1)"
+  basis: "consolidated total expense, in-year outlook"
+  primary: {title: "2026-27 First Quarter Finances", url: "https://www.ontario.ca/page/2026-27-first-quarter-finances", locator: "Table 1 (published 2026-08-14)"}
+  status: single
+  note: "+$140M vs. Budget: +$200M Toronto New Deal shelter/homelessness, +$140M First Nations evacuations, small items, offset by $220M drawn from the contingency fund."
+  as_of: 2026-10-12
+
+ontario.revenue.2026-27.total:
+  value: 231856
+  unit: $M
+  label: "Ontario total revenue, 2026-27 plan"
+  basis: "consolidated revenue, budget plan"
+  primary: {title: "2026 Ontario Budget, Table 3.9", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.9, Plan 2026-27"}
+  crosscheck:
+    - {title: "FAO, 2026 Ontario Budget Note", url: "https://fao-on.org/en/report/2026-ontario-budget-note/", date: 2026-04, value: 231900, note: "Figure 4.1, $231.9B (rounded)"}
+  status: verified
+  as_of: 2026-10-12
+
+ontario.deficit.2026-27:
+  value: 13844
+  unit: $M
+  label: "Ontario deficit, 2026-27 plan"
+  basis: "consolidated, after $1.5B reserve, budget plan"
+  primary: {title: "2026 Ontario Budget, Tables 3.1 and 3.12", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.12 Surplus/(Deficit) Plan 2026-27: (13,844)"}
+  crosscheck:
+    - {title: "FAO, 2026 Ontario Budget Note", url: "https://fao-on.org/en/report/2026-ontario-budget-note/", date: 2026-04, value: 13800, note: "'deficit of $13.8 billion in 2026-27'"}
+    - {title: "2026-27 First Quarter Finances", url: "https://www.ontario.ca/page/2026-27-first-quarter-finances", date: 2026-08-14, value: 13844, note: "unchanged"}
+    - {title: "CTV News", url: "https://www.ctvnews.ca/toronto/politics/queens-park/article/ontario-deficit-nearly-doubles-as-province-tables-2442-billion-budget-in-face-of-unpredictable-economic-shocks/", date: 2026-03-26, value: 13800}
+  status: verified
+  note: "Spending more than it takes in. The 2025 Budget had projected a $7.8B deficit for this same year."
+  as_of: 2026-10-12
+
+ontario.reserve.2026-27:
+  value: 1500
+  unit: $M
+  label: "Reserve (cushion for surprises), 2026-27"
+  basis: "budget plan"
+  primary: {title: "2026 Ontario Budget, Table 3.1", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.1 Reserve"}
+  status: single
+  note: "Without the reserve the deficit would be $12.3B. A separate $1.5B Contingency Fund sits inside spending (Treasury Board Secretariat)."
+  as_of: 2026-10-12
+
+ontario.deficit.2025-26.actual:
+  value: 13000
+  unit: $M
+  label: "Ontario deficit, 2025-26 actual"
+  basis: "consolidated, actual (audited)"
+  primary: {title: "Public Accounts of Ontario 2025-26, Annual Report", url: "https://www.ontario.ca/page/public-accounts-2025-26-annual-report", locator: "Foreword; Consolidated Statement of Operations: Annual Deficit (13.0)"}
+  crosscheck:
+    - {title: "2026 Ontario Budget interim (earlier estimate, not a confirmation)", url: "https://budget.ontario.ca/2026/chapter-3.html", value: 12326, note: "Interim estimate made in March 2026 before year-end"}
+  status: single
+  note: "Audited result published Sept 24, 2026; only published to one decimal ($13.0B). The March interim estimate was $12.3B; the 2025 Budget plan was $14.6B. No independent outlet figure confirmed yet in this research pass."
+  as_of: 2026-10-12
+
+ontario.expense.2025-26.actual:
+  value: 236336
+  unit: $M
+  label: "Ontario total spending, 2025-26 actual"
+  basis: "consolidated total expense, actual; 2024-25 comparatives restated (EHT elimination)"
+  primary: {title: "Public Accounts 2025-26, Consolidated Financial Statements, Schedule 3 and 4", url: "https://www.ontario.ca/files/2026-09/tbs-annual-report-and-consolidated-financial-statements-2025-2026-en-2026-09-23-v3.pdf", locator: "Schedule 4, p.98: Total Expense 236,336"}
+  status: single
+  note: "On the Public Accounts basis, which removes Employer Health Tax paid between government bodies. Not directly comparable with the 2026-27 Budget plan (~$1.2B basis difference)."
+  as_of: 2026-10-12
+
+ontario.revenue.2025-26.actual:
+  value: 223300
+  unit: $M
+  label: "Ontario total revenue, 2025-26 actual"
+  basis: "consolidated, actual"
+  primary: {title: "Public Accounts 2025-26 Annual Report", url: "https://www.ontario.ca/page/public-accounts-2025-26-annual-report", locator: "Consolidated Statement of Operations: Total Revenue 223.3"}
+  status: single
+  as_of: 2026-10-12
+
+ontario.programs.2025-26.actual:
+  value: 220900
+  unit: $M
+  label: "Ontario program spending, 2025-26 actual"
+  basis: "consolidated program expense, actual"
+  primary: {title: "Public Accounts 2025-26 Annual Report", url: "https://www.ontario.ca/page/public-accounts-2025-26-annual-report", locator: "Foreword and Table 3: 220.9"}
+  status: single
+  note: "Up $10B (4.7%) from 2024-25. Health was $6.9B above plan."
+  as_of: 2026-10-12
+
+# ---------- Sectors, 2026-27 plan (Table 3.7) ----------
+ontario.sector.2026-27.health:
+  value: 101200
+  unit: $M
+  label: "Health sector spending, 2026-27 plan"
+  basis: "consolidated sector expense, plan (Ministries of Health + Long-Term Care)"
+  primary: {title: "2026 Ontario Budget, Table 3.7", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.7, Programs — Health Sector, 2026-27"}
+  crosscheck:
+    - {title: "BNN Bloomberg / Canadian Press via search summary and NOW Toronto", url: "https://www.bnnbloomberg.ca/business/politics/2026/03/26/ontario-deficit-nearly-doubles-as-province-tables-2442-billion-budget-in-face-of-unpredictable-economic-shocks/", date: 2026-03-26, value: 101200, note: "'$101.2 billion for health care'"}
+  status: verified
+  note: "41.4% of all spending (Budget Chart 3.3)."
+  as_of: 2026-10-12
+
+ontario.sector.2026-27.education:
+  value: 40800
+  unit: $M
+  label: "Education sector (K-12 and child care), 2026-27 plan"
+  basis: "sector expense, plan; EXCLUDES Teachers' Pension Plan"
+  primary: {title: "2026 Ontario Budget, Table 3.7 (note 1)", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.7, Programs — Education Sector, 2026-27"}
+  crosscheck:
+    - {title: "BNN Bloomberg / Canadian Press", url: "https://www.bnnbloomberg.ca/business/politics/2026/03/26/ontario-deficit-nearly-doubles-as-province-tables-2442-billion-budget-in-face-of-unpredictable-economic-shocks/", date: 2026-03-26, value: 40800}
+  status: verified
+  note: "Does NOT include the teachers' pension (about $1.8B), which the Budget counts in 'Other'. The Ministry of Education total, which includes it, is $42,549M."
+  as_of: 2026-10-12
+
+ontario.ministry.2026-27.education-incl-pension:
+  value: 42549.1
+  unit: $M
+  label: "Ministry of Education total incl. teachers' pension, 2026-27 plan"
+  basis: "ministry expense, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.10", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.10, Education (Total)"}
+  status: single
+  note: "Never show next to the $40.8B sector figure in the same chart. Teachers' Pension Plan line: $1,787.0M."
+  as_of: 2026-10-12
+
+ontario.sector.2026-27.postsecondary:
+  value: 14000
+  unit: $M
+  label: "Colleges and universities sector, 2026-27 plan"
+  basis: "sector expense, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.7", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.7, Postsecondary Education Sector"}
+  crosscheck:
+    - {title: "BNN Bloomberg / Canadian Press", url: "https://www.bnnbloomberg.ca/business/politics/2026/03/26/ontario-deficit-nearly-doubles-as-province-tables-2442-billion-budget-in-face-of-unpredictable-economic-shocks/", date: 2026-03-26, value: 14000}
+  status: verified
+  note: "Planned to fall to $12.7B by 2028-29, mainly because colleges lose international-student fee revenue after the federal study-permit cap (Budget ch.3)."
+  as_of: 2026-10-12
+
+ontario.sector.2026-27.children-social:
+  value: 21400
+  unit: $M
+  label: "Children, community and social services, 2026-27 plan"
+  basis: "sector expense, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.7", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.7"}
+  status: single
+  note: "Ontario Works, ODSP, autism program, child protection."
+  as_of: 2026-10-12
+
+ontario.sector.2026-27.justice:
+  value: 7300
+  unit: $M
+  label: "Justice sector (courts, OPP, jails), 2026-27 plan"
+  basis: "sector expense, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.7", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.7"}
+  status: single
+  as_of: 2026-10-12
+
+ontario.sector.2026-27.other:
+  value: 42400
+  unit: $M
+  label: "Other programs (transit, energy, housing, etc.), 2026-27 plan"
+  basis: "sector expense, plan; includes Teachers' Pension Plan"
+  primary: {title: "2026 Ontario Budget, Table 3.7", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.7"}
+  status: single
+  as_of: 2026-10-12
+
+ontario.interest.2026-27:
+  value: 17237.2
+  unit: $M
+  label: "Interest on Ontario's debt, 2026-27 plan"
+  basis: "interest and other debt servicing charges, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.10", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.10, Interest and Other Debt Servicing Charges"}
+  crosscheck:
+    - {title: "2026 Ontario Budget, Table 3.7 (same document, rounded)", url: "https://budget.ontario.ca/2026/chapter-3.html", value: 17200}
+  status: single
+  note: "About 7 cents of every dollar spent; 6.7% of revenue (Table 3.1). More than the whole Justice sector."
+  as_of: 2026-10-12
+
+ontario.programs.2026-27:
+  value: 226963
+  unit: $M
+  label: "Ontario program spending (everything except interest), 2026-27 plan"
+  basis: "consolidated program expense, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.12", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.12 Expense — Programs"}
+  status: single
+  as_of: 2026-10-12
+
+# ---------- Biggest ministries, 2026-27 plan (Table 3.10) ----------
+ontario.ministry.2026-27.health:
+  value: 91800.0
+  unit: $M
+  label: "Ministry of Health, 2026-27 plan"
+  basis: "ministry expense, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.10", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.10, Health (Total)"}
+  status: single
+  as_of: 2026-10-12
+
+ontario.ministry.2026-27.ccss:
+  value: 21425.5
+  unit: $M
+  label: "Ministry of Children, Community and Social Services, 2026-27 plan"
+  basis: "ministry expense, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.10", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.10"}
+  status: single
+  as_of: 2026-10-12
+
+ontario.ministry.2026-27.mcures:
+  value: 13960.8
+  unit: $M
+  label: "Ministry of Colleges, Universities, Research Excellence and Security, 2026-27 plan"
+  basis: "ministry expense, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.10", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.10"}
+  status: single
+  note: "Includes $2,448.4M student financial assistance (OSAP)."
+  as_of: 2026-10-12
+
+ontario.ministry.2026-27.long-term-care:
+  value: 9354.0
+  unit: $M
+  label: "Ministry of Long-Term Care, 2026-27 plan"
+  basis: "ministry expense, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.10 (note 5)", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.10"}
+  status: single
+  note: "$8.0B of this flows through Ontario Health/hospitals; Public Accounts count it under Health."
+  as_of: 2026-10-12
+
+ontario.ministry.2026-27.transportation:
+  value: 8629.4
+  unit: $M
+  label: "Ministry of Transportation (operating), 2026-27 plan"
+  basis: "ministry expense, plan (not capital)"
+  primary: {title: "2026 Ontario Budget, Table 3.10", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.10"}
+  status: single
+  as_of: 2026-10-12
+
+ontario.ministry.2026-27.energy-mines:
+  value: 8055.0
+  unit: $M
+  label: "Ministry of Energy and Mines, 2026-27 plan"
+  basis: "ministry expense, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.10", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.10"}
+  status: single
+  note: "$6,913.1M of it is Electricity Cost Relief Programs that lower people's hydro bills."
+  as_of: 2026-10-12
+
+ontario.ministry.2026-27.solicitor-general:
+  value: 4832.3
+  unit: $M
+  label: "Ministry of the Solicitor General (OPP, jails), 2026-27 plan"
+  basis: "ministry expense, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.10", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.10"}
+  status: single
+  as_of: 2026-10-12
+
+ontario.ministry.2026-27.mmah:
+  value: 1794.3
+  unit: $M
+  label: "Ministry of Municipal Affairs and Housing, 2026-27 plan"
+  basis: "ministry expense, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.10", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.10"}
+  crosscheck:
+    - {title: "2026-27 First Quarter Finances, Table 5", url: "https://www.ontario.ca/page/2026-27-first-quarter-finances", date: 2026-08-14, value: 1994.3, note: "Raised by $200M for Toronto New Deal shelter operations and homelessness"}
+  status: disagree
+  note: "Two official figures: $1,794.3M at Budget (March) and $1,994.3M after the August update that added $200M for Toronto shelters."
+  as_of: 2026-10-12
+
+ontario.contingency.2026-27:
+  value: 1500
+  unit: $M
+  label: "Contingency fund (money set aside for surprises), 2026-27 plan"
+  basis: "Treasury Board Secretariat operating ($1,350M) + capital ($150M) contingency, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.10 and ch.3 text", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.10 TBS lines; 'The Contingency Fund in 2026-27 is set at $1.5 billion'"}
+  status: single
+  as_of: 2026-10-12
+
+# ---------- Revenue: where the money comes from (Table 3.9, 2026-27 plan) ----------
+ontario.revenue.2026-27.personal-income-tax:
+  value: 65108
+  unit: $M
+  label: "Personal income tax, 2026-27 plan"
+  basis: "revenue, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.9", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.9"}
+  status: single
+  note: "Biggest source: 28.1% of revenue (Budget Chart 3.2)."
+  as_of: 2026-10-12
+
+ontario.revenue.2026-27.sales-tax:
+  value: 39871
+  unit: $M
+  label: "Sales tax (Ontario's 8% part of the 13% HST), 2026-27 plan"
+  basis: "revenue, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.9", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.9"}
+  status: single
+  note: "17.2% of revenue."
+  as_of: 2026-10-12
+
+ontario.revenue.2026-27.corporations-tax:
+  value: 28618
+  unit: $M
+  label: "Corporations tax, 2026-27 plan"
+  basis: "revenue, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.9", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.9"}
+  status: single
+  as_of: 2026-10-12
+
+ontario.revenue.2026-27.federal-transfers:
+  value: 39831
+  unit: $M
+  label: "Money from the federal government, 2026-27 plan"
+  basis: "revenue, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.9", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.9, Government of Canada Transfers — Total"}
+  status: single
+  note: "Includes Canada Health Transfer $22,406M and Canada Social Transfer $7,000M. Q1 update: $39,971M."
+  as_of: 2026-10-12
+
+ontario.revenue.2026-27.canada-health-transfer:
+  value: 22406
+  unit: $M
+  label: "Canada Health Transfer to Ontario, 2026-27 plan"
+  basis: "revenue, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.9", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.9"}
+  status: single
+  as_of: 2026-10-12
+
+ontario.revenue.2026-27.employer-health-tax:
+  value: 9812
+  unit: $M
+  label: "Employer Health Tax, 2026-27 plan"
+  basis: "revenue, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.9", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.9"}
+  status: single
+  as_of: 2026-10-12
+
+ontario.revenue.2026-27.education-property-tax:
+  value: 5981
+  unit: $M
+  label: "Education property tax, 2026-27 plan"
+  basis: "revenue, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.9", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.9"}
+  status: single
+  note: "Part of every Toronto property tax bill goes to the province for schools."
+  as_of: 2026-10-12
+
+ontario.revenue.2026-27.health-premium:
+  value: 5518
+  unit: $M
+  label: "Ontario Health Premium, 2026-27 plan"
+  basis: "revenue, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.9", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.9"}
+  status: single
+  as_of: 2026-10-12
+
+ontario.revenue.2026-27.business-enterprises:
+  value: 6462
+  unit: $M
+  label: "Profits from LCBO, OLG, OPG/Hydro One, Cannabis Store, iGaming, 2026-27 plan"
+  basis: "revenue, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.9", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.9, Income from Government Business Enterprises — Total"}
+  status: single
+  as_of: 2026-10-12
+
+ontario.revenue.2026-27.other-non-tax:
+  value: 21930
+  unit: $M
+  label: "Other non-tax revenue (fees, licences, hospital/school/college revenue), 2026-27 plan"
+  basis: "revenue, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.9", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.9"}
+  status: single
+  as_of: 2026-10-12
+
+ontario.revenue.2026-27.tax-share:
+  value: 70.6
+  unit: "%"
+  label: "Share of Ontario revenue that comes from taxes, 2026-27"
+  basis: "plan"
+  primary: {title: "2026 Ontario Budget, Chart 3.2 description", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Chart 3.2"}
+  status: single
+  as_of: 2026-10-12
+
+# ---------- Debt ----------
+ontario.net-debt.2026-27:
+  value: 485120
+  unit: $M
+  label: "Ontario net debt, end of 2026-27 (plan)"
+  basis: "plan; NEW definition from 2026-27 (financial liabilities less financial assets)"
+  primary: {title: "2026 Ontario Budget, Table 3.12", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.12 Net Debt, Plan 2026-27"}
+  crosscheck:
+    - {title: "2026-27 First Quarter Finances, Table 7", url: "https://www.ontario.ca/page/2026-27-first-quarter-finances", date: 2026-08-14, value: 485082}
+  status: disagree
+  note: "Budget: $485,120M; Q1 update: $485,082M (small revision). Definition changed in 2026-27; the FAO estimates the new definition lowers net debt by about $11B, so it is not comparable with earlier years."
+  as_of: 2026-10-12
+
+ontario.net-debt.2025-26.actual:
+  value: 455000
+  unit: $M
+  label: "Ontario net debt, March 31, 2026 (actual)"
+  basis: "actual"
+  primary: {title: "Public Accounts 2025-26 Annual Report", url: "https://www.ontario.ca/page/public-accounts-2025-26-annual-report", locator: "Consolidated Statement of Financial Position: Net Debt (455.0)"}
+  status: single
+  as_of: 2026-10-12
+
+ontario.net-debt-per-person.2026-27:
+  value: 29887
+  unit: $
+  label: "Net debt per Ontarian, 2026-27 plan"
+  basis: "plan; Table 3.12 'Net Debt per Capita'"
+  primary: {title: "2026 Ontario Budget, Table 3.12", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.12 Net Debt per Capita, Plan 2026-27"}
+  crosscheck:
+    - {title: "2026-27 First Quarter Finances, Table 7", url: "https://www.ontario.ca/page/2026-27-first-quarter-finances", date: 2026-08-14, value: 30131, note: "Higher because Q1 uses a lower population estimate (16.099M vs 16.232M)"}
+  status: disagree
+  note: "The two documents divide similar debt totals by different population estimates. The Budget uses 16.23 million Ontarians; the First Quarter update uses 16.10 million, so its per-person figure is higher."
+  as_of: 2026-10-12
+
+ontario.interest-share-of-revenue.2026-27:
+  value: 6.7
+  unit: "%"
+  label: "Interest as a share of revenue, 2026-27 plan"
+  basis: "plan"
+  primary: {title: "2026 Ontario Budget, Table 3.1", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.1 Interest as a Per Cent of Revenue"}
+  status: single
+  as_of: 2026-10-12
+
+# ---------- Per person ----------
+ontario.population.2026:
+  value: 16232000
+  unit: people
+  label: "Ontario population, July 1, 2026 (Budget)"
+  basis: "Statistics Canada/Ministry of Finance estimate used in Budget"
+  primary: {title: "2026 Ontario Budget, Table 3.12", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.12 Population (000s) 16,232"}
+  crosscheck:
+    - {title: "2026-27 First Quarter Finances, Table 7", url: "https://www.ontario.ca/page/2026-27-first-quarter-finances", date: 2026-08-14, value: 16099000}
+  status: disagree
+  note: "The August update lowered the estimate to 16.099 million, below 2025 (16.258 million) - Ontario's population is estimated to have shrunk slightly."
+  as_of: 2026-10-12
+
+ontario.expense-per-person.2026-27:
+  value: 15044
+  unit: $
+  label: "Ontario spending per person, 2026-27 plan"
+  basis: "calculated: Table 3.12 total expense / Table 3.12 population; nominal"
+  primary: {title: "2026 Ontario Budget, Table 3.12 (calculation by Follow the Budget)", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "244,200 / 16,232 thousand"}
+  status: single
+  note: "Our calculation from official figures. Using the Q1 update (244,340 / 16,099k) gives about $15,177. In 2021-22 it was $12,385 (not adjusted for inflation)."
+  as_of: 2026-10-12
+
+ontario.health-per-person.2026-27:
+  value: 6235
+  unit: $
+  label: "Ontario health spending per person, 2026-27 plan"
+  basis: "calculated: Table 3.7 health ($101.2B) / Table 3.12 population; nominal"
+  primary: {title: "2026 Ontario Budget, Tables 3.7 and 3.12 (calculation by Follow the Budget)", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "101,200 / 16,232 thousand"}
+  status: single
+  as_of: 2026-10-12
+
+# ---------- Five-year context ----------
+ontario.expense.2021-22.total:
+  value: 183822
+  unit: $M
+  label: "Ontario total spending, 2021-22 actual (restated)"
+  basis: "consolidated, actual, restated in 2026 Budget"
+  primary: {title: "2026 Ontario Budget, Table 3.12", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.12, 2021-22"}
+  crosscheck:
+    - {title: "2023 Ontario Budget, Table 3.1 (older basis)", url: "https://budget.ontario.ca/2023/chapter-3.html", value: 183000, note: "Before the 2025 restatement that moved interest/investment income to revenue"}
+  status: disagree
+  note: "Two official figures because of a fiscally-neutral 2025 restatement. Use 183,822 for trend charts. 2021-22 included $10.9B of COVID-19 time-limited spending."
+  as_of: 2026-10-12
+
+ontario.health.2021-22.actual:
+  value: 75400
+  unit: $M
+  label: "Health sector spending, 2021-22 actual (restated)"
+  basis: "consolidated sector expense, actual"
+  primary: {title: "Public Accounts 2025-26 Annual Report, Expense Trend", url: "https://www.ontario.ca/page/public-accounts-2025-26-annual-report", locator: "Expense Trend (PDF p.19)"}
+  crosscheck:
+    - {title: "Public Accounts 2022-23 Annual Report, Table 3 (2021-22 restated)", url: "https://www.ontario.ca/page/public-accounts-2022-23-annual-report", value: 75800, note: "Earlier restatement"}
+  status: disagree
+  note: "Includes $6.2B of COVID-19 health spending. Later restatements moved programs between ministries."
+  as_of: 2026-10-12
+
+ontario.health.growth-rate.2021-22-to-2025-26:
+  value: 6.6
+  unit: "%"
+  label: "Average yearly growth in health spending, 2021-22 to 2025-26"
+  basis: "actual, nominal"
+  primary: {title: "Public Accounts 2025-26 Annual Report, Expense Trend", url: "https://www.ontario.ca/page/public-accounts-2025-26-annual-report", locator: "Expense Trend"}
+  status: single
+  note: "Education grew 7.6%/yr (driven by $10-a-day child care), Justice 10.2%/yr, over the same period."
+  as_of: 2026-10-12
+
+ontario.covid-spending.2021-22:
+  value: 10900
+  unit: $M
+  label: "COVID-19 time-limited spending, 2021-22"
+  basis: "actual"
+  primary: {title: "Public Accounts 2022-23 Annual Report, Table 4", url: "https://www.ontario.ca/page/public-accounts-2022-23-annual-report", locator: "Table 4 COVID-19 expenses by sector"}
+  crosscheck:
+    - {title: "2023 Ontario Budget, Table 3.8", url: "https://budget.ontario.ca/2023/chapter-3.html", value: 10900}
+  status: single
+  note: "Both are Ontario government documents, so this is not an independent cross-check. $6.3B in 2022-23."
+  as_of: 2026-10-12
+
+ontario.infrastructure.2026-27.total:
+  value: 36744
+  unit: $M
+  label: "Ontario infrastructure spending, 2026-27 plan"
+  basis: "capital investment + transfers, net of other partner funding, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.11", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.11 Total"}
+  status: single
+  note: "Capital spending is mostly not counted as 'expense' in the year it happens (it is spread out as amortization). Transit is the biggest piece: $13,789M."
+  as_of: 2026-10-12
+
+ontario.infrastructure.2026-27.transit:
+  value: 13789
+  unit: $M
+  label: "Provincial transit infrastructure spending, 2026-27 plan"
+  basis: "capital, plan"
+  primary: {title: "2026 Ontario Budget, Table 3.11", url: "https://budget.ontario.ca/2026/chapter-3.html", locator: "Table 3.11 Transportation — Transit"}
+  status: single
+  as_of: 2026-10-12

@@ -1,0 +1,32 @@
+original_line,category,notes
+"Agriculture, Food and Agribusiness (Total)",other,Includes demand-driven farm risk-management programs.
+Attorney General (Total),police-justice,"Courts, Crown prosecutors, Legal Aid. Part of the Justice sector."
+Board of Internal Economy (Total),government-debt,"Runs the Legislative Assembly (MPP offices, Legislature)."
+"Children, Community and Social Services (Total)",social-services,"Ontario Works, ODSP, autism services, child welfare, developmental services."
+Citizenship and Multiculturalism (Total),other,
+"Colleges, Universities, Research Excellence and Security (Total)",education,"Colleges and universities, plus OSAP student aid. The Budget reports this as its own 'Postsecondary' sector; we group it under Education."
+"Economic Development, Job Creation and Trade (Total)",other,Includes business tax credits ($758.3M) and time-limited investments.
+Education (Total),education,"Funding for school boards, child care, and the teachers' pension plan. The Budget's 'Education sector' figure leaves out the pension, so it is smaller; we never show both in the same chart."
+Emergency Preparedness and Response (Total),other,Q1 2026-27 adds $140M for First Nations evacuations on behalf of Indigenous Services Canada.
+Energy and Mines (Total),other,"Mostly Electricity Cost Relief Programs ($6,913.1M) that lower hydro bills; also high-speed internet."
+"Environment, Conservation and Parks (Total)",other,Includes provincial parks but is mostly environmental regulation; kept in Other.
+Executive Offices (Total),government-debt,Premier's office and Cabinet Office.
+Finance (Total),government-debt,"Includes Ontario Municipal Partnership Fund ($600.0M, unconditional grants to mostly rural/northern municipalities) and IMCO. Ministry administration and tax collection."
+Francophone Affairs (Total),other,
+Health (Total),health,"OHIP (doctors), hospitals, prescription drugs, home care. Together with Long-Term Care it makes up the Budget's Health sector."
+Indigenous Affairs and First Nations Economic Reconciliation (Total),other,
+Infrastructure (Total),infrastructure,"Includes Municipal Infrastructure Program ($600.0M), Realty ($1,655.2M, government buildings), Waterfront Toronto Port Lands flood protection ($35.0M). Operating expense only; most provincial capital spending is in Table 3.11 and is not an expense line."
+"Labour, Immigration, Training and Skills Development (Total)",other,"Employment and training programs ($1,631.1M, incl. Skills Development Fund) and co-op education tax credit."
+Long-Term Care (Total),health,Long-term care homes. Most of this money flows through Ontario Health and hospitals.
+Municipal Affairs and Housing (Total),housing-shelter,"Q1 2026-27 raises to $1,994.3M (+$200M Toronto New Deal shelter/homelessness). Time-limited investments $991.3M."
+Natural Resources (Total),other,Includes emergency forest firefighting ($150.0M).
+Northern Economic Development and Growth (Total),other,
+Public and Business Service Delivery and Procurement (Total),government-debt,"ServiceOntario, government IT and procurement."
+Rural Affairs (Total),other,
+Seniors and Accessibility (Total),social-services,Includes Seniors Tax Credit ($100.2M).
+Solicitor General (Total),police-justice,"OPP, correctional services, Fire Marshal, coroner. Part of the Justice sector. (Fire Marshal portion cannot be split out from Table 3.10.)"
+Sport (Total),parks-rec-culture,Includes Community Sport and Recreation Infrastructure Fund time-limited investments ($221.2M).
+"Tourism, Culture and Gaming (Total)",parks-rec-culture,"Includes Ontario Cultural Media Tax Credits ($1,046.2M) for film/TV/games."
+Transportation (Total),transit,"Day-to-day costs of Metrolinx/GO Transit, transit support to cities, and provincial highways; the Budget doesn't split them. Building new transit lines is capital spending and isn't counted here."
+Treasury Board Secretariat (Total),government-debt,"Benefits for government employees and retirees, plus contingency funds: money set aside and later spent by other ministries."
+Interest and Other Debt Servicing Charges,government-debt,Interest on Ontario's debt (net of interest capitalized during construction).

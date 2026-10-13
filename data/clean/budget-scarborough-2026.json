@@ -1,0 +1,459 @@
+{
+  "id": "scarborough",
+  "name": "Scarborough (Wards 20–25)",
+  "year": "2026",
+  "basis": "10-year capital plan 2026–2035, ward-tagged projects only",
+  "gross": 1137.5,
+  "net": null,
+  "note": "Only projects the City tags to a Scarborough ward. Most capital money (TTC, police, water systems) is tagged 'City Wide' and can't be split by neighbourhood, so Scarborough benefits from more than this.",
+  "source": {
+    "title": "Budget - Capital Budget & Plan By Ward (10 yr Approved): 2026-2035",
+    "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/7d3bcf2f-8eca-4ed5-a352-a34adb130931/resource/d5502528-02f8-49bf-8783-b3e5ff700ded/download/2026-2035-capital-budget-and-plan-details.xlsx",
+    "locator": "rows with Ward 20–25"
+  },
+  "children": [
+    {
+      "id": "scarborough.health",
+      "name": "Health",
+      "category": "health",
+      "gross": 422.6,
+      "net": null,
+      "originalLines": [
+        "4610 Finch Ave East"
+      ],
+      "children": [
+        {
+          "id": "scarborough.seniors-services-and-long-term-care-4610-finch-ave-east",
+          "name": "4610 Finch Ave East",
+          "gross": 422.6,
+          "net": null,
+          "note": "Seniors Services and Long-Term Care. Ward 23."
+        }
+      ]
+    },
+    {
+      "id": "scarborough.parks-rec-culture",
+      "name": "Parks, Recreation & Culture",
+      "category": "parks-rec-culture",
+      "gross": 402.6,
+      "net": null,
+      "originalLines": [
+        "Building & Services Refurbishment",
+        "Carbon Budget-Equipment Replacement",
+        "Savanna Indoor Winter Holding & Viewing",
+        "Welcome Area Redesign",
+        "Exhibit Refurbishment",
+        "Grounds and Visitor Improvements",
+        "Outdoor Recreation Centres",
+        "Community Centres",
+        "Arena",
+        "Information Systems",
+        "Woodside Square Relocation & Expansion",
+        "Carbon Budget- Site-Wide Generator Replacement",
+        "Park Development",
+        "Carbon Budget-Zero Emission Zoomobile Transition",
+        "Playgrounds/Waterplay",
+        "Restoration/Preservation of Heritage Elements",
+        "Parking Lots and Tennis Courts",
+        "Land Acquisition",
+        "Cultural Infrastructure Development",
+        "Refurbishment and Rehabilitation",
+        "Toronto Zoo Master Plan",
+        "Service Enhancement"
+      ],
+      "children": [
+        {
+          "id": "scarborough.toronto-zoo-building-&-services-refurbishment",
+          "name": "Building & Services Refurbishment",
+          "gross": 76.5,
+          "net": null,
+          "note": "Toronto Zoo. Ward 25."
+        },
+        {
+          "id": "scarborough.toronto-zoo-carbon-budget-equipment-replacement",
+          "name": "Carbon Budget-Equipment Replacement",
+          "gross": 64.6,
+          "net": null,
+          "note": "Toronto Zoo. Ward 25."
+        },
+        {
+          "id": "scarborough.toronto-zoo-savanna-indoor-winter-holding-&-viewing",
+          "name": "Savanna Indoor Winter Holding & Viewing",
+          "gross": 55.5,
+          "net": null,
+          "note": "Toronto Zoo. Ward 25."
+        },
+        {
+          "id": "scarborough.toronto-zoo-welcome-area-redesign",
+          "name": "Welcome Area Redesign",
+          "gross": 30.4,
+          "net": null,
+          "note": "Toronto Zoo. Ward 25."
+        },
+        {
+          "id": "scarborough.toronto-zoo-exhibit-refurbishment",
+          "name": "Exhibit Refurbishment",
+          "gross": 28.0,
+          "net": null,
+          "note": "Toronto Zoo. Ward 25."
+        },
+        {
+          "id": "scarborough.toronto-zoo-grounds-and-visitor-improvements",
+          "name": "Grounds and Visitor Improvements",
+          "gross": 27.1,
+          "net": null,
+          "note": "Toronto Zoo. Ward 25."
+        },
+        {
+          "id": "scarborough.parks-&-recreation-outdoor-recreation-centres",
+          "name": "Outdoor Recreation Centres",
+          "gross": 24.7,
+          "net": null,
+          "note": "Parks & Recreation. Ward 20, 22, 23, 24."
+        },
+        {
+          "id": "scarborough.parks-&-recreation-community-centres",
+          "name": "Community Centres",
+          "gross": 17.4,
+          "net": null,
+          "note": "Parks & Recreation. Ward 20, 24."
+        },
+        {
+          "id": "scarborough.parks-&-recreation-arena",
+          "name": "Arena",
+          "gross": 14.9,
+          "net": null,
+          "note": "Parks & Recreation. Ward 21, 22."
+        },
+        {
+          "id": "scarborough.toronto-zoo-information-systems",
+          "name": "Information Systems",
+          "gross": 11.2,
+          "net": null,
+          "note": "Toronto Zoo. Ward 25."
+        },
+        {
+          "id": "scarborough.toronto-public-library-woodside-square-relocation-&-expansion",
+          "name": "Woodside Square Relocation & Expansion",
+          "gross": 10.9,
+          "net": null,
+          "note": "Toronto Public Library. Ward 23."
+        },
+        {
+          "id": "scarborough.toronto-zoo-carbon-budget-site-wide-generator-replacement",
+          "name": "Carbon Budget- Site-Wide Generator Replacement",
+          "gross": 10.1,
+          "net": null,
+          "note": "Toronto Zoo. Ward 25."
+        },
+        {
+          "id": "scarborough.parks-&-recreation-park-development",
+          "name": "Park Development",
+          "gross": 8.9,
+          "net": null,
+          "note": "Parks & Recreation. Ward 20, 21, 24."
+        },
+        {
+          "id": "scarborough.toronto-zoo-carbon-budget-zero-emission-zoomobile-transition",
+          "name": "Carbon Budget-Zero Emission Zoomobile Transition",
+          "gross": 6.0,
+          "net": null,
+          "note": "Toronto Zoo. Ward 25."
+        },
+        {
+          "id": "scarborough.parks-&-recreation-playgrounds/waterplay",
+          "name": "Playgrounds/Waterplay",
+          "gross": 5.6,
+          "net": null,
+          "note": "Parks & Recreation. Ward 20, 21, 23, 24, 25."
+        },
+        {
+          "id": "scarborough.economic-development-&-culture-restoration/preservation-of-heritage-elements",
+          "name": "Restoration/Preservation of Heritage Elements",
+          "gross": 3.0,
+          "net": null,
+          "note": "Economic Development & Culture. Ward 21, 24."
+        },
+        {
+          "id": "scarborough.parks-&-recreation-parking-lots-and-tennis-courts",
+          "name": "Parking Lots and Tennis Courts",
+          "gross": 1.8,
+          "net": null,
+          "note": "Parks & Recreation. Ward 20, 22, 23."
+        },
+        {
+          "id": "scarborough.parks-&-recreation-land-acquisition",
+          "name": "Land Acquisition",
+          "gross": 1.7,
+          "net": null,
+          "note": "Parks & Recreation. Ward 20, 24."
+        },
+        {
+          "id": "scarborough.economic-development-&-culture-cultural-infrastructure-development",
+          "name": "Cultural Infrastructure Development",
+          "gross": 1.2,
+          "net": null,
+          "note": "Economic Development & Culture. Ward 24."
+        },
+        {
+          "id": "scarborough.economic-development-&-culture-refurbishment-and-rehabilitation",
+          "name": "Refurbishment and Rehabilitation",
+          "gross": 1.1,
+          "net": null,
+          "note": "Economic Development & Culture. Ward 21."
+        },
+        {
+          "id": "scarborough.toronto-zoo-toronto-zoo-master-plan",
+          "name": "Toronto Zoo Master Plan",
+          "gross": 1.1,
+          "net": null,
+          "note": "Toronto Zoo. Ward 25."
+        },
+        {
+          "id": "scarborough.economic-development-&-culture-service-enhancement",
+          "name": "Service Enhancement",
+          "gross": 0.9,
+          "net": null,
+          "note": "Economic Development & Culture. Ward 24."
+        }
+      ]
+    },
+    {
+      "id": "scarborough.fire-paramedics",
+      "name": "Fire & Paramedics",
+      "category": "fire-paramedics",
+      "gross": 136.3,
+      "net": null,
+      "originalLines": [
+        "Multi-Function Station #2",
+        "Ambulance Post Program",
+        "1050 Ellesmere Road"
+      ],
+      "children": [
+        {
+          "id": "scarborough.toronto-paramedic-services-multi-function-station-#2",
+          "name": "Multi-Function Station #2",
+          "gross": 122.3,
+          "net": null,
+          "note": "Toronto Paramedic Services. Ward 21."
+        },
+        {
+          "id": "scarborough.toronto-paramedic-services-ambulance-post-program",
+          "name": "Ambulance Post Program",
+          "gross": 9.0,
+          "net": null,
+          "note": "Toronto Paramedic Services. Ward 23."
+        },
+        {
+          "id": "scarborough.toronto-paramedic-services-1050-ellesmere-road",
+          "name": "1050 Ellesmere Road",
+          "gross": 5.0,
+          "net": null,
+          "note": "Toronto Paramedic Services. Ward 21."
+        }
+      ]
+    },
+    {
+      "id": "scarborough.other",
+      "name": "Other",
+      "category": "other",
+      "gross": 70.8,
+      "net": null,
+      "originalLines": [
+        "TRCA - Asset & Infrastructure Management Plan"
+      ],
+      "children": [
+        {
+          "id": "scarborough.toronto-&-region-conservation-authority-trca-asset-&-infrastructure-management-plan",
+          "name": "TRCA - Asset & Infrastructure Management Plan",
+          "gross": 70.8,
+          "net": null,
+          "note": "Toronto & Region Conservation Authority. Ward 20, 24."
+        }
+      ]
+    },
+    {
+      "id": "scarborough.infrastructure",
+      "name": "Infrastructure (roads, water, waste)",
+      "category": "infrastructure",
+      "gross": 31.8,
+      "net": null,
+      "originalLines": [
+        "Rouge Park bridge Improvements",
+        "Port Union Road"
+      ],
+      "children": [
+        {
+          "id": "scarborough.transportation-services-rouge-park-bridge-improvements",
+          "name": "Rouge Park bridge Improvements",
+          "gross": 21.6,
+          "net": null,
+          "note": "Transportation Services. Ward 25."
+        },
+        {
+          "id": "scarborough.transportation-services-port-union-road",
+          "name": "Port Union Road",
+          "gross": 10.2,
+          "net": null,
+          "note": "Transportation Services. Ward 25."
+        }
+      ]
+    },
+    {
+      "id": "scarborough.government-debt",
+      "name": "Government & Debt",
+      "category": "government-debt",
+      "gross": 26.7,
+      "net": null,
+      "originalLines": [
+        "Environmental",
+        "Renovations",
+        "Re-roofing",
+        "Mechanical and Electrical",
+        "Structural/Building Envelope",
+        "Toronto Strong Neighbourhoods Strategy"
+      ],
+      "children": [
+        {
+          "id": "scarborough.corporate-real-estate-management-environmental",
+          "name": "Environmental",
+          "gross": 13.0,
+          "net": null,
+          "note": "Corporate Real Estate Management. Ward 21."
+        },
+        {
+          "id": "scarborough.corporate-real-estate-management-renovations",
+          "name": "Renovations",
+          "gross": 12.3,
+          "net": null,
+          "note": "Corporate Real Estate Management. Ward 21."
+        },
+        {
+          "id": "scarborough.corporate-real-estate-management-re-roofing",
+          "name": "Re-roofing",
+          "gross": 0.6,
+          "net": null,
+          "note": "Corporate Real Estate Management. Ward 21, 24."
+        },
+        {
+          "id": "scarborough.corporate-real-estate-management-mechanical-and-electrical",
+          "name": "Mechanical and Electrical",
+          "gross": 0.3,
+          "net": null,
+          "note": "Corporate Real Estate Management. Ward 20, 24, 25."
+        },
+        {
+          "id": "scarborough.corporate-real-estate-management-structural/building-envelope",
+          "name": "Structural/Building Envelope",
+          "gross": 0.3,
+          "net": null,
+          "note": "Corporate Real Estate Management. Ward 21, 24."
+        },
+        {
+          "id": "scarborough.corporate-real-estate-management-toronto-strong-neighbourhoods-strategy",
+          "name": "Toronto Strong Neighbourhoods Strategy",
+          "gross": 0.2,
+          "net": null,
+          "note": "Corporate Real Estate Management. Ward 24."
+        }
+      ]
+    },
+    {
+      "id": "scarborough.social-services",
+      "name": "Social Services",
+      "category": "social-services",
+      "gross": 25.5,
+      "net": null,
+      "originalLines": [
+        "David and Mary Thomson (Child Care Centre 7)",
+        "158 Borough Drive Child Care Centre",
+        "Bridletown Community Centre (Child Care Centre 6)",
+        "St. Bartholomew Catholic School",
+        "North East Scarborough RC Childcare Ctr",
+        "St. Barnabas Catholic School"
+      ],
+      "children": [
+        {
+          "id": "scarborough.children's-services-david-and-mary-thomson-(child-care-centre-7)",
+          "name": "David and Mary Thomson (Child Care Centre 7)",
+          "gross": 11.5,
+          "net": null,
+          "note": "Children's Services. Ward 21."
+        },
+        {
+          "id": "scarborough.children's-services-158-borough-drive-child-care-centre",
+          "name": "158 Borough Drive Child Care Centre",
+          "gross": 8.0,
+          "net": null,
+          "note": "Children's Services. Ward 21."
+        },
+        {
+          "id": "scarborough.children's-services-bridletown-community-centre-(child-care-centre-6)",
+          "name": "Bridletown Community Centre (Child Care Centre 6)",
+          "gross": 3.9,
+          "net": null,
+          "note": "Children's Services. Ward 22."
+        },
+        {
+          "id": "scarborough.children's-services-st.-bartholomew-catholic-school",
+          "name": "St. Bartholomew Catholic School",
+          "gross": 1.2,
+          "net": null,
+          "note": "Children's Services. Ward 23."
+        },
+        {
+          "id": "scarborough.children's-services-north-east-scarborough-rc-childcare-ctr",
+          "name": "North East Scarborough RC Childcare Ctr",
+          "gross": 0.7,
+          "net": null,
+          "note": "Children's Services. Ward 25."
+        },
+        {
+          "id": "scarborough.children's-services-st.-barnabas-catholic-school",
+          "name": "St. Barnabas Catholic School",
+          "gross": 0.2,
+          "net": null,
+          "note": "Children's Services. Ward 23."
+        }
+      ]
+    },
+    {
+      "id": "scarborough.housing-shelter",
+      "name": "Housing & Shelter",
+      "category": "housing-shelter",
+      "gross": 17.2,
+      "net": null,
+      "originalLines": [
+        "New Shelter Capital Project HSCIS"
+      ],
+      "children": [
+        {
+          "id": "scarborough.toronto-shelter-and-support-services-new-shelter-capital-project-hscis",
+          "name": "New Shelter Capital Project HSCIS",
+          "gross": 17.2,
+          "net": null,
+          "note": "Toronto Shelter and Support Services. Ward 20."
+        }
+      ]
+    },
+    {
+      "id": "scarborough.transit",
+      "name": "Transit",
+      "category": "transit",
+      "gross": 4.0,
+      "net": null,
+      "originalLines": [
+        "McNicoll Bus Garage Facility"
+      ],
+      "children": [
+        {
+          "id": "scarborough.toronto-transit-commission-mcnicoll-bus-garage-facility",
+          "name": "McNicoll Bus Garage Facility",
+          "gross": 4.0,
+          "net": null,
+          "note": "Toronto Transit Commission. Ward 22."
+        }
+      ]
+    }
+  ]
+}

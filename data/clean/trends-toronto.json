@@ -1,0 +1,450 @@
+{
+  "toronto": {
+    "transit": [
+      {
+        "year": "2019",
+        "value": 2059.6,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2019"
+      },
+      {
+        "year": "2020",
+        "value": 2152.3,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2020"
+      },
+      {
+        "year": "2021",
+        "value": 2162.1,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2021"
+      },
+      {
+        "year": "2022",
+        "value": 2239.4,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2022"
+      },
+      {
+        "year": "2023",
+        "value": 2390.7,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2023"
+      },
+      {
+        "year": "2024",
+        "value": 2579.4,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2024"
+      },
+      {
+        "year": "2025",
+        "value": 2830.8,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2025"
+      }
+    ],
+    "police-justice": [
+      {
+        "year": "2019",
+        "value": 1229.9,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2019"
+      },
+      {
+        "year": "2020",
+        "value": 1261.8,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2020"
+      },
+      {
+        "year": "2021",
+        "value": 1265.9,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2021"
+      },
+      {
+        "year": "2022",
+        "value": 1298.3,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2022"
+      },
+      {
+        "year": "2023",
+        "value": 1369.5,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2023"
+      },
+      {
+        "year": "2024",
+        "value": 1404.7,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2024"
+      },
+      {
+        "year": "2025",
+        "value": 1523.9,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2025"
+      }
+    ],
+    "fire-paramedics": [
+      {
+        "year": "2019",
+        "value": 727.6,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2019"
+      },
+      {
+        "year": "2020",
+        "value": 745.0,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2020"
+      },
+      {
+        "year": "2021",
+        "value": 786.2,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2021"
+      },
+      {
+        "year": "2022",
+        "value": 819.3,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2022"
+      },
+      {
+        "year": "2023",
+        "value": 845.6,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2023"
+      },
+      {
+        "year": "2024",
+        "value": 890.6,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2024"
+      },
+      {
+        "year": "2025",
+        "value": 954.8,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2025"
+      }
+    ],
+    "housing-shelter": [
+      {
+        "year": "2019",
+        "value": 1014.8,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2019"
+      },
+      {
+        "year": "2020",
+        "value": 1022.3,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2020"
+      },
+      {
+        "year": "2021",
+        "value": 1227.8,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2021"
+      },
+      {
+        "year": "2022",
+        "value": 1325.1,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2022"
+      },
+      {
+        "year": "2023",
+        "value": 1553.6,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2023"
+      },
+      {
+        "year": "2024",
+        "value": 1831.7,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2024"
+      },
+      {
+        "year": "2025",
+        "value": 1739.2,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2025"
+      }
+    ],
+    "social-services": [
+      {
+        "year": "2019",
+        "value": 1879.3,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2019"
+      },
+      {
+        "year": "2020",
+        "value": 1806.3,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2020"
+      },
+      {
+        "year": "2021",
+        "value": 1890.0,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2021"
+      },
+      {
+        "year": "2022",
+        "value": 1923.0,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2022"
+      },
+      {
+        "year": "2023",
+        "value": 2366.5,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2023"
+      },
+      {
+        "year": "2024",
+        "value": 2430.3,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2024"
+      },
+      {
+        "year": "2025",
+        "value": 3178.3,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2025"
+      }
+    ],
+    "health": [
+      {
+        "year": "2019",
+        "value": 523.8,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2019"
+      },
+      {
+        "year": "2020",
+        "value": 540.3,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2020"
+      },
+      {
+        "year": "2021",
+        "value": 637.4,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2021"
+      },
+      {
+        "year": "2022",
+        "value": 689.2,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2022"
+      },
+      {
+        "year": "2023",
+        "value": 743.3,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2023"
+      },
+      {
+        "year": "2024",
+        "value": 666.9,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2024"
+      },
+      {
+        "year": "2025",
+        "value": 701.1,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2025"
+      }
+    ],
+    "parks-rec-culture": [
+      {
+        "year": "2019",
+        "value": 936.7,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2019"
+      },
+      {
+        "year": "2020",
+        "value": 937.6,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2020"
+      },
+      {
+        "year": "2021",
+        "value": 896.7,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2021"
+      },
+      {
+        "year": "2022",
+        "value": 986.3,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2022"
+      },
+      {
+        "year": "2023",
+        "value": 1017.3,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2023"
+      },
+      {
+        "year": "2024",
+        "value": 1079.1,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2024"
+      },
+      {
+        "year": "2025",
+        "value": 1192.8,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2025"
+      }
+    ],
+    "infrastructure": [
+      {
+        "year": "2019",
+        "value": 472.6,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2019"
+      },
+      {
+        "year": "2020",
+        "value": 489.7,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2020"
+      },
+      {
+        "year": "2021",
+        "value": 515.4,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2021"
+      },
+      {
+        "year": "2022",
+        "value": 511.0,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2022"
+      },
+      {
+        "year": "2023",
+        "value": 537.9,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2023"
+      },
+      {
+        "year": "2024",
+        "value": 567.7,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2024"
+      },
+      {
+        "year": "2025",
+        "value": 656.1,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2025"
+      }
+    ],
+    "government-debt": [
+      {
+        "year": "2019",
+        "value": 2558.2,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2019"
+      },
+      {
+        "year": "2020",
+        "value": 2552.1,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2020"
+      },
+      {
+        "year": "2021",
+        "value": 2706.3,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2021"
+      },
+      {
+        "year": "2022",
+        "value": 3236.1,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2022"
+      },
+      {
+        "year": "2023",
+        "value": 3344.3,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2023"
+      },
+      {
+        "year": "2024",
+        "value": 3591.9,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2024"
+      },
+      {
+        "year": "2025",
+        "value": 3924.2,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2025"
+      }
+    ],
+    "other": [
+      {
+        "year": "2019",
+        "value": 241.0,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2019"
+      },
+      {
+        "year": "2020",
+        "value": 223.8,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2020"
+      },
+      {
+        "year": "2021",
+        "value": 227.1,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2021"
+      },
+      {
+        "year": "2022",
+        "value": 242.5,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2022"
+      },
+      {
+        "year": "2023",
+        "value": 261.5,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2023"
+      },
+      {
+        "year": "2024",
+        "value": 296.6,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2024"
+      },
+      {
+        "year": "2025",
+        "value": 331.6,
+        "kind": "plan",
+        "sourceRef": "toronto-operating-2025"
+      }
+    ]
+  },
+  "toronto-notes": [
+    "Approved operating budgets, gross expenditures, from the City's Open Data 'Operating Budget Program Summary' files (2019–2025).",
+    "Tax-supported programs only. Water, garbage and parking are left out because the way their spending is reported changed in 2022.",
+    "These files include internal charges between City divisions, so their totals are higher than the City's headline budget. They are used for direction of change only.",
+    "2026 is not included because it has not been published in this format; 2026 figures elsewhere on the site come from the 2026 Budget Summary."
+  ]
+}

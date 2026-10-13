@@ -1,0 +1,36 @@
+# Scarborough transit projects. Owner: site lead. Checked 2026-10-12.
+scarborough.busway.opened:
+  value: "Sept 30, 2026"
+  unit: date
+  label: "Scarborough Busway opening date"
+  basis: "opened for service"
+  primary: {title: "TTC: The future of Line 3 Scarborough", url: "https://www.ttc.ca/about-the-ttc/projects-and-plans/Future-of-Line-3-Scarborough"}
+  crosscheck:
+    - {title: "UrbanToronto: Scarborough Busway prepares for September 30 opening", url: "https://urbantoronto.ca/news/2026/09/scarborough-busway-prepares-september-30-opening.61661", date: 2026-09-01}
+  status: verified
+  note: "About 4 km on the old Line 3 (SRT) route, Kennedy to Scarborough Centre. The TTC says it saves riders about 7 minutes. The TTC has not published its cost."
+  as_of: 2026-10-12
+
+scarborough.sse.opening-reported:
+  value: "reported as delayed to 2033"
+  unit: text
+  label: "Scarborough Subway Extension opening date"
+  basis: "media report based on internal TTC emails; not an official date"
+  primary: {title: "Transport Action Ontario, summarizing Toronto Star reporting on internal TTC emails", url: "https://ontario.transportaction.ca/delays-in-scarborough-subway-extension-now-2033/"}
+  crosscheck:
+    - {title: "insauga: tunnel 75% complete but still years away from opening", url: "https://www.insauga.com/ttc-subway-extension-tunnel-is-75-complete-but-still-years-away-from-opening/"}
+  status: reported
+  note: "The original target was 2030. Metrolinx's project page gives no completion date. Treat 2033 as reported, not confirmed."
+  as_of: 2026-10-12
+
+scarborough.eelrt.cost-estimate:
+  value: 4650
+  unit: $M
+  label: "Eglinton East LRT estimated cost"
+  basis: "Nov 2023 City estimate (Class 3/4, −20% to +30%); excludes property, vehicles and operations"
+  primary: {title: "City of Toronto staff report EX10.17 (Nov 2023)", url: "https://www.toronto.ca/legdocs/mmis/2023/ex/bgrd/backgroundfile-241045.pdf"}
+  crosscheck:
+    - {title: "blogTO: Toronto LRT at $250 million per kilometre", url: "https://blogto.com/city/2023/12/toronto-pay-250-million-kilometre-lrt-line", date: 2023-12-01}
+  status: verified
+  note: "This is a 2023 estimate and costs have likely risen since. The project is unfunded. In April 2026 the Province said it is not on its priority list."
+  as_of: 2026-10-12

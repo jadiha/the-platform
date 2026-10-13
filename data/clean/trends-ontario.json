@@ -1,0 +1,661 @@
+{
+ "ontario": {
+  "health": [
+   {
+    "year": "2021-22",
+    "value": 75400.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   },
+   {
+    "year": "2022-23",
+    "value": 78500.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2023-24"
+   },
+   {
+    "year": "2023-24",
+    "value": 85500.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2024-25"
+   },
+   {
+    "year": "2024-25",
+    "value": 91300.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   },
+   {
+    "year": "2025-26",
+    "value": 97800.0,
+    "kind": "interim",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   },
+   {
+    "year": "2026-27",
+    "value": 101200.0,
+    "kind": "plan",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   }
+  ],
+  "education": [
+   {
+    "year": "2021-22",
+    "value": 29900.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   },
+   {
+    "year": "2022-23",
+    "value": 34500.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2023-24"
+   },
+   {
+    "year": "2023-24",
+    "value": 37200.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2024-25"
+   },
+   {
+    "year": "2024-25",
+    "value": 38300.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   },
+   {
+    "year": "2025-26",
+    "value": 40500.0,
+    "kind": "interim",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   },
+   {
+    "year": "2026-27",
+    "value": 40800.0,
+    "kind": "plan",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   }
+  ],
+  "postsecondary": [
+   {
+    "year": "2021-22",
+    "value": 10600.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   },
+   {
+    "year": "2022-23",
+    "value": 11800.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2023-24"
+   },
+   {
+    "year": "2023-24",
+    "value": 13200.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2024-25"
+   },
+   {
+    "year": "2024-25",
+    "value": 14200.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   },
+   {
+    "year": "2025-26",
+    "value": 14000.0,
+    "kind": "interim",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   },
+   {
+    "year": "2026-27",
+    "value": 14000.0,
+    "kind": "plan",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   }
+  ],
+  "children-social-services": [
+   {
+    "year": "2021-22",
+    "value": 16900.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   },
+   {
+    "year": "2022-23",
+    "value": 18100.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2023-24"
+   },
+   {
+    "year": "2023-24",
+    "value": 19400.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2024-25"
+   },
+   {
+    "year": "2024-25",
+    "value": 20500.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   },
+   {
+    "year": "2025-26",
+    "value": 21500.0,
+    "kind": "interim",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   },
+   {
+    "year": "2026-27",
+    "value": 21400.0,
+    "kind": "plan",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   }
+  ],
+  "justice": [
+   {
+    "year": "2021-22",
+    "value": 4900.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   },
+   {
+    "year": "2022-23",
+    "value": 5400.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2023-24"
+   },
+   {
+    "year": "2023-24",
+    "value": 6000.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2024-25"
+   },
+   {
+    "year": "2024-25",
+    "value": 7200.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   },
+   {
+    "year": "2025-26",
+    "value": 7300.0,
+    "kind": "interim",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   },
+   {
+    "year": "2026-27",
+    "value": 7300.0,
+    "kind": "plan",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   }
+  ],
+  "other-programs": [
+   {
+    "year": "2021-22",
+    "value": 32800.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   },
+   {
+    "year": "2022-23",
+    "value": 38000.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2023-24"
+   },
+   {
+    "year": "2023-24",
+    "value": 33900.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2024-25"
+   },
+   {
+    "year": "2024-25",
+    "value": 40600.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   },
+   {
+    "year": "2025-26",
+    "value": 41200.0,
+    "kind": "interim",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   },
+   {
+    "year": "2026-27",
+    "value": 42400.0,
+    "kind": "plan",
+    "sourceRef": "ontario-budget-2026-t3.7"
+   }
+  ],
+  "interest": [
+   {
+    "year": "2021-22",
+    "value": 13302.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2022-23",
+    "value": 13935.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2023-24",
+    "value": 14461.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2024-25",
+    "value": 15122.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2025-26",
+    "value": 16047.0,
+    "kind": "interim",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2026-27",
+    "value": 17237.0,
+    "kind": "plan",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   }
+  ],
+  "total": [
+   {
+    "year": "2021-22",
+    "value": 183822.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2022-23",
+    "value": 200299.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2023-24",
+    "value": 209668.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2024-25",
+    "value": 227251.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2025-26",
+    "value": 238434.0,
+    "kind": "interim",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2026-27",
+    "value": 244200.0,
+    "kind": "plan",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   }
+  ],
+  "total-programs": [
+   {
+    "year": "2021-22",
+    "value": 170520.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2022-23",
+    "value": 186364.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2023-24",
+    "value": 195207.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2024-25",
+    "value": 212129.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2025-26",
+    "value": 222387.0,
+    "kind": "interim",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2026-27",
+    "value": 226963.0,
+    "kind": "plan",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   }
+  ],
+  "covid-time-limited": [
+   {
+    "year": "2021-22",
+    "value": 10900.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2022-23-t4"
+   },
+   {
+    "year": "2022-23",
+    "value": 6300.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2022-23-t4"
+   }
+  ],
+  "revenue": [
+   {
+    "year": "2021-22",
+    "value": 185847.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2022-23",
+    "value": 194431.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2023-24",
+    "value": 208975.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2024-25",
+    "value": 226161.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2025-26",
+    "value": 226609.0,
+    "kind": "interim",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2026-27",
+    "value": 231856.0,
+    "kind": "plan",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   }
+  ],
+  "surplus-deficit": [
+   {
+    "year": "2021-22",
+    "value": 2025.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2022-23",
+    "value": -5868.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2023-24",
+    "value": -693.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2024-25",
+    "value": -1090.0,
+    "kind": "actual",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2025-26",
+    "value": -12326.0,
+    "kind": "interim",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   },
+   {
+    "year": "2026-27",
+    "value": -13844.0,
+    "kind": "plan",
+    "sourceRef": "ontario-budget-2026-t3.12"
+   }
+  ]
+ },
+ "ontario-public-accounts-2025-26-basis": {
+  "health": [
+   {
+    "year": "2024-25",
+    "value": 90900.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   },
+   {
+    "year": "2025-26",
+    "value": 97500.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   }
+  ],
+  "education": [
+   {
+    "year": "2024-25",
+    "value": 37800.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   },
+   {
+    "year": "2025-26",
+    "value": 40100.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   }
+  ],
+  "postsecondary": [
+   {
+    "year": "2024-25",
+    "value": 14100.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   },
+   {
+    "year": "2025-26",
+    "value": 13900.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   }
+  ],
+  "children-social-services": [
+   {
+    "year": "2024-25",
+    "value": 20500.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   },
+   {
+    "year": "2025-26",
+    "value": 21400.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   }
+  ],
+  "justice": [
+   {
+    "year": "2024-25",
+    "value": 7100.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   },
+   {
+    "year": "2025-26",
+    "value": 7200.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   }
+  ],
+  "other-programs": [
+   {
+    "year": "2024-25",
+    "value": 40500.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   },
+   {
+    "year": "2025-26",
+    "value": 40700.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   }
+  ],
+  "interest": [
+   {
+    "year": "2024-25",
+    "value": 15100.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   },
+   {
+    "year": "2025-26",
+    "value": 15451.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   }
+  ],
+  "total": [
+   {
+    "year": "2024-25",
+    "value": 226035.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   },
+   {
+    "year": "2025-26",
+    "value": 236336.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   }
+  ],
+  "revenue": [
+   {
+    "year": "2024-25",
+    "value": 224900.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   },
+   {
+    "year": "2025-26",
+    "value": 223300.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   }
+  ],
+  "surplus-deficit": [
+   {
+    "year": "2024-25",
+    "value": -1100.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   },
+   {
+    "year": "2025-26",
+    "value": -13000.0,
+    "kind": "actual",
+    "sourceRef": "public-accounts-2025-26"
+   }
+  ]
+ },
+ "ontario-per-person-total-expense": [
+  {
+   "year": "2021-22",
+   "value": 12385,
+   "kind": "actual",
+   "sourceRef": "ontario-budget-2026-t3.12"
+  },
+  {
+   "year": "2022-23",
+   "value": 13216,
+   "kind": "actual",
+   "sourceRef": "ontario-budget-2026-t3.12"
+  },
+  {
+   "year": "2023-24",
+   "value": 13413,
+   "kind": "actual",
+   "sourceRef": "ontario-budget-2026-t3.12"
+  },
+  {
+   "year": "2024-25",
+   "value": 14076,
+   "kind": "actual",
+   "sourceRef": "ontario-budget-2026-t3.12"
+  },
+  {
+   "year": "2025-26",
+   "value": 14666,
+   "kind": "interim",
+   "sourceRef": "ontario-budget-2026-t3.12"
+  },
+  {
+   "year": "2026-27",
+   "value": 15044,
+   "kind": "plan",
+   "sourceRef": "ontario-budget-2026-t3.12"
+  }
+ ],
+ "sources": {
+  "ontario-budget-2026-t3.7": {
+   "title": "2026 Ontario Budget, Chapter 3, Table 3.7 (Summary of Medium-Term Expense Outlook, $ billions)",
+   "url": "https://budget.ontario.ca/2026/chapter-3.html",
+   "published": "2026-03-26"
+  },
+  "ontario-budget-2026-t3.12": {
+   "title": "2026 Ontario Budget, Chapter 3, Table 3.12 (10-Year Review, $ millions)",
+   "url": "https://budget.ontario.ca/2026/chapter-3.html",
+   "published": "2026-03-26"
+  },
+  "public-accounts-2025-26": {
+   "title": "Public Accounts of Ontario 2025-26 Annual Report (MD&A Table 3 and Expense Trend text p.19-20; Schedule 3 p.96-97)",
+   "url": "https://www.ontario.ca/page/public-accounts-2025-26-annual-report",
+   "published": "2026-09-24"
+  },
+  "public-accounts-2024-25": {
+   "title": "Public Accounts of Ontario 2024-25 Annual Report, Table 3 (2023-24 restated actual column)",
+   "url": "https://www.ontario.ca/page/public-accounts-2024-25-annual-report"
+  },
+  "public-accounts-2023-24": {
+   "title": "Public Accounts of Ontario 2023-24 Annual Report, Table 3 (2022-23 restated actual column)",
+   "url": "https://www.ontario.ca/page/public-accounts-2023-24-annual-report"
+  },
+  "public-accounts-2022-23-t4": {
+   "title": "Public Accounts of Ontario 2022-23 Annual Report, Table 4 (COVID-19 expenses by sector)",
+   "url": "https://www.ontario.ca/page/public-accounts-2022-23-annual-report"
+  }
+ },
+ "notes": [
+  "UNITS: all values $ millions (nominal, not inflation-adjusted) except 'ontario-per-person-total-expense' which is whole dollars per person.",
+  "BASIS: consolidated provincial expense (includes hospitals, school boards, colleges, children's aid societies). Sector figures are program expense; 'interest' is Interest and Other Debt Servicing Charges; total = programs + interest.",
+  "TOTALS (total, total-programs, interest, revenue, surplus-deficit) come from 2026 Ontario Budget Table 3.12 for all six years, as instructed. 2025-26 is the budget's INTERIM figure. The Public Accounts 2025-26 (released 2026-09-24) later reported ACTUAL 2025-26 total expense of $236,336M and a deficit of $13.0B; those are in the separate 'ontario-public-accounts-2025-26-basis' block. Do not mix the two blocks in one chart without labelling.",
+  "SECTORS use the latest document that reports each year by sector: 2021-22 from Public Accounts 2025-26 MD&A text (restated, p.19-20); 2022-23 from Public Accounts 2023-24 Table 3 (2022-23 restated column); 2023-24 from Public Accounts 2024-25 Table 3 (2023-24 restated column); 2024-25 actual, 2025-26 interim and 2026-27 plan from 2026 Budget Table 3.7. 2024-25 and 2025-26 sector values were chosen from the Budget (not Public Accounts 2025-26) so they sit on the same basis as the 2026-27 plan and add to the Table 3.12 totals.",
+  "Sector values from Budget tables are published only to one decimal in $ billions, so they are rounded to the nearest $100M; sums can differ from Table 3.12 totals by up to a few hundred $M.",
+  "BREAK - Teachers' Pension Plan (TPP): the Education sector EXCLUDES the TPP expense (about $1.7-2.2B/yr), which is counted in Other Programs (2026 Budget Table 3.7 note 1; PA 2025-26 Table 3 note 3). The Ministry of Education total in Table 3.10 INCLUDES it ($42,549.1M in 2026-27 vs sector $40.8B). Never chart the ministry figure and the sector figure together.",
+  "BREAK - COVID-19: in the 2023 and 2024 Budgets, COVID-19 time-limited funding ($10.9B in 2021-22, $6.3B in 2022-23) and 'Other One-Time Expenses' ($6.3B in 2022-23) were shown as separate lines, not in sectors. The Public Accounts sector figures used here INCLUDE COVID spending inside sectors. 'covid-time-limited' (PA 2022-23 Table 4) is a memo line already contained in the sector values - do NOT add it on top. Health COVID spending was $6.2B in 2021-22 and $3.3B in 2022-23, which inflates those years' health numbers.",
+  "BREAK - Interest restatement: beginning with the 2025 Budget, interest and investment income was moved to revenue and out of Interest and Other Debt Servicing Charges for all years (Table 3.12 note 2). Older documents (e.g. 2023 Budget total expense 2021-22 = $183.0B; PA 2022-23 interest $12.4B for 2022-23) are on the old basis and will not match the Table 3.12 values used here ($183,822M; $13,935M). Fiscally neutral.",
+  "BREAK - Ministry reclassifications: each Budget restates ministry and sector history for reorganizations (2026 Budget Table 3.10 note 1). E.g. 2021-22 health was $75.8B in PA 2022-23 but $75.4B in PA 2025-26; 2024-25 health was $91.6B in PA 2024-25, $91.3B in the 2026 Budget and $90.9B in PA 2025-26.",
+  "BREAK - Employer Health Tax (EHT) elimination: Public Accounts 2025-26 restated 2024-25 to eliminate inter-entity EHT revenue and expense (Note 17), lowering 2024-25 total expense from $227,251M to $226,035M and revenue from $226,161M to $224,900M (deficit unchanged). The 2026-27 plan has NOT yet been restated this way, so PA-basis actuals and the Budget plan are not perfectly comparable (~$1.2B).",
+  "BREAK - Net debt definition changes for 2026-27 onward (Table 3.12 notes 4,6-8); not used in this file.",
+  "LONG-TERM CARE: Table 3.10 shows Long-Term Care ministry at $9,354M for 2026-27, but notes $8.0B of that is spent through Ontario Health/hospitals and is consolidated in Health. Both are inside the Health sector.",
+  "PER-PERSON: 'ontario-per-person-total-expense' = Table 3.12 total expense / Table 3.12 population (July 1). Calculated by Follow the Budget from official figures; nominal dollars, not inflation-adjusted. Note the 2026-27 First Quarter Finances (2026-08-14) revised July 2026 population to 16,099 thousand (vs 16,232 in the Budget), which would raise 2026-27 per-person spending to about $15,177 using the Q1 total of $244,340M.",
+  "PLAN UPDATE: 2026-27 First Quarter Finances (published 2026-08-14) raised 2026-27 total expense to $244,340M (+$140M; incl. +$200M Toronto New Deal shelter/homelessness funding offset by contingency drawdown); deficit unchanged at $13.8B. This file keeps the Budget plan figure ($244,200M)."
+ ]
+}
