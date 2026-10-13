@@ -22,13 +22,14 @@
 	const withSite = $derived(mayor.filter((c) => profileOf(c.ballot_name)));
 	const without = $derived(mayor.filter((c) => !profileOf(c.ballot_name)));
 
-	const stops = $derived([
+	// Stops on the ride: 0 Start, 1 City Hall, 2 Candidates, 3 Also on your ballot, 4 Last stop.
+	const stops = [
 		{ label: 'Start: whose job is it?', big: true },
 		{ label: 'City Hall: did it change anything?', big: true },
-		...withSite.map((c) => ({ label: displayName(c.ballot_name), big: false })),
+		{ label: 'Meet the candidates', big: true },
 		{ label: 'Also on your ballot', big: true },
 		{ label: 'Last stop: before you vote', big: true }
-	]);
+	];
 	let section = $state(0);
 	const els: HTMLElement[] = [];
 	const smooth = () => (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth') as ScrollBehavior;
@@ -38,35 +39,30 @@
 		io.observe(node);
 		return { destroy: () => io.disconnect() };
 	}
-	// The candidates sit side by side in one row you swipe through, so the page stays short.
-	// While that row is on screen, the streetcar follows the card you're looking at.
-	let rail: HTMLDivElement | undefined = $state();
-	let carIdx = $state(0);
-	let meetEl: HTMLElement | undefined;
-	function meet(node: HTMLElement) {
-		meetEl = node;
-		const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && (section = -1)), { rootMargin: '-40% 0px -55% 0px' });
-		io.observe(node);
-		return { destroy: () => io.disconnect() };
-	}
-	function onRail() {
-		if (!rail) return;
-		const w = (rail.firstElementChild as HTMLElement | null)?.offsetWidth ?? 1;
-		carIdx = Math.max(0, Math.min(withSite.length - 1, Math.round(rail.scrollLeft / (w + 16))));
-	}
-	function slide(d: number) {
-		const el = rail?.children[carIdx + d] as HTMLElement | undefined;
-		if (el && rail) rail.scrollTo({ left: el.offsetLeft - rail.offsetLeft, behavior: smooth() });
-	}
-	const active = $derived(section === -1 ? 2 + carIdx : section);
+	const jump = (i: number) => els[i]?.scrollIntoView({ behavior: smooth(), block: 'start' });
+	const active = $derived(section);
 	// Scenery behind stops that don't have their own illustration (the quiz has its own city).
-	const scene = $derived(section === -1 ? 2 : section === 1 ? 1 : section === withSite.length + 2 ? 3 : section === withSite.length + 3 ? 4 : -1);
-	function jump(i: number) {
-		if (i >= 2 && i < 2 + withSite.length) {
-			meetEl?.scrollIntoView({ behavior: smooth(), block: 'center' });
-			const el = rail?.children[i - 2] as HTMLElement | undefined;
-			if (el && rail) rail.scrollTo({ left: el.offsetLeft - rail.offsetLeft, behavior: smooth() });
-		} else els[i]?.scrollIntoView({ behavior: smooth(), block: 'start' });
+	const scene = $derived([-1, 1, 2, 3, 4][section] ?? -1);
+
+	// Every candidate is a tile; tapping one opens their full story card on top of the page.
+	let open = $state<number | null>(null);
+	const TOPIC_COLOR = { tax: '#d9822b', transit: '#2f5d9b', housing: '#4a8c5c', safety: '#7a5c99', money: '#3f7f74', other: '#8a857b' } as const;
+	const TOPIC = { tax: 'Taxes', transit: 'Getting around', housing: 'Housing', safety: 'Safety', money: 'City money', other: 'Other' } as const;
+	const topicsOf = (b: string) => [...new Set((profileOf(b)?.priorities ?? []).map((p) => p.topic))];
+	const initials = (b: string) => displayName(b).split(' ').map((w) => w[0]).filter(Boolean).slice(0, 2).join('');
+	const firstLine = (b: string) => {
+		const r = profileOf(b)?.record ?? [];
+		if (r.some((x) => x.text.startsWith('Mayor'))) return 'Current mayor';
+		if (r.some((x) => x.text.startsWith('City Councillor'))) return 'City councillor';
+		if (r.some((x) => x.text.includes('2023'))) return 'Ran in 2023';
+		return 'First run for mayor';
+	};
+	function onKey(e: KeyboardEvent) {
+		if (open === null) return;
+		if (e.key === 'Escape') open = null;
+		const o: number = open ?? 0;
+		if (e.key === 'ArrowRight' && o < withSite.length - 1) open = o + 1;
+		if (e.key === 'ArrowLeft' && o > 0) open = o - 1;
 	}
 
 	// Pins stay in this browser only.
@@ -78,7 +74,6 @@
 		try { localStorage.setItem(PIN_KEY, JSON.stringify(pins)); } catch { /* blocked storage: pins last this visit */ }
 	}
 
-	let jumpTo = $state('');
 	let shared = $state('');
 	async function share() {
 		const text = "I walked through who's running for mayor of Toronto, and what the City actually controls. Election day is Monday, October 26.";
@@ -101,6 +96,7 @@
 	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
+<svelte:window onkeydown={onKey} />
 <LineStreet {stops} {active} onjump={jump} />
 <Scenery {scene} />
 
@@ -136,46 +132,53 @@
 	<p class="lede">The mayor you choose on October 26 leads these decisions for the next four years.</p>
 </section>
 
-<section class="wrap meet">
-	<h2 class="head"><span class="stopno sans">Meet the candidates</span>Everyone running for mayor with a campaign website</h2>
-	<p class="lede sans">
-		{withSite.length} candidates, in ballot order (alphabetical by last name). Tap through each card: who they are, what they stand for, their numbers, their links.
-		The {without.length} candidates without a website are at the next stop.
-	</p>
-	<label class="jump sans">Jump to a candidate
-		<select bind:value={jumpTo} onchange={() => { const i = withSite.findIndex((c) => c.ballot_name === jumpTo); if (i >= 0) jump(i + 2); }}>
-			<option value="">Choose…</option>
-			{#each withSite as c (c.ballot_name)}<option value={c.ballot_name}>{c.ballot_name}</option>{/each}
-		</select>
-	</label>
+<section class="wide meet" use:stop={2}>
+	<h2 class="head"><span class="stopno sans">Stop 3 · Meet the candidates</span>Everyone running for mayor with a campaign website</h2>
+	<p class="lede sans">{withSite.length} candidates, in ballot order (alphabetical by last name). Tap anyone to see who they are, what they stand for, their numbers and their links.</p>
+	<div class="legend sans">{#each Object.entries(TOPIC) as [k, label] (k)}<span><i style="background:{TOPIC_COLOR[k as keyof typeof TOPIC]}"></i>{label}</span>{/each}</div>
+	<ul class="tiles sans">
+		{#each withSite as c, i (c.ballot_name)}
+			<li>
+				<button class="tile" onclick={() => (open = i)} aria-label="Open {displayName(c.ballot_name)}">
+					<span class="ini">{initials(c.ballot_name)}</span>
+					<span class="nm">{displayName(c.ballot_name)}{#if pins.includes(c.ballot_name)} <span class="pinmark" title="Pinned">●</span>{/if}</span>
+					<span class="sub">{firstLine(c.ballot_name)}{profileOf(c.ballot_name)?.note ? ' · campaign ended' : ''}</span>
+					<span class="dots">{#each topicsOf(c.ballot_name) as t (t)}<i style="background:{TOPIC_COLOR[t]}" title={TOPIC[t]}></i>{/each}</span>
+				</button>
+			</li>
+		{/each}
+	</ul>
 </section>
 
-<section class="wide rail-wrap" use:meet>
-	<div class="rail-nav sans">
-		<button onclick={() => slide(-1)} disabled={carIdx === 0} aria-label="Previous candidate">‹</button>
-		<span>{carIdx + 1} of {withSite.length}</span>
-		<button onclick={() => slide(1)} disabled={carIdx === withSite.length - 1} aria-label="Next candidate">›</button>
-	</div>
-	<div class="rail" bind:this={rail} onscroll={onRail}>
-		{#each withSite as c, i (c.ballot_name)}
-			<div class="slot">
+{#if open !== null}
+	{@const c = withSite[open]}
+	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
+	<div class="overlay" onclick={(e) => e.target === e.currentTarget && (open = null)}>
+		<div class="sheet" role="dialog" aria-modal="true" aria-label={displayName(c.ballot_name)}>
+			<div class="sheetnav sans">
+				<button onclick={() => (open = Math.max(0, (open ?? 0) - 1))} disabled={open === 0} aria-label="Previous candidate">‹</button>
+				<span>{open + 1} of {withSite.length}</span>
+				<button onclick={() => (open = Math.min(withSite.length - 1, (open ?? 0) + 1))} disabled={open === withSite.length - 1} aria-label="Next candidate">›</button>
+				<button class="close" onclick={() => (open = null)} aria-label="Close">✕</button>
+			</div>
+			{#key open}
 				<StoryCard
 					person={c}
 					profile={profileOf(c.ballot_name)}
 					promises={data.promises.filter((p) => p.candidate === c.ballot_name)}
-					index={i + 1}
+					index={open + 1}
 					total={withSite.length}
 					sources={data.recordSources}
 					pinned={pins.includes(c.ballot_name)}
 					onpin={() => togglePin(c.ballot_name)}
 				/>
-			</div>
-		{/each}
+			{/key}
+		</div>
 	</div>
-</section>
+{/if}
 
-<section class="stop wrap" use:stop={withSite.length + 2}>
-	<h2 class="head"><span class="stopno sans">Also on your ballot</span>{without.length} more names you'll see</h2>
+<section class="stop wrap" use:stop={3}>
+	<h2 class="head"><span class="stopno sans">Stop 4 · Also on your ballot</span>{without.length} more names you'll see</h2>
 	<p class="lede sans">These candidates didn't list a campaign website with the City. Here's what they did list, and any public record.</p>
 	<ul class="also sans">
 		{#each without as c (c.ballot_name)}
@@ -189,8 +192,8 @@
 	<p class="src sans"><a href={data.official?.source.url} target="_blank" rel="noopener">Proof: the City Clerk's certified list of candidates ↗</a></p>
 </section>
 
-<section class="stop wrap exit" use:stop={withSite.length + 3}>
-	<h2 class="head"><span class="stopno sans">Last stop</span>Before you vote</h2>
+<section class="stop wrap exit" use:stop={4}>
+	<h2 class="head"><span class="stopno sans">Stop 5 · Last stop</span>Before you vote</h2>
 	{#if pins.length}
 		<div class="mywalk sans"><b>You pinned:</b> {pins.map(displayName).join(' · ')}<br /><span class="hint">Pins stay in this browser. Nothing is sent anywhere.</span></div>
 	{/if}
@@ -235,15 +238,27 @@
 	.chg { font-size: 13px; color: var(--ink-2); }
 	.cap { font-size: 12.5px; color: var(--mute); margin: 0 0 14px; }
 	.facts2 { display: grid; gap: 8px; font-size: 14px; background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 14px; margin-bottom: 12px; }
-	.jump { display: flex; gap: 8px; align-items: center; font-size: 14px; margin: 12px 0 0; }
-	.jump select { font: inherit; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--ink); background: #fff; max-width: 60vw; }
-	.rail-wrap { margin-top: 14px; }
-	.rail { display: grid; grid-auto-flow: column; grid-auto-columns: min(400px, 86vw); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px 4px 18px; scrollbar-width: thin; }
-	.slot { scroll-snap-align: start; }
-	.slot :global(.card) { max-width: none; height: 100%; }
-	.rail-nav { display: flex; align-items: center; justify-content: flex-end; gap: 10px; font-size: 13px; color: var(--mute); }
-	.rail-nav button { font: inherit; font-size: 20px; width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid var(--ink); background: #fff; cursor: pointer; }
-	.rail-nav button:disabled { opacity: 0.3; cursor: default; }
+	.legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--mute); margin: 10px 0 12px; }
+	.legend i, .dots i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 4px; vertical-align: 0; }
+	.tiles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+	.tile { font: inherit; width: 100%; height: 100%; text-align: left; display: grid; grid-template-columns: 42px 1fr; grid-template-rows: auto auto auto; column-gap: 10px; align-items: center; background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 12px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
+	.tile:hover, .tile:focus-visible { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); border-color: #bdb8ad; }
+	.ini { grid-row: 1 / 4; width: 42px; height: 42px; border-radius: 50%; background: #2b2b2b; color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 15px; letter-spacing: 0.5px; }
+	.nm { font-weight: 700; font-size: 15px; line-height: 1.2; }
+	.pinmark { color: #da251d; font-size: 10px; }
+	.sub { font-size: 12px; color: var(--mute); }
+	.dots { display: flex; gap: 2px; margin-top: 3px; min-height: 9px; }
+	.dots i { margin: 0; }
+	.overlay { position: fixed; inset: 0; z-index: 50; background: rgba(20, 20, 20, 0.45); backdrop-filter: blur(3px); display: grid; place-items: center; padding: 16px; animation: fade 0.2s ease; }
+	@keyframes fade { from { opacity: 0; } }
+	.sheet { width: min(480px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; }
+	.sheetnav { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 13px; margin-bottom: 8px; }
+	.sheetnav button { font: inherit; font-size: 18px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, 0.92); cursor: pointer; }
+	.sheetnav button:disabled { opacity: 0.35; cursor: default; }
+	.sheetnav .close { margin-left: auto; font-size: 15px; }
+	.sheet :global(.card) { max-width: none; }
+	@media (max-width: 600px) { .tiles { grid-template-columns: 1fr 1fr; gap: 8px; } .tile { grid-template-columns: 1fr; padding: 10px; } .ini { grid-row: auto; width: 34px; height: 34px; font-size: 13px; margin-bottom: 6px; } .nm { font-size: 14px; } }
+	@media (prefers-reduced-motion: reduce) { .tile, .overlay { transition: none; animation: none; } }
 	.also { list-style: none; padding: 0; margin: 12px 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; font-size: 13px; }
 	.also li { background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 10px; display: flex; flex-direction: column; gap: 3px; overflow-wrap: anywhere; }
 	.also b { font-size: 15px; }
