@@ -12,6 +12,8 @@
 	let { data }: PageProps = $props();
 	const { facts } = siteData();
 	// Where Toronto's operating money comes from, straight from the City's Budget Summary (Figure 1).
+	// Lower-case a label mid-sentence, but keep acronyms like TTC.
+	const lc = (t: string) => (/^[A-Z][A-Z]/.test(t) ? t : t[0].toLowerCase() + t.slice(1));
 	const fv = (id: string) => Number(facts[id]?.value ?? 0);
 	const tor = fv('toronto.operating.2026.gross');
 	const sources = [
@@ -119,7 +121,7 @@
 					{#each main as x (x.id)}<div style="flex:{x.v};background:{x.color}"><b>${per(x.v)}</b><span>{x.label}</span></div>{/each}
 					<div class="rest" style="flex:{restV}"><b>${per(restV)}</b><span>Everything else</span></div>
 				</div>
-				<p class="cn">Everything else: {#each restList as x, i (x.id)}{/^[A-Z]{2}/.test(x.label) ? x.label : x.label[0].toLowerCase() + x.label.slice(1)} ${per(x.v)}{i < restList.length - 1 ? ', ' : '.'}{/each} <a href={facts['toronto.revenue.2026.property-tax']?.primary.url} target="_blank" rel="noopener">Source: City Budget Summary, p. 10 ↗</a></p>
+				<p class="cn">Everything else: {#each restList as x, i (x.id)}{lc(x.label)} ${per(x.v)}{i < restList.length - 1 ? ', ' : '.'}{/each} <a href={facts['toronto.revenue.2026.property-tax']?.primary.url} target="_blank" rel="noopener">Source: City Budget Summary, p. 10 ↗</a></p>
 			</div>
 		{/if}
 
