@@ -80,3 +80,24 @@ export function loadMayorPromises(includeDrafts: boolean): { promises: CampaignP
 export function loadOfficialCandidates(): { source: { title: string; url: string }; mayor: OfficialCandidate[] } | null {
 	return readJSON('clean/candidates-official.json');
 }
+
+import type { MayorProfile, WhoseJobCard } from '#lib/types.ts';
+
+/** Story-card data. In the built site an unchecked profile keeps its name and public record,
+ * but its quotes are withheld until a person has checked them. */
+export function loadMayorProfiles(includeDrafts: boolean) {
+	const text = readText('candidates/mayor-profiles.yaml');
+	if (!text) return { profiles: [] as MayorProfile[], recordSources: {}, alsoRecords: {} };
+	const d = normalizeDates(yaml.load(text) as {
+		profiles: MayorProfile[];
+		record_sources: Record<string, { title: string; url: string }>;
+		also_records: Record<string, MayorProfile['record']>;
+	});
+	const profiles = (d.profiles ?? []).map((p) =>
+		includeDrafts || p.status === 'checked' ? p : { ...p, about: null, priorities: [], withheld: true }
+	);
+	return { profiles, recordSources: d.record_sources ?? {}, alsoRecords: d.also_records ?? {} };
+}
+
+export const loadWhoseJob = (): WhoseJobCard[] =>
+	((yaml.load(readText('candidates/whose-job.yaml') ?? 'cards: []') as { cards: WhoseJobCard[] }).cards ?? []);

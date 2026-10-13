@@ -1,8 +1,10 @@
+import { loadMayorProfiles, loadMayorPromises, loadOfficialCandidates, loadWhoseJob } from '#lib/server/data.ts';
+
 const dev = import.meta.env.DEV;
-import { loadMayorPromises, loadOfficialCandidates, loadWards } from '#lib/server/data.ts';
 
 export const load = () => ({
 	...loadMayorPromises(dev),
+	...loadMayorProfiles(dev),
 	official: loadOfficialCandidates(),
-	wards: loadWards()
+	whoseJob: loadWhoseJob()
 });
