@@ -1,0 +1,1153 @@
+{
+  "id": "toronto",
+  "name": "City of Toronto",
+  "year": "2026",
+  "basis": "gross, approved operating budget (tax and rate supported)",
+  "gross": 18863.6,
+  "net": null,
+  "note": "Water, garbage and parking are paid for by user fees, not property tax. They are shown at their full budget, as in the City's $18.9 billion total.",
+  "source": {
+    "title": "2026 City of Toronto Budget Summary",
+    "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+    "locator": "Figure 1 (p. 10); Appendices 1.1.1–1.1.3"
+  },
+  "children": [
+    {
+      "id": "toronto.social-services",
+      "name": "Social Services",
+      "category": "social-services",
+      "gross": 3059.3,
+      "net": 349.2,
+      "originalLines": [
+        "Children's Services",
+        "Toronto Employment and Social Services",
+        "Social Development"
+      ],
+      "children": [
+        {
+          "id": "toronto.children's-services",
+          "name": "Children's Services",
+          "gross": 1582.7,
+          "net": 101.6,
+          "note": "Child care subsidies and licensing. Mostly cost-shared with the Province and Ottawa (gross much larger than net).",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.toronto-employment-and-social-services",
+          "name": "Toronto Employment and Social Services",
+          "gross": 1318.9,
+          "net": 100.3,
+          "note": "Ontario Works (social assistance) and employment help. Mostly funded by the Province.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.social-development",
+          "name": "Social Development",
+          "gross": 157.7,
+          "net": 147.3,
+          "note": "Community safety and anti-poverty programs.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        }
+      ]
+    },
+    {
+      "id": "toronto.transit",
+      "name": "Transit",
+      "category": "transit",
+      "gross": 3037.5,
+      "net": 1483.3,
+      "originalLines": [
+        "Toronto Transit Commission – Conventional",
+        "Toronto Transit Commission – Wheel Trans",
+        "Transit Expansion"
+      ],
+      "children": [
+        {
+          "id": "toronto.toronto-transit-commission-conventional",
+          "name": "Toronto Transit Commission – Conventional",
+          "gross": 2825.9,
+          "net": 1289.2,
+          "note": "Subway, bus and streetcar service.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.toronto-transit-commission-wheel-trans",
+          "name": "Toronto Transit Commission – Wheel Trans",
+          "gross": 201.7,
+          "net": 191.4,
+          "note": "Accessible door-to-door transit.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.transit-expansion",
+          "name": "Transit Expansion",
+          "gross": 9.9,
+          "net": 2.7,
+          "note": "City office planning new transit lines.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        }
+      ]
+    },
+    {
+      "id": "toronto.government-debt",
+      "name": "Government & Debt",
+      "category": "government-debt",
+      "gross": 2991.4,
+      "net": null,
+      "originalLines": [
+        "Debt Charges",
+        "Corporate Real Estate Management",
+        "Technology Services",
+        "Programs Funded from Reserve Funds",
+        "Capital from Current",
+        "Fleet Services",
+        "Vacant Home Tax",
+        "City Manager Services (Excluding FIFA)",
+        "Financial Operations and Control",
+        "Parking Tag Enforcement & Operations Exp",
+        "City Clerk's Office",
+        "Solid Waste Management Services Rebate",
+        "Legal Services",
+        "Funding of Employee Related Liabilities",
+        "Municipal Land Transfer Tax",
+        "Municipal Accommodation Tax (MAT)",
+        "Insurance Contributions",
+        "Assessment Function (MPAC)",
+        "Office of the Chief Financial Officer and Treasurer",
+        "Tax Increment Equivalent Grants (TIEG)",
+        "Toronto Cyber Security",
+        "City Council",
+        "Tax Deficiencies / Write Offs",
+        "Dividend Income",
+        "Customer Experience",
+        "Technology Sustainment",
+        "Policy, Planning, Finance and Admin",
+        "Interest/Investment Earnings",
+        "Auditor General's Office",
+        "Tax Increment Funding (TIF)",
+        "Office of the Ombudsman",
+        "Mayor's Office",
+        "Office of the Lobbyist Registrar",
+        "Heritage Property Taxes Rebate",
+        "Office of the Integrity Commissioner",
+        "Other Tax Revenues",
+        "Casino Woodbine Revenues",
+        "Other Corporate Revenues",
+        "Other Corporate Expenditures"
+      ],
+      "children": [
+        {
+          "id": "toronto.debt-charges",
+          "name": "Debt Charges",
+          "gross": 1018.0,
+          "net": 718.1,
+          "note": "Interest and principal on city debt.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.corporate-real-estate-management",
+          "name": "Corporate Real Estate Management",
+          "gross": 225.3,
+          "net": 130.1,
+          "note": "Manages city-owned buildings and land.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.technology-services",
+          "name": "Technology Services",
+          "gross": 181.4,
+          "net": 148.4,
+          "note": "City IT.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.programs-funded-from-reserve-funds",
+          "name": "Programs Funded from Reserve Funds",
+          "gross": 163.5,
+          "net": 0.0,
+          "note": "Corporate account.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.capital-from-current",
+          "name": "Capital from Current",
+          "gross": 156.9,
+          "net": 96.9,
+          "note": "Operating money set aside to pay for capital projects.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.fleet-services",
+          "name": "Fleet Services",
+          "gross": 95.6,
+          "net": 37.9,
+          "note": "City vehicles.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.vacant-home-tax",
+          "name": "Vacant Home Tax",
+          "gross": 95.0,
+          "net": null,
+          "note": "Corporate account.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.city-manager-services-(excluding-fifa)",
+          "name": "City Manager Services (Excluding FIFA)",
+          "gross": 84.6,
+          "net": 76.7,
+          "note": "City Manager's office.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.financial-operations-and-control",
+          "name": "Financial Operations and Control",
+          "gross": 77.3,
+          "net": 30.9,
+          "note": "Accounting, payroll, tax collection.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.parking-tag-enforcement-&-operations-exp",
+          "name": "Parking Tag Enforcement & Operations Exp",
+          "gross": 76.6,
+          "net": 76.6,
+          "note": "Cost of processing parking tickets.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.city-clerk's-office",
+          "name": "City Clerk's Office",
+          "gross": 76.1,
+          "net": 41.8,
+          "note": "Runs council meetings, elections, records.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.solid-waste-management-services-rebate",
+          "name": "Solid Waste Management Services Rebate",
+          "gross": 75.4,
+          "net": 75.4,
+          "note": "Corporate account.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.legal-services",
+          "name": "Legal Services",
+          "gross": 72.7,
+          "net": 52.0,
+          "note": "City lawyers.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.funding-of-employee-related-liabilities",
+          "name": "Funding of Employee Related Liabilities",
+          "gross": 68.0,
+          "net": 68.0,
+          "note": "Corporate account.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.municipal-land-transfer-tax",
+          "name": "Municipal Land Transfer Tax",
+          "gross": 65.0,
+          "net": -788.8,
+          "note": "Corporate account.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.municipal-accommodation-tax-(mat)",
+          "name": "Municipal Accommodation Tax (MAT)",
+          "gross": 62.4,
+          "net": -80.7,
+          "note": "Corporate account (hotel tax).",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.insurance-contributions",
+          "name": "Insurance Contributions",
+          "gross": 53.9,
+          "net": 53.9,
+          "note": "Corporate account.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.assessment-function-(mpac)",
+          "name": "Assessment Function (MPAC)",
+          "gross": 51.1,
+          "net": 51.1,
+          "note": "Fee the city pays MPAC to assess property values.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.office-of-the-chief-financial-officer-and-treasurer",
+          "name": "Office of the Chief Financial Officer and Treasurer",
+          "gross": 45.9,
+          "net": 38.3,
+          "note": "Finance leadership.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.tax-increment-equivalent-grants-(tieg)",
+          "name": "Tax Increment Equivalent Grants (TIEG)",
+          "gross": 41.3,
+          "net": 41.3,
+          "note": "Business development grants paid back from new tax.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.toronto-cyber-security",
+          "name": "Toronto Cyber Security",
+          "gross": 36.0,
+          "net": 35.6,
+          "note": "City cybersecurity.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.city-council",
+          "name": "City Council",
+          "gross": 33.5,
+          "net": 29.9,
+          "note": "Councillors' offices and staff.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.tax-deficiencies-/-write-offs",
+          "name": "Tax Deficiencies / Write Offs",
+          "gross": 25.0,
+          "net": 25.0,
+          "note": "Corporate account.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.dividend-income",
+          "name": "Dividend Income",
+          "gross": 25.0,
+          "net": -15.0,
+          "note": "Corporate account.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.customer-experience",
+          "name": "Customer Experience",
+          "gross": 24.4,
+          "net": 16.5,
+          "note": "311 and service counters.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.technology-sustainment",
+          "name": "Technology Sustainment",
+          "gross": 21.3,
+          "net": 21.3,
+          "note": "Corporate IT reserve contribution.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.policy,-planning,-finance-and-admin",
+          "name": "Policy, Planning, Finance and Admin",
+          "gross": 20.9,
+          "net": 7.2,
+          "note": "Admin support for infrastructure divisions.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.interest/investment-earnings",
+          "name": "Interest/Investment Earnings",
+          "gross": 13.5,
+          "net": -196.5,
+          "note": "Corporate account.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.auditor-general's-office",
+          "name": "Auditor General's Office",
+          "gross": 9.1,
+          "net": 9.1,
+          "note": "Accountability office.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.tax-increment-funding-(tif)",
+          "name": "Tax Increment Funding (TIF)",
+          "gross": 7.2,
+          "net": 7.2,
+          "note": "Corporate account.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.office-of-the-ombudsman",
+          "name": "Office of the Ombudsman",
+          "gross": 4.3,
+          "net": 4.3,
+          "note": "Accountability office.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.mayor's-office",
+          "name": "Mayor's Office",
+          "gross": 3.2,
+          "net": 3.2,
+          "note": "Mayor's staff.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.office-of-the-lobbyist-registrar",
+          "name": "Office of the Lobbyist Registrar",
+          "gross": 1.5,
+          "net": 1.5,
+          "note": "Accountability office.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.heritage-property-taxes-rebate",
+          "name": "Heritage Property Taxes Rebate",
+          "gross": 1.2,
+          "net": 1.2,
+          "note": "Corporate account.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.office-of-the-integrity-commissioner",
+          "name": "Office of the Integrity Commissioner",
+          "gross": 0.9,
+          "net": 0.8,
+          "note": "Accountability office.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.other-tax-revenues",
+          "name": "Other Tax Revenues",
+          "gross": 0.2,
+          "net": -9.9,
+          "note": "Corporate account.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.casino-woodbine-revenues",
+          "name": "Casino Woodbine Revenues",
+          "gross": 0.1,
+          "net": -28.4,
+          "note": "Corporate account.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.other-corporate-revenues",
+          "name": "Other Corporate Revenues",
+          "gross": 0.1,
+          "net": -607.8,
+          "note": "Corporate account.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.other-corporate-expenditures",
+          "name": "Other Corporate Expenditures",
+          "gross": -22.0,
+          "net": -49.2,
+          "note": "Corporate account (negative in 2026: a net saving).",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        }
+      ]
+    },
+    {
+      "id": "toronto.infrastructure",
+      "name": "Infrastructure (roads, water, waste)",
+      "category": "infrastructure",
+      "gross": 2594.0,
+      "net": -812.8,
+      "originalLines": [
+        "Toronto Water",
+        "Transportation Services",
+        "Solid Waste Management Services",
+        "Engineering and Construction Services"
+      ],
+      "children": [
+        {
+          "id": "toronto.toronto-water",
+          "name": "Toronto Water",
+          "gross": 1654.1,
+          "net": -1111.7,
+          "note": "Drinking water, sewers, stormwater. Paid for by water bills, not property tax.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.3 (revenues), p. 267"
+          }
+        },
+        {
+          "id": "toronto.transportation-services",
+          "name": "Transportation Services",
+          "gross": 516.0,
+          "net": 304.2,
+          "note": "Roads, sidewalks, traffic signals, snow clearing.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.solid-waste-management-services",
+          "name": "Solid Waste Management Services",
+          "gross": 412.6,
+          "net": -6.2,
+          "note": "Garbage, recycling, green bin. Paid for by fees, not property tax.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.3 (revenues), p. 267"
+          }
+        },
+        {
+          "id": "toronto.engineering-and-construction-services",
+          "name": "Engineering and Construction Services",
+          "gross": 11.3,
+          "net": 0.9,
+          "note": "Designs and builds roads, bridges, water infrastructure.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        }
+      ]
+    },
+    {
+      "id": "toronto.police-justice",
+      "name": "Police & Justice",
+      "category": "police-justice",
+      "gross": 1749.9,
+      "net": 1438.8,
+      "originalLines": [
+        "Toronto Police Service",
+        "Court Services",
+        "Toronto Police Service Board"
+      ],
+      "children": [
+        {
+          "id": "toronto.toronto-police-service",
+          "name": "Toronto Police Service",
+          "gross": 1704.3,
+          "net": 1432.9,
+          "note": "Toronto Police Service operating budget.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.court-services",
+          "name": "Court Services",
+          "gross": 41.9,
+          "net": 3.3,
+          "note": "Provincial Offences courts (tickets, by-law charges).",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.toronto-police-service-board",
+          "name": "Toronto Police Service Board",
+          "gross": 3.7,
+          "net": 2.6,
+          "note": "Civilian board overseeing the police.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        }
+      ]
+    },
+    {
+      "id": "toronto.housing-shelter",
+      "name": "Housing & Shelter",
+      "category": "housing-shelter",
+      "gross": 1653.0,
+      "net": 833.0,
+      "originalLines": [
+        "Housing Secretariat",
+        "Toronto Shelter and Support Services"
+      ],
+      "children": [
+        {
+          "id": "toronto.housing-secretariat",
+          "name": "Housing Secretariat",
+          "gross": 866.8,
+          "net": 597.8,
+          "note": "Affordable housing programs, rent supports, Toronto Community Housing funding.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.toronto-shelter-and-support-services",
+          "name": "Toronto Shelter and Support Services",
+          "gross": 786.2,
+          "net": 235.2,
+          "note": "Emergency shelters, refugee shelters, street outreach.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        }
+      ]
+    },
+    {
+      "id": "toronto.parks-rec-culture",
+      "name": "Parks, Recreation & Culture",
+      "category": "parks-rec-culture",
+      "gross": 1134.5,
+      "net": 783.4,
+      "originalLines": [
+        "Parks and Recreation",
+        "Toronto Public Library",
+        "Economic Development and Culture",
+        "Exhibition Place",
+        "Toronto Zoo",
+        "TO Live",
+        "Association of Community Centres",
+        "Arena Boards of Management",
+        "Sankofa Square",
+        "Heritage Toronto"
+      ],
+      "children": [
+        {
+          "id": "toronto.parks-and-recreation",
+          "name": "Parks and Recreation",
+          "gross": 494.9,
+          "net": 375.4,
+          "note": "Parks, community centres, pools, recreation programs.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.toronto-public-library",
+          "name": "Toronto Public Library",
+          "gross": 296.1,
+          "net": 274.4,
+          "note": "100 library branches.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.economic-development-and-culture",
+          "name": "Economic Development and Culture",
+          "gross": 112.4,
+          "net": 97.8,
+          "note": "Arts and culture grants, museums, business support.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.exhibition-place",
+          "name": "Exhibition Place",
+          "gross": 79.9,
+          "net": -2.2,
+          "note": "Exhibition grounds (CNE, BMO Field).",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.toronto-zoo",
+          "name": "Toronto Zoo",
+          "gross": 76.0,
+          "net": 13.4,
+          "note": "Toronto Zoo (in Scarborough, Ward 25).",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.to-live",
+          "name": "TO Live",
+          "gross": 43.0,
+          "net": 6.4,
+          "note": "City-owned theatres (Meridian Hall, St. Lawrence Centre).",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.association-of-community-centres",
+          "name": "Association of Community Centres",
+          "gross": 14.8,
+          "net": 14.5,
+          "note": "Community centres run by local boards (AOCCs).",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.arena-boards-of-management",
+          "name": "Arena Boards of Management",
+          "gross": 12.1,
+          "net": 1.5,
+          "note": "Community arenas run by local boards.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 265"
+          }
+        },
+        {
+          "id": "toronto.sankofa-square",
+          "name": "Sankofa Square",
+          "gross": 3.8,
+          "net": 1.5,
+          "note": "Public square (formerly Yonge-Dundas Square).",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.heritage-toronto",
+          "name": "Heritage Toronto",
+          "gross": 1.5,
+          "net": 0.7,
+          "note": "Heritage plaques and programs.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        }
+      ]
+    },
+    {
+      "id": "toronto.fire-paramedics",
+      "name": "Fire & Paramedics",
+      "category": "fire-paramedics",
+      "gross": 1048.1,
+      "net": 739.8,
+      "originalLines": [
+        "Toronto Fire Services",
+        "Toronto Paramedic Services",
+        "Toronto Emergency Management"
+      ],
+      "children": [
+        {
+          "id": "toronto.toronto-fire-services",
+          "name": "Toronto Fire Services",
+          "gross": 587.9,
+          "net": 558.9,
+          "note": "Firefighters and fire stations.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.toronto-paramedic-services",
+          "name": "Toronto Paramedic Services",
+          "gross": 451.3,
+          "net": 175.2,
+          "note": "Ambulances. About half funded by the Province.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.toronto-emergency-management",
+          "name": "Toronto Emergency Management",
+          "gross": 8.9,
+          "net": 5.7,
+          "note": "Emergency planning.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        }
+      ]
+    },
+    {
+      "id": "toronto.other",
+      "name": "Other",
+      "category": "other",
+      "gross": 837.4,
+      "net": null,
+      "originalLines": [
+        "City Manager Services (FIFA Only)",
+        "Toronto Parking Authority",
+        "Environment, Climate and Forestry",
+        "Toronto Building",
+        "Municipal Licensing and Standards",
+        "Development Review",
+        "City Planning",
+        "CreateTO",
+        "Toronto and Region Conservation Authority",
+        "Toronto Atmospheric Fund"
+      ],
+      "children": [
+        {
+          "id": "toronto.city-manager-services-(fifa-only)",
+          "name": "City Manager Services (FIFA Only)",
+          "gross": 190.0,
+          "net": null,
+          "note": "FIFA World Cup 2026 hosting costs, budgeted under the City Manager.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.toronto-parking-authority",
+          "name": "Toronto Parking Authority",
+          "gross": 183.0,
+          "net": -61.1,
+          "note": "Green P parking. Fee-funded.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.3 (revenues), p. 267"
+          }
+        },
+        {
+          "id": "toronto.environment,-climate-and-forestry",
+          "name": "Environment, Climate and Forestry",
+          "gross": 117.2,
+          "net": 65.9,
+          "note": "Climate programs and urban forestry (tree care) since 2026.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.toronto-building",
+          "name": "Toronto Building",
+          "gross": 102.1,
+          "net": -15.4,
+          "note": "Building permits and inspections. Fee-funded (net is negative).",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.municipal-licensing-and-standards",
+          "name": "Municipal Licensing and Standards",
+          "gross": 98.0,
+          "net": 29.7,
+          "note": "By-law enforcement, business licences, animal services.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.development-review",
+          "name": "Development Review",
+          "gross": 58.3,
+          "net": 2.3,
+          "note": "Reviews building and development applications.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.city-planning",
+          "name": "City Planning",
+          "gross": 48.5,
+          "net": 12.7,
+          "note": "Land-use planning.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.createto",
+          "name": "CreateTO",
+          "gross": 16.3,
+          "net": null,
+          "note": "City real-estate agency.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.toronto-and-region-conservation-authority",
+          "name": "Toronto and Region Conservation Authority",
+          "gross": 12.3,
+          "net": 6.3,
+          "note": "Flood control, conservation lands, waterfront erosion.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.toronto-atmospheric-fund",
+          "name": "Toronto Atmospheric Fund",
+          "gross": 11.7,
+          "net": null,
+          "note": "Climate investment agency.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        }
+      ]
+    },
+    {
+      "id": "toronto.health",
+      "name": "Health",
+      "category": "health",
+      "gross": 758.5,
+      "net": 219.2,
+      "originalLines": [
+        "Seniors Services and Long-Term Care",
+        "Toronto Public Health"
+      ],
+      "children": [
+        {
+          "id": "toronto.seniors-services-and-long-term-care",
+          "name": "Seniors Services and Long-Term Care",
+          "gross": 451.1,
+          "net": 115.7,
+          "note": "The city's 10 long-term care homes and seniors services. Mapped to Health, like Ontario's Long-Term Care ministry.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        },
+        {
+          "id": "toronto.toronto-public-health",
+          "name": "Toronto Public Health",
+          "gross": 307.4,
+          "net": 103.5,
+          "note": "Public health (vaccines, inspections, sexual health, dental for kids). Mostly provincially funded.",
+          "source": {
+            "title": "2026 City of Toronto Budget Summary",
+            "url": "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf",
+            "locator": "Appendix 1.1.2 (gross expenditures), p. 264"
+          }
+        }
+      ]
+    }
+  ]
+}

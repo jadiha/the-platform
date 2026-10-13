@@ -1,0 +1,793 @@
+{
+  "id": "ontario",
+  "name": "Province of Ontario",
+  "year": "2026-27",
+  "basis": "total expense, budget plan (consolidated)",
+  "gross": 244199.9,
+  "net": null,
+  "note": "Ministry totals from the 2026 Ontario Budget. Education includes colleges and universities and the teachers' pension plan here, so it is larger than the Budget's 'Education sector' figure.",
+  "source": {
+    "title": "2026 Ontario Budget, Chapter 3",
+    "url": "https://budget.ontario.ca/2026/chapter-3.html",
+    "locator": "Table 3.10: Total Expense"
+  },
+  "children": [
+    {
+      "id": "ontario.health",
+      "name": "Health",
+      "category": "health",
+      "gross": 101154.0,
+      "net": null,
+      "originalLines": [
+        "Health",
+        "Long-Term Care"
+      ],
+      "children": [
+        {
+          "id": "ontario.health",
+          "name": "Health",
+          "gross": 91800.0,
+          "net": null,
+          "note": "OHIP (doctors), hospitals, prescription drugs, home care. Together with Long-Term Care it makes up the Budget's Health sector.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Health (Total)"
+          }
+        },
+        {
+          "id": "ontario.long-term-care",
+          "name": "Long-Term Care",
+          "gross": 9354.0,
+          "net": null,
+          "note": "Long-term care homes. Most of this money flows through Ontario Health and hospitals.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Long-Term Care (Total)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ontario.education",
+      "name": "Education",
+      "category": "education",
+      "gross": 56509.9,
+      "net": null,
+      "originalLines": [
+        "Education",
+        "Colleges, Universities, Research Excellence and Security"
+      ],
+      "children": [
+        {
+          "id": "ontario.education",
+          "name": "Education",
+          "gross": 42549.1,
+          "net": null,
+          "note": "Funding for school boards, child care, and the teachers' pension plan. The Budget's 'Education sector' figure leaves out the pension, so it is smaller; we never show both in the same chart.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Education (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.education.education-base",
+              "name": "Core ministry spending",
+              "gross": 40762.1
+            },
+            {
+              "id": "ontario.education.education-teachers-pension-plan",
+              "name": "Teachers’ Pension Plan",
+              "gross": 1787.0
+            }
+          ]
+        },
+        {
+          "id": "ontario.colleges-universities-research-excellence-and-security",
+          "name": "Colleges, Universities, Research Excellence and Security",
+          "gross": 13960.8,
+          "net": null,
+          "note": "Colleges and universities, plus OSAP student aid. The Budget reports this as its own 'Postsecondary' sector; we group it under Education.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Colleges, Universities, Research Excellence and Security (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.colleges-universities-research-excellence-and-security.colleges-universities-research-excellence-and-security-base",
+              "name": "Core ministry spending",
+              "gross": 11512.4
+            },
+            {
+              "id": "ontario.colleges-universities-research-excellence-and-security.colleges-universities-research-excellence-and-security-student-financial-assistance",
+              "name": "Student Financial Assistance",
+              "gross": 2448.4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ontario.government-debt",
+      "name": "Government & Debt",
+      "category": "government-debt",
+      "gross": 25127.0,
+      "net": null,
+      "originalLines": [
+        "Interest on the debt",
+        "Treasury Board Secretariat",
+        "Finance",
+        "Public and Business Service Delivery and Procurement",
+        "Board of Internal Economy",
+        "Executive Offices"
+      ],
+      "children": [
+        {
+          "id": "ontario.interest-and-other-debt-servicing-charges",
+          "name": "Interest on the debt",
+          "gross": 17237.2,
+          "net": null,
+          "note": "Interest on Ontario's debt (net of interest capitalized during construction).",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Interest and Other Debt Servicing Charges"
+          }
+        },
+        {
+          "id": "ontario.treasury-board-secretariat",
+          "name": "Treasury Board Secretariat",
+          "gross": 3832.0,
+          "net": null,
+          "note": "Benefits for government employees and retirees, plus contingency funds: money set aside and later spent by other ministries.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Treasury Board Secretariat (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.treasury-board-secretariat.treasury-board-secretariat-base",
+              "name": "Core ministry spending",
+              "gross": 411.0
+            },
+            {
+              "id": "ontario.treasury-board-secretariat.treasury-board-secretariat-employee-and-pensioner-benefits",
+              "name": "Employee and Pensioner Benefits",
+              "gross": 1921.0
+            },
+            {
+              "id": "ontario.treasury-board-secretariat.treasury-board-secretariat-operating-contingency-fund",
+              "name": "Operating Contingency Fund",
+              "gross": 1350.0
+            },
+            {
+              "id": "ontario.treasury-board-secretariat.treasury-board-secretariat-capital-contingency-fund",
+              "name": "Capital Contingency Fund",
+              "gross": 150.0
+            }
+          ]
+        },
+        {
+          "id": "ontario.finance",
+          "name": "Finance",
+          "gross": 2053.9,
+          "net": null,
+          "note": "Includes Ontario Municipal Partnership Fund ($600.0M, unconditional grants to mostly rural/northern municipalities) and IMCO. Ministry administration and tax collection.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Finance (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.finance.finance-base",
+              "name": "Core ministry spending",
+              "gross": 1072.1
+            },
+            {
+              "id": "ontario.finance.finance-investment-management-corporation-of-ontario",
+              "name": "Investment Management Corporation of Ontario",
+              "gross": 321.7
+            },
+            {
+              "id": "ontario.finance.finance-ontario-municipal-partnership-fund",
+              "name": "Ontario Municipal Partnership Fund",
+              "gross": 600.0
+            },
+            {
+              "id": "ontario.finance.finance-temporary-and-other-local-assistance",
+              "name": "Temporary and Other Local Assistance",
+              "gross": 17.7
+            },
+            {
+              "id": "ontario.finance.finance-power-supply-contract-costs",
+              "name": "Power Supply Contract Costs",
+              "gross": 42.5
+            }
+          ]
+        },
+        {
+          "id": "ontario.public-and-business-service-delivery-and-procurement",
+          "name": "Public and Business Service Delivery and Procurement",
+          "gross": 1522.1,
+          "net": null,
+          "note": "ServiceOntario, government IT and procurement.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Public and Business Service Delivery and Procurement (Total)"
+          }
+        },
+        {
+          "id": "ontario.board-of-internal-economy",
+          "name": "Board of Internal Economy",
+          "gross": 399.2,
+          "net": null,
+          "note": "Runs the Legislative Assembly (MPP offices, Legislature).",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Board of Internal Economy (Total)"
+          }
+        },
+        {
+          "id": "ontario.executive-offices",
+          "name": "Executive Offices",
+          "gross": 82.6,
+          "net": null,
+          "note": "Premier's office and Cabinet Office.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Executive Offices (Total)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ontario.social-services",
+      "name": "Social Services",
+      "category": "social-services",
+      "gross": 21603.6,
+      "net": null,
+      "originalLines": [
+        "Children, Community and Social Services",
+        "Seniors and Accessibility"
+      ],
+      "children": [
+        {
+          "id": "ontario.children-community-and-social-services",
+          "name": "Children, Community and Social Services",
+          "gross": 21425.5,
+          "net": null,
+          "note": "Ontario Works, ODSP, autism services, child welfare, developmental services.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Children, Community and Social Services (Total)"
+          }
+        },
+        {
+          "id": "ontario.seniors-and-accessibility",
+          "name": "Seniors and Accessibility",
+          "gross": 178.1,
+          "net": null,
+          "note": "Includes Seniors Tax Credit ($100.2M).",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Seniors and Accessibility (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.seniors-and-accessibility.seniors-and-accessibility-base",
+              "name": "Core ministry spending",
+              "gross": 77.9
+            },
+            {
+              "id": "ontario.seniors-and-accessibility.seniors-and-accessibility-seniors-tax-credit",
+              "name": "Seniors Tax Credit",
+              "gross": 100.2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ontario.other",
+      "name": "Other",
+      "category": "other",
+      "gross": 16349.6,
+      "net": null,
+      "originalLines": [
+        "Energy and Mines",
+        "Labour, Immigration, Training and Skills Development",
+        "Economic Development, Job Creation and Trade",
+        "Environment, Conservation and Parks",
+        "Agriculture, Food and Agribusiness",
+        "Northern Economic Development and Growth",
+        "Natural Resources",
+        "Indigenous Affairs and First Nations Economic Reconciliation",
+        "Citizenship and Multiculturalism",
+        "Emergency Preparedness and Response",
+        "Rural Affairs",
+        "Francophone Affairs"
+      ],
+      "children": [
+        {
+          "id": "ontario.energy-and-mines",
+          "name": "Energy and Mines",
+          "gross": 8055.0,
+          "net": null,
+          "note": "Mostly Electricity Cost Relief Programs ($6,913.1M) that lower hydro bills; also high-speed internet.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Energy and Mines (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.energy-and-mines.energy-and-mines-base",
+              "name": "Core ministry spending",
+              "gross": 701.1
+            },
+            {
+              "id": "ontario.energy-and-mines.energy-and-mines-electricity-cost-relief-programs",
+              "name": "Electricity Cost Relief Programs",
+              "gross": 6913.1
+            },
+            {
+              "id": "ontario.energy-and-mines.energy-and-mines-high-speed-internet",
+              "name": "High-Speed Internet",
+              "gross": 351.1
+            },
+            {
+              "id": "ontario.energy-and-mines.energy-and-mines-time-limited-investments",
+              "name": "Time-Limited Investments",
+              "gross": 89.8
+            }
+          ]
+        },
+        {
+          "id": "ontario.labour-immigration-training-and-skills-development",
+          "name": "Labour, Immigration, Training and Skills Development",
+          "gross": 1971.2,
+          "net": null,
+          "note": "Employment and training programs ($1,631.1M, incl. Skills Development Fund) and co-op education tax credit.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Labour, Immigration, Training and Skills Development (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.labour-immigration-training-and-skills-development.labour-immigration-training-and-skills-development-base",
+              "name": "Core ministry spending",
+              "gross": 242.0
+            },
+            {
+              "id": "ontario.labour-immigration-training-and-skills-development.labour-immigration-training-and-skills-development-co-operative-education-tax-credit",
+              "name": "Co-operative Education Tax Credit",
+              "gross": 98.1
+            },
+            {
+              "id": "ontario.labour-immigration-training-and-skills-development.labour-immigration-training-and-skills-development-demand-driven-employment-and-training-programs",
+              "name": "Demand-Driven Employment and Training Programs",
+              "gross": 1631.1
+            }
+          ]
+        },
+        {
+          "id": "ontario.economic-development-job-creation-and-trade",
+          "name": "Economic Development, Job Creation and Trade",
+          "gross": 1919.1,
+          "net": null,
+          "note": "Includes business tax credits ($758.3M) and time-limited investments.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Economic Development, Job Creation and Trade (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.economic-development-job-creation-and-trade.economic-development-job-creation-and-trade-base",
+              "name": "Core ministry spending",
+              "gross": 210.5
+            },
+            {
+              "id": "ontario.economic-development-job-creation-and-trade.economic-development-job-creation-and-trade-tax-credits-for-business-investment-and-research-and-development",
+              "name": "Tax Credits for Business Investment and Research and Development",
+              "gross": 758.3
+            },
+            {
+              "id": "ontario.economic-development-job-creation-and-trade.economic-development-job-creation-and-trade-time-limited-investments",
+              "name": "Time-Limited Investments",
+              "gross": 950.3
+            }
+          ]
+        },
+        {
+          "id": "ontario.environment-conservation-and-parks",
+          "name": "Environment, Conservation and Parks",
+          "gross": 1191.2,
+          "net": null,
+          "note": "Includes provincial parks but is mostly environmental regulation; kept in Other.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Environment, Conservation and Parks (Total)"
+          }
+        },
+        {
+          "id": "ontario.agriculture-food-and-agribusiness",
+          "name": "Agriculture, Food and Agribusiness",
+          "gross": 1031.2,
+          "net": null,
+          "note": "Includes demand-driven farm risk-management programs.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Agriculture, Food and Agribusiness (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.agriculture-food-and-agribusiness.agriculture-food-and-agribusiness-base",
+              "name": "Core ministry spending",
+              "gross": 320.9
+            },
+            {
+              "id": "ontario.agriculture-food-and-agribusiness.agriculture-food-and-agribusiness-demand-driven-risk-management-and-time-limited-programs",
+              "name": "Demand-Driven Risk Management and Time-Limited Programs",
+              "gross": 710.3
+            }
+          ]
+        },
+        {
+          "id": "ontario.northern-economic-development-and-growth",
+          "name": "Northern Economic Development and Growth",
+          "gross": 927.9,
+          "net": null,
+          "note": null,
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Northern Economic Development and Growth (Total)"
+          }
+        },
+        {
+          "id": "ontario.natural-resources",
+          "name": "Natural Resources",
+          "gross": 889.5,
+          "net": null,
+          "note": "Includes emergency forest firefighting ($150.0M).",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Natural Resources (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.natural-resources.natural-resources-base",
+              "name": "Core ministry spending",
+              "gross": 739.5
+            },
+            {
+              "id": "ontario.natural-resources.natural-resources-emergency-forest-firefighting",
+              "name": "Emergency Forest Firefighting",
+              "gross": 150.0
+            }
+          ]
+        },
+        {
+          "id": "ontario.indigenous-affairs-and-first-nations-economic-reconciliation",
+          "name": "Indigenous Affairs and First Nations Economic Reconciliation",
+          "gross": 179.0,
+          "net": null,
+          "note": null,
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Indigenous Affairs and First Nations Economic Reconciliation (Total)"
+          }
+        },
+        {
+          "id": "ontario.citizenship-and-multiculturalism",
+          "name": "Citizenship and Multiculturalism",
+          "gross": 83.0,
+          "net": null,
+          "note": null,
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Citizenship and Multiculturalism (Total)"
+          }
+        },
+        {
+          "id": "ontario.emergency-preparedness-and-response",
+          "name": "Emergency Preparedness and Response",
+          "gross": 69.9,
+          "net": null,
+          "note": "Q1 2026-27 adds $140M for First Nations evacuations on behalf of Indigenous Services Canada.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Emergency Preparedness and Response (Total)"
+          }
+        },
+        {
+          "id": "ontario.rural-affairs",
+          "name": "Rural Affairs",
+          "gross": 19.3,
+          "net": null,
+          "note": null,
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Rural Affairs (Total)"
+          }
+        },
+        {
+          "id": "ontario.francophone-affairs",
+          "name": "Francophone Affairs",
+          "gross": 13.3,
+          "net": null,
+          "note": null,
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Francophone Affairs (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.francophone-affairs.francophone-affairs-base",
+              "name": "Core ministry spending",
+              "gross": 8.9
+            },
+            {
+              "id": "ontario.francophone-affairs.francophone-affairs-time-limited-investments",
+              "name": "Time-Limited Investments",
+              "gross": 4.4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ontario.transit",
+      "name": "Transit",
+      "category": "transit",
+      "gross": 8629.4,
+      "net": null,
+      "originalLines": [
+        "Transportation"
+      ],
+      "children": [
+        {
+          "id": "ontario.transportation",
+          "name": "Transportation",
+          "gross": 8629.4,
+          "net": null,
+          "note": "Day-to-day costs of Metrolinx/GO Transit, transit support to cities, and provincial highways; the Budget doesn't split them. Building new transit lines is capital spending and isn't counted here.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Transportation (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.transportation.transportation-base",
+              "name": "Core ministry spending",
+              "gross": 8073.1
+            },
+            {
+              "id": "ontario.transportation.transportation-federal-provincial-infrastructure-programs",
+              "name": "Federal−Provincial Infrastructure Programs",
+              "gross": 556.3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ontario.police-justice",
+      "name": "Police & Justice",
+      "category": "police-justice",
+      "gross": 7266.4,
+      "net": null,
+      "originalLines": [
+        "Solicitor General",
+        "Attorney General"
+      ],
+      "children": [
+        {
+          "id": "ontario.solicitor-general",
+          "name": "Solicitor General",
+          "gross": 4832.3,
+          "net": null,
+          "note": "OPP, correctional services, Fire Marshal, coroner. Part of the Justice sector. (Fire Marshal portion cannot be split out from Table 3.10.)",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Solicitor General (Total)"
+          }
+        },
+        {
+          "id": "ontario.attorney-general",
+          "name": "Attorney General",
+          "gross": 2434.1,
+          "net": null,
+          "note": "Courts, Crown prosecutors, Legal Aid. Part of the Justice sector.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Attorney General (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.attorney-general.attorney-general-base",
+              "name": "Core ministry spending",
+              "gross": 2428.8
+            },
+            {
+              "id": "ontario.attorney-general.attorney-general-bad-debt-expense",
+              "name": "Bad Debt Expense",
+              "gross": 5.3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ontario.infrastructure",
+      "name": "Infrastructure (roads, water, waste)",
+      "category": "infrastructure",
+      "gross": 3232.7,
+      "net": null,
+      "originalLines": [
+        "Infrastructure"
+      ],
+      "children": [
+        {
+          "id": "ontario.infrastructure",
+          "name": "Infrastructure",
+          "gross": 3232.7,
+          "net": null,
+          "note": "Includes Municipal Infrastructure Program ($600.0M), Realty ($1,655.2M, government buildings), Waterfront Toronto Port Lands flood protection ($35.0M). Operating expense only; most provincial capital spending is in Table 3.11 and is not an expense line.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Infrastructure (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.infrastructure.infrastructure-base",
+              "name": "Core ministry spending",
+              "gross": 821.0
+            },
+            {
+              "id": "ontario.infrastructure.infrastructure-federal-provincial-infrastructure-programs",
+              "name": "Federal−Provincial Infrastructure Programs",
+              "gross": 121.6
+            },
+            {
+              "id": "ontario.infrastructure.infrastructure-waterfront-toronto-revitalization-port-lands-flood-protection",
+              "name": "Waterfront Toronto Revitalization (Port Lands Flood Protection)",
+              "gross": 35.0
+            },
+            {
+              "id": "ontario.infrastructure.infrastructure-municipal-infrastructure-program-investments",
+              "name": "Municipal Infrastructure Program Investments",
+              "gross": 600.0
+            },
+            {
+              "id": "ontario.infrastructure.infrastructure-realty",
+              "name": "Realty",
+              "gross": 1655.2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ontario.parks-rec-culture",
+      "name": "Parks, Recreation & Culture",
+      "category": "parks-rec-culture",
+      "gross": 2533.0,
+      "net": null,
+      "originalLines": [
+        "Tourism, Culture and Gaming",
+        "Sport"
+      ],
+      "children": [
+        {
+          "id": "ontario.tourism-culture-and-gaming",
+          "name": "Tourism, Culture and Gaming",
+          "gross": 2247.9,
+          "net": null,
+          "note": "Includes Ontario Cultural Media Tax Credits ($1,046.2M) for film/TV/games.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Tourism, Culture and Gaming (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.tourism-culture-and-gaming.tourism-culture-and-gaming-base",
+              "name": "Core ministry spending",
+              "gross": 1201.8
+            },
+            {
+              "id": "ontario.tourism-culture-and-gaming.tourism-culture-and-gaming-ontario-cultural-media-tax-credits",
+              "name": "Ontario Cultural Media Tax Credits",
+              "gross": 1046.2
+            }
+          ]
+        },
+        {
+          "id": "ontario.sport",
+          "name": "Sport",
+          "gross": 285.1,
+          "net": null,
+          "note": "Includes Community Sport and Recreation Infrastructure Fund time-limited investments ($221.2M).",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Sport (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.sport.sport-base",
+              "name": "Core ministry spending",
+              "gross": 63.9
+            },
+            {
+              "id": "ontario.sport.sport-time-limited-investments",
+              "name": "Time-Limited Investments",
+              "gross": 221.2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ontario.housing-shelter",
+      "name": "Housing & Shelter",
+      "category": "housing-shelter",
+      "gross": 1794.3,
+      "net": null,
+      "originalLines": [
+        "Municipal Affairs and Housing"
+      ],
+      "children": [
+        {
+          "id": "ontario.municipal-affairs-and-housing",
+          "name": "Municipal Affairs and Housing",
+          "gross": 1794.3,
+          "net": null,
+          "note": "Q1 2026-27 raises to $1,994.3M (+$200M Toronto New Deal shelter/homelessness). Time-limited investments $991.3M.",
+          "source": {
+            "title": "2026 Ontario Budget, Chapter 3",
+            "url": "https://budget.ontario.ca/2026/chapter-3.html",
+            "locator": "Table 3.10, Municipal Affairs and Housing (Total)"
+          },
+          "children": [
+            {
+              "id": "ontario.municipal-affairs-and-housing.municipal-affairs-and-housing-base",
+              "name": "Core ministry spending",
+              "gross": 803.1
+            },
+            {
+              "id": "ontario.municipal-affairs-and-housing.municipal-affairs-and-housing-time-limited-investments",
+              "name": "Time-Limited Investments",
+              "gross": 991.3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

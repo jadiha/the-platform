@@ -1,0 +1,12 @@
+# Federal money landing in Toronto/Scarborough. Owner: site lead. Checked 2026-10-12.
+federal.sse.contribution:
+  value: 2260
+  unit: $M
+  label: "Federal contribution to the Scarborough Subway Extension"
+  basis: "up to, committed in 2021"
+  primary: {title: "Infrastructure Canada backgrounder (May 2021)", url: "https://www.canada.ca/en/office-infrastructure/news/2021/05/backgrounder-the-governments-of-canada-and-ontario-make-the-largest-investment-in-public-transit-in-canadian-history.html"}
+  crosscheck:
+    - {title: "Canada & Ontario mark SSE milestone (July 2026): \"over $2.25 billion\"", url: "https://www.canada.ca/en/housing-infrastructure-communities/news/2026/07/canada-and-ontario-mark-another-milestone-for-the-scarborough-subway-extension.html", date: 2026-07-31, value: 2250}
+  status: verified
+  note: "\"Up to approximately $2.26 billion\". A 2026 federal release says \"over $2.25 billion\". The Province pays the rest; no current official total cost is published."
+  as_of: 2026-10-12

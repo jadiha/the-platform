@@ -1,0 +1,42 @@
+# Scarborough (Wards 20-25) fact registry. Derived by the pipeline from City of Toronto Open Data.
+# Every value here is re-computed by pipeline/checks.py.
+
+scarborough.population.2021:
+  value: 623610
+  unit: people
+  label: "Population of Scarborough's six wards (20-25), 2021 Census"
+  basis: "persons in private households, 2021 Census custom tabulation"
+  primary: {title: "City of Toronto Ward Profiles (25-ward model), 2021 Census", url: "https://open.toronto.ca/dataset/ward-profiles-25-ward-model/", locator: "2021 One Variable sheet, 'Total - Age', Wards 20-25"}
+  status: single
+  note: "Pipeline-checked. Counts people in private households, so it is slightly lower than the full census population."
+  as_of: 2026-10-12
+
+scarborough.capital.2026-2035.ward-tagged:
+  value: 1138.0
+  unit: $M
+  label: "Capital money tagged to Scarborough's wards, 2026-2035"
+  basis: "gross, 10-year capital plan, projects coded to Wards 20-25 only"
+  primary: {title: "City of Toronto Open Data: Capital Budget & Plan By Ward (2026-2035)", url: "https://open.toronto.ca/dataset/budget-capital-budget-plan-by-ward-10-yr-approved/", locator: "sum of 10-Year Total for Ward 20-25 rows"}
+  status: single
+  note: "Pipeline-checked. This leaves out 'City Wide' projects (87% of the plan), such as TTC vehicles and water mains, which also serve Scarborough but aren't tagged to any ward."
+  as_of: 2026-10-12
+
+scarborough.capital.finch-ltc:
+  value: 422.6
+  unit: $M
+  label: "New long-term care home at 4610 Finch Ave E, 2026-2035 capital plan"
+  basis: "gross, 10-year capital plan"
+  primary: {title: "City of Toronto Open Data: Capital Budget & Plan By Ward (2026-2035)", url: "https://open.toronto.ca/dataset/budget-capital-budget-plan-by-ward-10-yr-approved/", locator: "Seniors Services and Long-Term Care, '4610 Finch Ave East', Ward 23"}
+  status: single
+  note: "Pipeline-checked. About 37% of all capital money tagged to Scarborough's wards."
+  as_of: 2026-10-12
+
+scarborough.capital.city-wide-share:
+  value: 87.3
+  unit: "%"
+  label: "Share of Toronto's 10-year capital plan coded 'City Wide' (not tied to a ward)"
+  basis: "gross, 10-year capital plan 2026-2035"
+  primary: {title: "City of Toronto Open Data: Capital Budget & Plan By Ward (2026-2035)", url: "https://open.toronto.ca/dataset/budget-capital-budget-plan-by-ward-10-yr-approved/", locator: "rows with Ward = CW"}
+  status: single
+  note: "Pipeline-checked."
+  as_of: 2026-10-12

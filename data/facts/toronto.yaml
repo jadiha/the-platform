@@ -1,0 +1,129 @@
+# City of Toronto fact registry. Format: docs/data-contract.md. Money in $ millions unless unit says otherwise.
+# Primary source for most values: 2026 City of Toronto Budget Summary (PDF). Values marked "pipeline-checked"
+# are re-derived by pipeline/checks.py from the raw files, and the build fails if they drift.
+
+toronto.operating.2026.gross:
+  value: 18864
+  unit: $M
+  label: "Toronto's 2026 operating budget (tax and rate supported)"
+  basis: "gross, approved budget"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 10, Figure 1 (sum of revenue sources)"}
+  crosscheck:
+    - {title: "The Canadian Press: Toronto city council approves 2026 budget including 2.2 per cent property tax hike", url: "https://www.am800cklw.com/news/toronto-city-council-approves-2026-budget-including-22-per-cent-property-tax-hike.html", date: 2026-02-10, value: 18900, note: "$18.9 billion, rounded"}
+  status: verified
+  note: "Pipeline-checked. Includes water, garbage and parking, which are paid for by user fees. The property-tax-supported part is $16.6 billion."
+  as_of: 2026-10-12
+
+toronto.revenue.2026.property-tax:
+  value: 5791
+  unit: $M
+  label: "Property tax revenue in Toronto's 2026 operating budget"
+  basis: "budget"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 10, Figure 1"}
+  crosscheck:
+    - {title: "On The Record: Mayor's 2026 budget sails through council vote", url: "https://ontherecordnews.ca/mayors-2026-budget-sails-through-council-vote-with-2-2-property-tax-hike/", date: 2026-02-10, value: "31%", note: "reports 31% of the budget from property taxes (30.7% in the City's figure)"}
+  status: verified
+  note: "Pipeline-checked. About 31% of the operating budget."
+  as_of: 2026-10-12
+
+toronto.revenue.2026.fed-prov:
+  value: 4485
+  unit: $M
+  label: "Federal and provincial funding in Toronto's 2026 operating budget"
+  basis: "budget"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 10, Figure 1"}
+  crosscheck:
+    - {title: "On The Record: Mayor's 2026 budget sails through council vote", url: "https://ontherecordnews.ca/mayors-2026-budget-sails-through-council-vote-with-2-2-property-tax-hike/", date: 2026-02-10, value: "24%", note: "reports 24% from federal and provincial funding (23.8% in the City's figure)"}
+  status: verified
+  note: "Pipeline-checked. Most of it is tied to specific programs the Province and Ottawa share costs on: social assistance, child care, public health, paramedics, shelters."
+  as_of: 2026-10-12
+
+toronto.property-tax.2026.avg-bill:
+  value: 4252
+  unit: $
+  label: "2026 City property tax bill for an average Toronto home"
+  basis: "residential, average assessed value $692,000; City portion only (excludes the provincial education tax)"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 13"}
+  status: single
+  note: "Pipeline-checked. Your actual bill depends on your home's assessed value. Property tax bills also include an education tax set by the Province."
+  as_of: 2026-10-12
+
+toronto.property-tax.2026.increase:
+  value: 2.2
+  unit: "%"
+  label: "2026 residential property tax rate increase"
+  basis: "approved; 0.7% for the operating budget plus 1.5% for the City Building Fund"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 13"}
+  crosscheck:
+    - {title: "The Canadian Press: Toronto city council approves 2026 budget including 2.2 per cent property tax hike", url: "https://www.am800cklw.com/news/toronto-city-council-approves-2026-budget-including-22-per-cent-property-tax-hike.html", date: 2026-02-10, value: 2.2}
+  status: verified
+  note: "Pipeline-checked. About $91.53 more for the average home. The 1.5% City Building Fund part pays for transit and housing construction."
+  as_of: 2026-10-12
+
+toronto.ttc.2026.gross:
+  value: 3028
+  unit: $M
+  label: "TTC 2026 operating budget (conventional + Wheel-Trans)"
+  basis: "gross, approved budget"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 239, TTC Budget at a Glance"}
+  crosscheck:
+    - {title: "Mass Transit: TTC Board approves 2026 operating and capital budgets with no fare increase", url: "https://www.masstransitmag.com/management/news/55342399/toronto-transit-commission-ttc-ttc-board-approves-2026-operating-and-capital-budgets-with-no-fare-increase", value: 3000, note: "about $3 billion"}
+  status: verified
+  note: "Pipeline-checked."
+  as_of: 2026-10-12
+
+toronto.ttc.2026.net:
+  value: 1481
+  unit: $M
+  label: "City of Toronto's own contribution to the TTC's 2026 operating budget"
+  basis: "net (gross minus fares and other revenue), approved budget"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 239, TTC Budget at a Glance"}
+  crosscheck:
+    - {title: "TTC: recommended 2026 budget adds service while addressing affordability", url: "https://www.ttc.ca/news/2026/January/TTC-recommended-2026-budget-adds-service-while-addressing-affordability", value: 1480, note: "$1.48 billion requested from the City"}
+  status: verified
+  note: "Pipeline-checked."
+  as_of: 2026-10-12
+
+toronto.police.2026.gross:
+  value: 1704.3
+  unit: $M
+  label: "Toronto Police Service 2026 operating budget"
+  basis: "gross, approved budget"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 226, Toronto Police Service Budget at a Glance"}
+  crosscheck:
+    - {title: "2026 City of Toronto Budget Summary, Figure 2 'Police Services'", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 11", value: 1708}
+  status: disagree
+  note: "The same document gives two figures. $1,708M in Figure 2 also includes the Toronto Police Service Board ($3.7M). We use the Police Service's own page. After fees and provincial grants, the City pays $1,432.9M (net), up $93.8M from 2025. Pipeline-checked."
+  as_of: 2026-10-12
+
+toronto.police.2026.net:
+  value: 1432.9
+  unit: $M
+  label: "Toronto Police Service 2026 budget paid by the City"
+  basis: "net, approved budget"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 226"}
+  crosscheck:
+    - {title: "The Canadian Press: Toronto city council approves 2026 budget", url: "https://www.am800cklw.com/news/toronto-city-council-approves-2026-budget-including-22-per-cent-property-tax-hike.html", date: 2026-02-10, value: 1430, note: "$1.43 billion after revenue, a $93.8M increase"}
+  status: verified
+  note: "Pipeline-checked."
+  as_of: 2026-10-12
+
+toronto.shelter.2026.gross:
+  value: 786.2
+  unit: $M
+  label: "Toronto Shelter and Support Services 2026 operating budget"
+  basis: "gross, approved budget"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 112, Budget at a Glance"}
+  status: single
+  note: "Pipeline-checked. The City pays $235.2M of this (net); the rest comes from the Province, Ottawa and reserves. Affordable housing programs are budgeted separately, under the Housing Secretariat."
+  as_of: 2026-10-12
+
+toronto.capital.2026-2035.total:
+  value: 63058
+  unit: $M
+  label: "Toronto's 10-year capital budget and plan, 2026-2035"
+  basis: "gross, approved 10-year plan (includes 2025 carry-forward)"
+  primary: {title: "2026 City of Toronto Budget Summary", url: "https://www.toronto.ca/wp-content/uploads/2026/05/8f04-2026-City-of-Toronto-Budget-Summary.pdf", locator: "p. 273, Appendix 2.1.3, Total Expenditure"}
+  status: single
+  note: "Pipeline-checked. The City's Open Data capital-by-ward file adds up to the same total."
+  as_of: 2026-10-12
