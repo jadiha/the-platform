@@ -50,7 +50,7 @@ promises:
     rule: {type: freeze, years: 1, scope: residential}
     text: "No residential tax increase in 2027."
     url: https://georgioskalkounisformayor.com/
-    archive: https://web.archive.org/web/20261013045120/https://georgioskalkounisformayor.com/
+    archive: https://web.archive.org/web/20261013184653/https://georgioskalkounisformayor.com/
     retrieved: 2026-10-13
     status: draft
 
@@ -105,7 +105,7 @@ promises:
     rule: {type: fare-freeze}
     text: "No TTC fare increase in 2027."
     url: https://georgioskalkounisformayor.com/
-    archive: https://web.archive.org/web/20261013045120/https://georgioskalkounisformayor.com/
+    archive: https://web.archive.org/web/20261013184653/https://georgioskalkounisformayor.com/
     retrieved: 2026-10-13
     status: draft
 
