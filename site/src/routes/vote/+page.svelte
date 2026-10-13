@@ -9,6 +9,7 @@
 	import StoryCard from '#lib/vote/StoryCard.svelte';
 	import Scenery from '#lib/vote/Scenery.svelte';
 	import FallLeaves from '#lib/vote/FallLeaves.svelte';
+	import SubwayTrain from '#lib/vote/SubwayTrain.svelte';
 	import TorontoWardMap from '#lib/vote/TorontoWardMap.svelte';
 	import { displayName } from '#lib/vote/links.ts';
 	import { siteData } from '#lib/context.ts';
@@ -259,6 +260,10 @@
 			</div>
 			<a class="where sans" href="https://www.toronto.ca/city-government/elections/" target="_blank" rel="noopener">Find where to vote ↗</a>
 		</div>
+		<div class="track" aria-hidden="true">
+			<div class="edge"></div>
+			<div class="pull"><SubwayTrain width={760} cars={3} /></div>
+		</div>
 	</div>
 	<p class="more sans">
 		<a href="https://www.toronto.ca/city-government/elections/voter-information/who-can-vote/" target="_blank" rel="noopener">Full voting rules ↗</a>
@@ -269,6 +274,8 @@
 		Spotted a mistake? <a href="/sources/#corrections">Tell us</a>. An independent, non-partisan community project, not affiliated with any government, party or candidate.</p>{/if}
 </section>
 {/if}
+</div>
+{/key}
 {#if step > 0}
 <nav class="stepnav wide sans" aria-label="Move along the ride">
 	<button class="back" onclick={() => go(step - 1)}>‹ Back</button>
@@ -281,8 +288,6 @@
 	{/if}
 </nav>
 {/if}
-</div>
-{/key}
 
 {#if open !== null}
 	{@const c = withSite[open]}
@@ -414,12 +419,17 @@
 	.exit .more { justify-content: center; }
 	/* Last stop as a TTC platform: amber arrival board, cream Vitrolite tiles, the station name on
 	   a black band in Toronto-Subway-style capitals (Jost stands in for the TTC's own face). */
-	.platform { width: 100%; max-width: 940px; }
+	.platform { width: 100%; max-width: 1000px; border-radius: 14px; overflow: hidden; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14); }
+	.track { position: relative; height: 92px; background: linear-gradient(#3b3f45, #23262a); overflow: hidden; }
+	.edge { height: 12px; background: repeating-linear-gradient(90deg, #f2c230 0 14px, #e0b020 14px 16px); box-shadow: 0 2px 0 #9c7d14; }
+	.pull { position: absolute; left: 50%; bottom: 6px; transform: translateX(-50%); animation: arrive 2.2s cubic-bezier(0.15, 0.7, 0.25, 1) both; }
+	@keyframes arrive { from { transform: translateX(60%); } to { transform: translateX(-50%); } }
+	@media (prefers-reduced-motion: reduce) { .pull { animation: none; } }
 	.board { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; background: #0d0d0f; border-radius: 10px 10px 0 0; padding: 12px 22px; font-family: 'VT323', ui-monospace, monospace; color: #ffb43a; text-shadow: 0 0 6px rgba(255, 170, 40, 0.6); font-size: 26px; line-height: 1; }
 	.board .lbl { color: #ffd48a; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; }
 	.board .dest { font-size: 32px; text-transform: uppercase; }
 	.board .when { margin-left: auto; }
-	.tiles-wall { background-color: #efe6c8; background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 60%), linear-gradient(#d9cda4 2px, transparent 2px), linear-gradient(90deg, #d9cda4 2px, transparent 2px); background-size: 100% 100%, 90px 45px, 90px 45px; border-radius: 0 0 14px 14px; padding: 0 0 26px; text-align: center; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12); }
+	.tiles-wall { background-color: #efe6c8; background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 60%), linear-gradient(#d9cda4 2px, transparent 2px), linear-gradient(90deg, #d9cda4 2px, transparent 2px); background-size: 100% 100%, 90px 45px, 90px 45px; padding: 0 0 40px; text-align: center; }
 	.band { background: #141414; color: #fff; padding: 14px 20px 16px; border-top: 6px solid #b8a46a; border-bottom: 6px solid #b8a46a; }
 	.band h2 { font-family: 'Jost', var(--sans); font-weight: 700; text-transform: uppercase; letter-spacing: 6px; margin: 2px 0 0; font-size: clamp(28px, 5vw, 52px); color: #fff; }
 	.stopno-sub { font-family: 'Jost', var(--sans); font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #b8a46a; }
@@ -428,12 +438,14 @@
 	.pnl b { font-family: 'Jost', var(--sans); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #da251d; }
 	.ballot { display: flex; flex-wrap: wrap; gap: 6px; }
 	.ballot i { font-style: normal; font-weight: 600; font-size: 13px; border: 1.5px solid var(--ink); border-radius: 6px; padding: 2px 9px; }
-	.where { display: inline-block; margin-top: 16px; background: #da251d; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; border-radius: 999px; padding: 12px 26px; box-shadow: 0 6px 16px rgba(218, 37, 29, 0.3); }
+	.where { display: inline-block; margin-top: 36px; background: #da251d; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; border-radius: 999px; padding: 12px 26px; box-shadow: 0 6px 16px rgba(218, 37, 29, 0.3); }
 	@media (max-width: 700px) {
 		.board { font-size: 20px; gap: 6px 12px; padding: 10px 14px; } .board .dest { font-size: 24px; } .board .when { margin-left: 0; }
 		.band h2 { letter-spacing: 3px; }
 		.panels { grid-template-columns: 1fr; padding: 14px 12px 0; gap: 8px; }
 		.pnl { padding: 9px 12px; font-size: 13.5px; }
+		.track { height: 56px; } .pull :global(svg) { width: 440px; }
+		.where { margin-top: 18px; }
 	}
 
 	.mywalk { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 9px 14px; font-size: 14px; margin: 10px 0; }
