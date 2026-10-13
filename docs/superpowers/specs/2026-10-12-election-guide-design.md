@@ -23,7 +23,7 @@ What makes it different from existing candidate trackers (for example, Build Can
 - TDSB trustees (separate ward boundaries), then the other school boards.
 - A questionnaire sent to candidates.
 
-**Not included:** endorsements, rankings, polls, scores, "who should you vote for" quizzes, and candidate photos.
+**Not included:** endorsements, rankings, horse-race polls, scores, predictions of outcomes, "who should you vote for" quizzes, and candidate photos.
 
 ## 3. Ground rules (from the main spec §4, applied to candidates)
 
@@ -49,7 +49,7 @@ A scrolling "museum walk" in the site's newspaper style, reusing the pattern fro
 | # | Room (reader-facing title) | Place | Colour | Money shown (fact id) |
 |---|---|---|---|---|
 | 1 | Your tax bill | Home | orange `#d9822b` | `toronto.property-tax.2026.avg-bill`, `…increase` |
-| 2 | Getting around | Kennedy Station | blue `#2f5d9b` | `toronto.ttc.2026.gross`, `…net` |
+| 2 | Getting around (TTC, roads and traffic) | Kennedy Station | blue `#2f5d9b` | `toronto.ttc.2026.gross`, `…net`, `toronto.transportation.2026.gross` (Transportation Services $516.0M, new fact, pipeline-checked) |
 | 3 | Rent and housing | Scarborough Centre | green `#4a8c5c` | `toronto.shelter.2026.gross` |
 | 4 | What gets built here | 4610 Finch Ave E | teal `#3f7f74` | `scarborough.capital.finch-ltc` (ward view: that ward's top projects) |
 | 5 | Safety | 43 Division | purple `#7a5c99` | `toronto.police.2026.gross` |
@@ -79,6 +79,29 @@ Ward pages open with the ward's money: population and 10-year capital spending (
 ### 4.3 Header
 
 The header gains a navigation row: **2026 Election · Scarborough · Toronto · Ontario**. Until after the election, the Election link is first and highlighted. For now, "Scarborough", "Toronto" and "Ontario" link to the existing walk and explorer. The page-per-place restructure is a separate, later project.
+
+### 4.4 The interactive layer (what makes this different from candidate lists)
+
+Existing guides (Vote Toronto, Build Canada) are lists. Ours is a walk that turns each promise into something you can see.
+
+**"What if they do it?" panels.** A room can have a panel that shows mayoral promises in units a reader feels:
+- **Taxes:** your 2027 bill under each stated tax promise, with an inflation slider.
+- **Housing:** the 65,000-home target as 650 dots (each dot is 100 homes), lit up by each housing number a candidate has promised.
+- **Getting around:** what a promised fare change means for a rider who takes 10+ trips a week.
+- **Safety:** officers per 100,000 residents today and under a promised hiring number. This needs a checked TPS officer-count fact first; skip the panel if that fact isn't ready.
+
+Rules for these panels:
+1. **Only promises with a number or a rule the campaign published itself.** Opponents' and commentators' cost estimates are never used.
+2. **Only arithmetic, never prediction.** The panel applies the promise as worded to today's checked numbers, for example the $4,252 bill or the 65,000 target. It never says whether a promise would work, what it would do to services, or whether it is affordable.
+3. **Every candidate with a qualifying promise in that room is included, in ballot order.** Candidates without one are covered by a single line: "No [topic] promise with a number published."
+4. **The candidate's exact wording appears on the panel**, linked like any plaque quote, and it must have passed `/review`.
+5. **A fixed caption on every panel:** "Arithmetic on each promise exactly as the campaign worded it. It doesn't predict whether a promise is kept, or what would change."
+6. Panels are data-driven from `data/candidates/promises.yaml` (see §5.4). An empty file means no panels, and the walk still works.
+
+**Your walk (passport).** A strip at the top fills in a stamp in each room's colour as you pass through. You can **pin** plaques you want to remember. At the exit, a "Your walk" card shows rooms visited and your pinned quotes.
+- Pins are kept in the browser only (`localStorage`), never sent anywhere, and the page works without them.
+
+**Share.** The exit has a share button (Web Share API, falling back to copying the link). It shares only neutral text and the link: "I walked through Toronto's $18.9 billion budget before I voted. Oct 26." It never shares pinned candidates or anything about who the reader liked.
 
 ## 5. Data
 
@@ -135,6 +158,21 @@ Each quote:
 
 It runs again before launch and in the final week. Withdrawals are removed and logged on `/sources`.
 
+
+### 5.4 Promises for "What if they do it?"
+
+`data/candidates/promises.yaml`:
+
+```yaml
+- candidate: mayor.lastname-firstname
+  room: tax                      # tax | transit | housing | safety
+  kind: tax-rate                 # tax-rate | homes | officers | fare-rule
+  rule: { type: freeze, year: 2027 }   # or { type: inflation } / { type: percent, value: 1.5 } / { count: 10000, by: 2027 }
+  quote: { text: "...", url: "...", archive: "...", retrieved: 2026-10-14, status: draft }
+```
+
+`kind` decides which panel uses the row. `rule` is the machine-readable form of the quote, and the reviewer confirms that the two match.
+
 ## 6. Checks (fail the build)
 
 Added to `site/scripts/check-content.mjs` (or a sibling `check-candidates.mjs`). Each race file must satisfy:
@@ -145,6 +183,7 @@ Added to `site/scripts/check-content.mjs` (or a sibling `check-candidates.mjs`).
 - Every `offices` entry has a source.
 - **A race page is only built if every quote in that race is `checked`.** Until then, the race shows "This race is being reviewed" and lists names only. A draft is never shown, and never shown as "nothing published".
 - Room numbers use `<Fact>`; the existing rule still applies.
+- Every `promises.yaml` row points to a real candidate, has a known `kind`, and its quote is `checked` before the panel shows it.
 - Plaque and card components take no colour from candidate data. This is enforced by the component API, which has no colour prop.
 
 ## 7. Review tool (dev only)
@@ -169,7 +208,7 @@ It writes back to the YAML through a dev-only endpoint. The aim is to make rough
 | Oct 13–17 | Gather sources and draft quotes, mayor's race first, then wards |
 | Oct 15–20 | Review in `/review` (about 25–35 h); fix issues |
 | Oct 19 | Hosting live; Clerk's office answer in hand; corrections email live |
-| Oct 20 | Soft launch and LinkedIn post (advance voting dates per the City) |
+| Oct 20 | Soft launch and LinkedIn post (advance voting already ended Oct 11; the post points to election day) |
 | Oct 23 | Re-check candidate list and changed websites |
 | Oct 26 | Election day |
 
@@ -185,4 +224,6 @@ If review falls behind, races launch one at a time as each passes the "all check
   - Rooms activate on scroll.
   - Reduced motion is respected.
   - Race pages list candidates in ballot order.
+  - The tax panel gives the right bill for freeze and inflation rules.
+  - Pins survive a reload and nothing is sent over the network.
   - `/review` is absent from the static build.
