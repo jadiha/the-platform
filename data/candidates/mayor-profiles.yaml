@@ -15,44 +15,40 @@ profiles:
     about: {text: "Dr. Bahira Abdulsalam, PhD, P.Eng., is a structural engineer, educator and independent candidate for Mayor of Toronto.", url: "https://bahira.ca/"}
     record: [{text: "Ran for mayor in the 2023 by-election: 913 votes", src: by2023}]
     priorities:
-      - {topic: other, text: "Fix what we have", url: "https://bahira.ca/"}
-      - {topic: housing, text: "Homes you can afford", url: "https://bahira.ca/"}
+      - {topic: other, text: "Keep the Gardiner and DVP in Toronto’s hands, and fix them.", url: "https://bahira.ca/"}
+      - {topic: housing, text: "Keep public land public and put homes you can own on top of it, plus more affordable housing and real protection for tenants.", url: "https://bahira.ca/"}
       - {topic: transit, text: "A free TTC, phased in and funded at every step, running often and on time.", url: "https://bahira.ca/"}
-      - {topic: money, text: "No more blank cheques", url: "https://bahira.ca/"}
-      - {topic: safety, text: "Community safety", url: "https://bahira.ca/"}
+      - {topic: money, text: "Honest budgets, open books, independent audits, a live projects dashboard, and a full public accounting of World Cup spending.", url: "https://bahira.ca/"}
+      - {topic: safety, text: "Guns and trafficking, violence interruption, the drug crisis as safety and health, a safer TTC, and ending human trafficking, with accountable policing and real supports.", url: "https://bahira.ca/"}
     archive:
       "https://bahira.ca/": "https://web.archive.org/web/20261013042202/https://bahira.ca/"
-    status: checked
-    checked_on: 2026-10-13
+    status: draft
 
   - candidate: "Alexander, Chris"
     note: "Chris Alexander ended his campaign on October 6, 2026. His name is still on the ballot."
     about: {text: "He was the Member of Parliament for Ajax-Pickering from 2011 to 2015 and Minister of Citizenship and Immigration from 2013 to 2015.", url: "https://chrisalexander.ca/"}
     record: []
     priorities:
-      - {topic: other, text: "RESTART TORONTO’S ECONOMIC ENGINE", url: "https://chrisalexander.ca/"}
-      - {topic: transit, text: "GET TORONTONIANS MOVING FASTER", url: "https://chrisalexander.ca/"}
-      - {topic: housing, text: "PUT HOUSING IN REACH", url: "https://chrisalexander.ca/"}
+      - {topic: other, text: "We’re a world-class city. The fact that we don’t act like one is not a money problem. It’s a leadership problem.", url: "https://chrisalexander.ca/"}
+      - {topic: transit, text: "Real fare enforcement, so the system belongs to the people who are there to ride.", url: "https://chrisalexander.ca/"}
+      - {topic: housing, text: "Housing affordability is about supply. But Toronto’s zoning is a maze, and our approvals are among the slowest in Canada.", url: "https://chrisalexander.ca/"}
       - {topic: housing, text: "As mayor, I would aim to see construction start on at least 3,000 affordable units in my first year in office, rising to 10,000 affordable housing starts in 2029.", url: "https://www.chrisalexander.ca/policies/build-affordable-housing"}
     archive:
       "https://chrisalexander.ca/": "https://web.archive.org/web/20261013044909/https://www.chrisalexander.ca/"
       "https://www.chrisalexander.ca/policies/build-affordable-housing": "https://web.archive.org/web/20261013042717/https://www.chrisalexander.ca/policies/build-affordable-housing"
-    status: checked
-    checked_on: 2026-10-13
+    status: draft
 
   - candidate: "Atkinson, Jamie"
     about: {text: "A city where you can afford to build a life, get home sooner, feel safe, find opportunity and believe your children can have an even better future.", url: "https://jamieatkinson.ca/"}
     record: [{text: "Ran for mayor in the 2023 by-election: 361 votes", src: by2023}]
     priorities:
-      - {topic: housing, text: "More homes being built", url: "https://jamieatkinson.ca/"}
-      - {topic: transit, text: "Less construction chaos", url: "https://jamieatkinson.ca/"}
-      - {topic: other, text: "Cleaner streets", url: "https://jamieatkinson.ca/"}
-      - {topic: safety, text: "Safer public spaces", url: "https://jamieatkinson.ca/"}
+      - {topic: housing, text: "Move from approvals to serviced land, construction and occupancy faster.", url: "https://jamieatkinson.ca/"}
+      - {topic: transit, text: "Coordinate projects before streets are opened, closed and reopened.", url: "https://jamieatkinson.ca/"}
+      - {topic: other, text: "Publish service standards people can see and measure.", url: "https://jamieatkinson.ca/"}
       - {topic: other, text: "Make Toronto the central champion of a faster Windsor–Toronto–Ottawa–Montréal–Québec City corridor.", url: "https://jamieatkinson.ca/"}
     archive:
       "https://jamieatkinson.ca/": "https://web.archive.org/web/20261013045155/https://jamieatkinson.ca/"
-    status: checked
-    checked_on: 2026-10-13
+    status: draft
 
   - candidate: "Bradford, Brad"
     about: {text: "An urban planner, City Councillor, husband, and dad of two, Brad has spent his career on the work of how cities actually get built and how City Hall actually works.", url: "https://bradford26.ca/"}
@@ -87,7 +83,8 @@ profiles:
     archive:
       "https://electdarrellbrown.ca/": "https://web.archive.org/web/20261013180735/https://electdarrellbrown.ca/"
       "https://electdarrellbrown.ca/bio": "https://web.archive.org/web/20261013180806/https://electdarrellbrown.ca/bio"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
 
   - candidate: "Chow, Olivia"
     about: {text: "Her commitment to us and her love for our city have driven her for decades. As trustee, councillor, MP and now Mayor.", url: "https://www.oliviachow.ca/"}
@@ -103,7 +100,8 @@ profiles:
     archive:
       "https://www.oliviachow.ca/": "https://web.archive.org/web/20261013050616/https://www.oliviachow.ca/"
       "https://www.oliviachow.ca/plan": "https://web.archive.org/web/20261013050757/https://www.oliviachow.ca/plan"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
 
   - candidate: "Collins, Paul"
     about: {text: "Vote Author Paul Collins for Toronto Mayor 2026", url: "https://authorpaulcollinstorontomayor.weebly.com/"}
@@ -116,7 +114,8 @@ profiles:
       - {topic: transit, text: "I want all levels of government to sign a pledge not to privatize the TTC.", url: "https://authorpaulcollinstorontomayor.weebly.com/"}
     archive:
       "https://authorpaulcollinstorontomayor.weebly.com/": "https://web.archive.org/web/20261013044558/https://authorpaulcollinstorontomayor.weebly.com/"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
 
   - candidate: "Curto, Roberto"
     about: {text: "I’m a transit rider, avid traveller and unapologetic city nerd who believes Toronto can learn from the best ideas elsewhere while still doing things in a way that feels distinctly our own.", url: "https://curto.ca/"}
@@ -130,7 +129,8 @@ profiles:
     archive:
       "https://curto.ca/": "https://web.archive.org/web/20261013044934/https://curto.ca/"
       "https://curto.ca/ideas/": "https://web.archive.org/web/20261013044959/https://curto.ca/ideas/"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
 
   - candidate: "Dean, Laura"
     about: {text: "For over a decade it was my job to know how City Hall works and how to get things built.", url: "https://lauradeanformayor.ca/"}
@@ -204,7 +204,7 @@ profiles:
     about: {text: "Growth while improving quality of life.", url: "https://www.ambitioustoronto.com/"}
     record: []
     priorities:
-      - {topic: other, text: "10 million people • 10 million trees", url: "https://www.ambitioustoronto.com/"}
+      - {topic: other, text: "Toronto has always grown… the vision is to accelerate this growth while improving quality of life.", url: "https://www.ambitioustoronto.com/new-page-1"}
       - {topic: tax, text: "Remove the land transfer tax so we don’t punish those trying to downsize or those trying to move closer to work", url: "https://www.ambitioustoronto.com/new-page-2"}
       - {topic: housing, text: "Purchase undesirable condos to expand the public housing capacity", url: "https://www.ambitioustoronto.com/new-page-2"}
       - {topic: transit, text: "Stop weekend subway closure and determine a better maintenance plan", url: "https://www.ambitioustoronto.com/new-page-3"}
@@ -216,7 +216,7 @@ profiles:
     status: draft
 
   - candidate: "Lamoureux, Michael"
-    about: {text: "Building a better future", url: "https://www.michaellamoureux.ca/"}
+    about: {text: "I am a finance and accounting professional with over 20 years of senior experience in technology industries", url: "https://michaellamoureux.ca/about-michael-lamoureux"}
     record: [{text: "Ran for mayor in the 2023 by-election: 120 votes", src: by2023}]
     priorities:
       - {topic: transit, text: "Improve transit services, build more subways, free TTC", url: "https://www.michaellamoureux.ca/"}
@@ -229,57 +229,55 @@ profiles:
     status: draft
 
   - candidate: "McVie, Sarah"
-    about: {text: "Accountability to residents.", url: "https://www.mayormcvie.ca/"}
+    about: {text: "Our leaders need to keep power and profit in residents' pockets.", url: "https://mayormcvie.ca/"}
     record: []
     priorities:
-      - {topic: housing, text: "Inventory City-owned buildings for housing redevelopment (first 60 days), to be released for cooperative ownership models (co-ops), clear the co-op housing waitlist, and pilot grocery co-ops and vertical farms.", url: "https://www.mayormcvie.ca/"}
-      - {topic: transit, text: "transform the decommissioned RT into the Scarborough Sky Line park.", url: "https://www.mayormcvie.ca/"}
-      - {topic: tax, text: "Freeze property taxes for two years, conduct a core services review to streamline services, and diversify municipal revenue streams.", url: "https://www.mayormcvie.ca/"}
+      - {topic: housing, text: "Inventory City-owned buildings for housing redevelopment (first 60 days), to be released for cooperative ownership models (co-ops), clear the co-op housing waitlist, and pilot grocery co-ops and vertical farms.", url: "https://mayormcvie.ca/"}
+      - {topic: transit, text: "transform the decommissioned RT into the Scarborough Sky Line park.", url: "https://mayormcvie.ca/"}
+      - {topic: tax, text: "Freeze property taxes for two years, conduct a core services review to streamline services, and diversify municipal revenue streams.", url: "https://mayormcvie.ca/"}
       - {topic: transit, text: "We will also pilot Free TTC Fridays to stimulate economic growth by encouraging residents and tourists to explore other areas of the city.", url: "https://mayormcvie.ca/platform"}
     archive:
+      "https://mayormcvie.ca/": "https://web.archive.org/web/20261013203014/https://mayormcvie.ca/"
       "https://mayormcvie.ca/platform": "https://web.archive.org/web/20261013042558/https://mayormcvie.ca/platform"
     status: draft
 
   - candidate: "Parker, Odessa Paloma"
-    about: {text: "Compassionate Leadership. Holistic governance. Ambitious vision.", url: "https://www.odessaformayor.ca/"}
+    about: {text: "As someone who grew up in Scarborough and has lived in both the city’s midtown and west end as a renter and owner, I have seen the spectrum of crime committed in Toronto.", url: "https://www.odessaformayor.ca/blog/confronting-crime-amp-safety"}
     record: []
     priorities:
-      - {topic: money, text: "Fiscal Rehabilitation & Growth", url: "https://www.odessaformayor.ca/"}
-      - {topic: other, text: "Recreation As A Priority", url: "https://www.odessaformayor.ca/"}
-      - {topic: other, text: "Environmental Action & Future-proofing The City", url: "https://www.odessaformayor.ca/"}
-      - {topic: safety, text: "Safe & Healthy Communities", url: "https://www.odessaformayor.ca/"}
-      - {topic: housing, text: "Housing For All", url: "https://www.odessaformayor.ca/"}
+      - {topic: money, text: "Begin consultations and draft of City Charter for Toronto to fortify our city and enact municipal autonomy", url: "https://www.odessaformayor.ca/my-fresh-platform"}
+      - {topic: other, text: "Creation of new Summer cooling and play areas, including pools and shaded gathering spaces conducive to recreational activities of all kinds", url: "https://www.odessaformayor.ca/my-fresh-platform"}
+      - {topic: other, text: "Creation of: new tree canopies in key areas of the city; community garden greenhouses; urban farming projects", url: "https://www.odessaformayor.ca/my-fresh-platform"}
+      - {topic: safety, text: "Investment in harm reduction and mental health services including a review of emergency response protocols", url: "https://www.odessaformayor.ca/my-fresh-platform"}
+      - {topic: housing, text: "Review of predatory residential rental practices and appropriate recourse (i.e. ending bidding wars on rental units)", url: "https://www.odessaformayor.ca/my-fresh-platform"}
     archive:
       "https://www.odessaformayor.ca/": "https://web.archive.org/web/20261013050436/https://www.odessaformayor.ca/"
-    status: checked
-    checked_on: 2026-10-13
+    status: draft
 
   - candidate: "Razi, Faisal"
     about: {text: "I want a city where people can afford to live, get around more easily, feel safe, and enjoy the neighbourhoods they call home.", url: "https://www.faiformayor.com/"}
     record: []
     priorities:
-      - {topic: money, text: "Efficient City Hall", url: "https://www.faiformayor.com/"}
-      - {topic: housing, text: "Housing & Affordability", url: "https://www.faiformayor.com/"}
-      - {topic: transit, text: "Transit & Traffic", url: "https://www.faiformayor.com/"}
-      - {topic: transit, text: "Cycling & Road Safety", url: "https://www.faiformayor.com/"}
+      - {topic: money, text: "I will introduce a new era of simplicity and efficiency and will appoint efficiency and waste experts (people who will work with me to lessen waste and simplify things without cutting any services) and also work on creating a more organized system.", url: "https://www.faiformayor.com/"}
+      - {topic: housing, text: "I feel the best solution to this problem is to greatly remove barriers and give generous tax incentives for builders who build affordable living spaces and to work with closely such developers.", url: "https://www.faiformayor.com/"}
+      - {topic: transit, text: "We should consider adding another extra lane in some sections of the 401/DVP (this is something that would needed to worked with the province obviously) in Toronto where it can be done easily so it may be easier to pass accidents etc.", url: "https://www.faiformayor.com/"}
+      - {topic: transit, text: "The cyclists must be educated along with drivers on how to work safely with the traffic around them", url: "https://www.faiformayor.com/"}
     archive:
       "https://www.faiformayor.com/": "https://web.archive.org/web/20261013050004/https://www.faiformayor.com/"
-    status: checked
-    checked_on: 2026-10-13
+    status: draft
 
   - candidate: "Rosen, Amy"
     about: {text: "As a travel writer I’ve compared Toronto to cities worldwide for 20 years", url: "https://www.rosenformayor.ca/"}
     record: []
     priorities:
-      - {topic: other, text: "Support small businesses", url: "https://www.rosenformayor.ca/"}
+      - {topic: other, text: "AS YOUR MAYOR, I will work with landlords and the provincial government so that small local businesses and restaurants can afford rent and not just survive but thrive.", url: "https://www.rosenformayor.ca/"}
       - {topic: transit, text: "Bike Lanes are for Bikes", url: "https://www.rosenformayor.ca/"}
       - {topic: transit, text: "AS YOUR MAYOR, I will create a dedicated traffic coordination office to tackle congestion and bring common sense back to city planning.", url: "https://www.rosenformayor.ca/"}
       - {topic: other, text: "Plant more trees!", url: "https://www.rosenformayor.ca/"}
       - {topic: other, text: "Fast & fair snow removal", url: "https://www.rosenformayor.ca/"}
     archive:
       "https://www.rosenformayor.ca/": "https://web.archive.org/web/20261013050858/https://www.rosenformayor.ca/"
-    status: checked
-    checked_on: 2026-10-13
+    status: draft
 
   - candidate: "Sanders, Lyall"
     about: {text: "Lyall Sanders is a Toronto community leader, Métis educator, and father of eight", url: "https://www.sanders4mayor.ca/"}
@@ -301,7 +299,7 @@ profiles:
     checked_on: 2026-10-13
 
   - candidate: "Srivastava, Sandeep"
-    about: {text: "Working for You & Your Family", url: "https://sandeepsrivastavafortorontomayor.wordpress.com/platform/"}
+    about: {text: "Sandeep Srivastava is a highly accomplished technology executive, Certified MCT, ITIL & Project Management Professional (PMP), and Senior business & technology consultant running to become the next Mayor of Toronto in 2026.", url: "https://sandeepsrivastavafortorontomayor.wordpress.com/about/"}
     record: [{text: "Ran for mayor in the 2023 by-election: 166 votes", src: by2023}]
     priorities:
       - {topic: housing, text: "Build more homes at all levels of affordability.", url: "https://sandeepsrivastavafortorontomayor.wordpress.com/platform/"}
@@ -309,8 +307,7 @@ profiles:
       - {topic: transit, text: "Keep fares frozen and service reliable for every rider.", url: "https://sandeepsrivastavafortorontomayor.wordpress.com/platform/"}
     archive:
       "https://sandeepsrivastavafortorontomayor.wordpress.com/platform/": "https://web.archive.org/web/20261013043055/https://sandeepsrivastavafortorontomayor.wordpress.com/platform/"
-    status: checked
-    checked_on: 2026-10-13
+    status: draft
 
   - candidate: "Tang, Weizhen"
     about: {text: "Weizhen Tang is a respected financial strategist known globally as “The Chinese Warren Buffett.”", url: "https://weizhentang.today/"}
@@ -321,7 +318,8 @@ profiles:
     archive:
       "https://weizhentang.today/": "https://web.archive.org/web/20261013045710/https://weizhentang.today/"
       "https://weizhentang.today/f/headline%EF%BC%9Asolving-torontos-housing-crisis-why-we-must-activate": "https://web.archive.org/web/20261013183956/https://weizhentang.today/f/headline%EF%BC%9Asolving-torontos-housing-crisis-why-we-must-activate"
-    status: draft
+    status: checked
+    checked_on: 2026-10-13
 
   - candidate: "Thompson, Joshua"
     about: {text: "I'm Josh Thompson. I'm a comedian.", url: "https://joshthompsonformayor.ca/"}
@@ -341,16 +339,15 @@ profiles:
     about: {text: "Dedicated to creating positive change, promoting transparency, and building a stronger future for Toronto’s families, businesses, and communities.", url: "https://www.jefferytunney4mayor.com/"}
     record: [{text: "Ran for mayor in the 2023 by-election: 83 votes", src: by2023}]
     priorities:
-      - {topic: safety, text: "Community Safety", url: "https://jefferytunney4mayor.com/platform/"}
-      - {topic: other, text: "Youth Employment", url: "https://jefferytunney4mayor.com/platform/"}
-      - {topic: other, text: "Emergency Preparedness & Healthcare Capacity", url: "https://jefferytunney4mayor.com/platform/"}
-      - {topic: housing, text: "Affordable Housing", url: "https://jefferytunney4mayor.com/platform/"}
-      - {topic: money, text: "Economic Growth & Local Business", url: "https://jefferytunney4mayor.com/platform/"}
+      - {topic: safety, text: "Lower violent crime rates across the city", url: "https://jefferytunney4mayor.com/platform/"}
+      - {topic: other, text: "More entry-level and career-track jobs open to young Torontonians", url: "https://jefferytunney4mayor.com/platform/"}
+      - {topic: other, text: "Disaster response plans that are ready before they're needed", url: "https://jefferytunney4mayor.com/platform/"}
+      - {topic: housing, text: "More housing that people can actually afford", url: "https://jefferytunney4mayor.com/platform/"}
+      - {topic: money, text: "Ease the tax burden on workers and small businesses", url: "https://jefferytunney4mayor.com/platform/"}
     archive:
       "https://jefferytunney4mayor.com/platform/": "https://web.archive.org/web/20261013045326/https://jefferytunney4mayor.com/platform/"
       "https://www.jefferytunney4mayor.com/": "https://web.archive.org/web/20261013050129/https://jefferytunney4mayor.com/"
-    status: checked
-    checked_on: 2026-10-13
+    status: draft
 
 # On the ballot without a campaign website on the City Clerk's list; records from City results.
 also_records:

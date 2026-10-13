@@ -3,9 +3,6 @@
 	// Every candidate gets the same panels in the same order. No colour comes from the candidate.
 	import type { CampaignPromise, MayorProfile, OfficialCandidate } from '#lib/types.ts';
 	import { displayName, highlightLink, pdfPageLink } from './links.ts';
-	import TaxWhatIf from './TaxWhatIf.svelte';
-	import TripsWhatIf from './TripsWhatIf.svelte';
-	import HomesWhatIf from './HomesWhatIf.svelte';
 	import { siteData } from '#lib/context.ts';
 
 	let {
@@ -34,6 +31,20 @@
 	const name = $derived(displayName(person.ballot_name));
 	const host = (u: string) => u.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
 	const bill = $derived(Number(facts['toronto.property-tax.2026.avg-bill']?.value));
+	const monthCap = $derived(Number(facts['toronto.ttc.fare-cap.2026']?.value));
+	const money = (n: number) => '$' + Math.round(n).toLocaleString('en-CA');
+	const years = (n?: number) => (n === 1 ? '1 year' : `${n} years`);
+	// One plain sentence per promise: the campaign's own rule, applied to today's numbers. No forecasts.
+	function plain(p: CampaignPromise): string | null {
+		const r = p.rule;
+		if (r.type === 'freeze') return `The average home's city tax bill would stay at ${money(bill)}, this year's amount, for ${years(r.years)}.`;
+		if (r.type === 'percent' && typeof r.value === 'number') return `The average home's city tax bill would go from ${money(bill)} to ${money(bill * (1 + r.value / 100))}.`;
+		if (r.type === 'fare-freeze') return "TTC fares would stay at today's prices.";
+		if (r.type === 'fare-free') return 'Riding the TTC would cost nothing.';
+		if (r.type === 'fare-free-phased') return `The TTC would become free, starting with ${((r.first as string[] | undefined) ?? []).join(', ').replace(/, ([^,]*)$/, ' and $1')} riders.`;
+		if (r.type === 'weekly-cap') return `After ${r.trips} paid TTC rides in a week, the rest of that week would be free. Today it's free after ${monthCap} paid rides in a month.`;
+		return null;
+	}
 
 	// svelte-ignore state_referenced_locally
 	let status = $state(profile?.status ?? 'checked');
@@ -91,23 +102,19 @@
 				<p class="none">We didn't find a platform or list of priorities on their campaign site when we read it on October 13. Check their links.</p>
 			{/if}
 		{:else if panel === 'Their numbers'}
-			<div class="nums">
-				<div style="--c:{TOPIC_COLOR.tax}"><TaxWhatIf {bill} promises={promises.filter((p) => p.room === 'tax')} /></div>
-				<div style="--c:{TOPIC_COLOR.transit}"><TripsWhatIf promises={promises.filter((p) => p.room === 'transit')} /></div>
-				<div style="--c:{TOPIC_COLOR.housing}"><HomesWhatIf promises={promises.filter((p) => p.room === 'housing')} /></div>
-				{#each promises.filter((p) => p.rule.type === 'officers' || (p.rule.type === 'other' && p.rule.cost_millions_per_year)) as p (p.text)}
-					<div class="whatif" style="--c:{p.room === 'safety' ? TOPIC_COLOR.safety : TOPIC_COLOR.housing}">
-						<div class="wh">WHAT IF THEY DO IT?</div>
-						{#if p.rule.type === 'officers'}
-							<h3>{p.rule.count?.toLocaleString('en-CA')} more police officers over the {p.rule.by}</h3>
-						{:else}
-							<h3>The campaign's own cost estimate, and how it says it would pay</h3>
-						{/if}
-						<q class="small">{p.cost_text ?? p.text}</q>
-						<a class="hl" href={highlightLink(p.url, p.cost_text ?? p.text)} target="_blank" rel="noopener">see it on their site ↗</a>
-					</div>
+			<ul class="nums">
+				{#each promises as p (p.text)}
+					{@const t = (p.room in TOPIC_COLOR ? p.room : 'other') as keyof typeof TOPIC_COLOR}
+					<li style="--c:{TOPIC_COLOR[t]}">
+						<span class="tp">{TOPIC[t]}</span>
+						{#if plain(p)}<b class="plain">{plain(p)}</b>{/if}
+						<q class="small">{p.text}</q>
+						{#if p.cost_text}<q class="small">{p.cost_text}</q>{/if}
+						<a class="hl" href={highlightLink(p.url, p.text)} target="_blank" rel="noopener">see it on their site ↗</a>
+					</li>
 				{/each}
-			</div>
+			</ul>
+			<p class="fine">In plain terms: the campaign's own rule applied to today's numbers. It doesn't predict whether a promise is kept or what it would change.</p>
 		{:else}
 			<ul class="links">
 				{#if person.website}<li><a href={person.website} target="_blank" rel="noopener">{host(person.website)} ↗</a></li>{:else}<li class="none">No campaign website on the City's list</li>{/if}
@@ -152,7 +159,12 @@
 	.tag { font-size: 10.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--tc); }
 	.links { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 15px; overflow-wrap: anywhere; }
 	.small { font-size: 12px; color: var(--mute); }
-	.nums :global(.whatif) { margin-top: 0; margin-bottom: 10px; }
+	.nums { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+	.nums li { border-left: 4px solid var(--c); background: #faf8f4; border-radius: 0 12px 12px 0; padding: 10px 14px; display: flex; flex-direction: column; gap: 4px; }
+	.tp { font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--c); }
+	.plain { font-family: var(--sans); font-size: 16px; line-height: 1.35; }
+	.nums q.small { color: var(--ink-2); font-style: italic; }
+	.fine { font-family: var(--sans); font-size: 11.5px; color: var(--mute); margin: 10px 0 0; }
 	.nav { display: flex; justify-content: space-between; margin-top: 12px; }
 	.nav button { font: inherit; font-size: 14px; font-weight: 600; border: 0; background: none; cursor: pointer; padding: 8px 4px; }
 	.nav .next { background: var(--ink); color: #fff; border-radius: 999px; padding: 8px 18px; }
