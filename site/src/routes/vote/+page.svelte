@@ -1,5 +1,5 @@
 <script lang="ts">
-	// The Toronto walk (spec §11): a Line 2 street with stops for "Whose job is it?",
+	// The Toronto journey (spec §11): a streetcar ride with stops for "Whose job is it?",
 	// "Did it change anything?" (City Hall), every mayoral candidate in ballot order, and the exit.
 	import '#lib/vote/vote.css';
 	import Fact from '#lib/components/Fact.svelte';
@@ -26,7 +26,7 @@
 		{ label: 'City Hall: did it change anything?', big: true },
 		...withSite.map((c) => ({ label: displayName(c.ballot_name), big: false })),
 		{ label: 'Also on your ballot', big: true },
-		{ label: 'Kennedy: before you vote', big: true }
+		{ label: 'Last stop: before you vote', big: true }
 	]);
 	let active = $state(0);
 	const els: HTMLElement[] = [];
@@ -62,7 +62,7 @@
 
 <svelte:head>
 	<title>Who's running for mayor, and what the City controls · Toronto votes October 26 · Follow the Budget</title>
-	<meta name="description" content="Walk Line 2 through Toronto's mayoral race: what the City controls, what changed, and every candidate in their own words, with proof." />
+	<meta name="description" content="Ride a streetcar through Toronto's mayoral race: what the City controls, what changed, and every candidate in their own words, with proof." />
 	<meta property="og:title" content="The {headline} question" />
 	<meta property="og:description" content="Toronto votes Monday, October 26. Meet every mayoral candidate in their own words, with every number linked to its proof." />
 	<meta property="og:type" content="website" />
@@ -77,20 +77,20 @@
 	<h1>The <span><Fact id="toronto.operating.2026.gross" plain /></span> question</h1>
 	<p class="dek">
 		Every year the mayor and council decide how <Fact id="toronto.operating.2026.gross" /> gets spent. This fall, {mayor.length} people are
-		on the ballot for mayor. Take a walk along Line 2: first, what the City actually controls; then, everyone running, in their own words.
+		on the ballot for mayor. Hop on the streetcar for a ride through the city: first, what the City actually controls; then, everyone running, in their own words.
 	</p>
 	<p class="proofnote sans">Every number and every quote links to its proof. Nothing here tells you who to vote for.</p>
 </section>
 
-<section class="stop wrap" use:stop={0}>
-	<div class="sign sans"><span class="r">2</span>Start<small>Stop 1</small></div>
+<section class="stop wide quiz" use:stop={0}>
+	<div class="sign sans"><span class="r">T</span>Start<small>Stop 1</small></div>
 	<h2>Whose job is it?</h2>
 	<p class="lede">The mayor can't fix everything. Guess who decides each of these.</p>
 	<WhoseJob cards={data.whoseJob} />
 </section>
 
 <section class="stop wrap" use:stop={1}>
-	<div class="sign sans"><span class="r">2</span>City Hall<small>Stop 2</small></div>
+	<div class="sign sans"><span class="r">T</span>City Hall<small>Stop 2</small></div>
 	<h2>Did it change anything?</h2>
 	<p class="lede">Yes. Here's what the people you elect decided over the last three years, in your money.</p>
 	<div class="bills sans">
@@ -124,7 +124,7 @@
 
 {#each withSite as c, i (c.ballot_name)}
 	<section class="cand" use:stop={i + 2}>
-		<div class="sign mini sans"><span class="r">2</span>{displayName(c.ballot_name)}</div>
+		<div class="sign mini sans"><span class="r">T</span>{displayName(c.ballot_name)}</div>
 		<StoryCard
 			person={c}
 			profile={profileOf(c.ballot_name)}
@@ -139,7 +139,7 @@
 {/each}
 
 <section class="stop wrap" use:stop={withSite.length + 2}>
-	<div class="sign sans"><span class="r">2</span>Also on your ballot</div>
+	<div class="sign sans"><span class="r">T</span>Also on your ballot</div>
 	<h2>{without.length} more names you'll see</h2>
 	<p class="lede sans">These candidates didn't list a campaign website with the City. Here's what they did list, and any public record.</p>
 	<ul class="also sans">
@@ -155,7 +155,7 @@
 </section>
 
 <section class="stop wrap exit" use:stop={withSite.length + 3}>
-	<div class="sign sans"><span class="r">2</span>Kennedy<small>End of the line</small></div>
+	<div class="sign sans"><span class="r">T</span>Last stop<small>Before you vote</small></div>
 	<h2>Before you vote</h2>
 	{#if pins.length}
 		<div class="mywalk sans"><b>You pinned:</b> {pins.map(displayName).join(' · ')}<br /><span class="hint">Pins stay in this browser. Nothing is sent anywhere.</span></div>
@@ -180,8 +180,8 @@
 
 <style>
 	.hall { margin-top: 40px; }
-	.sign { display: flex; align-items: center; gap: 12px; background: #121212; color: #fff; font-weight: 700; font-size: 22px; letter-spacing: 0.5px; padding: 10px 16px; border-radius: 6px; border-bottom: 6px solid #00923f; margin-bottom: 14px; }
-	.sign .r { flex: none; width: 30px; height: 30px; border-radius: 50%; background: #00923f; display: grid; place-items: center; font-size: 16px; }
+	.sign { display: flex; align-items: center; gap: 12px; background: #121212; color: #fff; font-weight: 700; font-size: 22px; letter-spacing: 0.5px; padding: 10px 16px; border-radius: 6px; border-bottom: 6px solid #da251d; margin-bottom: 14px; }
+	.sign .r { flex: none; width: 30px; height: 30px; border-radius: 50%; background: #da251d; display: grid; place-items: center; font-size: 16px; }
 	.sign small { margin-left: auto; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; color: #bbb; text-transform: uppercase; }
 	.sign.mini { max-width: 460px; margin: 0 auto 10px; font-size: 16px; padding: 7px 12px; border-bottom-width: 4px; }
 	.sign.mini .r { width: 22px; height: 22px; font-size: 12px; }
@@ -193,7 +193,11 @@
 	.dek { font-size: 20px; line-height: 1.45; color: var(--ink-2); margin: 0; }
 	.lede { font-size: 17px; color: var(--ink-2); margin: 0 0 6px; }
 	.proofnote { font-size: 13px; color: var(--mute); margin: 12px 0 0; }
-	.stop { padding-top: 56px; scroll-margin-top: 120px; }
+	.stop { padding-top: 56px; scroll-margin-top: 130px; }
+	.quiz h2 { font-size: clamp(24px, 3.5vw, 30px); margin: 0; }
+	.quiz .lede { font-size: 15px; }
+	.quiz .sign { margin-bottom: 8px; }
+	@media (max-width: 600px) { .quiz .lede { display: none; } .quiz { padding-top: 32px; } }
 	.meet { padding-top: 56px; }
 	.bills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0 6px; }
 	.bill { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 2px; border-top: 5px solid #d9822b; }
