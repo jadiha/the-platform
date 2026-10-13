@@ -78,6 +78,7 @@ promises:
     rule: {type: fare-freeze}
     text: "She will also keep TTC fares frozen for the fourth year straight"
     url: https://www.oliviachow.ca/plan?active=lowering_ttc_costs
+    archive: https://web.archive.org/web/20261013042924/https://www.oliviachow.ca/plan?active=lowering_ttc_costs
     retrieved: 2026-10-13
     status: draft
 
@@ -122,6 +123,7 @@ promises:
     rule: {type: fare-freeze}
     text: "Keep fares frozen and service reliable for every rider."
     url: https://sandeepsrivastavafortorontomayor.wordpress.com/platform/
+    archive: https://web.archive.org/web/20261013043055/https://sandeepsrivastavafortorontomayor.wordpress.com/platform/
     retrieved: 2026-10-13
     status: draft
 
@@ -151,6 +153,7 @@ promises:
     rule: {type: homes, count: 10000, by: "next year"}
     text: "She will get shovels in the ground on 10,000 more next year."
     url: https://www.oliviachow.ca/plan?active=building_more_housing
+    archive: https://web.archive.org/web/20261013043027/https://www.oliviachow.ca/plan?active=building_more_housing
     retrieved: 2026-10-13
     status: draft
 
@@ -159,6 +162,7 @@ promises:
     rule: {type: homes, count: 5600, by: "through the federal partnership"}
     text: "5,600 rental homes delivered through federal partnership, with 4,500 starting construction by end of 2026"
     url: https://sandeepsrivastavafortorontomayor.wordpress.com/platform/
+    archive: https://web.archive.org/web/20261013043055/https://sandeepsrivastavafortorontomayor.wordpress.com/platform/
     retrieved: 2026-10-13
     status: draft
 
