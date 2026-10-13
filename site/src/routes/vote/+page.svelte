@@ -385,7 +385,7 @@
 	.src { font-size: 12px; }
 	.exit .method { margin-top: 14px; }
 	.mywalk { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 12px 14px; font-size: 14px; margin: 10px 0; }
-	.wardp { font-size: 15px; color: var(--ink-2); margin: 4px 0 8px; }
+	.wardp { font-size: 15px; color: var(--ink-2); margin: 8px 0 0; }
 	.wardstop { padding-top: 20px; }
 	.wardp a { font-size: 12px; color: var(--mute); }
 	.ticket { display: grid; grid-template-columns: 210px 1fr; margin: 16px 0 10px; max-width: 860px; background: #fff; border: 1px solid var(--rule); border-radius: 18px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); overflow: hidden; }

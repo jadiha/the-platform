@@ -111,13 +111,15 @@
 </div>
 
 <style>
-	.wardmap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(300px, 1fr); gap: 20px; align-items: center; }
+	.wardmap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(300px, 1fr); gap: 48px; align-items: center; margin-top: 22px; }
 	svg { width: 100%; height: auto; max-height: 46vh; }
 	.w { fill: #ebe7df; stroke: var(--paper); stroke-width: 2.5; stroke-linejoin: round; cursor: pointer; transition: fill 0.2s; outline: none; }
 	.w:hover, .w.on { fill: #da251d; }
 	text { font-size: 11px; font-weight: 700; fill: #8a857b; text-anchor: middle; pointer-events: none; }
 	text.on { fill: #fff; }
-	.panel { display: flex; flex-direction: column; gap: 2px; background: #fff; border: 1px solid var(--rule); border-radius: 16px; padding: 16px; min-height: 140px; justify-content: center; align-self: start; }
+	.panel { display: flex; flex-direction: column; gap: 2px; background: #fff; border: 1px solid var(--rule); border-radius: 16px; padding: 16px; min-height: 140px; justify-content: center; }
+	.panel.open { align-self: start; }
+	.panel:not(.open) { padding: 24px; gap: 6px; }
 	.num { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #da251d; }
 	.panel b { font-family: var(--serif); font-size: 24px; line-height: 1.15; }
 	.hint { font-size: 12.5px; color: var(--mute); margin-top: 4px; }
@@ -137,6 +139,7 @@
 	.close { display: none; }
 	.panel { position: relative; }
 	@media (max-width: 700px) {
+		.wardmap { gap: 16px; margin-top: 12px; }
 		.names.many { columns: 2; font-size: 13px; }
 		.wardmap { grid-template-columns: 1fr; }
 		.panel { min-height: 0; }
