@@ -227,3 +227,24 @@ If review falls behind, races launch one at a time as each passes the "all check
   - The tax panel gives the right bill for freeze and inflation rules.
   - Pins survive a reload and nothing is sent over the network.
   - `/review` is absent from the static build.
+
+## 11. Revision (2026-10-13): the Toronto walk and the Scarborough section
+
+This revision replaces §4.1's topic rooms as the main experience. The topic rooms showed few candidates per topic, because only about 10 of the 53 published promises with numbers. The ward picker also changed almost nothing, because the mayor's race is city-wide.
+
+**`/vote`: the Toronto walk (mayor's race, launch Oct 14).** A stylized Line 2 street (west to east, ending at Kennedy) is pinned at the top, and you scroll along it. Stops:
+1. **"Whose job is it?"** About 8 tap cards: City, Province or Federal, each with an instant answer and a proof link.
+2. **"Did it change anything?"** (City Hall). This council's decisions in dollars: yearly tax increases, the average bill, the TTC fare freeze and the fare cap, all as facts with proof.
+3. **One stop per mayoral candidate with a campaign website, in ballot order, as a story card** you tap through:
+   - who they are: offices and past mayoral runs (public record, with proof) and one self-description quoted from their own site;
+   - what they stand for: up to 5 priorities in their own words, tagged by topic;
+   - their numbers as visuals: a tax bar, trips, homes;
+   - links.
+4. **"Also on your ballot".** Every candidate with no campaign website, with the links they gave the Clerk.
+5. **Exit.** How and where to vote, share, and "Next: Scarborough".
+
+Rules: §3 still applies. Every card has the same fields and quotes go through the same `draft`/`checked` review. A field with nothing checked shows "Nothing published on their site", never a guess.
+
+**`/vote/ward-20` … `/vote/ward-25`: the Scarborough section (launch 1–2 days later).** Each page shows the ward's money, the councillor candidates as the same story cards (incumbents with their recorded votes), and the school trustee candidates for the TDSB wards that overlap the city ward.
+
+Data: `data/candidates/mayor-profiles.yaml`, one entry per candidate, plus the existing `mayor-promises.yaml` for numeric rules; `data/facts/` for the "Did it change anything?" numbers; `data/candidates/whose-job.yaml` for the game.
