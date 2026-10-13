@@ -17,7 +17,7 @@
 	const sources = [
 		['property-tax', 'Property taxes', '#d9822b'],
 		['fed-prov', 'Province and Ottawa', '#2f5d9b'],
-		['rate-programs', 'Water, garbage and parking bills', '#3f7f74'],
+		['rate-programs', 'Water, garbage & parking bills', '#3f7f74'],
 		['reserves', 'City savings (reserves)', '#7a5c99'],
 		['transit-fares', 'TTC fares', '#da251d'],
 		['other', 'Other', '#b9b3a6'],
@@ -109,15 +109,17 @@
 		</div>
 
 		{#if levelKey === 'toronto' && !path.length && tor}
+			{@const per = (v: number) => Math.round((v / tor) * 100)}
+			{@const main = sources.slice(0, 3)}
+			{@const restList = sources.slice(3)}
+			{@const restV = restList.reduce((a, x) => a + x.v, 0)}
 			<div class="comes sans">
-				<p class="ct">Where Toronto's <Fact id="toronto.operating.2026.gross" /> comes from</p>
+				<p class="ct">Where every hundred dollars of the City's <Fact id="toronto.operating.2026.gross" /> comes from</p>
 				<div class="stack">
-					{#each sources as x (x.id)}<span style="width:{(x.v / tor) * 100}%;background:{x.color}" title={x.label}></span>{/each}
+					{#each main as x (x.id)}<div style="flex:{x.v};background:{x.color}"><b>${per(x.v)}</b><span>{x.label}</span></div>{/each}
+					<div class="rest" style="flex:{restV}"><b>${per(restV)}</b><span>Everything else</span></div>
 				</div>
-				<ul class="keys">
-					{#each sources as x (x.id)}<li><i style="background:{x.color}"></i>{x.label} <Fact id={x.id} /> <span>({Math.round((x.v / tor) * 100)}%)</span></li>{/each}
-				</ul>
-				<p class="cn">Property taxes pay for under a third of it. The boxes below show where it all goes. Source: City of Toronto 2026 Budget Summary, p. 10.</p>
+				<p class="cn">Everything else: {#each restList as x, i (x.id)}{/^[A-Z]{2}/.test(x.label) ? x.label : x.label[0].toLowerCase() + x.label.slice(1)} ${per(x.v)}{i < restList.length - 1 ? ', ' : '.'}{/each} <a href={facts['toronto.revenue.2026.property-tax']?.primary.url} target="_blank" rel="noopener">Source: City Budget Summary, p. 10 ↗</a></p>
 			</div>
 		{/if}
 
@@ -200,13 +202,16 @@
 		transition: left 0.5s, top 0.5s, width 0.5s, height 0.5s, filter 0.2s;
 	}
 	.tile.leaf { cursor: help; }
-	.comes { background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 12px 16px; margin: 0 0 14px; }
-	.ct { margin: 0 0 8px; font-weight: 700; font-size: 14.5px; }
-	.stack { display: flex; height: 18px; border-radius: 8px; overflow: hidden; gap: 2px; }
-	.keys { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 13px; }
-	.keys i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; }
-	.keys span, .cn { color: var(--mute); }
-	.cn { font-size: 12.5px; margin: 6px 0 0; }
+	.comes { margin: 4px 0 18px; }
+	.ct { margin: 0 0 10px; font-weight: 700; font-size: 15px; }
+	.stack { display: flex; gap: 3px; height: 64px; }
+	.stack > div { min-width: 0; border-radius: 10px; color: #fff; padding: 8px 12px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+	.stack b { font-size: 22px; line-height: 1; }
+	.stack span { font-size: 12px; opacity: 0.92; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 3px; }
+	.stack .rest { background: repeating-linear-gradient(135deg, #d9d4c9 0 8px, #cfc9bc 8px 16px); color: var(--ink); }
+	.cn { font-size: 12.5px; color: var(--mute); margin: 8px 0 0; line-height: 1.5; }
+	.cn a { color: inherit; }
+	@media (max-width: 600px) { .stack { height: 58px; } .stack b { font-size: 17px; } .stack > div { padding: 6px 8px; } .stack span { font-size: 10.5px; } }
 	.leafnote { margin: 10px 0 0; font-size: 14px; background: #fff; border: 1px solid var(--rule); border-left: 4px solid var(--ink); border-radius: 8px; padding: 10px 14px; }
 	.tile:hover { filter: brightness(1.1); }
 	.tname { font-size: 13px; font-weight: 600; line-height: 1.15; }
