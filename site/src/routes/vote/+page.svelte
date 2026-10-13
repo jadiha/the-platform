@@ -8,6 +8,7 @@
 	import WhoseJob from '#lib/vote/WhoseJob.svelte';
 	import StoryCard from '#lib/vote/StoryCard.svelte';
 	import Scenery from '#lib/vote/Scenery.svelte';
+	import FallLeaves from '#lib/vote/FallLeaves.svelte';
 	import TorontoWardMap from '#lib/vote/TorontoWardMap.svelte';
 	import { displayName } from '#lib/vote/links.ts';
 	import { siteData } from '#lib/context.ts';
@@ -182,7 +183,14 @@
 		</figure>
 	</div>
 	<div class="who sans">
-		<p><b>Why it went up</b> Going into 2024 the City faced a <Fact id="toronto.budget.2024.opening-gap" /> gap, mainly from refugee claimant and shelter costs and lower transit revenue. It found <Fact id="toronto.budget.2024.savings" /> in savings and offsets, and raised property taxes. <Fact id="toronto.city-building-levy.2024" plain /> of each year's increase goes to the City Building Fund for transit and housing. The mayor proposes each budget; City Council votes on it. <a href={facts['toronto.budget.2024.opening-gap']?.primary.url} target="_blank" rel="noopener">proof ↗</a></p>
+		<div class="why"><b>Why it went up</b>
+			<ul>
+				<li><span>The gap:</span> going into 2024, the City needed <Fact id="toronto.budget.2024.opening-gap" /> more than it had, mostly for shelter space (including for refugee claimants) and because TTC fare revenue was down.</li>
+				<li><span>The fix:</span> it found <Fact id="toronto.budget.2024.savings" /> in savings and offsets, and raised property taxes for much of the rest.</li>
+				<li><span>Every year:</span> <Fact id="toronto.city-building-levy.2024" plain /> points of the increase go to the City Building Fund for transit and housing.</li>
+				<li><span>Who decides:</span> the mayor proposes each budget, and City Council votes on it. <a href={facts['toronto.budget.2024.opening-gap']?.primary.url} target="_blank" rel="noopener">proof ↗</a></li>
+			</ul>
+		</div>
 		<p><b>Your TTC fare</b> Fares are <Fact id="toronto.ttc.fares.2026" plain />, and rides are free after <Fact id="toronto.ttc.fare-cap.2026" plain /> paid trips in a month. <a href={facts['toronto.ttc.fares.2026']?.primary.url} target="_blank" rel="noopener">proof ↗</a></p>
 	</div>
 </section>
@@ -231,11 +239,22 @@
 </section>
 {:else}
 <section class="stop wide exit">
-	<h2 class="head"><span class="stopno sans">Stop 6 · Last stop</span>Before you vote</h2>
+	<FallLeaves />
+	<span class="stopno sans">Stop 6 · Last stop</span>
+	<h2 class="sign sans">Before you vote</h2>
 	{#if pins.length}
 		<div class="mywalk sans"><b>You pinned:</b> {pins.map(displayName).join(' · ')}<br /><span class="hint">Pins stay in this browser. Nothing is sent anywhere.</span></div>
 	{/if}
-	<div class="ticket sans">
+	<div class="wall">
+		<svg class="skyline" viewBox="0 0 1000 120" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+			<g fill="#c3cec6">
+				<rect x="40" y="60" width="50" height="60" /><rect x="100" y="40" width="40" height="80" /><rect x="150" y="70" width="60" height="50" />
+				<rect x="600" y="50" width="46" height="70" /><rect x="656" y="30" width="38" height="90" /><rect x="704" y="62" width="56" height="58" />
+				<rect x="800" y="44" width="42" height="76" /><rect x="852" y="70" width="64" height="50" /><rect x="926" y="56" width="40" height="64" />
+				<path d="M496 120 L503 26 L509 26 L516 120 Z" /><ellipse cx="506" cy="32" rx="12" ry="6" /><rect x="504.5" y="0" width="3" height="28" />
+			</g>
+		</svg>
+		<div class="ticket sans">
 		<div class="stub">
 			<span class="tk">Valid one day only</span>
 			<span class="day">Mon</span>
@@ -248,6 +267,7 @@
 			<div class="row"><b>Bring</b><span>One ID with your name and Toronto address.</span></div>
 			<a class="where" href="https://www.toronto.ca/city-government/elections/" target="_blank" rel="noopener">Find where to vote ↗</a>
 		</div>
+	</div>
 	</div>
 	<p class="more sans">
 		<a href="https://www.toronto.ca/city-government/elections/voter-information/who-can-vote/" target="_blank" rel="noopener">Full voting rules ↗</a>
@@ -331,9 +351,12 @@
 	@media (prefers-reduced-motion: reduce) { .screenwrap { animation: none; } }
 	.meet { padding-top: 24px; }
 	.meet .legend { margin: 6px 0 12px; }
-	.who { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 2px; }
+	.who { display: grid; grid-template-columns: 1.7fr 1fr; gap: 10px; margin-top: 2px; }
+	.who .why { font-size: 13.5px; line-height: 1.4; color: var(--ink-2); background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 10px 14px; }
+	.why ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
+	.why li span { font-weight: 700; color: var(--ink); }
 	.who p { margin: 0; font-size: 14px; line-height: 1.45; color: var(--ink-2); background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 10px 14px; }
-	.who b { display: block; font-size: 10.5px; letter-spacing: 1.4px; text-transform: uppercase; color: #da251d; margin-bottom: 2px; }
+	.who b, .why > b { display: block; font-size: 10.5px; letter-spacing: 1.4px; text-transform: uppercase; color: #da251d; margin-bottom: 2px; }
 	.who a { font-size: 12px; color: var(--mute); margin-left: 4px; }
 	.charts { display: grid; grid-template-columns: 1fr 1.2fr; gap: 14px; margin: 10px 0 10px; }
 	.chart { margin: 0; background: #fff; border: 1px solid var(--rule); border-radius: 16px; padding: 14px 16px 10px; }
@@ -393,7 +416,13 @@
 	@media (max-width: 600px) { .also { grid-template-columns: repeat(3, 1fr); gap: 4px; } .also li { padding: 4px 6px; } .also b { font-size: 11.5px; line-height: 1.2; } .also .meta { font-size: 9.5px; gap: 0 5px; } .alsostop { padding-top: 16px; } .alsostop .lede { font-size: 13px; margin: 0; } .alsostop h2 { font-size: 22px; } .alsostop .src { margin: 0; } }
 	.also .meta a, .also .none { color: var(--mute); }
 	.src { font-size: 12px; }
+	.exit { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; min-height: calc(100vh - 330px); justify-content: center; }
 	.exit .method { margin-top: 14px; }
+	.wall { position: relative; width: 100%; max-width: 960px; border-radius: 22px; overflow: hidden; padding: 30px 40px 104px; background-color: #e9eee8; background-image: linear-gradient(#d3dbd4 1px, transparent 1px), linear-gradient(90deg, #d3dbd4 1px, transparent 1px); background-size: 56px 28px; border: 1px solid #d3dbd4; }
+	.skyline { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 120px; }
+	.sign { display: inline-block; background: #1b1b1d; color: #fff; font-size: clamp(22px, 3.4vw, 30px); font-weight: 700; letter-spacing: 0.5px; padding: 10px 26px; border-radius: 8px; margin: 6px 0 16px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); }
+	.wall .ticket { position: relative; margin: 0; }
+	.exit .more { justify-content: center; }
 	.mywalk { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 12px 14px; font-size: 14px; margin: 10px 0; }
 	.wardp { font-size: 15px; color: var(--ink-2); margin: 8px 0 0; }
 	.wardstop { padding-top: 20px; }
@@ -415,9 +444,11 @@
 	.more { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 13px; margin: 14px 0 0; }
 	.more a, .how { color: var(--ink-2); }
 	.how { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
-	.exit .method { max-width: 860px; }
+	.exit .method { max-width: 860px; text-align: center; }
 	@media (max-width: 600px) {
 		.ticket { grid-template-columns: 1fr; }
+		.wall { padding: 14px; border-radius: 16px; }
+				.exit { min-height: 0; }
 		.stub { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; padding: 16px 18px; border-right: 0; border-bottom: 2px dashed rgba(255, 255, 255, 0.7); }
 		.stub::before, .stub::after { top: auto; bottom: -11px; right: auto; }
 		.stub::before { left: -10px; } .stub::after { right: -10px; }
