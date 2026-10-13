@@ -19,7 +19,7 @@
 	const sources = [
 		['property-tax', 'Property taxes', '#d9822b'],
 		['fed-prov', 'Province and Ottawa', '#2f5d9b'],
-		['rate-programs', 'Water, garbage & parking bills', '#3f7f74'],
+		['rate-programs', 'Water, garbage and parking bills', '#3f7f74'],
 		['reserves', 'City savings (reserves)', '#7a5c99'],
 		['transit-fares', 'TTC fares', '#da251d'],
 		['other', 'Other', '#b9b3a6'],
@@ -27,6 +27,24 @@
 		['land-transfer-tax', 'Land transfer tax', '#c9a227'],
 		['investment-income', 'Investment income', '#8a857b']
 	].map(([k, label, color]) => ({ id: `toronto.revenue.2026.${k}`, label, color, v: fv(`toronto.revenue.2026.${k}`) }));
+	// Money-flow: the five biggest sources plus 'smaller sources', each a block on the left whose
+	// ribbon runs into one bar for the whole budget. Only property taxes get a colour.
+	const FH = 300;
+	const SHADES = ['#d9822b', '#41566e', '#5f7891', '#7d93a8', '#9caebf', '#bcc8d3'];
+	const top5 = sources.slice(0, 5);
+	const flowRest = sources.slice(5);
+	const flowRows = (() => {
+		const items = [...top5.map((x) => ({ id: x.id, label: x.label, v: x.v })), { id: 'smaller', label: 'Smaller sources', v: flowRest.reduce((a, x) => a + x.v, 0) }];
+		const gap = 8, usable = FH - gap * (items.length - 1);
+		let y = 0, yR = 0;
+		return items.map((it, i) => {
+			const h = (it.v / tor) * usable, hR = (it.v / tor) * FH;
+			const row = { ...it, color: SHADES[i], hi: i === 0, per: Math.round((it.v / tor) * 100), y, h,
+				ribbon: `M344 ${y} C520 ${y} 520 ${yR} 690 ${yR} L690 ${yR + hR} C520 ${yR + hR} 520 ${y + h} 344 ${y + h} Z` };
+			y += h + gap; yR += hR;
+			return row;
+		});
+	})();
 
 	// svelte-ignore state_referenced_locally
 	let levelKey = $state(data.trees[0]?.key ?? 'toronto');
@@ -111,18 +129,25 @@
 		</div>
 
 		{#if levelKey === 'toronto' && !path.length && tor}
-			{@const per = (v: number) => Math.round((v / tor) * 100)}
-			{@const main = sources.slice(0, 3)}
-			{@const restList = sources.slice(3)}
-			{@const restV = restList.reduce((a, x) => a + x.v, 0)}
-			<div class="comes sans">
-				<p class="ct">Where every hundred dollars of the City's <Fact id="toronto.operating.2026.gross" /> comes from</p>
-				<div class="stack">
-					{#each main as x (x.id)}<div style="flex:{x.v};background:{x.color}"><b>${per(x.v)}</b><span>{x.label}</span></div>{/each}
-					<div class="rest" style="flex:{restV}"><b>${per(restV)}</b><span>Everything else</span></div>
-				</div>
-				<p class="cn">Everything else: {#each restList as x, i (x.id)}{lc(x.label)} ${per(x.v)}{i < restList.length - 1 ? ', ' : '.'}{/each} <a href={facts['toronto.revenue.2026.property-tax']?.primary.url} target="_blank" rel="noopener">Source: City Budget Summary, p. 10 ↗</a></p>
-			</div>
+			<figure class="flow sans">
+				<figcaption>Where the City's <Fact id="toronto.operating.2026.gross" /> comes from</figcaption>
+				<svg viewBox="0 0 1000 {FH}" role="img" aria-label="Sources of the City of Toronto's 2026 operating budget">
+					{#each flowRows as r (r.id)}
+						<path d={r.ribbon} fill={r.color} opacity={r.hi ? 0.55 : 0.32} />
+						<rect x="330" y={r.y} width="14" height={r.h} rx="3" fill={r.color} />
+						<text x="318" y={r.y + r.h / 2 - (r.h > 30 ? 6 : 0)} class="lbl" class:hi={r.hi} text-anchor="end" dominant-baseline="middle">{r.label}{#if r.h <= 30}<tspan class="amt"> · {r.per}¢</tspan>{/if}</text>
+						{#if r.h > 30}<text x="318" y={r.y + r.h / 2 + 13} class="amt" text-anchor="end" dominant-baseline="middle">{r.per}¢ of every dollar</text>{/if}
+					{/each}
+					<rect x="690" y="0" width="34" height={FH} rx="6" fill="#1f2a37" />
+					<text x="742" y={FH / 2 - 12} class="pot">City of Toronto</text>
+					<text x="742" y={FH / 2 + 16} class="potv">{money(tor)}</text>
+					<text x="742" y={FH / 2 + 38} class="amt">2026 operating budget</text>
+				</svg>
+				<ul class="flowlist">
+					{#each flowRows as r (r.id)}<li class:hi={r.hi}><i style="background:{r.color}"></i><span>{r.label}</span><b>{r.per}¢</b></li>{/each}
+				</ul>
+				<p class="cn">{#each flowRest as x, i (x.id)}{i ? ', ' : 'Smaller sources: '}{lc(x.label)} {Math.round((x.v / tor) * 100)}¢{/each}, of every dollar. <a href={facts['toronto.revenue.2026.property-tax']?.primary.url} target="_blank" rel="noopener">City Budget Summary, p. 10 ↗</a></p>
+			</figure>
 		{/if}
 
 		<div class="map" bind:this={mapEl} bind:clientWidth={width} style="height:{height}px">
@@ -204,16 +229,25 @@
 		transition: left 0.5s, top 0.5s, width 0.5s, height 0.5s, filter 0.2s;
 	}
 	.tile.leaf { cursor: help; }
-	.comes { margin: 4px 0 18px; }
-	.ct { margin: 0 0 10px; font-weight: 700; font-size: 15px; }
-	.stack { display: flex; gap: 3px; height: 64px; }
-	.stack > div { min-width: 0; border-radius: 10px; color: #fff; padding: 8px 12px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
-	.stack b { font-size: 22px; line-height: 1; }
-	.stack span { font-size: 12px; opacity: 0.92; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 3px; }
-	.stack .rest { background: repeating-linear-gradient(135deg, #d9d4c9 0 8px, #cfc9bc 8px 16px); color: var(--ink); }
+	.flow { margin: 6px 0 22px; background: #fff; border: 1px solid var(--rule); border-radius: 16px; padding: 18px 22px 14px; }
+	.flow figcaption { font-weight: 700; font-size: 16px; margin-bottom: 12px; }
+	.flow svg { width: 100%; height: auto; display: block; }
+	.flow .lbl { font-size: 15px; font-weight: 600; fill: var(--ink-2); }
+	.flow .lbl.hi { fill: #b5631a; font-weight: 800; font-size: 17px; }
+	.flow .amt { font-size: 12.5px; fill: var(--mute); }
+	.flow .pot { font-size: 16px; font-weight: 700; fill: var(--ink); }
+	.flow .potv { font-family: var(--serif); font-size: 30px; font-weight: 700; fill: var(--ink); }
+	.flowlist { display: none; list-style: none; padding: 0; margin: 0; }
 	.cn { font-size: 12.5px; color: var(--mute); margin: 8px 0 0; line-height: 1.5; }
 	.cn a { color: inherit; }
-	@media (max-width: 600px) { .stack { height: 58px; } .stack b { font-size: 17px; } .stack > div { padding: 6px 8px; } .stack span { font-size: 10.5px; } }
+	@media (max-width: 640px) {
+		.flow svg { display: none; }
+		.flowlist { display: grid; gap: 6px; }
+		.flowlist li { display: grid; grid-template-columns: 12px 1fr auto; gap: 8px; align-items: center; font-size: 14px; }
+		.flowlist li.hi { font-weight: 800; color: #b5631a; }
+		.flowlist i { width: 12px; height: 12px; border-radius: 3px; }
+		.flow { padding: 14px; }
+	}
 	.leafnote { margin: 10px 0 0; font-size: 14px; background: #fff; border: 1px solid var(--rule); border-left: 4px solid var(--ink); border-radius: 8px; padding: 10px 14px; }
 	.tile:hover { filter: brightness(1.1); }
 	.tname { font-size: 13px; font-weight: 600; line-height: 1.15; }
