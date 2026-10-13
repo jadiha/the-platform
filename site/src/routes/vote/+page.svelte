@@ -240,20 +240,42 @@
 {:else}
 <section class="stop wide exit">
 	<FallLeaves />
-	<span class="stopno sans">Stop 6 · Last stop</span>
-	<h2 class="sign sans">Before you vote</h2>
 	{#if pins.length}
 		<div class="mywalk sans"><b>You pinned:</b> {pins.map(displayName).join(' · ')}<br /><span class="hint">Pins stay in this browser. Nothing is sent anywhere.</span></div>
 	{/if}
 	<div class="wall">
-		<svg class="skyline" viewBox="0 0 1000 120" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-			<g fill="#c3cec6">
-				<rect x="40" y="60" width="50" height="60" /><rect x="100" y="40" width="40" height="80" /><rect x="150" y="70" width="60" height="50" />
-				<rect x="600" y="50" width="46" height="70" /><rect x="656" y="30" width="38" height="90" /><rect x="704" y="62" width="56" height="58" />
-				<rect x="800" y="44" width="42" height="76" /><rect x="852" y="70" width="64" height="50" /><rect x="926" y="56" width="40" height="64" />
-				<path d="M496 120 L503 26 L509 26 L516 120 Z" /><ellipse cx="506" cy="32" rx="12" ry="6" /><rect x="504.5" y="0" width="3" height="28" />
+		<svg class="city" viewBox="0 0 1000 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+			<g fill="#fff" opacity=".7">{#each [[80, 30], [190, 70], [330, 24], [430, 60], [610, 36], [760, 18], [880, 64], [950, 30]] as [x, y] (x)}<circle cx={x} cy={y} r="1.6" />{/each}</g>
+			<g transform="translate(0 70)">
+			<g fill="#1a2038">
+				<rect x="20" y="150" width="60" height="110" /><rect x="90" y="110" width="44" height="150" /><rect x="142" y="135" width="70" height="125" /><rect x="220" y="95" width="38" height="165" />
+				<rect x="266" y="140" width="56" height="120" /><rect x="330" y="120" width="40" height="140" />
+				<rect x="560" y="128" width="50" height="132" /><rect x="618" y="90" width="42" height="170" /><rect x="668" y="118" width="64" height="142" />
+				<rect x="740" y="80" width="36" height="180" /><rect x="784" y="132" width="58" height="128" /><rect x="850" y="105" width="46" height="155" /><rect x="904" y="145" width="80" height="115" />
+				<path d="M450 260 L462 70 L474 70 L486 260 Z" /><ellipse cx="468" cy="78" rx="20" ry="10" /><rect x="465.5" y="0" width="5" height="72" /><ellipse cx="468" cy="42" rx="6" ry="4" />
+			</g>
+			<ellipse cx="468" cy="80" rx="20" ry="3" fill="#ff8ad8" opacity=".9" />
+			<g fill="#ffd27a" opacity=".85">{#each [[100, 130], [112, 160], [160, 150], [180, 180], [228, 120], [240, 170], [280, 160], [340, 140], [575, 150], [630, 110], [640, 160], [690, 140], [700, 190], [752, 100], [760, 150], [800, 160], [862, 130], [870, 180], [930, 170]] as [x, y] (x * 1000 + y)}<rect {x} {y} width="6" height="8" />{/each}</g>
+			</g>
+			<rect y="224" width="1000" height="36" fill="#2a2f44" />
+			<g stroke="#5a6080" stroke-width="2"><line x1="0" y1="250" x2="1000" y2="250" /><line x1="0" y1="256" x2="1000" y2="256" /></g>
+			<g transform="translate(700 200) scale(.8)">
+				<rect width="150" height="44" rx="10" fill="#da251d" /><rect y="30" width="150" height="6" fill="#fff" />
+				<g fill="#fff3c4">{#each [14, 40, 66, 92, 118] as x (x)}<rect {x} y="8" width="18" height="15" rx="3" />{/each}</g>
+				<circle cx="30" cy="46" r="6" fill="#111" /><circle cx="120" cy="46" r="6" fill="#111" />
+				<line x1="75" y1="0" x2="95" y2="-30" stroke="#888" stroke-width="2" />
+			</g>
+			<g transform="translate(150 190)">
+				<rect x="0" y="6" width="30" height="34" rx="3" fill="#2f7d4a" /><rect x="-2" y="2" width="34" height="7" rx="2" fill="#256a3d" />
+				<ellipse cx="15" cy="-4" rx="11" ry="8" fill="#7d7f86" /><path d="M7 -10 L9 -16 L12 -10 Z M18 -10 L21 -16 L23 -10 Z" fill="#7d7f86" />
+				<ellipse cx="15" cy="-4" rx="8" ry="3" fill="#2b2b2e" /><circle cx="12" cy="-4" r="1.3" fill="#fff" /><circle cx="18" cy="-4" r="1.3" fill="#fff" />
+				<path d="M26 0 q14 -4 12 -16" stroke="#7d7f86" stroke-width="5" fill="none" stroke-linecap="round" />
 			</g>
 		</svg>
+		<div class="title">
+			<span class="stopno sans">Stop 6 · Last stop</span>
+			<h2>Before you vote</h2>
+		</div>
 		<div class="ticket sans">
 		<div class="stub">
 			<span class="tk">Valid one day only</span>
@@ -416,11 +438,13 @@
 	@media (max-width: 600px) { .also { grid-template-columns: repeat(3, 1fr); gap: 4px; } .also li { padding: 4px 6px; } .also b { font-size: 11.5px; line-height: 1.2; } .also .meta { font-size: 9.5px; gap: 0 5px; } .alsostop { padding-top: 16px; } .alsostop .lede { font-size: 13px; margin: 0; } .alsostop h2 { font-size: 22px; } .alsostop .src { margin: 0; } }
 	.also .meta a, .also .none { color: var(--mute); }
 	.src { font-size: 12px; }
-	.exit { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; min-height: calc(100vh - 330px); justify-content: center; }
+	.exit { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; min-height: calc(100vh - 300px); justify-content: center; padding-top: 8px; }
 	.exit .method { margin-top: 14px; }
-	.wall { position: relative; width: 100%; max-width: 960px; border-radius: 22px; overflow: hidden; padding: 30px 40px 104px; background-color: #e9eee8; background-image: linear-gradient(#d3dbd4 1px, transparent 1px), linear-gradient(90deg, #d3dbd4 1px, transparent 1px); background-size: 56px 28px; border: 1px solid #d3dbd4; }
-	.skyline { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 120px; }
-	.sign { display: inline-block; background: #1b1b1d; color: #fff; font-size: clamp(22px, 3.4vw, 30px); font-weight: 700; letter-spacing: 0.5px; padding: 10px 26px; border-radius: 8px; margin: 6px 0 16px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); }
+	.wall { position: relative; width: 100%; max-width: 980px; border-radius: 24px; overflow: hidden; padding: 20px 40px 150px; background: linear-gradient(#141a33 0%, #3b2f5c 45%, #b8577a 75%, #f29a5b 100%); box-shadow: 0 20px 50px rgba(20, 26, 51, 0.25); }
+	.title { position: relative; text-align: center; margin-bottom: 14px; }
+	.title .stopno { color: #ffd27a; letter-spacing: 3px; }
+	.title h2 { color: #fff; margin: 4px 0 0; font-size: clamp(30px, 4.6vw, 44px); }
+	.city { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 255px; }
 	.wall .ticket { position: relative; margin: 0; }
 	.exit .more { justify-content: center; }
 	.mywalk { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 9px 14px; font-size: 14px; margin: 10px 0; }
