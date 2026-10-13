@@ -159,7 +159,7 @@
 					<div class="step">
 						<span class="val"><Fact id={y.bill} /></span>
 						{#if i > 0}<span class="jump">+${(y.v - billYears[i - 1].v).toLocaleString('en-CA')}</span>{/if}
-						<div class="bar" style="height:{(y.v / billMax) * 90}px"></div>
+						<div class="bar" style="height:{(y.v / billMax) * 70}px"></div>
 						<span class="yr">{y.year}</span>
 						<span class="pc">up <Fact id={y.inc} plain /></span>
 					</div>
@@ -182,7 +182,7 @@
 		</figure>
 	</div>
 	<div class="who sans">
-		<p><b>Who decided</b> Mayor Olivia Chow proposed each of these budgets, and City Council approved them. <a href="https://www.toronto.ca/news/city-of-torontos-2026-budget-now-final-focuses-on-affordability-service-stability-and-financial-sustainability/" target="_blank" rel="noopener">proof ↗</a></p>
+		<p><b>Why it went up</b> Going into 2024 the City faced a <Fact id="toronto.budget.2024.opening-gap" /> gap, mainly from refugee claimant and shelter costs and lower transit revenue. It found <Fact id="toronto.budget.2024.savings" /> in savings and offsets, and raised property taxes. <Fact id="toronto.city-building-levy.2024" plain /> of each year's increase goes to the City Building Fund for transit and housing. The mayor proposes each budget; City Council votes on it. <a href={facts['toronto.budget.2024.opening-gap']?.primary.url} target="_blank" rel="noopener">proof ↗</a></p>
 		<p><b>Your TTC fare</b> Fares are <Fact id="toronto.ttc.fares.2026" plain />, and rides are free after <Fact id="toronto.ttc.fare-cap.2026" plain /> paid trips in a month. <a href={facts['toronto.ttc.fares.2026']?.primary.url} target="_blank" rel="noopener">proof ↗</a></p>
 	</div>
 </section>
@@ -335,7 +335,7 @@
 	.who p { margin: 0; font-size: 14px; line-height: 1.45; color: var(--ink-2); background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 10px 14px; }
 	.who b { display: block; font-size: 10.5px; letter-spacing: 1.4px; text-transform: uppercase; color: #da251d; margin-bottom: 2px; }
 	.who a { font-size: 12px; color: var(--mute); margin-left: 4px; }
-	.charts { display: grid; grid-template-columns: 1fr 1.2fr; gap: 14px; margin: 16px 0 10px; }
+	.charts { display: grid; grid-template-columns: 1fr 1.2fr; gap: 14px; margin: 10px 0 10px; }
 	.chart { margin: 0; background: #fff; border: 1px solid var(--rule); border-radius: 16px; padding: 14px 16px 10px; }
 	figcaption { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
 	.stairs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: end; }
