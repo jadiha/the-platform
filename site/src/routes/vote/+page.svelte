@@ -8,6 +8,7 @@
 	import WhoseJob from '#lib/vote/WhoseJob.svelte';
 	import StoryCard from '#lib/vote/StoryCard.svelte';
 	import Scenery from '#lib/vote/Scenery.svelte';
+	import TorontoWardMap from '#lib/vote/TorontoWardMap.svelte';
 	import { displayName } from '#lib/vote/links.ts';
 	import { siteData } from '#lib/context.ts';
 	import { formatFact } from '#lib/format.ts';
@@ -29,7 +30,8 @@
 		{ label: 'Stop 2: City Hall', big: true },
 		{ label: 'Stop 3: meet the candidates', big: true },
 		{ label: 'Stop 4: also on your ballot', big: true },
-		{ label: 'Stop 5: before you vote', big: true }
+		{ label: 'Stop 5: your ward', big: true },
+		{ label: 'Stop 6: before you vote', big: true }
 	];
 	let step = $state(0);
 	// Keep the stop in the address bar so Back works and a stop can be shared.
@@ -49,7 +51,7 @@
 	const jump = go;
 	const active = $derived(step);
 	// Scenery behind stops that don't have their own illustration (the quiz has its own city).
-	const scene = $derived([0, -1, -1, -1, -1, 4][step] ?? -1);
+	const scene = $derived([0, -1, -1, -1, -1, -1, 4][step] ?? -1);
 
 	// City Hall stop: numbers for the charts come from the fact registry (each tap shows proof).
 	const num = (id: string) => Number(facts[id]?.value ?? 0);
@@ -136,7 +138,7 @@
 	</p>
 	<p class="proofnote sans">Every number and every quote links to its proof. Nothing here tells you who to vote for.</p>
 	<button class="hop sans" onclick={() => go(1)}>Hop on →</button>
-	<p class="howto sans">Five stops, about five minutes.</p>
+	<p class="howto sans">Six stops, about five minutes.</p>
 </section>
 {:else if step === 1}
 <section class="stop wide quiz">
@@ -219,9 +221,16 @@
 	</ul>
 	<p class="src sans"><a href={data.official?.source.url} target="_blank" rel="noopener">Proof: the City Clerk's certified list of candidates ↗</a></p>
 </section>
+{:else if step === 5}
+<section class="stop wide wardstop">
+	<h2 class="head"><span class="stopno sans">Stop 5 · Your ward</span>Who's running in your ward?</h2>
+	<p class="wardp sans">You also vote for a city councillor in your ward.
+		<a href="https://www.toronto.ca/city-government/data-research-maps/neighbourhoods-communities/ward-profiles/" target="_blank" rel="noopener">Not sure of your ward? ↗</a></p>
+	<TorontoWardMap listUrl="https://www.toronto.ca/city-government/elections/candidate-list/#tabCouncillor" guided={data.wards.filter((w) => w.scarborough).map((w) => w.ward)} />
+</section>
 {:else}
 <section class="stop wide exit">
-	<h2 class="head"><span class="stopno sans">Stop 5 · Last stop</span>Before you vote</h2>
+	<h2 class="head"><span class="stopno sans">Stop 6 · Last stop</span>Before you vote</h2>
 	{#if pins.length}
 		<div class="mywalk sans"><b>You pinned:</b> {pins.map(displayName).join(' · ')}<br /><span class="hint">Pins stay in this browser. Nothing is sent anywhere.</span></div>
 	{/if}
@@ -235,18 +244,6 @@
 		<a href="https://www.toronto.ca/city-government/elections/voter-information/who-can-vote/" target="_blank" rel="noopener">Who can vote ↗</a>
 		<a href="/vote/mayor/">All {mayor.length} mayoral candidates</a>
 	</div>
-	<h3 class="wardh">Next stop: your ward</h3>
-	<p class="wardp sans">You also vote for a city councillor. Pick your ward to see who's running.
-		<a href="https://www.toronto.ca/city-government/data-research-maps/neighbourhoods-communities/ward-profiles/" target="_blank" rel="noopener">Not sure of your ward? ↗</a></p>
-	<ul class="wards sans">
-		{#each data.wards as w (w.ward)}
-			<li>
-				<a href="https://www.toronto.ca/city-government/elections/candidate-list/#tabCouncillor" target="_blank" rel="noopener" class:sc={w.scarborough}>
-					<b>{w.ward}</b><span>{w.name}</span>{#if w.scarborough}<em>full guide coming</em>{/if}
-				</a>
-			</li>
-		{/each}
-	</ul>
 	<details class="method sans"><summary>How we made this</summary>
 		On {data.scan?.date ?? 'October 13'}, we read every mayoral campaign website on the City Clerk's certified candidate list. Quotes are copied word for word and link to the exact sentence on the candidate's own site, with a saved copy. Past results come from the City's official declaration. We don't use news reports or opponents' claims, and we don't predict what any promise would do.
 		Spotted a mistake? <a href="/sources/#corrections">Tell us</a>.
@@ -380,20 +377,13 @@
 	.vote3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; font-size: 14px; line-height: 1.4; }
 	.vote3 div { background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 10px 12px; }
 	.vote3 b { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #da251d; margin-bottom: 2px; }
-	.wardh { font-size: 22px; margin: 12px 0 2px; }
-	.wardp { font-size: 14px; color: var(--ink-2); margin: 0 0 8px; }
+	.wardp { font-size: 15px; color: var(--ink-2); margin: 4px 0 12px; }
 	.wardp a { font-size: 12px; color: var(--mute); }
-	.wards { list-style: none; padding: 0; margin: 0 0 14px; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
-	.wards a { display: grid; grid-template-columns: 26px 1fr; align-items: center; column-gap: 6px; text-decoration: none; color: var(--ink); background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 5px 8px; font-size: 12px; line-height: 1.2; height: 100%; }
-	.wards a:hover { border-color: var(--ink); }
-	.wards b { font-size: 15px; grid-row: 1 / 3; }
-	.wards em { font-style: normal; font-size: 10px; color: #da251d; font-weight: 600; }
 	.method summary { cursor: pointer; }
 	.hint { font-size: 12px; color: var(--mute); }
 	.method { font-size: 12.5px; color: var(--mute); margin-top: 24px; line-height: 1.5; }
 	@media (max-width: 600px) {
 		.vote3 { grid-template-columns: 1fr; }
-		.wards { grid-template-columns: 1fr 1fr; }
 		.stepnav .full { display: none; }
 		.charts { grid-template-columns: 1fr; }
 		.hbars li { grid-template-columns: 84px 1fr 54px; }
