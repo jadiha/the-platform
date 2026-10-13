@@ -233,16 +233,21 @@
 	{#if pins.length}
 		<div class="mywalk sans"><b>You pinned:</b> {pins.map(displayName).join(' · ')}<br /><span class="hint">Pins stay in this browser. Nothing is sent anywhere.</span></div>
 	{/if}
-	<div class="vote3 sans">
-		<div><b>When</b>Monday, October 26, 10 a.m. to 8 p.m.</div>
-		<div><b>Who</b>Canadian citizens, 18+, living in Toronto (or owning or renting property here). Students: your home ward.</div>
-		<div><b>Bring</b>One ID with your name and Toronto address.</div>
+	<div class="ticket sans">
+		<div class="stub">
+			<span class="tk">Valid one day only</span>
+			<span class="day">Mon</span>
+			<span class="date">Oct 26</span>
+			<span class="hrs">10 a.m. – 8 p.m.</span>
+		</div>
+		<div class="body">
+			<div class="row"><b>On your ballot</b><span class="ballot"><i>Mayor</i><i>Councillor</i><i>School trustee</i></span></div>
+			<div class="row"><b>You can vote if</b><span>you're a Canadian citizen, 18 or older, and live in Toronto (or own or rent property here). Students: vote where your home is.</span></div>
+			<div class="row"><b>Bring</b><span>One ID with your name and Toronto address.</span></div>
+			<a class="where" href="https://www.toronto.ca/city-government/elections/" target="_blank" rel="noopener">Find where to vote ↗</a>
+		</div>
 	</div>
-	<div class="cta sans">
-		<a href="https://www.toronto.ca/city-government/elections/" target="_blank" rel="noopener">Where to vote ↗</a>
-		<a href="https://www.toronto.ca/city-government/elections/voter-information/who-can-vote/" target="_blank" rel="noopener">Who can vote ↗</a>
-		<a href="/vote/mayor/">All {mayor.length} mayoral candidates</a>
-	</div>
+	<p class="more sans"><a href="https://www.toronto.ca/city-government/elections/voter-information/who-can-vote/" target="_blank" rel="noopener">Full voting rules ↗</a> · <a href="/vote/mayor/">All {mayor.length} mayoral candidates</a></p>
 	<details class="method sans"><summary>How we made this</summary>
 		On {data.scan?.date ?? 'October 13'}, we read every mayoral campaign website on the City Clerk's certified candidate list. Quotes are copied word for word and link to the exact sentence on the candidate's own site, with a saved copy. Past results come from the City's official declaration. We don't use news reports or opponents' claims, and we don't predict what any promise would do.
 		Spotted a mistake? <a href="/sources/#corrections">Tell us</a>. An independent, non-partisan community project, not affiliated with any government, party or candidate.
@@ -378,25 +383,40 @@
 	.also .meta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 11.5px; }
 	.also .meta a, .also .none { color: var(--mute); }
 	.src { font-size: 12px; }
-	.exit { padding-bottom: 60px; }
+	.exit .method { margin-top: 14px; }
 	.mywalk { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 12px 14px; font-size: 14px; margin: 10px 0; }
-	.cta { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0; }
-	.cta a { font-size: 14px; font-weight: 600; border: 1.5px solid; border-radius: 999px; padding: 10px 16px; text-decoration: none; }
-	.cta a:nth-child(1) { background: #2f5d9b; border-color: #2f5d9b; color: #fff; }
-	.cta a:nth-child(2) { border-color: #d9822b; color: #a65d14; }
-	.cta a:nth-child(3) { border-color: #4a8c5c; color: #356b45; }
-	.vote3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; font-size: 14px; line-height: 1.4; }
-	.vote3 div { background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 10px 12px; }
-	.vote3 b { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #da251d; margin-bottom: 2px; }
 	.wardp { font-size: 15px; color: var(--ink-2); margin: 4px 0 8px; }
 	.wardstop { padding-top: 20px; }
 	.wardp a { font-size: 12px; color: var(--mute); }
+	.ticket { display: grid; grid-template-columns: 210px 1fr; margin: 16px 0 10px; max-width: 860px; background: #fff; border: 1px solid var(--rule); border-radius: 18px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); overflow: hidden; }
+	.stub { position: relative; background: #da251d; color: #fff; display: flex; flex-direction: column; justify-content: center; padding: 22px 24px; border-right: 2px dashed rgba(255, 255, 255, 0.7); }
+	.stub::before, .stub::after { content: ''; position: absolute; right: -11px; width: 20px; height: 20px; border-radius: 50%; background: var(--paper); }
+	.stub::before { top: -10px; } .stub::after { bottom: -10px; }
+	.tk { font-size: 10px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; opacity: 0.85; }
+	.day { font-family: var(--serif); font-size: 22px; margin-top: 10px; }
+	.date { font-family: var(--serif); font-weight: 700; font-size: 46px; line-height: 1; letter-spacing: -1px; }
+	.hrs { font-size: 14px; font-weight: 600; margin-top: 8px; }
+	.body { padding: 18px 22px; display: flex; flex-direction: column; gap: 10px; }
+	.row { display: grid; grid-template-columns: 130px 1fr; gap: 12px; font-size: 14.5px; line-height: 1.45; border-bottom: 1px dashed var(--rule); padding-bottom: 10px; }
+	.row b { font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: #da251d; padding-top: 3px; }
+	.ballot { display: flex; flex-wrap: wrap; gap: 6px; }
+	.ballot i { font-style: normal; font-weight: 600; font-size: 13px; border: 1.5px solid var(--ink); border-radius: 6px; padding: 2px 9px; }
+	.where { align-self: flex-start; margin-top: 4px; background: var(--ink); color: #fff; text-decoration: none; font-weight: 700; font-size: 15px; border-radius: 999px; padding: 10px 20px; }
+	.more { font-size: 13px; color: var(--mute); margin: 8px 0 0; }
+	.more a { color: var(--ink-2); }
+	@media (max-width: 600px) {
+		.ticket { grid-template-columns: 1fr; }
+		.stub { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; padding: 16px 18px; border-right: 0; border-bottom: 2px dashed rgba(255, 255, 255, 0.7); }
+		.stub::before, .stub::after { top: auto; bottom: -11px; right: auto; }
+		.stub::before { left: -10px; } .stub::after { right: -10px; }
+		.tk { width: 100%; } .day, .hrs { margin: 0; } .date { font-size: 36px; }
+		.body { padding: 14px 16px; } .row { grid-template-columns: 1fr; gap: 2px; font-size: 14px; }
+	}
 	.method summary { cursor: pointer; }
 	.hint { font-size: 12px; color: var(--mute); }
 	.method { font-size: 12.5px; color: var(--mute); margin-top: 24px; line-height: 1.5; }
 	@media (max-width: 600px) {
-		.vote3 { grid-template-columns: 1fr; }
-		.stepnav .full { display: none; }
+			.stepnav .full { display: none; }
 		.charts { grid-template-columns: 1fr; }
 		.hbars li { grid-template-columns: 84px 1fr 54px; }
 	}
