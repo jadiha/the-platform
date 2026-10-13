@@ -149,3 +149,26 @@ export interface PromiseScan {
 	social_only: string[];
 	unreadable?: string[];
 }
+
+export interface SourcedText { text: string; url: string }
+export interface RecordItem { text: string; src: string }
+
+export interface MayorProfile {
+	candidate: string;
+	note?: string;
+	unreadable?: string;
+	about: SourcedText | null;
+	record: RecordItem[];
+	priorities: (SourcedText & { topic: 'tax' | 'transit' | 'housing' | 'safety' | 'money' | 'other' })[];
+	status: 'draft' | 'checked';
+	archive?: Record<string, string>; // page url -> saved copy
+	withheld?: boolean; // quotes not yet checked (built site only)
+}
+
+export interface WhoseJobCard {
+	thing: string;
+	answer: 'city' | 'province' | 'federal';
+	explain: string;
+	proof?: { title: string; url: string };
+	fact?: string;
+}

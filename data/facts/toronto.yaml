@@ -148,3 +148,51 @@ toronto.ttc.fare-cap.2026:
     - {title: "TTC news: Monthly fare capping now in effect at the TTC", url: "https://www.ttc.ca/news/2026/September/Monthly-fare-capping-now-in-effect-at-the-TTC", value: 47}
   status: verified
   as_of: 2026-10-13
+
+toronto.property-tax.2024.increase:
+  value: 9.5
+  unit: "%"
+  label: "2024 City property tax increase, residential (8.0% operating + 1.5% City Building Fund)"
+  primary: {title: "City of Toronto, Appendix A: 2024 Property Tax Rates and Related Matters", url: "https://www.toronto.ca/legdocs/mmis/2024/cc/bgrd/backgroundfile-243002.pdf", locator: "p. 1, Table 1"}
+  crosscheck:
+    - {title: "City of Toronto news release: 2024 Budget now final", url: "https://www.toronto.ca/news/city-of-toronto-2024-budget-now-final-protects-core-services-and-invests-in-affordable-housing-transit-and-community-safety/", note: "8% residential increase plus 1.5% City Building Fund levy"}
+  status: verified
+  as_of: 2026-10-13
+
+toronto.property-tax.2025.increase:
+  value: 6.9
+  unit: "%"
+  label: "2025 City property tax increase, residential (5.4% operating + 1.5% City Building Fund)"
+  primary: {title: "City of Toronto, Budget Implementation Including Property Tax Rates (2025.CC27.1)", url: "https://www.toronto.ca/legdocs/mmis/2025/cc/bgrd/backgroundfile-252936.pdf", locator: "p. 1, total municipal tax rate increase"}
+  crosscheck:
+    - {title: "City of Toronto news release: 2025 Budget now final", url: "https://www.toronto.ca/news/city-of-torontos-2025-budget-now-final-prioritizes-affordability-transportation-safety-and-community-services/", note: "5.4% residential increase plus 1.5% City Building Fund levy"}
+  status: verified
+  as_of: 2026-10-13
+
+toronto.property-tax.2024.avg-bill:
+  value: 3892
+  unit: $
+  label: "City property tax bill for an average Toronto home, 2024"
+  basis: "City portion only; the 2025 starting bill in the City's 2025 tax report"
+  primary: {title: "City of Toronto, Budget Implementation Including Property Tax Rates (2025.CC27.1)", url: "https://www.toronto.ca/legdocs/mmis/2025/cc/bgrd/backgroundfile-252936.pdf", locator: "p. 11, Table 3, 2025 Starting Municipal Tax"}
+  status: single
+  as_of: 2026-10-13
+
+toronto.property-tax.2025.avg-bill:
+  value: 4160
+  unit: $
+  label: "City property tax bill for an average Toronto home, 2025"
+  basis: "City portion only"
+  primary: {title: "City of Toronto, Budget Implementation Including Property Tax Rates (2025.CC27.1)", url: "https://www.toronto.ca/legdocs/mmis/2025/cc/bgrd/backgroundfile-252936.pdf", locator: "p. 11, Table 3, 2025 Municipal Tax"}
+  status: single
+  as_of: 2026-10-13
+
+toronto.ttc.fares.2026:
+  value: "frozen at 2023 prices"
+  unit: text
+  label: "TTC fares in 2026: a third straight year with no increase"
+  primary: {title: "TTC news: recommended 2026 budget adds service while addressing affordability", url: "https://www.ttc.ca/news/2026/January/TTC-recommended-2026-budget-adds-service-while-addressing-affordability"}
+  crosscheck:
+    - {title: "Mass Transit: TTC Board approves 2026 operating and capital budgets with no fare increase", url: "https://www.masstransitmag.com/management/news/55342399/toronto-transit-commission-ttc-ttc-board-approves-2026-operating-and-capital-budgets-with-no-fare-increase"}
+  status: verified
+  as_of: 2026-10-13

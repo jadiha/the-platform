@@ -1,0 +1,47 @@
+# "Whose job is it?" cards on the /vote walk. Each answer says which government decides,
+# in one plain sentence, with a link to the proof. Order is the order shown.
+cards:
+  - thing: "How much your landlord can raise your rent each year"
+    answer: province
+    explain: "Ontario sets the yearly rent increase guideline for most rentals. The mayor can't change it."
+    proof: {title: "Ontario: Rent increase guideline", url: "https://www.ontario.ca/page/rent-increase-guideline"}
+
+  - thing: "TTC fares"
+    answer: city
+    explain: "The TTC is in the City's budget. Council and the TTC Board decide fares and service."
+    fact: toronto.ttc.2026.gross
+
+  - thing: "Funding for your high school"
+    answer: province
+    explain: "Ontario's Ministry of Education funds school boards. The City doesn't pay for schools."
+    fact: schools.tdsb.core-ed.2026-27
+
+  - thing: "The police budget"
+    answer: city
+    explain: "Council sets the police budget's total every year. The Police Services Board decides how it's spent."
+    fact: toronto.police.2026.gross
+
+  - thing: "Fixing potholes and timing traffic lights"
+    answer: city
+    explain: "City roads, signals and road safety are the City's Transportation Services budget."
+    fact: toronto.transportation.2026.gross
+
+  - thing: "Hospitals and wait times"
+    answer: province
+    explain: "Hospitals are funded through Ontario's Ministry of Health."
+    fact: ontario.ministry.2026-27.health
+
+  - thing: "Minimum wage"
+    answer: province
+    explain: "Ontario's Employment Standards Act sets the minimum wage."
+    proof: {title: "Ontario: Your guide to the Employment Standards Act, Minimum wage", url: "https://www.ontario.ca/document/your-guide-employment-standards-act-0/minimum-wage"}
+
+  - thing: "Shelters for people experiencing homelessness"
+    answer: city
+    explain: "The City runs Toronto's shelter system. Some of the money comes from the Province and federal government."
+    fact: toronto.shelter.2026.gross
+
+  - thing: "Immigration and study permits"
+    answer: federal
+    explain: "Immigration, Refugees and Citizenship Canada, a federal department, decides these."
+    proof: {title: "Government of Canada: Immigration, Refugees and Citizenship Canada", url: "https://www.canada.ca/en/immigration-refugees-citizenship.html"}
