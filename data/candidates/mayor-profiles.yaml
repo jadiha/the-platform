@@ -94,17 +94,16 @@ profiles:
     priorities:
       - {topic: money, text: "Olivia will not cut public services that people rely on.", url: "https://www.oliviachow.ca/plan"}
       - {topic: transit, text: "After 10 paid TTC rides, the rest of the week is free.", url: "https://www.oliviachow.ca/plan"}
-      - {topic: housing, text: "Olivia will build more housing people can afford", url: "https://www.oliviachow.ca/plan"}
-      - {topic: safety, text: "Investing in both emergency services and supporting youth.", url: "https://www.oliviachow.ca/plan"}
+      - {topic: housing, text: "She will get shovels in the ground on 10,000 more next year.", url: "https://www.oliviachow.ca/plan?active=building_more_housing"}
+      - {topic: safety, text: "Olivia will invest more in youth violence prevention programs that work, providing mentorship, job opportunities and recreation.", url: "https://www.oliviachow.ca/plan?active=keeping_neighbourhoods_safe"}
       - {topic: other, text: "Olivia will never override local communities by using strong mayor powers.", url: "https://www.oliviachow.ca/plan"}
     archive:
       "https://www.oliviachow.ca/": "https://web.archive.org/web/20261013050616/https://www.oliviachow.ca/"
       "https://www.oliviachow.ca/plan": "https://web.archive.org/web/20261013050757/https://www.oliviachow.ca/plan"
-    status: checked
-    checked_on: 2026-10-13
+    status: draft
 
   - candidate: "Collins, Paul"
-    about: {text: "Vote Author Paul Collins for Toronto Mayor 2026", url: "https://authorpaulcollinstorontomayor.weebly.com/"}
+    about: {text: "Collins is a freelance commercial director.", url: "https://authorpaulcollinstorontomayor.weebly.com/"}
     record: [{text: "Ran for mayor in the 2023 by-election: 168 votes", src: by2023}]
     priorities:
       - {topic: other, text: "Champion Toronto to become its own Province in Canada and keep more of our tax dollars in Toronto.", url: "https://authorpaulcollinstorontomayor.weebly.com/"}
@@ -114,33 +113,31 @@ profiles:
       - {topic: transit, text: "I want all levels of government to sign a pledge not to privatize the TTC.", url: "https://authorpaulcollinstorontomayor.weebly.com/"}
     archive:
       "https://authorpaulcollinstorontomayor.weebly.com/": "https://web.archive.org/web/20261013044558/https://authorpaulcollinstorontomayor.weebly.com/"
-    status: checked
-    checked_on: 2026-10-13
+    status: draft
 
   - candidate: "Curto, Roberto"
     about: {text: "I’m a transit rider, avid traveller and unapologetic city nerd who believes Toronto can learn from the best ideas elsewhere while still doing things in a way that feels distinctly our own.", url: "https://curto.ca/"}
     record: []
     priorities:
       - {topic: housing, text: "LEGALIZE SIXPLEXES CITYWIDE", url: "https://curto.ca/ideas/"}
-      - {topic: housing, text: "BUILD MORE CAMPUS HOUSING", url: "https://curto.ca/ideas/"}
-      - {topic: transit, text: "24/7 SUBWAY SERVICE ON WEEKENDS", url: "https://curto.ca/ideas/"}
-      - {topic: transit, text: "SPEED UP OUR STREETCARS", url: "https://curto.ca/ideas/"}
-      - {topic: housing, text: "BUILD MORE SUPPORTIVE HOUSING", url: "https://curto.ca/ideas/"}
+      - {topic: housing, text: "Partner with Toronto’s colleges and universities to build more student, faculty, and affordable housing, including on underused institutional land.", url: "https://curto.ca/ideas/"}
+      - {topic: transit, text: "Explore keeping the subway running throughout Friday and Saturday nights.", url: "https://curto.ca/ideas/"}
+      - {topic: transit, text: "Modernize outdated switches, improve signal priority, review unnecessarily restrictive operating speeds and fix chronic bottlenecks.", url: "https://curto.ca/ideas/"}
+      - {topic: housing, text: "Create permanent housing that connects mental-health, addiction and other supports together in one place.", url: "https://curto.ca/ideas/"}
     archive:
       "https://curto.ca/": "https://web.archive.org/web/20261013044934/https://curto.ca/"
       "https://curto.ca/ideas/": "https://web.archive.org/web/20261013044959/https://curto.ca/ideas/"
-    status: checked
-    checked_on: 2026-10-13
+    status: draft
 
   - candidate: "Dean, Laura"
-    about: {text: "For over a decade it was my job to know how City Hall works and how to get things built.", url: "https://lauradeanformayor.ca/"}
+    about: {text: "For over a decade, I worked as a municipal and land use planning lawyer at a well-known Toronto law firm.", url: "https://lauradeanformayor.ca/"}
     record: []
     priorities:
-      - {topic: housing, text: "Ending homelessness is an immediate priority", url: "https://lauradeanformayor.ca/"}
-      - {topic: housing, text: "You and your family can afford to live here", url: "https://lauradeanformayor.ca/"}
-      - {topic: other, text: "Young people can find work", url: "https://lauradeanformayor.ca/"}
-      - {topic: safety, text: "You feel safe on the street and on the TTC", url: "https://lauradeanformayor.ca/"}
-      - {topic: transit, text: "You can get around the city quickly and reliably", url: "https://lauradeanformayor.ca/"}
+      - {topic: housing, text: "Work with hospitals and other partners to build supportive housing for chronically homeless individuals", url: "https://lauradeanformayor.ca/"}
+      - {topic: housing, text: "Prioritize approvals for affordable, rental and family-sized units", url: "https://lauradeanformayor.ca/"}
+      - {topic: other, text: "Use community centres and other City assets for youth programming, mentorship and job training", url: "https://lauradeanformayor.ca/"}
+      - {topic: safety, text: "Put police resources where they matter most: violent and intimate partner crime, seizing illegal guns, and breaking up organized crime networks", url: "https://lauradeanformayor.ca/"}
+      - {topic: transit, text: "Install platform screen doors on the subway, starting with major stations.", url: "https://lauradeanformayor.ca/"}
     archive:
       "https://lauradeanformayor.ca/": "https://web.archive.org/web/20261013045524/https://lauradeanformayor.ca/"
     status: draft
@@ -149,7 +146,6 @@ profiles:
     about: {text: "I spent 15 years in the small to medium business space, working with startups and high growth ventures to help them scale.", url: "https://www.deville2026.ca/policy"}
     record: [{text: "Ran for mayor in the 2023 by-election: 96 votes", src: by2023}]
     priorities:
-      - {topic: housing, text: "THERE ARE FIVE WAYS TO MAKE RENT MORE AFFORDABLE IN TORONTO USING MUNICIPAL INSTRUMENTS.", url: "https://www.deville2026.ca/policy/toronto-rental-affordability"}
       - {topic: housing, text: "Toronto needs to convert under utilized real estate assets into residential properties.", url: "https://www.deville2026.ca/policy/toronto-rental-affordability"}
       - {topic: housing, text: "Toronto needs to buy two and three story houses, and convert them into micro bachelor units or self contained rooms with a shower and bathroom.", url: "https://www.deville2026.ca/policy/toronto-rental-affordability"}
       - {topic: money, text: "All of my Municipal Policies are built within the ~$19 Billion Dollar Toronto Operational Budget.", url: "https://www.deville2026.ca/policy/financing-policy"}
@@ -169,7 +165,7 @@ profiles:
       - {topic: transit, text: "Lets fare cap to 8 rides a week, and then its free.", url: "https://www.faizanhaider.ca/the-6ix-promises"}
       - {topic: safety, text: "We don’t need more enforcement.", url: "https://www.faizanhaider.ca/the-6ix-promises"}
       - {topic: housing, text: "Everyone deserves a roof over their head and food on their table.", url: "https://www.faizanhaider.ca/the-6ix-promises"}
-      - {topic: other, text: "INVEST IN EDUCATION", url: "https://www.faizanhaider.ca/the-6ix-promises"}
+      - {topic: other, text: "Students need a curriculum and teachers need training that’s up to date in a rapidly advancing digital world.", url: "https://www.faizanhaider.ca/the-6ix-promises"}
     archive:
       "https://www.faizanhaider.ca/": "https://web.archive.org/web/20261013050030/https://www.faizanhaider.ca/"
       "https://www.faizanhaider.ca/the-6ix-promises": "https://web.archive.org/web/20261013042739/https://www.faizanhaider.ca/the-6ix-promises"
@@ -273,10 +269,10 @@ profiles:
     record: []
     priorities:
       - {topic: other, text: "AS YOUR MAYOR, I will work with landlords and the provincial government so that small local businesses and restaurants can afford rent and not just survive but thrive.", url: "https://www.rosenformayor.ca/"}
-      - {topic: transit, text: "Bike Lanes are for Bikes", url: "https://www.rosenformayor.ca/"}
+      - {topic: transit, text: "If a vehicle has no pedals and can travel faster than 32 km/h, it belongs on the road, not in a bike lane.", url: "https://www.rosenformayor.ca/"}
       - {topic: transit, text: "AS YOUR MAYOR, I will create a dedicated traffic coordination office to tackle congestion and bring common sense back to city planning.", url: "https://www.rosenformayor.ca/"}
-      - {topic: other, text: "Plant more trees!", url: "https://www.rosenformayor.ca/"}
-      - {topic: other, text: "Fast & fair snow removal", url: "https://www.rosenformayor.ca/"}
+      - {topic: other, text: "AS YOUR MAYOR, I will undertake the largest tree-planting initiative in Toronto’s modern history, while investing in the care and maintenance of the trees we already have.", url: "https://www.rosenformayor.ca/"}
+      - {topic: other, text: "AS YOUR MAYOR, I will ensure roads and sidewalks are cleared of snow quickly, consistently, and fairly in every neighbourhood.", url: "https://www.rosenformayor.ca/"}
     archive:
       "https://www.rosenformayor.ca/": "https://web.archive.org/web/20261013050858/https://www.rosenformayor.ca/"
     status: draft
@@ -328,14 +324,13 @@ profiles:
     record: []
     priorities:
       - {topic: safety, text: "Top Priority: Violent Crime", url: "https://joshthompsonformayor.ca/"}
-      - {topic: money, text: "2nd Priority: Fiscal Discipline for Agencies, Boards, and Council", url: "https://joshthompsonformayor.ca/"}
+      - {topic: money, text: "Every municipal agency, board, and council will have its expenses examined with full seriousness.", url: "https://joshthompsonformayor.ca/"}
       - {topic: other, text: "Change Sankofa back to Yonge and Dundas", url: "https://joshthompsonformayor.ca/"}
       - {topic: tax, text: "Axe the tax. Cut the spending.", url: "https://joshthompsonformayor.ca/"}
       - {topic: housing, text: "Build the houses.", url: "https://joshthompsonformayor.ca/"}
     archive:
       "https://joshthompsonformayor.ca/": "https://web.archive.org/web/20261013045358/https://joshthompsonformayor.ca/"
-    status: checked
-    checked_on: 2026-10-13
+    status: draft
 
   - candidate: "Tunney, Jeffery"
     about: {text: "Dedicated to creating positive change, promoting transparency, and building a stronger future for Toronto’s families, businesses, and communities.", url: "https://www.jefferytunney4mayor.com/"}

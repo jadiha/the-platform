@@ -168,7 +168,7 @@
 	.hint { font-size: 13px; color: var(--mute); min-height: 1em; }
 	/* The scene keeps its shape but never grows taller than about half the screen, so the
 	   question, the buildings and the answer all fit without scrolling. */
-	.scene { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1); aspect-ratio: 900 / 380; width: min(100%, calc(50vh * 900 / 380)); margin: 0 auto; }
+	.scene { position: relative; aspect-ratio: 900 / 380; width: min(100%, calc(46vh * 900 / 380)); margin: 0 auto 64px; }
 	.stage { position: relative; width: 100%; height: 100%; }
 	.play { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(240px, 1fr); gap: 16px; align-items: stretch; }
 	.side { display: flex; }
@@ -178,12 +178,14 @@
 	.arow .verdict { margin: 0; }
 	.arow.foot { justify-content: space-between; }
 	.arow.foot .proof { margin: 0; flex: 1; min-width: 160px; }
-	.scene svg { display: block; width: 100%; height: auto; }
+	.scene svg { display: block; width: 100%; height: auto; border-radius: 18px; overflow: hidden; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1); }
 	.bld { transition: filter 0.4s, transform 0.4s; transform-origin: center bottom; transform-box: fill-box; }
 	.bld.chosen { filter: drop-shadow(0 0 14px rgba(255, 214, 102, 1)) brightness(1.08); transform: translateY(-4px); }
-	.pick { position: absolute; top: 14%; bottom: 0; width: 30%; transform: translateX(-50%); background: none; border: 0; cursor: pointer; display: flex; align-items: flex-end; justify-content: center; padding: 0 0 3.5%; }
+	.pick { position: absolute; top: 14%; bottom: -60px; width: 30%; transform: translateX(-50%); background: none; border: 0; cursor: pointer; display: flex; align-items: flex-end; justify-content: center; padding: 0; }
 	.pick:disabled { cursor: default; }
-	.chip { display: flex; flex-direction: column; align-items: center; background: rgba(255, 255, 255, 0.94); border: 2px solid var(--ink); border-radius: 12px; padding: 5px 12px; line-height: 1.1; transition: transform 0.2s, background 0.2s; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); }
+	.chip { display: flex; flex-direction: column; align-items: center; min-width: 120px; background: #fff; border: 1.5px solid var(--rule); border-radius: 12px; padding: 6px 14px; line-height: 1.15; transition: transform 0.2s, background 0.2s, border-color 0.2s; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06); }
+	.pick.city .chip b { color: #2f5d9b; } .pick.province .chip b { color: #b56a1c; } .pick.federal .chip b { color: #3d7a4e; }
+	.pick.correct .chip b { color: #fff; }
 	.chip b { font-size: 15px; }
 	.chip small { font-size: 11px; color: var(--ink-2); }
 	.pick:not(:disabled):hover .chip, .pick:focus-visible .chip { transform: translateY(-4px) scale(1.05); }
@@ -216,6 +218,7 @@
 	.hint { display: none; }
 	@media (max-width: 860px) { .play { grid-template-columns: 1fr; } .waiting { display: none; } .hint { display: block; } }
 	@media (max-width: 600px) {
+		.chip { min-width: 0; padding: 5px 9px; } .chip small { font-size: 10px; } .scene { margin-bottom: 58px; }
 		.scene .answer { position: static; transform: none; width: auto; margin-top: 10px; }
 		.chip { padding: 3px 7px; border-radius: 9px; }
 		.chip b { font-size: 12px; }
