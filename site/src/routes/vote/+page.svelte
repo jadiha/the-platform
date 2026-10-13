@@ -429,16 +429,16 @@
 	.board .lbl { color: #ffd48a; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; }
 	.board .dest { font-size: 32px; text-transform: uppercase; }
 	.board .when { margin-left: auto; }
-	.tiles-wall { background-color: #efe6c8; background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 60%), linear-gradient(#d9cda4 2px, transparent 2px), linear-gradient(90deg, #d9cda4 2px, transparent 2px); background-size: 100% 100%, 90px 45px, 90px 45px; padding: 0 0 40px; text-align: center; }
+	.tiles-wall { background-color: #efe6c8; background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 60%), linear-gradient(#d9cda4 2px, transparent 2px), linear-gradient(90deg, #d9cda4 2px, transparent 2px); background-size: 100% 100%, 90px 45px, 90px 45px; padding: 0 0 30px; text-align: center; }
 	.band { background: #141414; color: #fff; padding: 14px 20px 16px; border-top: 6px solid #b8a46a; border-bottom: 6px solid #b8a46a; }
 	.band h2 { font-family: 'Jost', var(--sans); font-weight: 700; text-transform: uppercase; letter-spacing: 6px; margin: 2px 0 0; font-size: clamp(28px, 5vw, 52px); color: #fff; }
 	.stopno-sub { font-family: 'Jost', var(--sans); font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #b8a46a; }
-	.panels { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 12px; padding: 22px 26px 4px; text-align: left; }
+	.panels { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 14px; padding: 28px 30px 0; text-align: left; }
 	.pnl { background: rgba(255, 255, 255, 0.92); border-radius: 10px; padding: 12px 14px; font-size: 14.5px; line-height: 1.45; display: flex; flex-direction: column; gap: 6px; border: 1px solid #d9cda4; }
 	.pnl b { font-family: 'Jost', var(--sans); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #da251d; }
 	.ballot { display: flex; flex-wrap: wrap; gap: 6px; }
 	.ballot i { font-style: normal; font-weight: 600; font-size: 13px; border: 1.5px solid var(--ink); border-radius: 6px; padding: 2px 9px; }
-	.where { display: inline-block; margin-top: 36px; background: #da251d; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; border-radius: 999px; padding: 12px 26px; box-shadow: 0 6px 16px rgba(218, 37, 29, 0.3); }
+	.where { display: inline-block; margin-top: 30px; background: #da251d; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; border-radius: 999px; padding: 12px 26px; box-shadow: 0 6px 16px rgba(218, 37, 29, 0.3); }
 	@media (max-width: 700px) {
 		.board { font-size: 20px; gap: 6px 12px; padding: 10px 14px; } .board .dest { font-size: 24px; } .board .when { margin-left: 0; }
 		.band h2 { letter-spacing: 3px; }
@@ -454,7 +454,6 @@
 	.wardp a { font-size: 12px; color: var(--mute); }
 	.ballot { display: flex; flex-wrap: wrap; gap: 6px; }
 	.ballot i { font-style: normal; font-weight: 600; font-size: 13px; border: 1.5px solid var(--ink); border-radius: 6px; padding: 2px 9px; }
-	.where { align-self: flex-start; margin-top: 4px; background: var(--ink); color: #fff; text-decoration: none; font-weight: 700; font-size: 15px; border-radius: 999px; padding: 10px 20px; }
 	.more { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 13px; margin: 14px 0 0; }
 	.more a, .how { color: var(--ink-2); }
 	.how { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
