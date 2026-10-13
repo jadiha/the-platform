@@ -7,6 +7,7 @@
 	import LineStreet from '#lib/vote/LineStreet.svelte';
 	import WhoseJob from '#lib/vote/WhoseJob.svelte';
 	import StoryCard from '#lib/vote/StoryCard.svelte';
+	import Scenery from '#lib/vote/Scenery.svelte';
 	import { displayName } from '#lib/vote/links.ts';
 	import { siteData } from '#lib/context.ts';
 	import { formatFact } from '#lib/format.ts';
@@ -28,15 +29,45 @@
 		{ label: 'Also on your ballot', big: true },
 		{ label: 'Last stop: before you vote', big: true }
 	]);
-	let active = $state(0);
+	let section = $state(0);
 	const els: HTMLElement[] = [];
+	const smooth = () => (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth') as ScrollBehavior;
 	function stop(node: HTMLElement, i: number) {
 		els[i] = node;
-		const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && (active = i)), { rootMargin: '-40% 0px -55% 0px' });
+		const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && (section = i)), { rootMargin: '-40% 0px -55% 0px' });
 		io.observe(node);
 		return { destroy: () => io.disconnect() };
 	}
-	const jump = (i: number) => els[i]?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+	// The candidates sit side by side in one row you swipe through, so the page stays short.
+	// While that row is on screen, the streetcar follows the card you're looking at.
+	let rail: HTMLDivElement | undefined = $state();
+	let carIdx = $state(0);
+	let meetEl: HTMLElement | undefined;
+	function meet(node: HTMLElement) {
+		meetEl = node;
+		const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && (section = -1)), { rootMargin: '-40% 0px -55% 0px' });
+		io.observe(node);
+		return { destroy: () => io.disconnect() };
+	}
+	function onRail() {
+		if (!rail) return;
+		const w = (rail.firstElementChild as HTMLElement | null)?.offsetWidth ?? 1;
+		carIdx = Math.max(0, Math.min(withSite.length - 1, Math.round(rail.scrollLeft / (w + 16))));
+	}
+	function slide(d: number) {
+		const el = rail?.children[carIdx + d] as HTMLElement | undefined;
+		if (el && rail) rail.scrollTo({ left: el.offsetLeft - rail.offsetLeft, behavior: smooth() });
+	}
+	const active = $derived(section === -1 ? 2 + carIdx : section);
+	// Scenery behind stops that don't have their own illustration (the quiz has its own city).
+	const scene = $derived(section === -1 ? 2 : section === 1 ? 1 : section === withSite.length + 2 ? 3 : section === withSite.length + 3 ? 4 : -1);
+	function jump(i: number) {
+		if (i >= 2 && i < 2 + withSite.length) {
+			meetEl?.scrollIntoView({ behavior: smooth(), block: 'center' });
+			const el = rail?.children[i - 2] as HTMLElement | undefined;
+			if (el && rail) rail.scrollTo({ left: el.offsetLeft - rail.offsetLeft, behavior: smooth() });
+		} else els[i]?.scrollIntoView({ behavior: smooth(), block: 'start' });
+	}
 
 	// Pins stay in this browser only.
 	let pins = $state<string[]>([]);
@@ -71,6 +102,7 @@
 </svelte:head>
 
 <LineStreet {stops} {active} onjump={jump} />
+<Scenery {scene} />
 
 <section class="hall wrap">
 	<p class="kicker">Toronto votes · Monday, October 26</p>
@@ -83,15 +115,12 @@
 </section>
 
 <section class="stop wide quiz" use:stop={0}>
-	<div class="sign sans"><span class="r">T</span>Start<small>Stop 1</small></div>
-	<h2>Whose job is it?</h2>
-	<p class="lede">The mayor can't fix everything. Guess who decides each of these.</p>
+	<h2 class="head"><span class="stopno sans">Stop 1</span>Whose job is it?</h2>
 	<WhoseJob cards={data.whoseJob} />
 </section>
 
 <section class="stop wrap" use:stop={1}>
-	<div class="sign sans"><span class="r">T</span>City Hall<small>Stop 2</small></div>
-	<h2>Did it change anything?</h2>
+	<h2 class="head"><span class="stopno sans">Stop 2 · City Hall</span>Did it change anything?</h2>
 	<p class="lede">Yes. Here's what the people you elect decided over the last three years, in your money.</p>
 	<div class="bills sans">
 		<div class="bill"><span class="yr">2024</span><span class="amt"><Fact id="toronto.property-tax.2024.avg-bill" /></span><span class="chg">up <Fact id="toronto.property-tax.2024.increase" /> that year</span></div>
@@ -108,8 +137,7 @@
 </section>
 
 <section class="wrap meet">
-	<p class="kicker k3">Meet the candidates</p>
-	<h2>Everyone running for mayor with a campaign website</h2>
+	<h2 class="head"><span class="stopno sans">Meet the candidates</span>Everyone running for mayor with a campaign website</h2>
 	<p class="lede sans">
 		{withSite.length} candidates, in ballot order (alphabetical by last name). Tap through each card: who they are, what they stand for, their numbers, their links.
 		The {without.length} candidates without a website are at the next stop.
@@ -122,25 +150,32 @@
 	</label>
 </section>
 
-{#each withSite as c, i (c.ballot_name)}
-	<section class="cand" use:stop={i + 2}>
-		<div class="sign mini sans"><span class="r">T</span>{displayName(c.ballot_name)}</div>
-		<StoryCard
-			person={c}
-			profile={profileOf(c.ballot_name)}
-			promises={data.promises.filter((p) => p.candidate === c.ballot_name)}
-			index={i + 1}
-			total={withSite.length}
-			sources={data.recordSources}
-			pinned={pins.includes(c.ballot_name)}
-			onpin={() => togglePin(c.ballot_name)}
-		/>
-	</section>
-{/each}
+<section class="wide rail-wrap" use:meet>
+	<div class="rail-nav sans">
+		<button onclick={() => slide(-1)} disabled={carIdx === 0} aria-label="Previous candidate">‹</button>
+		<span>{carIdx + 1} of {withSite.length}</span>
+		<button onclick={() => slide(1)} disabled={carIdx === withSite.length - 1} aria-label="Next candidate">›</button>
+	</div>
+	<div class="rail" bind:this={rail} onscroll={onRail}>
+		{#each withSite as c, i (c.ballot_name)}
+			<div class="slot">
+				<StoryCard
+					person={c}
+					profile={profileOf(c.ballot_name)}
+					promises={data.promises.filter((p) => p.candidate === c.ballot_name)}
+					index={i + 1}
+					total={withSite.length}
+					sources={data.recordSources}
+					pinned={pins.includes(c.ballot_name)}
+					onpin={() => togglePin(c.ballot_name)}
+				/>
+			</div>
+		{/each}
+	</div>
+</section>
 
 <section class="stop wrap" use:stop={withSite.length + 2}>
-	<div class="sign sans"><span class="r">T</span>Also on your ballot</div>
-	<h2>{without.length} more names you'll see</h2>
+	<h2 class="head"><span class="stopno sans">Also on your ballot</span>{without.length} more names you'll see</h2>
 	<p class="lede sans">These candidates didn't list a campaign website with the City. Here's what they did list, and any public record.</p>
 	<ul class="also sans">
 		{#each without as c (c.ballot_name)}
@@ -155,8 +190,7 @@
 </section>
 
 <section class="stop wrap exit" use:stop={withSite.length + 3}>
-	<div class="sign sans"><span class="r">T</span>Last stop<small>Before you vote</small></div>
-	<h2>Before you vote</h2>
+	<h2 class="head"><span class="stopno sans">Last stop</span>Before you vote</h2>
 	{#if pins.length}
 		<div class="mywalk sans"><b>You pinned:</b> {pins.map(displayName).join(' · ')}<br /><span class="hint">Pins stay in this browser. Nothing is sent anywhere.</span></div>
 	{/if}
@@ -179,26 +213,21 @@
 </section>
 
 <style>
-	.hall { margin-top: 40px; }
-	.sign { display: flex; align-items: center; gap: 12px; background: #121212; color: #fff; font-weight: 700; font-size: 22px; letter-spacing: 0.5px; padding: 10px 16px; border-radius: 6px; border-bottom: 6px solid #da251d; margin-bottom: 14px; }
-	.sign .r { flex: none; width: 30px; height: 30px; border-radius: 50%; background: #da251d; display: grid; place-items: center; font-size: 16px; }
-	.sign small { margin-left: auto; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; color: #bbb; text-transform: uppercase; }
-	.sign.mini { max-width: 460px; margin: 0 auto 10px; font-size: 16px; padding: 7px 12px; border-bottom-width: 4px; }
-	.sign.mini .r { width: 22px; height: 22px; font-size: 12px; }
+	.hall { margin-top: 28px; }
+	.head { display: flex; flex-direction: column; gap: 2px; }
+	.stopno { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #da251d; }
+
 	.kicker { color: #2f5d9b; }
-	.k3 { color: #4a8c5c; }
 	h1 { font-size: clamp(34px, 6vw, 52px); line-height: 1.04; margin: 10px 0 14px; letter-spacing: -1px; }
 	h1 span { color: #2f5d9b; }
 	h2 { font-size: clamp(28px, 4.5vw, 38px); margin: 6px 0 6px; letter-spacing: -0.5px; }
 	.dek { font-size: 20px; line-height: 1.45; color: var(--ink-2); margin: 0; }
 	.lede { font-size: 17px; color: var(--ink-2); margin: 0 0 6px; }
 	.proofnote { font-size: 13px; color: var(--mute); margin: 12px 0 0; }
-	.stop { padding-top: 56px; scroll-margin-top: 130px; }
-	.quiz h2 { font-size: clamp(24px, 3.5vw, 30px); margin: 0; }
-	.quiz .lede { font-size: 15px; }
-	.quiz .sign { margin-bottom: 8px; }
-	@media (max-width: 600px) { .quiz .lede { display: none; } .quiz { padding-top: 32px; } }
-	.meet { padding-top: 56px; }
+	.stop { padding-top: 40px; scroll-margin-top: 130px; }
+	.quiz h2 { font-size: clamp(24px, 3.5vw, 30px); margin: 0 0 4px; }
+	@media (max-width: 600px) { .quiz { padding-top: 28px; } }
+	.meet { padding-top: 40px; }
 	.bills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0 6px; }
 	.bill { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 2px; border-top: 5px solid #d9822b; }
 	.yr { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; color: var(--mute); }
@@ -208,7 +237,13 @@
 	.facts2 { display: grid; gap: 8px; font-size: 14px; background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 14px; margin-bottom: 12px; }
 	.jump { display: flex; gap: 8px; align-items: center; font-size: 14px; margin: 12px 0 0; }
 	.jump select { font: inherit; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--ink); background: #fff; max-width: 60vw; }
-	.cand { padding: 28px 16px; scroll-margin-top: 110px; }
+	.rail-wrap { margin-top: 14px; }
+	.rail { display: grid; grid-auto-flow: column; grid-auto-columns: min(400px, 86vw); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px 4px 18px; scrollbar-width: thin; }
+	.slot { scroll-snap-align: start; }
+	.slot :global(.card) { max-width: none; height: 100%; }
+	.rail-nav { display: flex; align-items: center; justify-content: flex-end; gap: 10px; font-size: 13px; color: var(--mute); }
+	.rail-nav button { font: inherit; font-size: 20px; width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid var(--ink); background: #fff; cursor: pointer; }
+	.rail-nav button:disabled { opacity: 0.3; cursor: default; }
 	.also { list-style: none; padding: 0; margin: 12px 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; font-size: 13px; }
 	.also li { background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 10px; display: flex; flex-direction: column; gap: 3px; overflow-wrap: anywhere; }
 	.also b { font-size: 15px; }
@@ -230,6 +265,5 @@
 	@media (max-width: 600px) {
 		.bills { grid-template-columns: 1fr; }
 		.amt { font-size: 26px; }
-		.cand { padding: 20px 10px; }
 	}
 </style>

@@ -30,7 +30,7 @@
 </svelte:head>
 
 <div class="election sans" role="note">
-	Toronto votes <strong>Monday, Oct 26, 2026</strong>. Council and school-trustee info on this site is as of Oct 12 and will be updated after the results.
+	Toronto votes <strong>Monday, Oct 26, 2026</strong>.
 </div>
 
 <header class="masthead">

@@ -222,9 +222,9 @@
 	.cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0 18px; }
 	.col ul { padding-left: 16px; margin: 8px 0 0; font-size: 13px; line-height: 1.4; }
 	.col .badge { font-size: 12px; }
-	@media (max-width: 860px) { .play { grid-template-columns: 1fr; } .waiting { display: none; } }
+	.hint { display: none; }
+	@media (max-width: 860px) { .play { grid-template-columns: 1fr; } .waiting { display: none; } .hint { display: block; } }
 	@media (max-width: 600px) {
-		.hint { display: none; }
 		.scene .answer { position: static; transform: none; width: auto; margin-top: 10px; }
 		.chip { padding: 3px 7px; border-radius: 9px; }
 		.chip b { font-size: 12px; }
