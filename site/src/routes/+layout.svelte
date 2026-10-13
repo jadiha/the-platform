@@ -11,9 +11,7 @@
 
 	const nav = [
 		['/vote/', '2026 Election'],
-		['/', 'The walk'],
 		['/explore/budget/', 'Explore the budget'],
-		['/people/', "Who's responsible"],
 		['/glossary/', 'Glossary'],
 		['/sources/', 'Sources']
 	];
@@ -34,7 +32,7 @@
 </div>
 
 <header class="masthead">
-	<a class="name" href="/">Follow the Budget</a>
+	<a class="name" href="/vote/">Follow the Budget</a>
 	<nav class="sans" aria-label="Main">
 		{#each nav as [href, label]}
 			<a {href} aria-current={page.url.pathname === href ? 'page' : undefined}>{label}</a>

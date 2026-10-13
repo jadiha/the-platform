@@ -49,7 +49,24 @@
 	const jump = go;
 	const active = $derived(step);
 	// Scenery behind stops that don't have their own illustration (the quiz has its own city).
-	const scene = $derived([0, -1, 1, 2, 3, 4][step] ?? -1);
+	const scene = $derived([0, -1, -1, -1, -1, 4][step] ?? -1);
+
+	// City Hall stop: numbers for the charts come from the fact registry (each tap shows proof).
+	const num = (id: string) => Number(facts[id]?.value ?? 0);
+	const billYears = [
+		{ year: 2024, bill: 'toronto.property-tax.2024.avg-bill', inc: 'toronto.property-tax.2024.increase' },
+		{ year: 2025, bill: 'toronto.property-tax.2025.avg-bill', inc: 'toronto.property-tax.2025.increase' },
+		{ year: 2026, bill: 'toronto.property-tax.2026.avg-bill', inc: 'toronto.property-tax.2026.increase' }
+	].map((y) => ({ ...y, v: num(y.bill) }));
+	const billMax = Math.max(...billYears.map((y) => y.v));
+	const billMin = Math.min(...billYears.map((y) => y.v));
+	const bigBudgets = [
+		{ id: 'toronto.ttc.2026.gross', label: 'TTC', color: '#2f5d9b' },
+		{ id: 'toronto.police.2026.gross', label: 'Police', color: '#7a5c99' },
+		{ id: 'toronto.shelter.2026.gross', label: 'Shelters', color: '#4a8c5c' },
+		{ id: 'toronto.transportation.2026.gross', label: 'Roads & traffic', color: '#3f7f74' }
+	].map((b) => ({ ...b, v: num(b.id) }));
+	const bigMax = Math.max(...bigBudgets.map((b) => b.v));
 
 	// Every candidate is a tile; tapping one opens their full story card on top of the page.
 	let open = $state<number | null>(null);
@@ -127,21 +144,43 @@
 	<WhoseJob cards={data.whoseJob} />
 </section>
 {:else if step === 2}
-<section class="stop wrap">
+<section class="stop wide cityhall">
 	<h2 class="head"><span class="stopno sans">Stop 2 · City Hall</span>Did it change anything?</h2>
-	<p class="lede">Yes. Here's what the people you elect decided over the last three years, in your money.</p>
-	<div class="bills sans">
-		<div class="bill"><span class="yr">2024</span><span class="amt"><Fact id="toronto.property-tax.2024.avg-bill" /></span><span class="chg">up <Fact id="toronto.property-tax.2024.increase" /> that year</span></div>
-		<div class="bill"><span class="yr">2025</span><span class="amt"><Fact id="toronto.property-tax.2025.avg-bill" /></span><span class="chg">up <Fact id="toronto.property-tax.2025.increase" /></span></div>
-		<div class="bill"><span class="yr">2026</span><span class="amt"><Fact id="toronto.property-tax.2026.avg-bill" /></span><span class="chg">up <Fact id="toronto.property-tax.2026.increase" /></span></div>
+	<p class="lede">Yes. The mayor and council set your tax bill and the City's biggest budgets every year. The mayor you choose leads these decisions for the next four years.</p>
+	<div class="charts sans">
+		<figure class="chart">
+			<figcaption>The City tax bill on an average Toronto home</figcaption>
+			<div class="stairs">
+				{#each billYears as y, i (y.year)}
+					<div class="step">
+						<span class="val"><Fact id={y.bill} /></span>
+						{#if i > 0}<span class="jump">+${(y.v - billYears[i - 1].v).toLocaleString('en-CA')}</span>{/if}
+						<div class="bar" style="height:{16 + ((y.v - billMin) / (billMax - billMin)) * 64}px"></div>
+						<span class="yr">{y.year}</span>
+						<span class="pc">up <Fact id={y.inc} plain /></span>
+					</div>
+				{/each}
+			</div>
+			<p class="note">Renters pay it too, inside their rent. Bars don't start at zero.</p>
+		</figure>
+		<figure class="chart">
+			<figcaption>Where the biggest City budgets go, 2026</figcaption>
+			<ul class="hbars">
+				{#each bigBudgets as b (b.id)}
+					<li>
+						<span class="lbl">{b.label}</span>
+						<div class="track"><div class="fill" style="width:{(b.v / bigMax) * 100}%;background:{b.color}"></div></div>
+						<span class="val"><Fact id={b.id} short /></span>
+					</li>
+				{/each}
+			</ul>
+			<p class="note">Tap any number for its proof.</p>
+		</figure>
 	</div>
-	<p class="cap sans">The City's property tax bill for an average Toronto home. Renters pay it too, inside their rent. Tap any number for its proof.</p>
-	<div class="facts2 sans">
-		<div><b>TTC fares:</b> <Fact id="toronto.ttc.fares.2026" />. <SourceLine id="toronto.ttc.fares.2026" /></div>
-		<div><b>Fare cap:</b> since September, after <Fact id="toronto.ttc.fare-cap.2026" /> paid trips in a month, the rest of the month is free. <SourceLine id="toronto.ttc.fare-cap.2026" /></div>
-		<div><b>Police:</b> <Fact id="toronto.police.2026.gross" /> this year. <b>Shelters:</b> <Fact id="toronto.shelter.2026.gross" />. <b>TTC:</b> <Fact id="toronto.ttc.2026.gross" />. <b>Roads and traffic:</b> <Fact id="toronto.transportation.2026.gross" />.</div>
+	<div class="decisions sans">
+		<div><span class="tag">Decided</span> TTC fares <Fact id="toronto.ttc.fares.2026" plain /> <a href={facts['toronto.ttc.fares.2026']?.primary.url} target="_blank" rel="noopener">proof ↗</a></div>
+		<div><span class="tag">Decided</span> Free after <Fact id="toronto.ttc.fare-cap.2026" plain /> paid TTC trips a month <a href={facts['toronto.ttc.fare-cap.2026']?.primary.url} target="_blank" rel="noopener">proof ↗</a></div>
 	</div>
-	<p class="lede">The mayor you choose on October 26 leads these decisions for the next four years.</p>
 </section>
 {:else if step === 3}
 <section class="wide meet">
@@ -181,27 +220,37 @@
 	<p class="src sans"><a href={data.official?.source.url} target="_blank" rel="noopener">Proof: the City Clerk's certified list of candidates ↗</a></p>
 </section>
 {:else}
-<section class="stop wrap exit">
+<section class="stop wide exit">
 	<h2 class="head"><span class="stopno sans">Stop 5 · Last stop</span>Before you vote</h2>
 	{#if pins.length}
 		<div class="mywalk sans"><b>You pinned:</b> {pins.map(displayName).join(' · ')}<br /><span class="hint">Pins stay in this browser. Nothing is sent anywhere.</span></div>
 	{/if}
-	<ul class="checklist sans">
-		<li><b>When:</b> Monday, October 26, 10 a.m. to 8 p.m.</li>
-		<li><b>Who can vote:</b> Canadian citizens, 18 or older, who live in Toronto or own or rent property here. Students: vote in your home ward.</li>
-		<li><b>Bring:</b> one piece of ID with your name and Toronto address.</li>
-	</ul>
-	<div class="cta sans">
-		<a href="https://www.toronto.ca/city-government/elections/" target="_blank" rel="noopener">Where and when to vote (City of Toronto) ↗</a>
-		<a href="https://www.toronto.ca/city-government/elections/voter-information/who-can-vote/" target="_blank" rel="noopener">Who can vote ↗</a>
-		<a href="/vote/mayor/">All {mayor.length} candidates on one page</a>
+	<div class="vote3 sans">
+		<div><b>When</b>Monday, October 26, 10 a.m. to 8 p.m.</div>
+		<div><b>Who</b>Canadian citizens, 18+, living in Toronto (or owning or renting property here). Students: your home ward.</div>
+		<div><b>Bring</b>One ID with your name and Toronto address.</div>
 	</div>
-	<p class="next sans"><b>Next stop: Scarborough.</b> Your ward's councillor and school trustee candidates, who they are and what they stand for. Coming this week.</p>
-	<button class="share sans" onclick={share}>Share the walk</button> <span class="hint sans">{shared}</span>
-	<p class="method sans">
-		How we made this: on {data.scan?.date ?? 'October 13'}, we read every mayoral campaign website on the City Clerk's certified candidate list. Quotes are copied word for word and link to the exact sentence on the candidate's own site, with a saved copy. Past results come from the City's official declaration. We don't use news reports or opponents' claims, and we don't predict what any promise would do.
+	<div class="cta sans">
+		<a href="https://www.toronto.ca/city-government/elections/" target="_blank" rel="noopener">Where to vote ↗</a>
+		<a href="https://www.toronto.ca/city-government/elections/voter-information/who-can-vote/" target="_blank" rel="noopener">Who can vote ↗</a>
+		<a href="/vote/mayor/">All {mayor.length} mayoral candidates</a>
+	</div>
+	<h3 class="wardh">Next stop: your ward</h3>
+	<p class="wardp sans">You also vote for a city councillor. Pick your ward to see who's running.
+		<a href="https://www.toronto.ca/city-government/data-research-maps/neighbourhoods-communities/ward-profiles/" target="_blank" rel="noopener">Not sure of your ward? ↗</a></p>
+	<ul class="wards sans">
+		{#each data.wards as w (w.ward)}
+			<li>
+				<a href="https://www.toronto.ca/city-government/elections/candidate-list/#tabCouncillor" target="_blank" rel="noopener" class:sc={w.scarborough}>
+					<b>{w.ward}</b><span>{w.name}</span>{#if w.scarborough}<em>full guide coming</em>{/if}
+				</a>
+			</li>
+		{/each}
+	</ul>
+	<details class="method sans"><summary>How we made this</summary>
+		On {data.scan?.date ?? 'October 13'}, we read every mayoral campaign website on the City Clerk's certified candidate list. Quotes are copied word for word and link to the exact sentence on the candidate's own site, with a saved copy. Past results come from the City's official declaration. We don't use news reports or opponents' claims, and we don't predict what any promise would do.
 		Spotted a mistake? <a href="/sources/#corrections">Tell us</a>.
-	</p>
+	</details>
 </section>
 {/if}
 </div>
@@ -241,7 +290,8 @@
 	{#if step < stops.length - 1}
 		<button class="fwd" onclick={() => go(step + 1)}>Next stop<span class="full">: {stops[step + 1].label.split(': ')[1]}</span> →</button>
 	{:else}
-		<button class="fwd" onclick={() => go(0)}>Ride again ↺</button>
+		<span class="hint">{shared}</span>
+		<button class="fwd" onclick={share}>Share the ride ↗</button>
 	{/if}
 </nav>
 {/if}
@@ -273,13 +323,26 @@
 	@media (max-width: 600px) { .quiz { padding-top: 20px; } .stepnav .where { display: none; } .stepnav { justify-content: space-between; } .hall { margin-top: 4vh; } }
 	@media (prefers-reduced-motion: reduce) { .screenwrap { animation: none; } }
 	.meet { padding-top: 32px; }
-	.bills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0 6px; }
-	.bill { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 2px; border-top: 5px solid #d9822b; }
-	.yr { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; color: var(--mute); }
-	.amt { font-family: var(--serif); font-size: 30px; font-weight: 700; }
-	.chg { font-size: 13px; color: var(--ink-2); }
-	.cap { font-size: 12.5px; color: var(--mute); margin: 0 0 14px; }
-	.facts2 { display: grid; gap: 8px; font-size: 14px; background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 14px; margin-bottom: 12px; }
+	.charts { display: grid; grid-template-columns: 1fr 1.2fr; gap: 14px; margin: 16px 0 10px; }
+	.chart { margin: 0; background: #fff; border: 1px solid var(--rule); border-radius: 16px; padding: 14px 16px 10px; }
+	figcaption { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+	.stairs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: end; }
+	.step { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
+	.step .bar { width: 70%; background: linear-gradient(#e89a4e, #d9822b); border-radius: 8px 8px 0 0; min-height: 8px; }
+	.step .val { font-family: var(--serif); font-weight: 700; font-size: 20px; margin-bottom: 4px; }
+	.step .jump { font-size: 11px; font-weight: 700; color: #a65d14; background: #fbefe2; border-radius: 999px; padding: 1px 7px; margin-bottom: 4px; }
+	.step .yr { font-size: 12px; font-weight: 700; margin-top: 6px; }
+	.step .pc { font-size: 11px; color: var(--mute); }
+	.hbars { list-style: none; padding: 0; margin: 4px 0 0; display: grid; gap: 12px; }
+	.hbars li { display: grid; grid-template-columns: 110px 1fr 64px; align-items: center; gap: 10px; font-size: 13px; }
+	.hbars .lbl { font-weight: 600; }
+	.hbars .track { height: 22px; background: #f1eee7; border-radius: 6px; overflow: hidden; }
+	.hbars .fill { height: 100%; border-radius: 6px; }
+	.hbars .val { text-align: right; font-weight: 700; }
+	.note { font-size: 11.5px; color: var(--mute); margin: 10px 0 0; }
+	.decisions { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; margin-bottom: 12px; }
+	.decisions a { font-size: 11.5px; color: var(--mute); margin-left: 4px; }
+	.decisions .tag { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: var(--ink); color: #fff; border-radius: 4px; padding: 2px 6px; margin-right: 6px; }
 	.legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--mute); margin: 10px 0 12px; }
 	.legend i, .dots i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 4px; vertical-align: 0; }
 	.tiles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
@@ -308,20 +371,31 @@
 	.also .meta a, .also .none { color: var(--mute); }
 	.src { font-size: 12px; }
 	.exit { padding-bottom: 60px; }
-	.checklist { font-size: 15px; line-height: 1.5; padding-left: 18px; }
 	.mywalk { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 12px 14px; font-size: 14px; margin: 10px 0; }
 	.cta { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0; }
 	.cta a { font-size: 14px; font-weight: 600; border: 1.5px solid; border-radius: 999px; padding: 10px 16px; text-decoration: none; }
 	.cta a:nth-child(1) { background: #2f5d9b; border-color: #2f5d9b; color: #fff; }
 	.cta a:nth-child(2) { border-color: #d9822b; color: #a65d14; }
 	.cta a:nth-child(3) { border-color: #4a8c5c; color: #356b45; }
-	.next { font-size: 15px; background: #e7f1ea; border-radius: 12px; padding: 12px 14px; }
-	.share { font: inherit; font-weight: 600; font-size: 14px; background: var(--ink); color: #fff; border: 0; border-radius: 999px; padding: 10px 18px; cursor: pointer; }
+	.vote3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; font-size: 14px; line-height: 1.4; }
+	.vote3 div { background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 10px 12px; }
+	.vote3 b { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #da251d; margin-bottom: 2px; }
+	.wardh { font-size: 22px; margin: 12px 0 2px; }
+	.wardp { font-size: 14px; color: var(--ink-2); margin: 0 0 8px; }
+	.wardp a { font-size: 12px; color: var(--mute); }
+	.wards { list-style: none; padding: 0; margin: 0 0 14px; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
+	.wards a { display: grid; grid-template-columns: 26px 1fr; align-items: center; column-gap: 6px; text-decoration: none; color: var(--ink); background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 5px 8px; font-size: 12px; line-height: 1.2; height: 100%; }
+	.wards a:hover { border-color: var(--ink); }
+	.wards b { font-size: 15px; grid-row: 1 / 3; }
+	.wards em { font-style: normal; font-size: 10px; color: #da251d; font-weight: 600; }
+	.method summary { cursor: pointer; }
 	.hint { font-size: 12px; color: var(--mute); }
 	.method { font-size: 12.5px; color: var(--mute); margin-top: 24px; line-height: 1.5; }
 	@media (max-width: 600px) {
+		.vote3 { grid-template-columns: 1fr; }
+		.wards { grid-template-columns: 1fr 1fr; }
 		.stepnav .full { display: none; }
-		.bill { padding: 10px 8px; }
-		.amt { font-size: 20px; }
+		.charts { grid-template-columns: 1fr; }
+		.hbars li { grid-template-columns: 84px 1fr 54px; }
 	}
 </style>
