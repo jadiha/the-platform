@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-	<title>Who's responsible · Follow the Budget</title>
+	<title>Who's responsible · Next Stop: Ballot</title>
 	<meta name="description" content="The people who decide how Scarborough's public money is spent, with their recorded votes and public statements." />
 </svelte:head>
 
