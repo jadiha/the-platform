@@ -14,7 +14,7 @@ scan:
   method: "Read every campaign website listed on the City Clerk's certified candidate list (up to 14 pages each: home, platform, issue and news pages). Social media accounts were not read."
   no_website: [Abdulkadir, Buffey, Choy, Clarke, Cruze, Dorville, Ellis, Fraser, Hall, Handjis, He, Lee, Levermany, Mayanja, Mercieca, Osuji, Prokos, Tong, Weenen, "Yohannes, Henoke", "Yohannes, Leila", Zandkarimi]
   social_only: ["Chow, Braeden", Desai, Frederick, Gong, Kaaki, Sayers]
-  unreadable: ["Brown, Darrell"]   # electdarrellbrown.ca returned an empty page on 2026-10-13; re-check
+  unreadable: []   # electdarrellbrown.ca blocks non-browser requests; read with browser headers on 2026-10-13 (no numeric promises)
 
 promises:
   # ---- Your tax bill ----
