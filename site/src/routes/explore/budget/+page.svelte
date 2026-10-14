@@ -228,8 +228,10 @@
 										onclick={() => open(n, true)}
 										onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(n, true); } }}
 										onmouseenter={() => (hot = k)} onfocus={() => (hot = k)} onblur={() => (hot = null)}
+										style="--rc:{r.color}"
 									>
-										<rect x="718" y={r.y + r.h / 2 - Math.min(14, r.h / 2 + 2)} width={r.label.length * 7.6 + 74} height={Math.min(28, r.h + 4)} rx={Math.min(14, r.h / 2 + 2)} class="pill" />
+										<!-- No visible bubble: an invisible strip makes the whole label easy to tap. -->
+										<rect x="700" y={r.y + r.h / 2 - 12} width={r.label.length * 7.6 + 90} height="24" class="hit" />
 										<rect x="700" y={r.y} width="12" height={r.h} rx="3" fill={r.color} />
 										<text x="730" y={r.y + r.h / 2} class="lbl" dominant-baseline="middle">{r.label}<tspan class="amt" dx="6">{r.per}¢</tspan><tspan class="arrow" dx="6">›</tspan></text>
 									</g>
@@ -345,12 +347,12 @@
 	.chart svg:has(.on) .src:not(.on) .lbl, .chart svg:has(.on) .out:not(.on) .lbl { opacity: 0.4; }
 	.chart .src, .chart .out { cursor: pointer; }
 	.chart .out.still { cursor: default; }
-	.chart .pill { fill: #f4f1ea; stroke: #e2ddd2; transition: fill 0.15s; }
-	.chart .out.on .pill { fill: #1f2a37; stroke: #1f2a37; }
-	.chart .out.on .lbl, .chart .out.on .amt, .chart .out.on .arrow { fill: #fff; }
-	.chart .out.still.on .lbl, .chart .out.still.on .amt { fill: var(--ink); }
+	/* Plain labels: the one you point at goes bold, and its arrow takes the stream's colour. */
+	.chart .hit { fill: transparent; }
+	.chart .out.on .lbl { font-weight: 700; }
+	.chart .out.on .arrow { fill: var(--rc); }
 	.chart .out:focus { outline: none; }
-	.chart .out:focus-visible .pill { stroke: #da251d; stroke-width: 2.5; }
+	.chart .out:focus-visible .lbl { text-decoration: underline; }
 	.chart .arrow { font-size: 16px; font-weight: 700; fill: var(--ink-2); }
 	.chart .rib { transition: opacity 0.2s; }
 	.chart .flowing, .readout { pointer-events: none; }
