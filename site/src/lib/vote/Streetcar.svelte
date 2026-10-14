@@ -1,16 +1,10 @@
 <script lang="ts">
-	// A TTC Flexity streetcar, drawn simply: red body, black window band, grey skirt, and the
-	// pantograph on the roof that reaches up to the overhead wire (y = 0). Faces right.
+	// A TTC Flexity streetcar, drawn simply: red body, black window band, grey skirt. Faces right.
+	// No pantograph: the ride bar has no overhead wire for it to reach.
 	let { width = 100 }: { width?: number } = $props();
 </script>
 
-<svg viewBox="0 0 200 70" {width} aria-hidden="true" class="car">
-	<!-- Pantograph: a folded arm from the roof up to the wire. -->
-	<g stroke="#1b1f24" stroke-width="2" fill="none" stroke-linejoin="round">
-		<path d="M88 26 L104 12 L92 1" />
-		<path d="M84 1 L100 1" stroke-width="2.5" />
-	</g>
-	<rect x="80" y="23" width="28" height="4" rx="1" fill="#1b1f24" />
+<svg viewBox="0 26 200 44" {width} aria-hidden="true" class="car">
 	<!-- Body: three sections with a rounded nose on the right. -->
 	<path d="M4 64 L4 32 Q4 27 10 27 L178 27 Q194 27 197 44 L197 64 Z" fill="#da251d" stroke="#8f1712" stroke-width="1.2" />
 	<path d="M10 33 L176 33 Q188 33 191 46 L10 46 Z" fill="#1b1f24" />
