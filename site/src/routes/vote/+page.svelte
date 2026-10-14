@@ -243,7 +243,7 @@
 					<span class="pline">{firstLine(b)}{pr?.note ? ' · ended campaign' : ''}</span>
 					{#if topicsOf(b).length}<span class="ptopics">Talks about: {#each topicsOf(b) as t (t)}<span class="chip" style="--tc:{TOPIC_COLOR[t]}">{TOPIC[t]}</span>{/each}</span>{/if}
 					{#if pr?.priorities?.[0] && !pr.withheld}<q>{pr.priorities[0].text}</q><span class="pnote">First priority on their site</span>{/if}
-					{#if idx >= 0}<button class="more" onclick={() => (open = idx)}>Read their full card →</button>{/if}
+					{#if idx >= 0}<button class="pmore" onclick={() => (open = idx)}>Read their full card →</button>{/if}
 				</div>
 			{/each}
 		</div>
@@ -460,7 +460,7 @@
 	.chip { font-size: 11.5px; font-weight: 600; color: #fff; background: var(--tc); border-radius: 999px; padding: 1px 8px; }
 	.pcard q { font-family: var(--serif); font-size: 14.5px; line-height: 1.45; color: var(--ink); }
 	.pnote { font-size: 11px; color: var(--mute); margin-top: -4px; }
-	.more { align-self: flex-start; font: inherit; font-size: 13px; font-weight: 600; background: none; border: 0; padding: 2px 0; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; margin-top: auto; }
+	.pmore { align-self: flex-start; font: inherit; font-size: 13px; font-weight: 600; background: none; border: 0; padding: 2px 0; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; margin-top: auto; }
 	.pindiv { border: 0; border-top: 1px solid var(--rule); margin: 18px 0 14px; }
 	.pinfull { font-size: 13px; color: #b5631a; margin: 0 0 8px; }
 	@media (max-width: 600px) { .pinned { grid-template-columns: 1fr; gap: 8px; } .pcard { padding: 10px 12px; } }
