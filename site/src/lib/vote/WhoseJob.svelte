@@ -1,4 +1,6 @@
 <script lang="ts">
+	// Lower-case the first letter mid-sentence, but keep acronyms like TTC.
+	const lc = (t: string) => (/^[A-Z][A-Z]/.test(t) ? t : t[0].toLowerCase() + t.slice(1));
 	// "Whose job is it?": tap the building that decides it (City Hall, Queen's Park or Parliament
 	// Hill). The right postcard lights up, and the answer with its proof appears beside them.
 	import { siteData } from '#lib/context.ts';
@@ -92,7 +94,7 @@
 
 	{#if !finished}
 		<p class="ask">
-			<span class="thing">Who decides {card.thing[0].toLowerCase() + card.thing.slice(1)}?</span>
+			<span class="thing">Who decides {lc(card.thing)}?</span>
 			<span class="hint">{pick ? '' : 'Tap the building that decides it.'}</span>
 		</p>
 
