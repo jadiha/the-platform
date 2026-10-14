@@ -52,6 +52,8 @@
 		})
 		.sort((a, b) => a.ward - b.ward);
 
+	// Hover previews a ward with a mouse or keyboard only. On a phone a tap would "hover" first,
+	// open the sheet over the finger and swallow the tap, so touch goes straight to picking.
 	let hover = $state<number | null>(null);
 	let picked = $state<number | null>(null);
 	const shown = $derived(shapes.find((s) => s.ward === (hover ?? picked)));
@@ -69,9 +71,9 @@
 				role="button"
 				tabindex="0"
 				aria-label="Ward {s.ward} {s.name}"
-				onmouseenter={() => (hover = s.ward)}
-				onmouseleave={() => (hover = null)}
-				onfocus={() => (hover = s.ward)}
+				onpointerenter={(e) => e.pointerType === 'mouse' && (hover = s.ward)}
+				onpointerleave={(e) => e.pointerType === 'mouse' && (hover = null)}
+				onfocus={(e) => e.currentTarget.matches(':focus-visible') && (hover = s.ward)}
 				onblur={() => (hover = null)}
 				onclick={() => (picked = s.ward)}
 				onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), (picked = s.ward))}
