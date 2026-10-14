@@ -185,15 +185,15 @@
 		</figure>
 	</div>
 	<div class="who sans">
-		<div class="why"><b>Why it went up</b>
+		<div class="why tax-accent"><b>Why it went up</b>
 			<ul>
-				<li><span>The gap:</span> going into 2024, the City needed <Fact id="toronto.budget.2024.opening-gap" /> more than it had, mostly for shelter space (including for refugee claimants) and because TTC fare revenue was down.</li>
-				<li><span>The fix:</span> it found <Fact id="toronto.budget.2024.savings" /> in savings and offsets, and raised property taxes for much of the rest.</li>
+				<li><span>The gap:</span> going into 2024, the City needed <Fact id="toronto.budget.2024.opening-gap" /> more than it had, mostly for <span class="k shelter">shelter space</span> (including for refugee claimants) and because <span class="k ttc">TTC fare revenue</span> was down.</li>
+				<li><span>The fix:</span> it found <Fact id="toronto.budget.2024.savings" /> in savings and offsets, and raised <span class="k tax">property taxes</span> for much of the rest.</li>
 				<li><span>Every year:</span> part of the increase is a <Fact id="toronto.city-building-levy.2024" plain /> City Building Fund levy, set aside for transit and housing.</li>
 				<li><span>Who decides:</span> the mayor proposes each budget, and City Council votes on it. <a href={facts['toronto.budget.2024.opening-gap']?.primary.url} target="_blank" rel="noopener">proof ↗</a></li>
 			</ul>
 		</div>
-		<p><b>Your TTC fare</b> Fares are <Fact id="toronto.ttc.fares.2026" plain />, and rides are free after <Fact id="toronto.ttc.fare-cap.2026" plain /> paid trips in a month. <a href={facts['toronto.ttc.fares.2026']?.primary.url} target="_blank" rel="noopener">proof ↗</a></p>
+		<p class="ttc-accent"><b>Your TTC fare</b> Fares are <Fact id="toronto.ttc.fares.2026" plain />, and rides are free after <Fact id="toronto.ttc.fare-cap.2026" plain /> paid trips in a month. <a href={facts['toronto.ttc.fares.2026']?.primary.url} target="_blank" rel="noopener">proof ↗</a></p>
 	</div>
 </section>
 {:else if step === 3}
@@ -353,6 +353,15 @@
 	.who .why { font-size: 13.5px; line-height: 1.4; color: var(--ink-2); background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 10px 14px; }
 	.why ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
 	.why li span { font-weight: 700; color: var(--ink); }
+	/* Same colour for the same topic everywhere on this stop: tax orange, TTC blue, shelters green. */
+	.why .k { font-weight: 600; border-bottom: 2px solid; }
+	.why .k.tax { color: #a65d14; border-color: #d9822b; }
+	.why .k.ttc { color: #2f5d9b; border-color: #2f5d9b; }
+	.why .k.shelter { color: #356b45; border-color: #4a8c5c; }
+	.who .tax-accent { border-left: 5px solid #d9822b; }
+	.who .tax-accent > b { color: #a65d14; }
+	.who .ttc-accent { border-left: 5px solid #2f5d9b; }
+	.who .ttc-accent b { color: #2f5d9b; }
 	.who p { margin: 0; font-size: 14px; line-height: 1.45; color: var(--ink-2); background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 10px 14px; }
 	.who b, .why > b { display: block; font-size: 10.5px; letter-spacing: 1.4px; text-transform: uppercase; color: #da251d; margin-bottom: 2px; }
 	.who a { font-size: 12px; color: var(--mute); margin-left: 4px; }
