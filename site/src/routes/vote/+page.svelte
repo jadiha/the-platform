@@ -291,7 +291,7 @@
 <nav class="stepnav wide sans" aria-label="Move along the ride">
 	<button class="back" onclick={() => go(step - 1)}>‹ Back</button>
 	{#if step < stops.length - 1}
-		<button class="fwd" onclick={() => go(step + 1)}>Next stop: {stops[step + 1].label.split(': ')[1]} <span aria-hidden="true">→</span></button>
+		<button class="fwd" onclick={() => go(step + 1)}>Next stop<span class="dest">: {stops[step + 1].label.split(': ')[1]}</span> <span aria-hidden="true">→</span></button>
 	{:else}
 		<button class="fwd" onclick={share}>{shared || 'Share the ride ↗'}</button>
 	{/if}
@@ -411,13 +411,14 @@
 	.sheet :global(.card) { max-width: none; }
 	@media (max-width: 900px) { .tiles { grid-template-columns: repeat(4, 1fr); } }
 	@media (max-width: 600px) {
-		.tiles { grid-template-columns: repeat(5, 1fr); gap: 6px; }
-		.tile { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: 8px 2px; row-gap: 4px; }
+		/* Three per row on phones, so names have room and nothing touches the card edge. */
+		.tiles { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+		.tile { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: 12px 6px; row-gap: 5px; }
 		.ini { grid-row: auto; width: 32px; height: 32px; font-size: 12px; }
-		.nm { font-size: 11px; max-width: 100%; }
+		.nm { font-size: 13px; max-width: 100%; }
 		.nm .full { display: none; } .nm .ln { display: inline; }
 		.sub { font-size: 0; justify-content: center; }
-		.meet .legend { gap: 8px; font-size: 11px; margin: 4px 0 10px; }
+		.meet .legend { gap: 6px 12px; font-size: 12px; margin: 6px 0 14px; }
 		.legend .what { flex-basis: 100%; }
 		.meet h2 { font-size: 24px; }
 	}
@@ -428,7 +429,7 @@
 	.also b { font-size: 14.5px; line-height: 1.3; }
 	.also .meta { display: flex; flex-wrap: wrap; gap: 0 7px; font-size: 12px; }
 	@media (max-width: 860px) { .also { columns: 2; } }
-	@media (max-width: 600px) { .also { columns: 2; column-gap: 14px; } .also b { font-size: 13px; } .also .meta { font-size: 11px; } }
+	@media (max-width: 600px) { .also { columns: 1; } .also li { padding: 10px 0; } .also b { font-size: 15px; } .also .meta { font-size: 12.5px; } }
 	.also .meta a, .also .none { color: var(--mute); }
 	.src { font-size: 12px; margin: 16px 0 0; }
 	.exit { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; padding-top: 18px; }
@@ -440,7 +441,7 @@
 	.track { position: relative; height: 104px; background: linear-gradient(#3b3f45, #23262a); overflow: hidden; }
 	.edge { height: 12px; background: repeating-linear-gradient(90deg, #f2c230 0 14px, #e0b020 14px 16px); box-shadow: 0 2px 0 #9c7d14; }
 	/* The train zooms through left to right without stopping and is gone (it ends past the right edge). */
-	.pull { position: absolute; bottom: 6px; right: 16px; animation: zoom 1.9s cubic-bezier(0.5, 0, 0.6, 1) 0.4s both; }
+	.pull { position: absolute; bottom: 6px; right: 16px; animation: zoom 1.3s cubic-bezier(0.45, 0, 0.55, 1) 0.1s both; }
 	@keyframes zoom { from { transform: translateX(-200%); } to { transform: translateX(110%); } }
 	/* As it passes, the info boards light up. */
 	.platform .panels, .platform .where { animation: board 0.5s ease-out 1.6s both; }
@@ -497,7 +498,11 @@
 	@media (max-width: 600px) {
 		.screenwrap { padding-bottom: 12px; }
 		.charts { grid-template-columns: 1fr; }
-		.who { grid-template-columns: 1fr; }
+		.who { grid-template-columns: 1fr; gap: 14px; }
+		.who .why { font-size: 14px; line-height: 1.5; padding: 12px 14px; }
+		.why ul { gap: 8px; }
+		.dest { display: none; }
+		.stepnav { padding-top: 8px; }
 		.hbars li { grid-template-columns: 84px 1fr 54px; }
 	}
 </style>

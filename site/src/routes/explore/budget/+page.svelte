@@ -387,6 +387,18 @@
 		.flowlist li:has(.tap) { display: block; }
 		.flowlist .tap { display: grid; grid-template-columns: 12px 1fr auto; gap: 8px; align-items: center; width: 100%; font: inherit; font-size: 14px; text-align: left; color: inherit; background: #f4f1ea; border: 1px solid #e2ddd2; border-radius: 8px; padding: 7px 10px; cursor: pointer; }
 		.chart { padding: 12px; }
+		/* Phones: the list repeats the chips, so the chips go; panels use the page margin, and the
+		   white box inside each panel drops away, so there's one frame instead of three. */
+		.stickers { display: none; }
+		.part { margin-left: -8px; margin-right: -8px; padding: 22px 14px; border-radius: 16px; }
+		.story .chart { background: none; padding: 6px 0 0; }
+		.phead p { font-size: 15px; margin-top: 6px; }
+		.flowlist { gap: 10px; }
+		.flowlist li { font-size: 15px; }
+		.flowlist li:not(:has(.tap)) { padding: 0 15px; }
+		.flowlist .tap { font-size: 15px; padding: 12px 14px; background: #fff; border-color: color-mix(in srgb, var(--ink) 10%, transparent); border-radius: 12px; }
+		.cn { font-size: 13px; margin-top: 14px; }
+		.next { margin-top: 20px; }
 	}
 	.note { font-size: 13px; color: var(--ink-2); background: var(--paper-2); border-radius: 10px; padding: 8px 12px; margin: 6px 0 0; }
 	.go { color: var(--red); font-weight: 700; }
