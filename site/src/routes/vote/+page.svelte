@@ -471,13 +471,13 @@
 	@keyframes fade { from { opacity: 0; } }
 	/* The card always fits the screen: header and Back/Next stay put, only the quotes scroll inside. */
 	/* One fixed size for every candidate and every panel, so the card never jumps; long panels scroll inside. */
-	.sheet { width: min(520px, 100%); height: min(640px, calc(100dvh - 32px)); display: flex; flex-direction: column; }
+	.sheet { width: min(520px, 100%); height: min(500px, calc(100dvh - 32px)); display: flex; flex-direction: column; }
 	.sheet :global(.card) { flex: 1; min-height: 0; max-height: none; }
 	.sheetnav { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 13px; margin-bottom: 8px; }
 	.sheetnav button { font: inherit; font-size: 18px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, 0.92); cursor: pointer; }
 	.sheetnav button:disabled { opacity: 0.35; cursor: default; }
 	.sheetnav .close { margin-left: auto; font-size: 15px; }
-	.sheet :global(.card) { max-width: none; }
+	.sheet :global(.card) { max-width: none; width: 100%; margin: 0; }
 	@media (max-width: 900px) { .tiles { grid-template-columns: repeat(4, 1fr); } }
 	@media (max-width: 600px) {
 		/* Three per row on phones, so names have room and nothing touches the card edge. */
