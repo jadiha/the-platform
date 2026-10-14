@@ -105,6 +105,7 @@
 	/* Hop on: the harbour comes into full view and slides past (skyline faster than the tower, so it
 	   feels like depth), the lake ripples and the boats sail off. Lasts as long as the pause before Stop 1. */
 	svg.on.go { opacity: 0.6; transition: opacity 0.3s; }
+	svg.go:not(.on) { transition: opacity 0.5s; }
 	.go .city { animation: pass 1.4s cubic-bezier(0.5, 0, 0.75, 0.2) forwards; }
 	.go .tower { animation: passfar 1.4s cubic-bezier(0.5, 0, 0.75, 0.2) forwards; }
 	.go .waves { animation: ripple 0.5s linear infinite; }

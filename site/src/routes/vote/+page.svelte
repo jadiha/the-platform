@@ -46,7 +46,8 @@
 	function hopOn() {
 		if (matchMedia('(prefers-reduced-motion: reduce)').matches) return go(1);
 		departing = true;
-		setTimeout(() => { departing = false; go(1); }, 1400);
+		// Stay 'departing' until the harbour has faded out, so it doesn't snap back to the start mid-fade.
+		setTimeout(() => { go(1); setTimeout(() => (departing = false), 700); }, 1400);
 	}
 	// Keep the stop in the address bar so Back works and a stop can be shared.
 	$effect(() => {
