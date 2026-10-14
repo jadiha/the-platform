@@ -67,7 +67,7 @@
 		{ id: 'toronto.ttc.2026.gross', label: 'TTC', color: '#2f5d9b' },
 		{ id: 'toronto.police.2026.gross', label: 'Police', color: '#7a5c99' },
 		{ id: 'toronto.shelter.2026.gross', label: 'Shelters', color: '#4a8c5c' },
-		{ id: 'toronto.transportation.2026.gross', label: 'Roads & traffic', color: '#3f7f74' }
+		{ id: 'toronto.transportation.2026.gross', label: 'Roads & traffic', color: '#7d9fd0' }
 	].map((b) => ({ ...b, v: num(b.id) }));
 	const bigMax = Math.max(...bigBudgets.map((b) => b.v));
 
@@ -174,7 +174,7 @@
 			<figcaption>Where the biggest City budgets go, 2026</figcaption>
 			<ul class="hbars">
 				{#each bigBudgets as b (b.id)}
-					<li>
+					<li style="--c:{b.color}">
 						<span class="lbl">{b.label}</span>
 						<div class="track"><div class="fill" style="width:{(b.v / bigMax) * 100}%;background:{b.color}"></div></div>
 						<span class="val"><Fact id={b.id} short /></span>
@@ -214,7 +214,7 @@
 	</ul>
 </section>
 {:else if step === 4}
-<section class="stop wide alsostop" style="padding-top:20px">
+<section class="stop wide alsostop">
 	<h2 class="head"><span class="stopno sans">Stop 4 · Also on your ballot</span>{without.length} more names you'll see</h2>
 	<p class="lede sans">They didn't list a campaign website with the City. Here's what they did list, and any public record.</p>
 	<ul class="also sans">
@@ -381,6 +381,8 @@
 	.hbars .track { height: 22px; background: #f1eee7; border-radius: 6px; overflow: hidden; }
 	.hbars .fill { height: 100%; border-radius: 6px; }
 	.hbars .val { text-align: right; font-weight: 700; }
+	/* Each amount takes its bar's colour (TTC and roads share the 'getting around' blues). */
+	.hbars .val :global(.value) { color: var(--c); border-bottom-color: var(--c); }
 	.note { font-size: 11.5px; color: var(--mute); margin: 10px 0 0; }
 	.legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--mute); margin: 10px 0 12px; }
 	.legend i, .dots i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 4px; vertical-align: 0; }
@@ -415,7 +417,7 @@
 		.meet .lede { font-size: 15px; }
 	}
 	@media (prefers-reduced-motion: reduce) { .tile, .overlay { transition: none; animation: none; } }
-	.also { list-style: none; padding: 0; margin: 10px 0 6px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px 8px; font-size: 13px; }
+	.also { list-style: none; padding: 0; margin: 26px 0 16px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px 10px; font-size: 13px; }
 	.also li { background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 4px 10px; display: flex; flex-direction: column; gap: 0; min-width: 0; }
 	.also b { font-size: 13.5px; }
 	.also .meta { display: flex; flex-wrap: wrap; gap: 0 7px; font-size: 11px; }
