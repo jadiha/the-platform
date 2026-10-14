@@ -10,6 +10,7 @@
 	import Scenery from '#lib/vote/Scenery.svelte';
 	import FallLeaves from '#lib/vote/FallLeaves.svelte';
 	import SubwayTrain from '#lib/vote/SubwayTrain.svelte';
+	import { TOPIC, TOPIC_COLOR } from '#lib/vote/topics.ts';
 	import TorontoWardMap from '#lib/vote/TorontoWardMap.svelte';
 	import { displayName } from '#lib/vote/links.ts';
 	import { siteData } from '#lib/context.ts';
@@ -24,6 +25,9 @@
 	const profileOf = (b: string) => data.profiles.find((p) => p.candidate === b);
 	const withSite = $derived(mayor.filter((c) => profileOf(c.ballot_name)));
 	const without = $derived(mayor.filter((c) => !profileOf(c.ballot_name)));
+	// Stop 4: anyone with a link or a public record first, then 'no links'; ballot order within each group.
+	const hasLinks = (c: { ballot_name: string; social: string[] }) => !!data.alsoRecords[c.ballot_name]?.[0] || c.social.length > 0;
+	const withoutSorted = $derived([...without.filter(hasLinks), ...without.filter((c) => !hasLinks(c))]);
 
 	// One stop per screen. The streetcar bar shows where you are; "Next stop" moves you along.
 	const stops = [
@@ -75,8 +79,6 @@
 
 	// Every candidate is a tile; tapping one opens their full story card on top of the page.
 	let open = $state<number | null>(null);
-	const TOPIC_COLOR = { tax: '#d9822b', transit: '#2f5d9b', housing: '#4a8c5c', safety: '#7a5c99', money: '#3f7f74', other: '#8a857b' } as const;
-	const TOPIC = { tax: 'Taxes', transit: 'Getting around', housing: 'Housing', safety: 'Safety', money: 'City money', other: 'Other' } as const;
 	const topicsOf = (b: string) => [...new Set((profileOf(b)?.priorities ?? []).map((p) => p.topic))];
 	const initials = (b: string) => displayName(b).split(' ').map((w) => w[0]).filter(Boolean).slice(0, 2).join('');
 	const firstLine = (b: string) => {
@@ -98,7 +100,12 @@
 	let pins = $state<string[]>([]);
 	const PIN_KEY = 'ftb-vote-pins-v2';
 	$effect(() => { try { pins = JSON.parse(localStorage.getItem(PIN_KEY) ?? '[]'); } catch { pins = []; } });
+	// Up to three pins, so the comparison box at the top of Stop 3 stays readable.
+	const MAX_PINS = 3;
+	let pinFull = $state(false);
 	function togglePin(b: string) {
+		if (!pins.includes(b) && pins.length >= MAX_PINS) { pinFull = true; return; }
+		pinFull = false;
 		pins = pins.includes(b) ? pins.filter((k) => k !== b) : [...pins, b];
 		try { localStorage.setItem(PIN_KEY, JSON.stringify(pins)); } catch { /* blocked storage: pins last this visit */ }
 	}
@@ -147,8 +154,8 @@
 	<p class="kicker">Toronto votes · Monday, October 26</p>
 	<h1>The <span><Fact id="toronto.operating.2026.gross" plain /></span> question</h1>
 	<p class="dek">
-		Every year the mayor and council set the City's <Fact id="toronto.operating.2026.gross" /> operating budget. This fall, {mayor.length} people are
-		on the ballot for mayor. Hop on the streetcar for a ride through the city: first, what the City actually controls; then, everyone running, in their own words.
+		The mayor and city council set Toronto's <Fact id="toronto.operating.2026.gross" /> yearly budget, which pays for things like the TTC, police, shelters and roads.
+		On October 26 you pick who they are. This short ride shows what the City is in charge of, and who the {mayor.length} people running for mayor are, in their own words where they've published them.
 	</p>
 	<p class="proofnote sans">Every number and every quote links to its proof. Nothing here tells you who to vote for.</p>
 	<div class="hoprow sans">
@@ -205,7 +212,7 @@
 			<ul>
 				<li><span>The gap:</span> going into 2024, the City needed <Fact id="toronto.budget.2024.opening-gap" /> more than it had, mostly for <span class="k shelter">shelter space</span> (including for refugee claimants) and because <span class="k ttc">TTC fare revenue</span> was down.</li>
 				<li><span>The fix:</span> it found <Fact id="toronto.budget.2024.savings" /> in savings and offsets, got money from the Province and Ottawa, and raised <span class="k tax">property taxes</span>.</li>
-				<li><span>Each of the last three years:</span> part of the increase is a <Fact id="toronto.city-building-levy.2024" plain /> City Building Fund levy, set aside for transit and housing.</li>
+				<li><span>Each of the last three years:</span> part of the increase is a <Fact id="toronto.city-building-levy.2024" plain /> City Building Fund levy: an extra slice of your property tax that the City saves only for building transit and housing.</li>
 				<li><span>Who decides:</span> the mayor proposes each budget, and City Council votes on it. <a href={facts['toronto.budget.2024.opening-gap']?.primary.url} target="_blank" rel="noopener">proof ↗</a></li>
 			</ul>
 		</div>
@@ -216,8 +223,27 @@
 <section class="wide meet">
 	<p class="flag">Stop 3 · The candidates</p>
 	<h2 class="head">Everyone running for mayor</h2>
-	<!-- One quiet line: what this is, then the colour key for the dots. -->
-	<div class="legend sans"><span class="what">{withSite.length} with a campaign website · tap a name</span>{#each Object.entries(TOPIC) as [k, label] (k)}<span><i style="background:{TOPIC_COLOR[k as keyof typeof TOPIC]}"></i>{label}</span>{/each}</div>
+	<p class="lede sans meetlede"><b>Tap a candidate</b> to read what they say they'd do, in their own words. Pin up to 3 to compare them here.</p>
+	{#if pins.length}
+		<!-- Pinned candidates: a short summary of each, built only from their own published words. -->
+		<div class="pinned sans" aria-label="Your pinned candidates">
+			{#each pins as b (b)}
+				{@const pr = profileOf(b)}
+				{@const idx = withSite.findIndex((c) => c.ballot_name === b)}
+				<div class="pcard">
+					<div class="ptop"><b>{displayName(b)}</b><button class="unpin" onclick={() => togglePin(b)} aria-label="Unpin {displayName(b)}">×</button></div>
+					<span class="pline">{firstLine(b)}{pr?.note ? ' · ended campaign' : ''}</span>
+					{#if topicsOf(b).length}<span class="ptopics">Talks about: {#each topicsOf(b) as t (t)}<span class="chip" style="--tc:{TOPIC_COLOR[t]}">{TOPIC[t]}</span>{/each}</span>{/if}
+					{#if pr?.priorities?.[0] && !pr.withheld}<q>{pr.priorities[0].text}</q><span class="pnote">First priority on their site</span>{/if}
+					{#if idx >= 0}<button class="more" onclick={() => (open = idx)}>Read their full card →</button>{/if}
+				</div>
+			{/each}
+		</div>
+		<hr class="pindiv" />
+	{/if}
+	{#if pinFull}<p class="pinfull sans" role="status">You can pin up to 3. Unpin one to add another.</p>{/if}
+	<!-- The colour key for the dots: which topics each candidate's own campaign site covers. -->
+	<div class="legend sans"><span class="what">All {withSite.length} with a campaign website. Dots show the topics their site talks about:</span>{#each Object.entries(TOPIC) as [k, label] (k)}<span><i style="background:{TOPIC_COLOR[k as keyof typeof TOPIC]}"></i>{label}</span>{/each}</div>
 	<ul class="tiles sans">
 		{#each withSite as c, i (c.ballot_name)}
 			<li>
@@ -236,7 +262,7 @@
 	<h2 class="head">{without.length} more names you'll see</h2>
 	<p class="lede sans">They didn't list a campaign website with the City. Here's what they did list, and any public record.</p>
 	<ul class="also sans">
-		{#each without as c (c.ballot_name)}
+		{#each withoutSorted as c (c.ballot_name)}
 			{@const rec = data.alsoRecords[c.ballot_name]?.[0]}
 			<li>
 				<b>{displayName(c.ballot_name)}</b>
@@ -255,7 +281,7 @@
 	<p class="flag">Stop 5 · Your ward</p>
 	<h2 class="head">Who's running in your ward?</h2>
 	<p class="wardp sans">You also pick a city councillor and a school board trustee for your ward.
-		<a href="https://www.toronto.ca/city-government/data-research-maps/neighbourhoods-communities/ward-profiles/" target="_blank" rel="noopener">Not sure of your ward? ↗</a></p>
+</p>
 	<TorontoWardMap listUrl="https://www.toronto.ca/city-government/elections/candidate-list/" chartUrl={data.official?.school_chart.url ?? ''} races={data.races} guided={data.wards.filter((w) => w.scarborough).map((w) => w.ward)} />
 </section>
 {:else}
@@ -329,6 +355,7 @@
 					sources={data.recordSources}
 					pinned={pins.includes(c.ballot_name)}
 					onpin={() => togglePin(c.ballot_name)}
+					pinsFull={pins.length >= MAX_PINS}
 				/>
 			{/key}
 		</div>
@@ -414,6 +441,21 @@
 	.nm { font-weight: 700; font-size: 15.5px; line-height: 1.2; }
 	.nm .ln { display: none; }
 	.pinmark { color: #da251d; font-size: 10px; }
+	.meetlede { margin: 4px 0 14px; }
+	.pinned { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 4px 0 0; }
+	.pcard { display: flex; flex-direction: column; gap: 6px; background: #fff; border: 1px solid var(--rule); border-top: 3px solid var(--ink); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; }
+	.ptop { display: flex; justify-content: space-between; align-items: start; gap: 8px; }
+	.ptop b { font-size: 16px; line-height: 1.25; }
+	.unpin { border: 0; background: none; font-size: 20px; line-height: 1; color: var(--mute); cursor: pointer; padding: 0 2px; }
+	.pline { color: var(--mute); font-size: 12.5px; }
+	.ptopics { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; color: var(--ink-2); font-size: 12.5px; }
+	.chip { font-size: 11.5px; font-weight: 600; color: #fff; background: var(--tc); border-radius: 999px; padding: 1px 8px; }
+	.pcard q { font-family: var(--serif); font-size: 14.5px; line-height: 1.45; color: var(--ink); }
+	.pnote { font-size: 11px; color: var(--mute); margin-top: -4px; }
+	.more { align-self: flex-start; font: inherit; font-size: 13px; font-weight: 600; background: none; border: 0; padding: 2px 0; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; margin-top: auto; }
+	.pindiv { border: 0; border-top: 1px solid var(--rule); margin: 18px 0 14px; }
+	.pinfull { font-size: 13px; color: #b5631a; margin: 0 0 8px; }
+	@media (max-width: 600px) { .pinned { grid-template-columns: 1fr; gap: 8px; } .pcard { padding: 10px 12px; } }
 	.sub { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--mute); white-space: nowrap; overflow: hidden; }
 	.dots { display: inline-flex; gap: 2px; }
 	.dots i { margin: 0; width: 7px; height: 7px; }
@@ -502,7 +544,6 @@
 	.mywalk { background: #fff; border: var(--line); border-radius: 14px; padding: 9px 14px; font-size: 14px; margin: 10px 0; }
 	.wardp { font-size: 15px; color: var(--ink-2); margin: 8px 0 0; }
 	.wardstop { padding-top: 20px; }
-	.wardp a { font-size: 12px; color: var(--mute); }
 	.ballot { display: flex; flex-wrap: wrap; gap: 6px; }
 	.ballot i { font-style: normal; font-weight: 600; font-size: 13px; border: 1.5px solid var(--ink); border-radius: 6px; padding: 2px 9px; }
 	.more { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 13px; margin: 14px 0 0; }

@@ -4,9 +4,10 @@
 	import type { CampaignPromise, MayorProfile, OfficialCandidate } from '#lib/types.ts';
 	import { displayName, highlightLink, pdfPageLink } from './links.ts';
 	import { siteData } from '#lib/context.ts';
+	import { TOPIC_COLOR } from './topics.ts';
 
 	let {
-		person, profile, promises, index, total, sources, pinned, onpin
+		person, profile, promises, index, total, sources, pinned, onpin, pinsFull = false
 	}: {
 		person: OfficialCandidate;
 		profile?: MayorProfile;
@@ -16,12 +17,13 @@
 		sources: Record<string, { title: string; url: string }>;
 		pinned: boolean;
 		onpin: () => void;
+		pinsFull?: boolean;
 	} = $props();
 
 	const { facts } = siteData();
 	const dev = import.meta.env.DEV;
 	const TOPIC = { tax: 'Taxes', transit: 'Getting around', housing: 'Housing', safety: 'Safety', money: 'City money', other: 'Also' } as const;
-	const TOPIC_COLOR = { tax: '#d9822b', transit: '#2f5d9b', housing: '#4a8c5c', safety: '#7a5c99', money: '#3f7f74', other: '#8a857b' } as const;
+
 
 	const hasNumbers = $derived(promises.length > 0);
 	const panels = $derived(['Who they are', 'What they stand for', ...(hasNumbers ? ['Their numbers'] : []), 'Links']);
@@ -65,7 +67,7 @@
 	</div>
 	<div class="top">
 		<span class="count">CANDIDATE {index} OF {total}</span>
-		<button class="pin" aria-pressed={pinned} onclick={onpin}>{pinned ? 'Pinned' : 'Pin'}</button>
+		<button class="pin" aria-pressed={pinned} disabled={!pinned && pinsFull} title={!pinned && pinsFull ? 'You can pin up to 3. Unpin one first.' : undefined} onclick={onpin}>{pinned ? 'Pinned ✓' : pinsFull ? '3 pinned' : 'Pin to compare'}</button>
 	</div>
 	<h3 class="name">{name}</h3>
 	<div class="ptitle">{panel}</div>

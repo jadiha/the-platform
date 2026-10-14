@@ -9,6 +9,13 @@
 	// svelte-ignore state_referenced_locally
 	setSiteData({ facts: data.facts, people: data.people });
 
+	// Already on the ride? The logo and 'Election' go back to its first screen instead of doing nothing.
+	function toStart(e: MouseEvent) {
+		if (page.url.pathname !== '/vote/') return;
+		e.preventDefault();
+		location.hash = 'stop-0';
+		scrollTo(0, 0);
+	}
 	// [link, full label, short label for phones so all four fit on one row]
 	const nav = [
 		['/vote/', '2026 Election', 'Election'],
@@ -36,10 +43,10 @@
 </div>
 
 <header class="masthead">
-	<a class="name" href="/vote/">The Platform<span class="tagline">: your vote counts</span></a>
+	<a class="name" href="/vote/" onclick={toStart}>The Platform<span class="tagline">: your vote counts</span></a>
 	<nav class="sans" aria-label="Main">
 		{#each nav as [href, label, short]}
-			<a {href} aria-current={page.url.pathname === href ? 'page' : undefined}><span class="full">{label}</span><span class="short">{short}</span></a>
+			<a {href} aria-current={page.url.pathname === href ? 'page' : undefined} onclick={href === '/vote/' ? toStart : undefined}><span class="full">{label}</span><span class="short">{short}</span></a>
 		{/each}
 	</nav>
 </header>

@@ -57,9 +57,53 @@
 	let hover = $state<number | null>(null);
 	let picked = $state<number | null>(null);
 	const shown = $derived(shapes.find((s) => s.ward === (hover ?? picked)));
+
+	// Postal code -> ward, via Open North's free Represent service (boundaries only; nothing stored).
+	// A postal code can straddle two wards; then we offer both and say the exact address decides.
+	let pc = $state('');
+	let pcState = $state<'idle' | 'loading' | 'error'>('idle');
+	let pcMsg = $state('');
+	let pcOptions = $state<number[]>([]);
+	async function findWard(e: SubmitEvent) {
+		e.preventDefault();
+		const code = pc.toUpperCase().replace(/\s/g, '');
+		pcOptions = [];
+		if (!/^M\d[A-Z]\d[A-Z]\d$/.test(code)) { pcState = 'error'; pcMsg = 'Toronto postal codes start with M, like M1P 4N7.'; return; }
+		pcState = 'loading';
+		try {
+			const res = await fetch(`https://represent.opennorth.ca/postcodes/${code}/`);
+			if (!res.ok) throw new Error(res.status === 404 ? "We couldn't find that postal code." : 'The lookup is busy. Try again in a minute.');
+			const d = await res.json();
+			const wards = [...new Set([...(d.boundaries_concordance ?? []), ...(d.boundaries_centroid ?? [])]
+				.filter((b: { related?: { boundary_set_url?: string } }) => b.related?.boundary_set_url?.includes('toronto-wards-2018'))
+				.map((b: { external_id: string }) => Number(b.external_id))
+				.filter((n: number) => n >= 1 && n <= 25))].sort((x, y) => x - y);
+			if (!wards.length) throw new Error("That postal code isn't in a Toronto ward.");
+			pcState = 'idle';
+			if (wards.length === 1) picked = wards[0];
+			else pcOptions = wards;
+		} catch (err) {
+			pcState = 'error';
+			pcMsg = err instanceof Error ? err.message : 'Something went wrong.';
+		}
+	}
 	const race = $derived(races.find((r) => r.ward === shown?.ward));
 	const trustee = $derived(race?.trustees.find((t) => t.board === board));
 </script>
+
+<form class="pcform sans" onsubmit={findWard}>
+	<label for="ward-pc">Find your ward by postal code</label>
+	<div class="pcrow">
+		<input id="ward-pc" bind:value={pc} placeholder="e.g. M1P 4N7" autocomplete="postal-code" maxlength="7" />
+		<button type="submit" disabled={pcState === 'loading'}>{pcState === 'loading' ? 'Finding…' : 'Find my ward'}</button>
+	</div>
+	{#if pcState === 'error'}<p class="pcerr" role="alert">{pcMsg}</p>{/if}
+	{#if pcOptions.length}
+		<p class="pcmulti">Your postal code touches more than one ward. Your exact address decides which:
+			{#each pcOptions as w (w)}<button type="button" onclick={() => { picked = w; pcOptions = []; }}>Ward {w}</button>{/each}</p>
+	{/if}
+	<p class="pcnote">Or tap your part of the map. Your postal code goes to Open North's free Represent service; we don't store it.</p>
+</form>
 
 <div class="wardmap sans">
 	<svg viewBox="0 0 {W} {H}" role="group" aria-label="Map of Toronto's 25 wards. Choose your ward.">
@@ -138,6 +182,15 @@
 	.boards button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
 	.fine { font-size: 11px; color: var(--mute); margin: 10px 0 0; line-height: 1.45; }
 	.fine a { color: inherit; }
+	.pcform { margin: 14px 0 4px; max-width: 520px; }
+	.pcform label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+	.pcrow { display: flex; gap: 8px; }
+	.pcrow input { flex: 1; min-width: 0; font: inherit; font-size: 16px; padding: 8px 12px; border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); border-radius: 10px; background: #fff; text-transform: uppercase; }
+	.pcrow button, .pcmulti button { font: inherit; font-size: 14px; font-weight: 700; background: var(--ink); color: #fff; border: 0; border-radius: 10px; padding: 8px 14px; cursor: pointer; white-space: nowrap; }
+	.pcmulti button { background: #fff; color: var(--ink); border: 1px solid var(--ink); border-radius: 999px; padding: 3px 12px; margin: 4px 6px 0 0; }
+	.pcerr { color: #b51d17; font-size: 13px; margin: 6px 0 0; }
+	.pcmulti { font-size: 13px; margin: 8px 0 0; }
+	.pcnote { font-size: 11.5px; color: var(--mute); margin: 6px 0 0; }
 	.close { display: none; }
 	.close .back { display: inline; }
 	.panel { position: relative; }
