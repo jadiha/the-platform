@@ -12,6 +12,8 @@
 	import FallLeaves from '#lib/vote/FallLeaves.svelte';
 	import SubwayTrain from '#lib/vote/SubwayTrain.svelte';
 	import { TOPIC, TOPIC_COLOR } from '#lib/vote/topics.ts';
+	// Phones: shorter names so the colour key fits on one line.
+	const SHORT_TOPIC: Record<string, string> = { transit: 'Transit', money: 'Money' };
 	import TorontoWardMap from '#lib/vote/TorontoWardMap.svelte';
 	import { displayName } from '#lib/vote/links.ts';
 	import { siteData } from '#lib/context.ts';
@@ -257,7 +259,7 @@
 	{/if}
 	{#if pinFull}<p class="pinfull sans" role="status">You can pin up to 3. Unpin one to add another.</p>{/if}
 	<!-- The colour key for the dots: which topics each candidate's own campaign site covers. -->
-	<div class="legend sans"><span class="what">All {withSite.length} with a campaign website. Dots show the topics their site talks about:</span>{#each Object.entries(TOPIC) as [k, label] (k)}<span><i style="background:{TOPIC_COLOR[k as keyof typeof TOPIC]}"></i>{label}</span>{/each}</div>
+	<div class="legend sans"><span class="what">All {withSite.length} with a campaign website. Dots show the topics their site talks about:</span><span class="keys">{#each Object.entries(TOPIC) as [k, label] (k)}<span><i style="background:{TOPIC_COLOR[k as keyof typeof TOPIC]}"></i><span class="long">{label}</span><span class="short">{SHORT_TOPIC[k] ?? label}</span></span>{/each}</span></div>
 	<ul class="tiles sans">
 		{#each withSite as c, i (c.ballot_name)}
 			<li>
@@ -446,6 +448,8 @@
 	.hbars .val :global(.value) { color: var(--c); border-bottom-color: var(--c); }
 	.note { font-size: 11.5px; color: var(--mute); margin: 10px 0 0; }
 	.legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--mute); margin: 10px 0 12px; }
+	.legend .keys { display: contents; }
+	.legend .short { display: none; }
 	.legend i, .dots i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 4px; vertical-align: 0; }
 	.tiles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); grid-auto-rows: 1fr; gap: 8px 14px; }
 	.tile { font: inherit; width: 100%; height: 100%; text-align: left; display: grid; grid-template-columns: 34px 1fr; grid-template-rows: auto auto; column-gap: 10px; row-gap: 3px; align-items: center; background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 5px 12px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
@@ -484,6 +488,13 @@
 	.sheetnav .close { margin-left: auto; font-size: 15px; }
 	.sheet :global(.card) { max-width: none; width: 100%; margin: 0; }
 	@media (max-width: 900px) { .tiles { grid-template-columns: repeat(4, 1fr); } }
+	/* Phones and tablets: the colour key on its own line, all six on one row (short names on phones). */
+	@media (max-width: 900px) {
+		.legend .what { flex-basis: 100%; }
+		.legend .keys { display: flex; flex-wrap: nowrap; justify-content: space-between; width: 100%; max-width: 560px; gap: 2px; white-space: nowrap; font-size: min(12px, 3.1vw); }
+		.legend .keys i { margin-right: 3px; }
+	}
+	@media (max-width: 600px) { .legend .long { display: none; } .legend .short { display: inline; } }
 	@media (max-width: 600px) {
 		/* Three per row on phones, so names have room and nothing touches the card edge. */
 		.tiles { grid-template-columns: repeat(3, 1fr); gap: 10px; }
