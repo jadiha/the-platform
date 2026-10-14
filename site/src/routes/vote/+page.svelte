@@ -147,7 +147,7 @@
 	<p class="kicker">Toronto votes · Monday, October 26</p>
 	<h1>The <span><Fact id="toronto.operating.2026.gross" plain /></span> question</h1>
 	<p class="dek">
-		Every year the mayor and council decide how <Fact id="toronto.operating.2026.gross" /> gets spent. This fall, {mayor.length} people are
+		Every year the mayor and council set the City's <Fact id="toronto.operating.2026.gross" /> operating budget. This fall, {mayor.length} people are
 		on the ballot for mayor. Hop on the streetcar for a ride through the city: first, what the City actually controls; then, everyone running, in their own words.
 	</p>
 	<p class="proofnote sans">Every number and every quote links to its proof. Nothing here tells you who to vote for.</p>
@@ -184,7 +184,7 @@
 			<p class="note">Renters pay it too, inside their rent.</p>
 		</figure>
 		<figure class="chart">
-			<figcaption>Where the biggest City budgets go, 2026</figcaption>
+			<figcaption>Four big City budgets, 2026</figcaption>
 			<ul class="hbars">
 				{#each bigBudgets as b (b.id)}
 					<li style="--c:{b.color}">
@@ -204,12 +204,12 @@
 			<button class="whytoggle" aria-expanded={whyOpen} onclick={() => (whyOpen = !whyOpen)}>Why it went up <span aria-hidden="true">{whyOpen ? '−' : '+'}</span></button>
 			<ul>
 				<li><span>The gap:</span> going into 2024, the City needed <Fact id="toronto.budget.2024.opening-gap" /> more than it had, mostly for <span class="k shelter">shelter space</span> (including for refugee claimants) and because <span class="k ttc">TTC fare revenue</span> was down.</li>
-				<li><span>The fix:</span> it found <Fact id="toronto.budget.2024.savings" /> in savings and offsets, and raised <span class="k tax">property taxes</span> for much of the rest.</li>
-				<li><span>Every year:</span> part of the increase is a <Fact id="toronto.city-building-levy.2024" plain /> City Building Fund levy, set aside for transit and housing.</li>
+				<li><span>The fix:</span> it found <Fact id="toronto.budget.2024.savings" /> in savings and offsets, got money from the Province and Ottawa, and raised <span class="k tax">property taxes</span>.</li>
+				<li><span>Each of the last three years:</span> part of the increase is a <Fact id="toronto.city-building-levy.2024" plain /> City Building Fund levy, set aside for transit and housing.</li>
 				<li><span>Who decides:</span> the mayor proposes each budget, and City Council votes on it. <a href={facts['toronto.budget.2024.opening-gap']?.primary.url} target="_blank" rel="noopener">proof ↗</a></li>
 			</ul>
 		</div>
-		<p class="ttc-accent"><b>Your TTC fare</b> Fares are <Fact id="toronto.ttc.fares.2026" plain />, and rides are free after <Fact id="toronto.ttc.fare-cap.2026" plain /> paid trips in a month. <a href={facts['toronto.ttc.fares.2026']?.primary.url} target="_blank" rel="noopener">proof ↗</a></p>
+		<p class="ttc-accent"><b>Your TTC fare</b> Fares are <Fact id="toronto.ttc.fares.2026" plain />, and rides are free after <Fact id="toronto.ttc.fare-cap.2026" plain /> paid trips in a month on the same PRESTO card, debit or credit card. <a href={facts['toronto.ttc.fares.2026']?.primary.url} target="_blank" rel="noopener">proof ↗</a></p>
 	</div>
 </section>
 {:else if step === 3}

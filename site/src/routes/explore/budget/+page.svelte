@@ -120,7 +120,7 @@
 			<div class="hl">
 				<p class="kicker">Toronto · 2026 budget</p>
 				<h1 class="rest">Following Toronto's money</h1>
-				<p class="dek sans">The City plans to spend <b class="mega"><Fact id="toronto.operating.2026.gross" short /></b> this year. Here's where it comes from, and where it goes.</p>
+				<p class="dek sans">The City's operating budget this year is <b class="mega"><Fact id="toronto.operating.2026.gross" short /></b>. Here's where it comes from, and where it goes.</p>
 			</div>
 		{:else}
 			<div>
