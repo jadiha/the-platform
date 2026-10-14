@@ -73,6 +73,7 @@
 	footer { border-top: 1px solid var(--ink); margin-top: 80px; padding: 24px 0 40px; font-size: 13px; color: var(--ink-2); }
 	.fine { color: var(--mute); }
 	@media (max-width: 640px) {
+		.election { font-size: 12px; padding: 5px 14px; }
 		.masthead { position: static; padding: 10px 14px; gap: 6px; }
 		/* One swipeable row of links on phones instead of two wrapped lines. */
 		nav { flex-wrap: nowrap; overflow-x: auto; width: calc(100% + 28px); margin: 0 -14px; padding: 2px 14px 4px; scrollbar-width: none; }

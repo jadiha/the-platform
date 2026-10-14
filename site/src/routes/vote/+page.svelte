@@ -36,6 +36,7 @@
 		{ label: 'Stop 6: before you vote', big: true }
 	];
 	let step = $state(0);
+	let whyOpen = $state(false);
 	// Keep the stop in the address bar so Back works and a stop can be shared.
 	$effect(() => {
 		const read = () => { const m = location.hash.match(/^#stop-(\d)$/); step = m ? Math.min(stops.length - 1, +m[1]) : 0; };
@@ -191,7 +192,10 @@
 		</figure>
 	</div>
 	<div class="who sans">
-		<div class="why tax-accent"><b>Why it went up</b>
+		<!-- On phones this folds to its heading (tap to open) so the stop fits the screen; desktop always shows it. -->
+		<div class="why tax-accent" class:shut={!whyOpen}>
+			<b class="whyhead">Why it went up</b>
+			<button class="whytoggle" aria-expanded={whyOpen} onclick={() => (whyOpen = !whyOpen)}>Why it went up <span aria-hidden="true">{whyOpen ? '−' : '+'}</span></button>
 			<ul>
 				<li><span>The gap:</span> going into 2024, the City needed <Fact id="toronto.budget.2024.opening-gap" /> more than it had, mostly for <span class="k shelter">shelter space</span> (including for refugee claimants) and because <span class="k ttc">TTC fare revenue</span> was down.</li>
 				<li><span>The fix:</span> it found <Fact id="toronto.budget.2024.savings" /> in savings and offsets, and raised <span class="k tax">property taxes</span> for much of the rest.</li>
@@ -347,7 +351,15 @@
 	.proofnote { font-size: 13px; color: var(--mute); margin: 12px 0 0; }
 	.stop { padding-top: 6px; }
 	.quiz h2 { font-size: clamp(24px, 3.5vw, 30px); margin: 0 0 4px; }
-	@media (max-width: 600px) { .quiz { padding-top: 20px; } .hall { margin-top: 4vh; } }
+	@media (max-width: 600px) {
+		.quiz { padding-top: 6px; }
+		/* Phones: a tighter opening so the proof line and Hop on sit clear of the skyline below. */
+		.hall { margin-top: 18px; position: relative; z-index: 1; }
+		.hall h1 { font-size: 36px; margin: 6px 0 10px; }
+		.dek { font-size: 17px; line-height: 1.5; }
+		.proofnote { font-size: 13px; margin-top: 10px; }
+		.hoprow { margin-top: 16px; }
+	}
 	@media (prefers-reduced-motion: reduce) { .screenwrap { animation: none; } }
 	.meet { padding-top: 0; }
 	.meet .legend { margin: 2px 0 12px; gap: 14px; align-items: center; }
@@ -429,7 +441,14 @@
 	.also b { font-size: 14.5px; line-height: 1.3; }
 	.also .meta { display: flex; flex-wrap: wrap; gap: 0 7px; font-size: 12px; }
 	@media (max-width: 860px) { .also { columns: 2; } }
-	@media (max-width: 600px) { .also { columns: 1; } .also li { padding: 10px 0; } .also b { font-size: 15px; } .also .meta { font-size: 12.5px; } }
+	@media (max-width: 600px) { .also { columns: 2; column-gap: 18px; } .also li { padding: 8px 0; } .also b { font-size: 14px; } .also .meta { font-size: 12px; } }
+	.whytoggle { display: none; }
+	@media (max-width: 600px) {
+		.whyhead { display: none !important; }
+		.whytoggle { display: flex; justify-content: space-between; width: 100%; font: inherit; font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: #da251d; background: none; border: 0; padding: 4px 0; cursor: pointer; }
+		.whytoggle span { font-size: 18px; line-height: 1; }
+		.why.shut ul { display: none; }
+	}
 	.also .meta a, .also .none { color: var(--mute); }
 	.src { font-size: 12px; margin: 16px 0 0; }
 	.exit { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; padding-top: 18px; }
