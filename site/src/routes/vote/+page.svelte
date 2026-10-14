@@ -301,9 +301,6 @@
 {:else}
 <section class="stop wide exit">
 	<FallLeaves />
-	{#if pins.length}
-		<div class="mywalk sans"><b>You pinned:</b> {pins.map(displayName).join(' · ')}</div>
-	{/if}
 	<div class="platform">
 		<div class="board" role="img" aria-label="Next train: Election Day, Monday October 26, 10 a.m. to 8 p.m.">
 			<span class="lbl">Next train</span>
@@ -558,7 +555,6 @@
 		.where { margin-top: 18px; }
 	}
 
-	.mywalk { background: #fff; border: var(--line); border-radius: 14px; padding: 9px 14px; font-size: 14px; margin: 10px 0; }
 	.wardp { font-size: 15px; color: var(--ink-2); margin: 8px 0 0; }
 	.wardstop { padding-top: 20px; }
 	.ballot { display: flex; flex-wrap: wrap; gap: 6px; }
