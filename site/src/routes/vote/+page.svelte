@@ -1,6 +1,7 @@
 <script lang="ts">
 	// The Toronto journey (spec §11): a streetcar ride with stops for "Whose job is it?",
 	// "What the mayor and council decide" (City Hall), every mayoral candidate in ballot order, and the exit.
+	import { tick } from 'svelte';
 	import '#lib/vote/vote.css';
 	import Fact from '#lib/components/Fact.svelte';
 	import SourceLine from '#lib/vote/SourceLine.svelte';
@@ -40,7 +41,7 @@
 		{ label: 'Stop 6: before you vote', big: true }
 	];
 	let step = $state(0);
-	// Stop 1: until the quiz is finished, Next stop is a quiet 'Skip' so it isn't tapped instead of Next question.
+	// Stop 1: until the quiz is finished, Next stop reads 'Skip to next stop' so it isn't mistaken for Next question.
 	let quizDone = $state(false);
 	let whyOpen = $state(false);
 	// Hop on: let the harbour slide past for a moment, then open Stop 1 (straight away with reduced motion).
@@ -58,12 +59,15 @@
 		addEventListener('hashchange', read);
 		return () => removeEventListener('hashchange', read);
 	});
-	function go(i: number) {
+	async function go(i: number) {
 		const n = Math.max(0, Math.min(stops.length - 1, i));
 		if (n === step) return;
 		history.pushState(null, '', n ? `#stop-${n}` : location.pathname);
 		step = n;
-		scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+		// Every stop opens at its top. Jump (not smooth-scroll) once the new stop is on the page:
+		// a smooth scroll started mid-swap gets cancelled on phones and leaves you at the bottom.
+		await tick();
+		scrollTo({ top: 0, behavior: 'instant' });
 	}
 	const jump = go;
 	const active = $derived(step);
@@ -337,7 +341,7 @@
 <nav class="stepnav wide sans" aria-label="Move along the ride">
 	<button class="back" onclick={() => go(step - 1)}>‹ Back</button>
 	{#if step === 1 && !quizDone}
-		<button class="fwd skip" onclick={() => go(step + 1)}>Skip to next stop <span aria-hidden="true">→</span></button>
+		<button class="fwd" onclick={() => go(step + 1)}>Skip to next stop <span aria-hidden="true">→</span></button>
 	{:else if step < stops.length - 1}
 		<button class="fwd" onclick={() => go(step + 1)}>Next stop<span class="dest">: {stops[step + 1].label.split(': ')[1]}</span> <span aria-hidden="true">→</span></button>
 	{:else}
@@ -572,8 +576,6 @@
 	.back:hover { color: var(--ink); border-color: var(--ink); }
 	.fwd { background: var(--red); color: #fff; border: 1.5px solid var(--ink); box-shadow: 2px 2px 0 var(--ink); }
 	.fwd:hover { box-shadow: var(--pop); transform: translate(-1px, -1px); }
-	.fwd.skip { background: #fff; color: var(--ink-2); border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); box-shadow: none; }
-	.fwd.skip:hover { color: var(--ink); border-color: var(--ink); box-shadow: none; transform: none; }
 	.method { font-size: 12.5px; color: var(--mute); margin-top: 24px; line-height: 1.5; }
 	@media (max-width: 600px) {
 		.screenwrap { padding-bottom: 12px; }
