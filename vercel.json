@@ -4,5 +4,12 @@
 	"installCommand": "cd site && npm ci",
 	"buildCommand": "cd site && npm run build",
 	"outputDirectory": "site/build",
-	"trailingSlash": true
+	"trailingSlash": true,
+	"redirects": [
+		{
+			"source": "/",
+			"destination": "/vote/",
+			"permanent": false
+		}
+	]
 }
