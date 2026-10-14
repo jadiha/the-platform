@@ -123,8 +123,14 @@
 	<meta property="og:title" content="The {headline} question" />
 	<meta property="og:description" content="Toronto votes Monday, October 26. Meet every mayoral candidate in their own words, with every number linked to its proof." />
 	<meta property="og:type" content="website" />
-	<meta property="og:image" content="/og-vote.png" />
+	<!-- Full addresses: some apps (iMessage, LinkedIn) won't load a preview image from a relative path. -->
+	<meta property="og:site_name" content="The Platform" />
+	<meta property="og:url" content="https://www.torontoyourvotecounts.space/vote/" />
+	<meta property="og:image" content="https://www.torontoyourvotecounts.space/og-vote-2.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
 	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="https://www.torontoyourvotecounts.space/og-vote-2.png" />
 </svelte:head>
 
 <svelte:window onkeydown={onKey} />
