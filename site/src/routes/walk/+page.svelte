@@ -168,7 +168,7 @@
 			<p class="kicker" style="color:var(--c-housing)">Stop 1 · Home</p>
 			<h2>It starts at your front door</h2>
 			<p>
-				Every home in Scarborough pays <Term id="property-tax" /> to the City of Toronto. In 2026 the average home’s bill is
+				Every home in Scarborough pays <Term id="property-tax" /> to the City of Toronto. In 2026 the average Toronto home’s bill is
 				<Fact id="toronto.property-tax.2026.avg-bill" />, up <Fact id="toronto.property-tax.2026.increase" /> from last year.
 			</p>
 			<p>

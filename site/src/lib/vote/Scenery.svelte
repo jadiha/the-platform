@@ -3,7 +3,6 @@
 	// from place to place as you ride. Decorative only (hidden from screen readers), muted so text
 	// on top stays readable, and still under reduced motion.
 	let { scene }: { scene: number } = $props(); // -1 = no scenery
-	const NAMES = ['Harbourfront', 'St. Lawrence Market', 'Graffiti Alley', 'Chinatown', 'Rogers Centre'];
 	const WALL = ['#e4572e', '#29a19c', '#f3c623', '#6a4c93', '#ff8c42', '#1982c4', '#8ac926', '#ff595e'];
 </script>
 
@@ -91,7 +90,6 @@
 		<rect y="330" width="1600" height="70" fill="#9aa0a6" />
 	</svg>
 
-	{#if scene >= 0}<span class="where sans">Now passing: <b>{NAMES[scene]}</b></span>{/if}
 </div>
 
 <style>
@@ -101,7 +99,6 @@
 	svg.on { opacity: 0.32; }
 	.drift { animation: drift 30s linear infinite alternate; }
 	@keyframes drift { to { transform: translateX(60px); } }
-	.where { position: absolute; left: 14px; bottom: 12px; z-index: 3; font-size: 11px; letter-spacing: 0.5px; background: rgba(255, 255, 255, 0.88); border-radius: 999px; padding: 4px 10px; color: var(--ink-2); }
 	@media (max-width: 640px) { .scenery { height: 24vh; } svg.on { opacity: 0.25; } }
 	@media (prefers-reduced-motion: reduce) { svg { transition: none; } .drift { animation: none; } }
 </style>

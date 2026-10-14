@@ -37,8 +37,8 @@
 	// One plain sentence per promise: the campaign's own rule, applied to today's numbers. No forecasts.
 	function plain(p: CampaignPromise): string | null {
 		const r = p.rule;
-		if (r.type === 'freeze') return `The average home's city tax bill would stay at ${money(bill)}, this year's amount, for ${years(r.years)}.`;
-		if (r.type === 'percent' && typeof r.value === 'number') return `The average home's city tax bill would go from ${money(bill)} to ${money(bill * (1 + r.value / 100))}.`;
+		if (r.type === 'freeze') return `The average Toronto home's city tax bill would stay at ${money(bill)}, this year's amount, for ${years(r.years)}.`;
+		if (r.type === 'percent' && typeof r.value === 'number') return `The average Toronto home's city tax bill would go from ${money(bill)} to ${money(bill * (1 + r.value / 100))}.`;
 		if (r.type === 'fare-freeze') return "TTC fares would stay at today's prices.";
 		if (r.type === 'fare-free') return 'Riding the TTC would cost nothing.';
 		if (r.type === 'fare-free-phased') return `The TTC would become free, starting with ${((r.first as string[] | undefined) ?? []).join(', ').replace(/, ([^,]*)$/, ' and $1')} riders.`;
