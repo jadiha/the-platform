@@ -2,22 +2,23 @@
 	// Toronto scenery behind the journey: a soft band at the bottom of the screen that cross-fades
 	// from place to place as you ride. Decorative only (hidden from screen readers), muted so text
 	// on top stays readable, and still under reduced motion.
-	let { scene }: { scene: number } = $props(); // -1 = no scenery
+	// departing: Hop on was just tapped, so the harbour slides past as the streetcar pulls away.
+	let { scene, departing = false }: { scene: number; departing?: boolean } = $props(); // -1 = no scenery
 	const WALL = ['#e4572e', '#29a19c', '#f3c623', '#6a4c93', '#ff8c42', '#1982c4', '#8ac926', '#ff595e'];
 </script>
 
 <div class="scenery" aria-hidden="true">
 	<!-- 0 Harbourfront: the lake, ferry, sailboats, skyline and CN Tower -->
-	<svg class:on={scene === 0} viewBox="0 0 1600 400" preserveAspectRatio="xMidYMax slice">
-		<g fill="#b9c8d6">
+	<svg class:on={scene === 0} class:go={departing} viewBox="0 0 1600 400" preserveAspectRatio="xMidYMax slice">
+		<g class="city" fill="#b9c8d6">
 			<rect x="120" y="150" width="70" height="170" /><rect x="200" y="110" width="60" height="210" /><rect x="270" y="170" width="80" height="150" />
 			<rect x="980" y="130" width="70" height="190" /><rect x="1060" y="90" width="60" height="230" /><rect x="1130" y="160" width="90" height="160" />
 			<rect x="1240" y="120" width="60" height="200" /><rect x="1320" y="180" width="80" height="140" />
 		</g>
-		<g fill="#a5b6c6"><path d="M690 320 L708 70 L716 70 L734 320 Z" /><ellipse cx="712" cy="86" rx="26" ry="13" /><rect x="709" y="0" width="6" height="74" /></g>
+		<g class="tower" fill="#a5b6c6"><path d="M690 320 L708 70 L716 70 L734 320 Z" /><ellipse cx="712" cy="86" rx="26" ry="13" /><rect x="709" y="0" width="6" height="74" /></g>
 		<rect y="300" width="1600" height="100" fill="#8fb8d8" />
-		<g stroke="#cfe2f1" stroke-width="3" fill="none" opacity=".8">
-			{#each [330, 355, 380] as y (y)}<path d="M0 {y} q40 -8 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" />{/each}
+		<g class="waves" stroke="#cfe2f1" stroke-width="3" fill="none" opacity=".8">
+			{#each [330, 355, 380] as y (y)}<path d="M0 {y} q40 -8 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" />{/each}
 		</g>
 		<rect y="296" width="1600" height="8" fill="#c8a97e" />
 		<g class="drift">
@@ -90,6 +91,7 @@
 		<rect y="330" width="1600" height="70" fill="#9aa0a6" />
 	</svg>
 
+	{#if scene === 0}<span class="where sans">Now passing: <b>Harbourfront</b></span>{/if}
 </div>
 
 <style>
@@ -99,6 +101,18 @@
 	svg.on { opacity: 0.32; }
 	.drift { animation: drift 30s linear infinite alternate; }
 	@keyframes drift { to { transform: translateX(60px); } }
-	@media (max-width: 640px) { .scenery { height: 24vh; } svg.on { opacity: 0.25; } }
-	@media (prefers-reduced-motion: reduce) { svg { transition: none; } .drift { animation: none; } }
+	.where { position: absolute; left: 14px; bottom: 12px; z-index: 3; font-size: 11px; letter-spacing: 0.5px; background: rgba(255, 255, 255, 0.88); border-radius: 999px; padding: 4px 10px; color: var(--ink-2); }
+	/* Hop on: the harbour comes into full view and slides past (skyline faster than the tower, so it
+	   feels like depth), the lake ripples and the boats sail off. Lasts as long as the pause before Stop 1. */
+	svg.on.go { opacity: 0.6; transition: opacity 0.3s; }
+	.go .city { animation: pass 1.4s cubic-bezier(0.5, 0, 0.75, 0.2) forwards; }
+	.go .tower { animation: passfar 1.4s cubic-bezier(0.5, 0, 0.75, 0.2) forwards; }
+	.go .waves { animation: ripple 0.5s linear infinite; }
+	.go .drift { animation: sail 1.4s ease-in forwards; }
+	@keyframes pass { to { transform: translateX(-520px); } }
+	@keyframes passfar { to { transform: translateX(-260px); } }
+	@keyframes ripple { to { transform: translateX(-80px); } }
+	@keyframes sail { to { transform: translateX(380px); } }
+	@media (max-width: 640px) { .scenery { height: 24vh; } svg.on { opacity: 0.25; } svg.on.go { opacity: 0.55; } }
+	@media (prefers-reduced-motion: reduce) { svg { transition: none; } .drift, .go .city, .go .tower, .go .waves, .go .drift { animation: none; } }
 </style>

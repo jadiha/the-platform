@@ -41,6 +41,13 @@
 	];
 	let step = $state(0);
 	let whyOpen = $state(false);
+	// Hop on: let the harbour slide past for a moment, then open Stop 1 (straight away with reduced motion).
+	let departing = $state(false);
+	function hopOn() {
+		if (matchMedia('(prefers-reduced-motion: reduce)').matches) return go(1);
+		departing = true;
+		setTimeout(() => { departing = false; go(1); }, 1400);
+	}
 	// Keep the stop in the address bar so Back works and a stop can be shared.
 	$effect(() => {
 		const read = () => { const m = location.hash.match(/^#stop-(\d)$/); step = m ? Math.min(stops.length - 1, +m[1]) : 0; };
@@ -145,7 +152,7 @@
 {#if step > 0}
 	<LineStreet {stops} {active} onjump={jump} />
 {/if}
-<Scenery {scene} />
+<Scenery {scene} {departing} />
 
 {#key step}
 <div class="screenwrap">
@@ -159,7 +166,7 @@
 	</p>
 	<p class="proofnote sans">Every number and every quote links to its proof. Nothing here tells you who to vote for.</p>
 	<div class="hoprow sans">
-		<button class="hop" onclick={() => go(1)}>Hop on →</button>
+		<button class="hop" onclick={hopOn} disabled={departing}>Hop on →</button>
 		<span class="howto">Six stops · about five minutes</span>
 	</div>
 </section>
@@ -288,7 +295,7 @@
 <section class="stop wide exit">
 	<FallLeaves />
 	{#if pins.length}
-		<div class="mywalk sans"><b>You pinned:</b> {pins.map(displayName).join(' · ')}<br /><span class="hint">Pins stay in this browser. Nothing is sent anywhere.</span></div>
+		<div class="mywalk sans"><b>You pinned:</b> {pins.map(displayName).join(' · ')}</div>
 	{/if}
 	<div class="platform">
 		<div class="board" role="img" aria-label="Next train: Election Day, Monday October 26, 10 a.m. to 8 p.m.">
@@ -553,7 +560,6 @@
 	@media (max-width: 600px) {
 						.exit { min-height: 0; }
 						}
-	.hint { font-size: 12px; color: var(--mute); }
 	.stepnav { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 0; padding-bottom: 18px; }
 	.back, .fwd { font: inherit; font-weight: 700; font-size: 14.5px; border-radius: 999px; padding: 9px 18px; cursor: pointer; white-space: nowrap; }
 	.back { background: #fff; border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); color: var(--ink-2); }
