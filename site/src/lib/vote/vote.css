@@ -1,5 +1,5 @@
 /* Shared styles for the election walk's "What if they do it?" panels. */
-.whatif { margin-top: 18px; background: #fff; border: 1.5px solid var(--c); border-radius: 14px; padding: 14px 16px; }
+.whatif { margin-top: 18px; background: #fff; border: var(--line); box-shadow: var(--pop); border-left: 6px solid var(--c); border-radius: 14px; padding: 14px 16px; }
 .whatif .wh { font-size: 11px; font-weight: 600; letter-spacing: 2px; color: var(--c); margin-bottom: 4px; }
 .whatif h3 { margin: 0 0 8px; font-size: 20px; line-height: 1.25; }
 .whatif label { font-size: 13px; display: flex; gap: 10px; align-items: center; margin: 8px 0; }

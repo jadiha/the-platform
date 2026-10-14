@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>Glossary · The 6ix Votes</title>
+	<title>Glossary · The Platform</title>
 	<meta name="description" content="Budget jargon explained in plain language." />
 </svelte:head>
 
@@ -35,7 +35,7 @@
 	dl { margin: 32px 0 0; }
 	.entry { border-top: 1px solid var(--rule); padding: 16px 0; scroll-margin-top: 80px; }
 	.entry:target { background: var(--paper-2); }
-	dt { font-family: var(--sans); font-weight: 700; font-size: 17px; }
+	dt { font-family: var(--display); font-weight: 700; font-size: 20px; letter-spacing: 0; }
 	dd { margin: 4px 0 0; }
 	dd p { margin: 0 0 6px; }
 	.more { color: var(--ink-2); font-size: 17px; }

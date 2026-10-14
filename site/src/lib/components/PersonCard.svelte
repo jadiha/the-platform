@@ -48,8 +48,8 @@
 </article>
 
 <style>
-	.card { border-top: 2px solid var(--ink); padding: 12px 0 4px; font-size: 13.5px; line-height: 1.45; }
-	h4 { margin: 0; font-family: var(--serif); font-size: 19px; letter-spacing: -0.2px; }
+	.card { background: #fff; border: var(--line); border-radius: 14px; box-shadow: var(--pop); padding: 14px 16px; font-size: 13.5px; line-height: 1.45; }
+	h4 { margin: 0; font-family: var(--display); font-weight: 700; font-size: 19px; letter-spacing: 0; }
 	.role { margin: 2px 0 6px; color: var(--mute); }
 	.ballot { display: inline-block; font-size: 11px; font-weight: 600; border: 1px solid var(--ink); padding: 0 6px; }
 	ul { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 8px; }

@@ -18,7 +18,6 @@
 	const SKY: Record<Level, string> = { city: '#dce8f5', province: '#f6e6d6', federal: '#dfeee3' };
 	let idx = $state(0);
 	let picks = $state<Level[]>([]);
-	let arrived = $state(false);
 	const card = $derived(cards[idx]);
 	const pick = $derived(picks[idx]);
 	const finished = $derived(idx >= cards.length);
@@ -28,11 +27,9 @@
 	function choose(l: Level) {
 		if (pick) return;
 		picks = [...picks.slice(0, idx), l];
-		arrived = false;
-		setTimeout(() => (arrived = true), still() ? 0 : 350);
 	}
-	const next = () => { idx += 1; arrived = false; };
-	const restart = () => { picks = []; idx = 0; arrived = false; };
+	const next = () => { idx += 1; };
+	const restart = () => { picks = []; idx = 0; };
 	const proof = (c: WhoseJobCard) => {
 		if (c.proof) return c.proof;
 		const f = c.fact ? facts[c.fact] : undefined;
@@ -87,14 +84,15 @@
 {/snippet}
 
 <div class="game sans">
+	<!-- One quiet row: which question you're on, with a dot per question (green right, orange missed). -->
 	<div class="progress" aria-label="Question {Math.min(idx + 1, cards.length)} of {cards.length}">
-		{#each cards as c, i (c.thing)}<span class={picks[i] ? (picks[i] === c.answer ? 'ok' : 'miss') : i === idx ? 'cur' : ''}></span>{/each}
+		<span class="num">{finished ? 'Done' : `Question ${idx + 1} of ${cards.length}`}</span>
+		{#each cards as c, i (c.thing)}<i class={picks[i] ? (picks[i] === c.answer ? 'ok' : 'miss') : i === idx ? 'cur' : ''}></i>{/each}
 	</div>
 
 	{#if !finished}
 		<p class="ask">
-			<span class="num">{idx + 1} of {cards.length} · Who decides…</span>
-			<span class="thing">{card.thing}?</span>
+			<span class="thing">Who decides {card.thing[0].toLowerCase() + card.thing.slice(1)}?</span>
 			<span class="hint">{pick ? '' : 'Tap the building that decides it.'}</span>
 		</p>
 
@@ -116,7 +114,7 @@
 				{/each}
 			</div>
 			<div class="side" aria-live="polite">
-				{#if pick && arrived}
+				{#if pick}
 					{@const p = proof(card)}
 					<div class="answer lv-{card.answer}">
 						<div class="arow"><span class="badge {card.answer}">{PLACE[card.answer].level}</span><span class="verdict">{pick === card.answer ? 'You got it!' : `Not quite. It's ${PLACE[card.answer].name}.`}</span></div>
@@ -124,8 +122,6 @@
 						{#if p}<a class="proof" href={p.url} target="_blank" rel="noopener">Proof: {p.title} ↗</a>{/if}
 						<button class="go" onclick={next}>{idx === cards.length - 1 ? 'See your score' : 'Next question →'}</button>
 					</div>
-				{:else if pick}
-					<div class="waiting">Checking {PLACE[pick].name}…</div>
 				{:else}
 					<div class="waiting">Tap the building that decides it: <b>City Hall</b>, <b>Queen's Park</b> or <b>Parliament Hill</b>.</div>
 				{/if}
@@ -158,26 +154,30 @@
 
 <style>
 	.game { margin-top: 16px; }
-	.progress { display: flex; gap: 4px; margin-bottom: 12px; }
-	.progress span { flex: 1; height: 5px; border-radius: 5px; background: #e6e2d9; transition: background 0.3s; }
-	.progress .cur { background: #9a958b; }
+	/* Sits on the section flag's line, at the right, like a page number. */
+	.progress { display: flex; justify-content: flex-end; align-items: center; gap: 5px; margin: -33px 0 16px auto; width: fit-content; }
+	.progress .num { margin-right: 6px; }
+	.progress i { width: 9px; height: 9px; border-radius: 50%; background: #e2ddd2; transition: background 0.3s, transform 0.3s; }
+	.progress .cur { background: var(--ink); transform: scale(1.25); }
 	.progress .ok { background: #4a8c5c; }
 	.progress .miss { background: #d9822b; }
 	.ask { margin: 0 0 10px; display: flex; flex-direction: column; gap: 2px; }
-	.num { font-size: 12px; font-weight: 600; letter-spacing: 1.2px; color: var(--mute); text-transform: uppercase; }
-	.thing { font-family: var(--serif); font-size: clamp(22px, 3.6vw, 30px); font-weight: 700; line-height: 1.15; letter-spacing: -0.5px; }
+	.num { font-size: 13px; font-weight: 600; color: var(--mute); }
+	/* On narrow screens there's no room beside the stop title, so the counter drops below it. */
+	@media (max-width: 640px) { .progress { margin: -4px 0 12px 0; } }
+	.thing { font-family: var(--display); font-size: clamp(28px, 4vw, 40px); font-weight: 700; line-height: 1.1; letter-spacing: 0; }
 	.hint { font-size: 13px; color: var(--mute); min-height: 1em; }
 	/* Three postcards, one per government. Each fits a third of the play area, so the question,
 	   the buildings and the answer all fit on one screen. */
-	.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; width: 100%; height: clamp(220px, min(calc(100vh - 450px), 30cqw), 560px); }
-	.card { font: inherit; padding: 0; border: 2px solid transparent; border-radius: 16px; background: #fff; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08); transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, opacity 0.3s; }
+	.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; width: 100%; height: clamp(200px, min(calc(100vh - 470px), 26cqw), 340px); }
+	.card { font: inherit; padding: 0; border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent); border-radius: 16px; background: #fff; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; box-shadow: 0 2px 6px rgb(0 0 0 / 0.06); transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, opacity 0.3s; }
 	.card svg { display: block; width: 100%; flex: 1; min-height: 0; }
 	.card.city { background: #dce8f5; } .card.province { background: #f6e6d6; } .card.federal { background: #dfeee3; }
 	.cap { background: #fff; }
 	.cap { display: flex; flex-direction: column; align-items: center; padding: 8px 6px 10px; line-height: 1.2; }
 	.cap b { font-size: 18px; } .cap small { font-size: 13px; color: var(--mute); }
 	.card.city .cap b { color: #2f5d9b; } .card.province .cap b { color: #b56a1c; } .card.federal .cap b { color: #3d7a4e; }
-	.card:not(:disabled):hover, .card:focus-visible { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12); }
+	.card:not(:disabled):hover, .card:focus-visible { transform: translateY(-3px); box-shadow: 0 10px 22px rgb(0 0 0 / 0.12); }
 	.card.city:not(:disabled):hover { border-color: #2f5d9b; } .card.province:not(:disabled):hover { border-color: #d9822b; } .card.federal:not(:disabled):hover { border-color: #4a8c5c; }
 	.card:disabled { cursor: default; }
 	.card:disabled:not(.correct):not(.chosen) { opacity: 0.45; }
@@ -188,29 +188,29 @@
 	.play { container-type: inline-size; display: grid; grid-template-columns: minmax(0, 2.5fr) minmax(240px, 1fr); gap: 20px; align-items: center; }
 	.side { display: flex; }
 	.side .answer { margin: 0; width: 100%; }
-	.waiting { align-self: center; font-size: 15px; color: var(--ink-2); background: #fff; border: 1px dashed var(--rule); border-radius: 18px; padding: 18px; width: 100%; }
+	.waiting { align-self: center; font-size: 15px; line-height: 1.5; color: var(--ink-2); border-left: 3px solid var(--rule); padding: 4px 0 4px 16px; width: 100%; }
 	.arow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 	.arow .verdict { margin: 0; }
 	.results { animation: pop 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
 	.rhead { display: flex; align-items: baseline; gap: 6px 22px; flex-wrap: wrap; margin-bottom: 14px; }
-	.scorebig { font-family: var(--serif); font-size: 30px; margin: 0; }
+	.scorebig { font-family: var(--display); font-weight: 700; font-size: 30px; margin: 0; }
 	.scorebig b { font-size: 44px; color: #da251d; }
 	.rhead .explain { margin: 0; font-size: 15px; flex: 1; min-width: 260px; }
-	.rcols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-	.rcol { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08); border: 2px solid transparent; }
+	.rcols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 940px; }
+	.rcol { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: var(--pop); border: var(--line); }
 	.rcol.city { border-color: #2f5d9b; }
-	.rart { height: 100px; } .rart :global(svg) { width: 100%; height: 100%; display: block; }
+	.rart { height: 64px; } .rart :global(svg) { width: 100%; height: 100%; display: block; }
 	.rcol.city .rart { background: #dce8f5; } .rcol.province .rart { background: #f6e6d6; } .rcol.federal .rart { background: #dfeee3; }
-	.rcap { display: flex; flex-direction: column; align-items: center; padding: 8px 10px 4px; line-height: 1.2; }
-	.rcap b { font-size: 17px; } .rcap small { font-size: 12px; color: var(--mute); }
+	.rcap { display: flex; flex-direction: column; align-items: center; padding: 6px 10px 2px; line-height: 1.2; }
+	.rcap b { font-size: 15px; } .rcap small { font-size: 11.5px; color: var(--mute); }
 	.rcol.city .rcap b { color: #2f5d9b; } .rcol.province .rcap b { color: #b56a1c; } .rcol.federal .rcap b { color: #3d7a4e; }
 	.ballot-tag { margin-top: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; background: #2f5d9b; color: #fff; border-radius: 999px; padding: 3px 10px; }
-	.rcol ul { list-style: none; margin: 0; padding: 8px 14px 14px; display: grid; gap: 6px; font-size: 14px; line-height: 1.35; }
+	.rcol ul { list-style: none; margin: 0; padding: 6px 12px 12px; display: grid; gap: 4px; font-size: 13px; line-height: 1.3; }
 	.rcol li { display: flex; gap: 8px; color: var(--ink-2); }
-	.mark { flex: none; width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 800; background: #ece8df; color: var(--mute); margin-top: 1px; }
+	.mark { flex: none; width: 16px; height: 16px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 800; background: #ece8df; color: var(--mute); margin-top: 1px; }
 	.got .mark { background: #4a8c5c; color: #fff; }
-	.again { font: inherit; font-weight: 700; font-size: 14px; background: none; border: 1.5px solid var(--ink); border-radius: 999px; padding: 8px 18px; cursor: pointer; margin-top: 14px; }
-	.answer { margin-top: 14px; background: #fff; border-radius: 18px; padding: 18px 20px; border: 1px solid var(--rule); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07); animation: pop 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
+	.again { font: inherit; font-weight: 700; font-size: 14px; background: #fff; border: var(--line); border-radius: 999px; padding: 8px 18px; cursor: pointer; margin-top: 14px; box-shadow: 2px 2px 0 var(--ink); }
+	.answer { margin-top: 14px; background: #fff; border-radius: 18px; padding: 18px 20px; border: var(--line); box-shadow: var(--pop); animation: pop 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
 	@keyframes pop { from { transform: translateY(12px); opacity: 0; } to { transform: none; opacity: 1; } }
 	.answer.lv-city { border-top: 7px solid #2f5d9b; }
 	.answer.lv-province { border-top: 7px solid #d9822b; }
@@ -222,7 +222,9 @@
 	.badge.federal { background: #4a8c5c; }
 	.explain { font-size: 16px; line-height: 1.5; color: var(--ink-2); margin: 8px 0; }
 	.proof { display: block; font-size: 12px; color: var(--mute); margin-bottom: 14px; }
-	.go { font: inherit; font-weight: 700; font-size: 15px; background: #da251d; color: #fff; border: 0; border-radius: 999px; padding: 10px 20px; cursor: pointer; }
+	/* Red is kept for the page's own "Next stop"; the quiz's step button stays quiet so the two don't compete. */
+	.go { font: inherit; font-weight: 700; font-size: 15px; background: #fff; color: var(--ink); border: var(--line); border-radius: 999px; padding: 9px 20px; cursor: pointer; box-shadow: 2px 2px 0 var(--ink); transition: transform 0.15s, box-shadow 0.15s; }
+	.go:hover { transform: translate(-1px, -1px); box-shadow: var(--pop); }
 	.hint { display: none; }
 	@media (max-width: 860px) { .play { grid-template-columns: 1fr; } .waiting { display: none; } .hint { display: block; } }
 	@media (max-width: 600px) {
