@@ -278,14 +278,17 @@
 </div>
 {/key}
 {#if step > 0}
-<nav class="stepnav wide sans" aria-label="Move along the ride">
-	<button class="back" onclick={() => go(step - 1)}>‹ Back</button>
-	<span class="gap"></span>
+<nav class="stepnav sans" aria-label="Move along the ride">
+	<button class="back" onclick={() => go(step - 1)}><span aria-hidden="true">‹</span> Back</button>
+	<span class="line" aria-hidden="true"><i style="left:calc({(step / (stops.length - 1)) * 100}% - 6px)"></i></span>
 	{#if step < stops.length - 1}
-		<button class="fwd" onclick={() => go(step + 1)}>Next stop<span class="full">: {stops[step + 1].label.split(': ')[1]}</span> →</button>
+		<button class="fwd" onclick={() => go(step + 1)}>
+			<small>Next stop <span aria-hidden="true">›</span></small>
+			<b>{stops[step + 1].label.split(': ')[1]}</b>
+		</button>
 	{:else}
-		<span class="hint">{shared}</span>
-		<button class="fwd" onclick={share}>Share the ride ↗</button>
+		{#if shared}<span class="hint">{shared}</span>{/if}
+		<button class="fwd" onclick={share}><small>Last stop</small><b>Share the ride ↗</b></button>
 	{/if}
 </nav>
 {/if}
@@ -325,15 +328,17 @@
 	.hoprow { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 18px; margin-top: 22px; }
 	.hop { font-family: var(--sans); font-weight: 700; font-size: 17px; background: #da251d; color: #fff; border: 0; border-radius: 999px; padding: 13px 26px; cursor: pointer; }
 	.howto { font-size: 13.5px; color: var(--mute); }
-	/* Back and Next float in the same spot on every stop (no bar behind them). */
-	.stepnav { position: fixed; left: 0; right: 0; bottom: 20px; z-index: 8; display: flex; align-items: center; gap: 16px; pointer-events: none; }
-	.stepnav > * { pointer-events: auto; }
-	.stepnav .gap { flex: 1; }
-	.stepnav button { font: inherit; font-weight: 700; font-size: 15px; border-radius: 999px; padding: 11px 18px; cursor: pointer; }
-	.stepnav .back { background: color-mix(in srgb, var(--paper) 90%, transparent); backdrop-filter: blur(4px); border: 1px solid var(--rule); padding: 10px 16px; color: var(--ink-2); font-weight: 600; }
-	.stepnav .back:hover { color: var(--ink); }
-	.stepnav .back:disabled { opacity: 0.3; cursor: default; }
-	.stepnav .fwd { background: #da251d; color: #fff; border: 0; box-shadow: 0 8px 20px rgba(218, 37, 29, 0.3); }
+	/* Back and Next live on a floating TTC-style platform sign, in the same spot on every stop. */
+	.stepnav { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 8; width: min(1080px, calc(100% - 24px)); display: flex; align-items: center; gap: 14px; background: #141414; color: #fff; border-radius: 12px; padding: 8px 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); border-top: 4px solid #b8a46a; font-family: 'Jost', var(--sans); }
+	.stepnav button { font: inherit; background: none; border: 0; color: #fff; cursor: pointer; border-radius: 8px; text-transform: uppercase; letter-spacing: 2px; }
+	.stepnav button:hover { background: rgba(255, 255, 255, 0.08); }
+	.stepnav .back { font-size: 14px; font-weight: 500; padding: 10px 14px; color: #cfcfcf; }
+	.stepnav .line { flex: 1; height: 4px; background: #da251d; border-radius: 4px; position: relative; }
+	.stepnav .line i { position: absolute; top: 50%; transition: left 0.6s ease; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; background: #fff; border: 3px solid #da251d; }
+	.stepnav .fwd { display: flex; flex-direction: column; align-items: flex-end; padding: 6px 14px; line-height: 1.1; }
+	.stepnav .fwd small { font-size: 11px; color: #ffb43a; letter-spacing: 2.5px; }
+	.stepnav .fwd b { font-size: 18px; font-weight: 700; letter-spacing: 2.5px; }
+	.stepnav .hint { font-size: 12px; color: #cfcfcf; text-transform: none; letter-spacing: 0; }
 	.head { display: flex; flex-direction: column; gap: 2px; }
 	.stopno { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #da251d; }
 
@@ -476,8 +481,7 @@
 	.hint { font-size: 12px; color: var(--mute); }
 	.method { font-size: 12.5px; color: var(--mute); margin-top: 24px; line-height: 1.5; }
 	@media (max-width: 600px) {
-			.stepnav .full { display: none; }
-		.stepnav { bottom: 12px; }
+			.stepnav { bottom: 10px; gap: 8px; } .stepnav .fwd b { font-size: 14px; letter-spacing: 1.5px; } .stepnav .back { padding: 8px 10px; font-size: 12px; }
 		.screenwrap { padding-bottom: 80px; }
 		.charts { grid-template-columns: 1fr; }
 		.who { grid-template-columns: 1fr; }
