@@ -442,7 +442,7 @@
 	.note { font-size: 11.5px; color: var(--mute); margin: 10px 0 0; }
 	.legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--mute); margin: 10px 0 12px; }
 	.legend i, .dots i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 4px; vertical-align: 0; }
-	.tiles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px 14px; }
+	.tiles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); grid-auto-rows: 1fr; gap: 8px 14px; }
 	.tile { font: inherit; width: 100%; height: 100%; text-align: left; display: grid; grid-template-columns: 34px 1fr; grid-template-rows: auto auto; column-gap: 10px; row-gap: 3px; align-items: center; background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 5px 12px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
 	.tile:hover, .tile:focus-visible { transform: translate(-2px, -2px); box-shadow: var(--pop); border-color: var(--ink); }
 	.ini { grid-row: 1 / 3; width: 34px; height: 34px; border-radius: 50%; background: #2b2b2b; color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 12.5px; letter-spacing: 0.5px; }
@@ -470,7 +470,8 @@
 	.overlay { position: fixed; inset: 0; z-index: 50; background: rgba(20, 20, 20, 0.45); backdrop-filter: blur(3px); display: grid; place-items: center; padding: 16px; animation: fade 0.2s ease; }
 	@keyframes fade { from { opacity: 0; } }
 	/* The card always fits the screen: header and Back/Next stay put, only the quotes scroll inside. */
-	.sheet { width: min(520px, 100%); max-height: calc(100dvh - 32px); display: flex; flex-direction: column; }
+	/* One fixed size for every candidate and every panel, so the card never jumps; long panels scroll inside. */
+	.sheet { width: min(520px, 100%); height: min(640px, calc(100dvh - 32px)); display: flex; flex-direction: column; }
 	.sheet :global(.card) { flex: 1; min-height: 0; max-height: none; }
 	.sheetnav { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 13px; margin-bottom: 8px; }
 	.sheetnav button { font: inherit; font-size: 18px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, 0.92); cursor: pointer; }
