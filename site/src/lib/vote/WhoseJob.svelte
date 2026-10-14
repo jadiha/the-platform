@@ -98,7 +98,7 @@
 			<span class="hint">{pick ? '' : 'Tap the building that decides it.'}</span>
 		</p>
 
-		<div class="play">
+		<div class="play" class:answered={!!pick}>
 			<div class="cards">
 				{#each LEVELS as l (l)}
 					<button
@@ -234,6 +234,13 @@
 		.card { border-radius: 12px; }
 		.cap { padding: 5px 2px 7px; } .cap b { font-size: 13px; } .cap small { font-size: 9.5px; }
 		.rcols { grid-template-columns: 1fr; } .rart { display: none; }
+		/* Phones: once you've answered, the pictures fold down to their labels so the answer and
+		   'Next question' fit on the screen without scrolling. */
+		.thing { font-size: 24px; }
+		.answered .card svg { display: none; }
+		.answer { margin-top: 10px; padding: 14px 16px; }
+		.explain { font-size: 15px; margin: 6px 0; }
+		.proof { margin-bottom: 10px; }
 	}
 	@media (prefers-reduced-motion: reduce) { .card, .answer { transition: none; animation: none; } }
 </style>
