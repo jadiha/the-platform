@@ -11,10 +11,11 @@
 	const { facts } = siteData();
 	const LEVELS = ['city', 'province', 'federal'] as const;
 	type Level = (typeof LEVELS)[number];
-	const PLACE: Record<Level, { name: string; level: string }> = {
-		city: { name: 'City Hall', level: 'City' },
-		province: { name: "Queen's Park", level: 'Province' },
-		federal: { name: 'Parliament Hill', level: 'Federal' }
+	// Plain names first; the building is only a picture. 'who' says which government it is.
+	const PLACE: Record<Level, { name: string; level: string; who: string }> = {
+		city: { name: 'City Hall', level: 'City', who: "Toronto's government" },
+		province: { name: "Queen's Park", level: 'Province', who: "Ontario's government" },
+		federal: { name: 'Parliament Hill', level: 'Federal', who: "Canada's government" }
 	};
 
 	const SKY: Record<Level, string> = { city: '#dce8f5', province: '#f6e6d6', federal: '#dfeee3' };
@@ -95,7 +96,7 @@
 	{#if !finished}
 		<p class="ask">
 			<span class="thing">Who decides {lc(card.thing)}?</span>
-			<span class="hint">{pick ? '' : 'Tap the building that decides it.'}</span>
+			<span class="hint">{pick ? '' : 'Tap who decides it.'}</span>
 		</p>
 
 		<div class="play" class:answered={!!pick}>
@@ -111,7 +112,7 @@
 						aria-label="{PLACE[l].name}: {PLACE[l].level} government"
 					>
 						{@render building(l)}
-						<span class="cap"><b>{PLACE[l].level}</b><small>{PLACE[l].name}</small></span>
+						<span class="cap"><b>{PLACE[l].level}</b><small>{PLACE[l].who}</small></span>
 					</button>
 				{/each}
 			</div>
@@ -119,13 +120,13 @@
 				{#if pick}
 					{@const p = proof(card)}
 					<div class="answer lv-{card.answer}">
-						<div class="arow"><span class="badge {card.answer}">{PLACE[card.answer].level}</span><span class="verdict">{pick === card.answer ? 'You got it!' : `Not quite. It's ${PLACE[card.answer].name}.`}</span></div>
+						<div class="arow"><span class="badge {card.answer}">{PLACE[card.answer].level}</span><span class="verdict">{pick === card.answer ? 'Correct.' : `Not quite. It's ${PLACE[card.answer].who}.`}</span></div>
 						<p class="explain">{card.explain}</p>
 						{#if p}<a class="proof" href={p.url} target="_blank" rel="noopener">Proof: {p.title} ↗</a>{/if}
 						<button class="go" onclick={next}>{idx === cards.length - 1 ? 'See your score' : 'Next question →'}</button>
 					</div>
 				{:else}
-					<div class="waiting">Tap the building that decides it: <b>City Hall</b>, <b>Queen's Park</b> or <b>Parliament Hill</b>.</div>
+					<div class="waiting">Tap who decides it: the <b>City</b> (Toronto), the <b>Province</b> (Ontario) or the <b>Federal</b> government (Canada).</div>
 				{/if}
 			</div>
 		</div>
@@ -140,7 +141,7 @@
 				{#each LEVELS as l (l)}
 					<div class="rcol {l}">
 						<div class="rart">{@render building(l)}</div>
-						<div class="rcap"><b>{PLACE[l].level}</b><small>{PLACE[l].name}</small>{#if l === 'city'}<span class="ballot-tag">On your ballot Oct 26</span>{/if}</div>
+						<div class="rcap"><b>{PLACE[l].level}</b><small>{PLACE[l].who}</small>{#if l === 'city'}<span class="ballot-tag">On your ballot Oct 26</span>{/if}</div>
 						<ul>
 							{#each cards.map((c, i) => ({ c, i })).filter((x) => x.c.answer === l) as x (x.c.thing)}
 								<li class:got={picks[x.i] === l}><span class="mark" aria-label={picks[x.i] === l ? 'You got this' : 'You missed this'}>{picks[x.i] === l ? '✓' : '·'}</span>{x.c.thing}</li>

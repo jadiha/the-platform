@@ -36,9 +36,9 @@ cards:
     explain: "Ontario's Employment Standards Act sets the minimum wage."
     proof: {title: "Ontario: Your guide to the Employment Standards Act, Minimum wage", url: "https://www.ontario.ca/document/your-guide-employment-standards-act-0/minimum-wage"}
 
-  - thing: "Shelters for people experiencing homelessness"
+  - thing: "How many shelter beds Toronto has for people experiencing homelessness"
     answer: city
-    explain: "The City runs Toronto's shelter system. Some of the money comes from the Province and federal government."
+    explain: "The City runs Toronto's shelter system, including how many beds it opens. Some of the money comes from the Province and federal government."
     fact: toronto.shelter.2026.gross
 
   - thing: "Immigration and study permits"
