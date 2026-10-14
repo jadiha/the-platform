@@ -23,8 +23,8 @@
 </script>
 
 <svelte:head>
-	<title>Sources and methods · The 6ix Votes</title>
-	<meta name="description" content="Every dataset behind The 6ix Votes, how we grouped spending into categories, and what we know we can't show yet." />
+	<title>Sources and methods · The Platform</title>
+	<meta name="description" content="Every dataset behind The Platform, how we grouped spending into categories, and what we know we can't show yet." />
 </svelte:head>
 
 <div class="wide page">
@@ -102,7 +102,7 @@
 	{#each [['toronto', 'City of Toronto programs'], ['ontario', 'Ontario ministries']] as [key, title] (key)}
 		<details>
 			<summary class="sans">{title} ({data.mappings[key as 'toronto' | 'ontario'].length} lines)</summary>
-			<table class="sans compact">
+			<div class="scroll">			<table class="sans compact">
 				<thead><tr><th>Budget line</th><th>Our category</th><th>Notes</th></tr></thead>
 				<tbody>
 					{#each data.mappings[key as 'toronto' | 'ontario'] as m (m.original_line)}
@@ -113,7 +113,7 @@
 						</tr>
 					{/each}
 				</tbody>
-			</table>
+			</table></div>
 		</details>
 	{/each}
 
@@ -175,6 +175,8 @@
 	td { border-bottom: 1px solid var(--rule); padding: 7px 8px; vertical-align: top; }
 	tr:target { background: var(--paper-2); }
 	.compact { font-size: 12px; margin: 10px 0; }
+	/* Wide tables scroll sideways on phones instead of pushing the page wider. */
+	.scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 	.nowrap { white-space: nowrap; }
 	.num { font-variant-numeric: tabular-nums; font-weight: 600; }
 	.mono { font-family: ui-monospace, monospace; font-size: 11.5px; color: var(--mute); }

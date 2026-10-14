@@ -132,7 +132,7 @@
 </script>
 
 <svelte:head>
-	<title>The 6ix Votes · where Scarborough’s money goes</title>
+	<title>The Platform · where Scarborough’s money goes</title>
 	<meta name="description" content="A walk through Scarborough showing how the City of Toronto and the Province of Ontario spend public money, and who decides. Every number is sourced." />
 </svelte:head>
 
@@ -285,8 +285,8 @@
 
 <style>
 	.hero { margin: 56px auto 40px; }
-	h1 { font-size: clamp(36px, 6vw, 56px); margin: 10px 0 16px; letter-spacing: -1.2px; }
-	.dek { font-size: 21px; color: var(--ink-2); margin: 0; }
+	h1 { font-size: clamp(36px, 6vw, 56px); margin: 10px 0 16px; }
+	.dek { font-size: clamp(17px, 2.2vw, 21px); color: var(--ink-2); margin: 0; }
 	.how { font-size: 13px; color: var(--mute); border-top: 1px solid var(--rule); margin-top: 22px; padding-top: 10px; }
 	.u-ok { border-bottom: 2px solid var(--ok); color: var(--ink); }
 	.u-term { border-bottom: 1.5px dotted var(--ink); color: var(--ink); }

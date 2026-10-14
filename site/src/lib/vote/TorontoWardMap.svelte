@@ -117,11 +117,11 @@
 	.w:hover, .w.on { fill: #da251d; }
 	text { font-size: 11px; font-weight: 700; fill: #8a857b; text-anchor: middle; pointer-events: none; }
 	text.on { fill: #fff; }
-	.panel { display: flex; flex-direction: column; gap: 2px; background: #fff; border: 1px solid var(--rule); border-radius: 16px; padding: 16px; min-height: 140px; justify-content: center; }
+	.panel { display: flex; flex-direction: column; gap: 2px; background: #fff; border: var(--line); box-shadow: var(--pop); border-radius: 16px; padding: 16px; min-height: 140px; justify-content: center; }
 	.panel.open { align-self: start; }
 	.panel:not(.open) { padding: 24px; gap: 6px; }
 	.num { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #da251d; }
-	.panel b { font-family: var(--serif); font-size: 24px; line-height: 1.15; }
+	.panel b { font-family: var(--display); font-weight: 700; letter-spacing: 0; font-size: 24px; line-height: 1.15; }
 	.hint { font-size: 12.5px; color: var(--mute); margin-top: 4px; }
 	.race { border-top: 1px solid var(--rule); margin-top: 8px; padding-top: 7px; }
 	h3 { font-size: 13px; font-weight: 700; margin: 0 0 6px; display: flex; justify-content: space-between; gap: 8px; }

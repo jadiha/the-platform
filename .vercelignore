@@ -1,0 +1,12 @@
+# The site only needs site/, data/ (minus raw downloads) and research/ to build.
+.venv
+.pytest_cache
+.superpowers
+data/raw
+data/interim
+site/node_modules
+site/build
+site/.svelte-kit
+pipeline
+tests
+docs

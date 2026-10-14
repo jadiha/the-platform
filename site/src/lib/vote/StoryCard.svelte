@@ -136,7 +136,7 @@
 </article>
 
 <style>
-	.card { background: #fff; border: 1px solid var(--rule); border-radius: 18px; padding: 14px 16px 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); max-width: 460px; margin: 0 auto; min-height: 430px; display: flex; flex-direction: column; outline: none; }
+	.card { background: #fff; border: 1px solid var(--rule); border-radius: 18px; padding: 14px 16px 12px; box-shadow: 0 12px 40px rgb(0 0 0 / 0.2); max-width: 460px; margin: 0 auto; min-height: 0; max-height: calc(100dvh - 90px); display: flex; flex-direction: column; outline: none; }
 	.bars { display: flex; gap: 4px; margin-bottom: 10px; }
 	.bars span { flex: 1; height: 3px; border-radius: 3px; background: #e6e2d9; transition: background 0.3s; }
 	.bars span.on { background: var(--ink); }
@@ -144,10 +144,10 @@
 	.count { font-size: 11px; letter-spacing: 1.5px; font-weight: 600; color: var(--mute); }
 	.pin { font: inherit; font-size: 11px; border: 1px solid var(--rule); background: #fff; border-radius: 999px; padding: 3px 10px; cursor: pointer; }
 	.pin[aria-pressed='true'] { background: var(--ink); color: #fff; }
-	.name { font-family: var(--serif); font-size: 30px; margin: 4px 0 0; letter-spacing: -0.5px; }
+	.name { font-family: var(--display); font-weight: 700; font-size: 30px; margin: 4px 0 0; letter-spacing: 0; }
 	.ptitle { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mute); margin: 2px 0 10px; }
-	.body { flex: 1; font-size: 14px; }
-	q { display: block; font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.4; margin: 6px 0; }
+	.body { flex: 1; min-height: 0; overflow-y: auto;  flex: 1; font-size: 14px; }
+	q { display: block; font-family: var(--serif); font-style: italic; font-size: 16.5px; line-height: 1.4; margin: 6px 0; }
 	q.small { font-size: 14px; }
 	.rec { margin: 0 0 6px; font-weight: 600; }
 	.rec a, .hl, .pri a, .small a { font-weight: 400; font-size: 11.5px; color: var(--mute); }

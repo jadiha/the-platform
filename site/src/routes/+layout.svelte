@@ -22,7 +22,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
-		href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Libre+Franklin:wght@400;500;600;700&display=swap"
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&family=Jost:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400..800;1,6..72,400&display=swap"
 		rel="stylesheet"
 	/>
 </svelte:head>
@@ -32,7 +32,7 @@
 </div>
 
 <header class="masthead">
-	<a class="name" href="/vote/">The 6ix Votes</a>
+	<a class="name" href="/vote/">The Platform<span class="tagline">: your vote counts</span></a>
 	<nav class="sans" aria-label="Main">
 		{#each nav as [href, label]}
 			<a {href} aria-current={page.url.pathname === href ? 'page' : undefined}>{label}</a>
@@ -59,19 +59,26 @@
 <style>
 	.election { background: var(--ink); color: #fff; font-size: 13px; padding: 8px 20px; text-align: center; }
 	.masthead {
-		display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap;
-		border-bottom: 1px solid var(--ink); padding: 14px 20px; position: sticky; top: 0; z-index: 20;
+		display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+		border-bottom: var(--line); padding: 14px 20px; position: sticky; top: 0; z-index: 20;
 		background: color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter: blur(6px);
 	}
-	.name { font-weight: 700; font-size: 21px; letter-spacing: -0.3px; text-decoration: none; }
-	nav { display: flex; gap: 18px; font-size: 13px; flex-wrap: wrap; }
-	nav a { text-decoration: none; color: var(--mute); }
-	nav a[aria-current='page'], nav a:hover { color: var(--ink); text-decoration: underline; }
-	nav a:first-child { color: #2f5d9b; font-weight: 600; }
+	.tagline { font-weight: 400; font-style: italic; color: var(--red); }
+	.name { font-family: var(--display); font-weight: 700; font-size: 21px; letter-spacing: 0; text-decoration: none; }
+	nav { display: flex; gap: 6px; font-size: 13.5px; flex-wrap: wrap; }
+	nav { align-items: center; }
+	nav a { text-decoration: none; color: var(--ink-2); font-weight: 600; border: 1.5px solid transparent; border-radius: 999px; padding: 4px 12px; }
+	nav a:hover { color: var(--ink); border-color: var(--ink); }
+	nav a[aria-current='page'] { color: var(--ink); background: var(--lime); border-color: var(--ink); box-shadow: 2px 2px 0 var(--ink); }
 	footer { border-top: 1px solid var(--ink); margin-top: 80px; padding: 24px 0 40px; font-size: 13px; color: var(--ink-2); }
 	.fine { color: var(--mute); }
 	@media (max-width: 640px) {
-		.masthead { position: static; }
-		nav { gap: 12px; }
+		.masthead { position: static; padding: 10px 14px; gap: 6px; }
+		/* One swipeable row of links on phones instead of two wrapped lines. */
+		nav { flex-wrap: nowrap; overflow-x: auto; width: calc(100% + 28px); margin: 0 -14px; padding: 2px 14px 4px; scrollbar-width: none; }
+		nav::-webkit-scrollbar { display: none; }
+		nav a { flex: none; font-size: 13px; }
+		.name { font-size: 19px; }
+		nav { gap: 4px; } nav a { padding: 3px 9px; }
 	}
 </style>

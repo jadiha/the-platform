@@ -17,8 +17,20 @@
 	--ok: #2f7a45;
 	--warn: #b45f06;
 
+	/* The house style: friendly display headings, thin black outlines, small hard shadows. */
+	/* Newspaper-style headlines over a plain, readable sans. */
+	--display: 'Newsreader', Georgia, serif;
+	--line: 1.5px solid var(--ink);
+	--pop: 3px 3px 0 var(--ink);
+	--pop-lg: 5px 5px 0 var(--ink);
+	--radius: 16px;
+	--red: #da251d;
+	--lime: #d4f25c;
+	--warm: #fff1e2;
+	--cool: #ecefff;
+
 	--serif: 'Newsreader', Georgia, serif;
-	--sans: 'Libre Franklin', 'Helvetica Neue', Arial, sans-serif;
+	--sans: 'Inter', system-ui, 'Helvetica Neue', Arial, sans-serif;
 	--measure: 640px;
 }
 
@@ -28,16 +40,22 @@ body {
 	margin: 0;
 	background: var(--paper);
 	color: var(--ink);
-	font-family: var(--serif);
-	font-size: 19px;
-	line-height: 1.55;
+	/* One readable sans for everything; the serif is kept only for candidates' quoted words. */
+	font-family: var(--sans);
+	font-size: 17px;
+	line-height: 1.6;
 	-webkit-font-smoothing: antialiased;
 }
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { color: var(--c-transit); }
-h1, h2, h3 { line-height: 1.1; letter-spacing: -0.5px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.12; letter-spacing: 0; }
+/* Shared pieces: a card, a lime tag, and buttons that lift when you point at them. */
+.u-card { background: #fff; border: var(--line); border-radius: var(--radius); box-shadow: var(--pop); }
+.u-tag { display: inline-block; font-family: var(--sans); background: var(--lime); color: var(--ink); border: var(--line); border-radius: 999px; padding: 3px 12px; font-weight: 700; font-size: 13px; box-shadow: 2px 2px 0 var(--ink); }
+.u-lift { transition: transform 0.15s, box-shadow 0.15s; }
+.u-lift:hover { transform: translate(-2px, -2px); box-shadow: var(--pop-lg); }
 .sans { font-family: var(--sans); }
-.kicker { font-family: var(--sans); font-size: 12px; letter-spacing: 2px; font-weight: 600; text-transform: uppercase; }
+.kicker { font-family: var(--sans); font-size: 12px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; color: var(--red); }
 .wrap { max-width: var(--measure); margin: 0 auto; padding: 0 20px; }
 .wide { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }

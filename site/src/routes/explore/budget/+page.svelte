@@ -1,7 +1,8 @@
 <script lang="ts">
-	// Zoomable treemap, one level at a time: tap a tile to open it, use the breadcrumb to go back.
-	// The list under the map holds the same data for screen readers and small phones.
-	import { hierarchy, treemap, treemapSquarify } from 'd3-hierarchy';
+	// Toronto reads as a story (money in, money out), then Part 3 ranks every line; Ontario is the ranked list alone.
+	import { tick } from 'svelte';
+	import { SvelteSet } from 'svelte/reactivity';
+	import Ranked from '#lib/components/Ranked.svelte';
 	import { categoryColor } from '#lib/categories.ts';
 	import { money } from '#lib/format.ts';
 	import type { BudgetNode } from '#lib/types.ts';
@@ -29,7 +30,7 @@
 	].map(([k, label, color]) => ({ id: `toronto.revenue.2026.${k}`, label, color, v: fv(`toronto.revenue.2026.${k}`) }));
 	// Money-flow: the five biggest sources plus 'smaller sources', each a block on the left whose
 	// ribbon runs into one bar for the whole budget. Only property taxes get a colour.
-	const FH = 320, TOP = 40;
+	const FH = 250, TOP = 40;
 	const BAR = { x0: 470, x1: 500 };
 	const SHADES = ['#d9822b', '#41566e', '#5f7891', '#7d93a8', '#9caebf', '#bcc8d3'];
 	const top5 = sources.slice(0, 5);
@@ -51,10 +52,7 @@
 	// svelte-ignore state_referenced_locally
 	let levelKey = $state(data.trees[0]?.key ?? 'toronto');
 	const level = $derived(data.trees.find((t) => t.key === levelKey) ?? data.trees[0]);
-	let path = $state<BudgetNode[]>([]);
 	const root = $derived(level?.tree as BudgetNode);
-	const current = $derived(path.at(-1) ?? root);
-	const category = $derived([...path].reverse().find((n) => n.category)?.category);
 	// Money out: the City's top spending areas (same colours as the boxes below), ribbons out of the bar.
 	const outRows = $derived.by(() => {
 		if (levelKey !== 'toronto' || !root?.children) return [];
@@ -78,57 +76,58 @@
 
 	function choose(key: string) {
 		levelKey = key;
-		path = [];
-		leafNote = null;
+		opened.clear();
 	}
-	let mapEl: HTMLDivElement | undefined = $state();
-	// A box with nothing inside: say so, instead of a tap that seems broken.
-	let leafNote = $state<BudgetNode | null>(null);
-	let hoverOut = $state<string | null>(null);
-	function open(n: BudgetNode, fromList = false) {
-		if (!n.children?.length) { leafNote = n; return; }
-		leafNote = null;
-		path = [...path, n];
-		if (fromList) mapEl?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+	let mapEl: HTMLElement | undefined = $state();
+	// Toronto reads as one story: part 1 (money in), part 2 (money out), part 3 (the boxes).
+	const storyOn = $derived(levelKey === 'toronto' && !!tor);
+	// One stream lit at a time ('in:<id>' or 'out:<label>'): the rest of its chart dims, and the City bar reads out its amount.
+	let hot = $state<string | null>(null);
+	const hotIn = $derived(flowRows.find((r) => `in:${r.id}` === hot));
+	const hotOut = $derived(outRows.find((r) => `out:${r.label}` === hot));
+	const dim = (key: string, base: number) => (hot === key ? 0.85 : hot?.[0] === key[0] ? 0.12 : base);
+	let reduceMotion = $state(false);
+	$effect(() => { reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches; });
+	// Each chart pours its money in the first time it scrolls into view.
+	function reveal(node: Element) {
+		const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { node.classList.add('seen'); io.disconnect(); } }, { threshold: 0.2 });
+		io.observe(node);
+		return { destroy: () => io.disconnect() };
 	}
-	const back = (i: number) => { path = path.slice(0, i); leafNote = null; };
-
-	let width = $state(0);
-	const height = $derived(width < 600 ? 380 : 480);
-
-	// Treemap areas can't be negative; a few corporate lines are (net savings). They stay in the list.
-	const tiles = $derived.by(() => {
-		if (!current?.children || width === 0) return [];
-		const h = hierarchy<BudgetNode>({ ...current, children: current.children.filter((c) => c.gross > 0) } as BudgetNode)
-			.sum((d) => (d.children?.some((c) => c.gross > 0) ? 0 : Math.max(0, d.gross)))
-			.sort((a, b) => (b.value ?? 0) - (a.value ?? 0));
-		treemap<BudgetNode>().tile(treemapSquarify.ratio(1.4)).size([width, height]).paddingInner(2).round(true)(h);
-		return (h.children ?? []).map((c) => {
-			const r = c as typeof c & { x0: number; x1: number; y0: number; y1: number };
-			return { node: c.data, x: r.x0, y: r.y0, w: r.x1 - r.x0, h: r.y1 - r.y0 };
-		});
-	});
-
-	const share = (n: BudgetNode) => (current.gross ? (n.gross / current.gross) * 100 : 0);
-	const pct = (x: number) => (x >= 1 ? `${x.toFixed(0)}%` : x > 0 ? '<1%' : '');
-	const color = (n: BudgetNode) => categoryColor(n.category ?? category);
-	// Pale category colours need dark labels to stay readable.
-	const LIGHT = new Set(['other', 'social-services', 'parks-rec-culture', 'infrastructure', 'government-debt']);
-	const ink = (n: BudgetNode) => (LIGHT.has(n.category ?? category ?? 'other') ? 'var(--ink)' : '#fff');
-	const list = $derived([...(current?.children ?? [])].sort((a, b) => b.gross - a.gross));
+	// For the story text: the biggest spending areas and what they add up to.
+	const top3 = $derived(outRows.filter((r) => r.node).slice(0, 3));
+	const top3per = $derived(Math.round(top3.reduce((a, r) => a + r.v, 0) / outRows.reduce((a, r) => a + r.v, 0) * 100));
+	// Rows opened in Part 3. The story's spending areas open their row there and scroll to it.
+	const opened = new SvelteSet<string>();
+	async function open(n: BudgetNode, fromList = false) {
+		opened.add(n.id);
+		if (!fromList) return;
+		await tick();
+		document.getElementById(`row-${n.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	}
 </script>
 
+
 <svelte:head>
-	<title>Explore the budget · The 6ix Votes</title>
+	<title>Explore the budget · The Platform</title>
 	<meta name="description" content="Tap through Toronto's and Ontario's budgets, from the big categories down to individual programs." />
 </svelte:head>
 
 <div class="wide page">
 	<div class="top">
-		<div>
-			<p class="kicker">Explore the budget</p>
-			<h1>Open up the budget yourself</h1>
-		</div>
+		{#if storyOn}
+			<!-- The Toronto story opens with its number, in the same row as the tabs. -->
+			<div class="hl">
+				<p class="kicker">Toronto · 2026 budget</p>
+				<h1 class="rest">Following Toronto's money</h1>
+				<p class="dek sans">The City plans to spend <b class="mega"><Fact id="toronto.operating.2026.gross" short /></b> this year. Here's where it comes from, and where it goes.</p>
+			</div>
+		{:else}
+			<div>
+				<p class="kicker">Explore the budget</p>
+				<h1>Open up the budget yourself</h1>
+			</div>
+		{/if}
 		{#if level}
 			<div class="tabs sans" role="tablist">
 				{#each data.trees as t (t.key)}
@@ -143,191 +142,254 @@
 	{:else}
 
 
-		{#if levelKey === 'toronto' && !path.length && tor}
-			<figure class="flow sans">
-				<figcaption>Follow the money: where the City's <Fact id="toronto.operating.2026.gross" /> comes from, and where it goes</figcaption>
-				<svg viewBox="-70 0 1270 {FH + TOP + 8}" role="img" aria-label="Money in and out of the City of Toronto's 2026 operating budget">
-					<g class="steps">
-						<circle cx="40" cy="14" r="11" /><text x="40" y="15" class="n" text-anchor="middle" dominant-baseline="middle">1</text><text x="58" y="15" class="col" dominant-baseline="middle">Money comes in</text>
-						<circle cx={BAR.x0 - 40} cy="14" r="11" /><text x={BAR.x0 - 40} y="15" class="n" text-anchor="middle" dominant-baseline="middle">2</text><text x={BAR.x0 - 22} y="15" class="col strong" dominant-baseline="middle">The City</text>
-						<circle cx="712" cy="14" r="11" class="go" /><text x="712" y="15" class="n" text-anchor="middle" dominant-baseline="middle">3</text><text x="730" y="15" class="col go" dominant-baseline="middle">Where it goes · tap one</text>
-					</g>
-					{#each flowRows as r (r.id)}
-						<path d={r.ribbon} fill={r.color} opacity={r.hi ? 0.55 : 0.3} />
-						<rect x="260" y={r.y} width="12" height={r.h} rx="3" fill={r.color} />
-						<text x="250" y={r.y + r.h / 2} class="lbl" class:hi={r.hi} text-anchor="end" dominant-baseline="middle">{r.label}<tspan class="amt" dx="6">{r.per}¢</tspan></text>
-					{/each}
-					{#each outRows as r (r.label)}
-						<path d={r.ribbon} fill={r.color} opacity={hoverOut === r.label ? 0.85 : hoverOut ? 0.2 : 0.45} class="rib" />
-						{#if r.node}
-							{@const n = r.node}
-							<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
-							<g class="out" class:on={hoverOut === r.label} onclick={() => open(n, true)} onmouseenter={() => (hoverOut = r.label)} onmouseleave={() => (hoverOut = null)}>
-								<rect x="718" y={r.y + r.h / 2 - Math.min(14, r.h / 2 + 2)} width={r.label.length * 7.6 + 74} height={Math.min(28, r.h + 4)} rx={Math.min(14, r.h / 2 + 2)} class="pill" />
-								<rect x="700" y={r.y} width="12" height={r.h} rx="3" fill={r.color} />
-								<text x="730" y={r.y + r.h / 2} class="lbl" dominant-baseline="middle">{r.label}<tspan class="amt" dx="6">{r.per}¢</tspan><tspan class="arrow" dx="6">›</tspan></text>
-							</g>
-						{:else}
-							<rect x="700" y={r.y} width="12" height={r.h} rx="3" fill={r.color} />
-							<text x="730" y={r.y + r.h / 2} class="lbl" dominant-baseline="middle">{r.label}<tspan class="amt" dx="6">{r.per}¢</tspan></text>
-						{/if}
-					{/each}
-					<rect x={BAR.x0} y={TOP} width={BAR.x1 - BAR.x0} height={FH} rx="6" fill="#1f2a37" />
-				</svg>
-				<div class="flowlist">
-					<p class="col">Money in</p>
-					<ul>{#each flowRows as r (r.id)}<li class:hi={r.hi}><i style="background:{r.color}"></i><span>{r.label}</span><b>{r.per}¢</b></li>{/each}</ul>
-					<p class="col">Money out</p>
-					<ul>{#each outRows as r (r.label)}<li><i style="background:{r.color}"></i><span>{r.label}</span><b>{r.per}¢</b></li>{/each}</ul>
-				</div>
-				<p class="cn">Cents of every dollar. {#each flowRest as x, i (x.id)}{i ? ', ' : 'Smaller sources: '}{lc(x.label)} {Math.round((x.v / tor) * 100)}¢{/each}. <a href={facts['toronto.revenue.2026.property-tax']?.primary.url} target="_blank" rel="noopener">City Budget Summary, p. 10 ↗</a></p>
-				<button class="down" onclick={() => mapEl?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>See every program, box by box <span aria-hidden="true">↓</span></button>
-			</figure>
-		{/if}
+		{#if storyOn}
+			<!-- One big number, then part 1 (money in) and part 2 (money out), then the boxes. -->
+			<article class="story">
 
-		<div class="head sans" class:quiet={levelKey === 'toronto' && !path.length}>
-			<nav class="crumbs" aria-label="Where you are">
-				<button onclick={() => back(0)} disabled={!path.length}>{root.name}</button>
-				{#each path as n, i (n.id)}
-					<span aria-hidden="true">›</span>
-					<button onclick={() => back(i + 1)} disabled={i === path.length - 1}>{n.name}</button>
-				{/each}
-			</nav>
-			<p class="total">
-				<strong>{money(current.gross)}</strong>
-				<span>{root.basis}{root.basis?.includes(root.year ?? '') ? '' : `, ${root.year}`}</span>
-			</p>
-		</div>
-
-		<div class="map" bind:this={mapEl} bind:clientWidth={width} style="height:{height}px">
-			{#each tiles as t (t.node.id)}
-				{@const big = t.w > 90 && t.h > 46}
-				<button
-					class="tile sans"
-					class:leaf={!t.node.children?.length}
-					style="left:{t.x}px;top:{t.y}px;width:{t.w}px;height:{t.h}px;--c:{color(t.node)};--t:{ink(t.node)}"
-					onclick={() => open(t.node)}
-					title="{t.node.name}: {money(t.node.gross)} ({pct(share(t.node))})"
-					tabindex="-1"
-					aria-hidden="true"
-				>
-					{#if big}
-						<span class="tname">{t.node.name}</span>
-						<span class="tval">{money(t.node.gross, 'short')} · {pct(share(t.node))}</span>
-					{:else if t.w > 44 && t.h > 22}
-						<span class="tval">{pct(share(t.node))}</span>
-					{/if}
-				</button>
-			{/each}
-		</div>
-		{#if leafNote}
-			<p class="leafnote sans" aria-live="polite"><b>{leafNote.name}</b>: {money(leafNote.gross)}. That's as detailed as the published budget gets for this one, so there's nothing smaller inside it.{#if leafNote.source}&nbsp;<a href={leafNote.source.url} target="_blank" rel="noopener">See the source ↗</a>{/if}</p>
-		{/if}
-		{#if root.note && !path.length}<p class="note sans">{root.note}</p>{/if}
-		{#if current.note && path.length}<p class="note sans">{current.note}</p>{/if}
-
-		<h2 class="sans listhead">Inside {current.name}</h2>
-		<ol class="list sans">
-			{#each list as n (n.id)}
-				<li style="--c:{color(n)}">
-					<div class="row">
-						{#if n.children?.length}
-							<button class="name link" onclick={() => open(n, true)}>{n.name} <span aria-hidden="true">›</span></button>
-						{:else}
-							<span class="name">{n.name}</span>
-						{/if}
-						<span class="amt">{money(n.gross, 'short')}</span>
-						<span class="pct">{pct(share(n))}</span>
+				<section class="part warm" id="from">
+					<div class="phead">
+						<span class="chip">Part 1</span>
+						<h3>Where it comes from</h3>
+						<p>For every dollar the City brings in, here's who chips in.</p>
 					</div>
-					{#if n.net != null && n.net !== n.gross}
-						<p class="sub">Paid by this government itself (net): {money(n.net, 'short')}</p>
-					{/if}
-					{#if n.note}<p class="sub">{n.note}</p>{/if}
-					{#if n.source}
-						<p class="sub"><a href={n.source.url} target="_blank" rel="noopener">{n.source.title}</a>{#if n.source.locator}, {n.source.locator}{/if}</p>
-					{/if}
-				</li>
-			{/each}
-		</ol>
+					<div class="stickers sans">
+						{#each flowRows.slice(0, 3) as r (r.id)}
+							{@const k = `in:${r.id}`}
+							<button class="stk" class:on={hot === k} style="--c:{r.color}" onmouseenter={() => (hot = k)} onmouseleave={() => (hot = null)} onfocus={() => (hot = k)} onblur={() => (hot = null)} onclick={() => (hot = hot === k ? null : k)}>
+								<b>{r.per}¢</b><span>{r.label}</span><small>{money(r.v, 'short')}</small>
+							</button>
+						{/each}
+					</div>
+					<figure class="chart" use:reveal>
+						<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+						<svg viewBox="-20 0 740 {FH + TOP + 8}" role="group" aria-label="Where the City of Toronto's 2026 operating money comes from" onmouseleave={() => (hot = null)}>
+							<defs>
+								<!-- Soft stripes that slide along a lit stream, so the money looks like it's moving. -->
+								<pattern id="moving" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="skewX(-30)">
+									<rect width="6" height="22" fill="#fff" opacity="0.28" />
+									{#if !reduceMotion}<animateTransform attributeName="patternTransform" type="translate" from="0 0" to="22 0" dur="0.8s" repeatCount="indefinite" additive="sum" />{/if}
+								</pattern>
+							</defs>
+							<text x="250" y="16" class="col" text-anchor="end">Sources</text>
+							<text x={(BAR.x0 + BAR.x1) / 2} y="16" class="col strong" text-anchor="middle">The City</text>
+							{#each flowRows as r, i (r.id)}
+								{@const k = `in:${r.id}`}
+								<!-- Tapping a source lights it on touch screens; the same numbers are in the list for keyboards. -->
+								<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
+								<g class="src" class:on={hot === k} style="--i:{i}" onmouseenter={() => (hot = k)} onclick={() => (hot = hot === k ? null : k)}>
+									<path d={r.ribbon} fill={r.color} opacity={dim(k, r.hi ? 0.55 : 0.3)} class="rib in" />
+									{#if hot === k}<path d={r.ribbon} fill="url(#moving)" class="flowing" />{/if}
+									<rect x="260" y={r.y} width="12" height={r.h} rx="3" fill={r.color} />
+									<text x="250" y={r.y + r.h / 2} class="lbl" class:hi={r.hi} text-anchor="end" dominant-baseline="middle">{r.label}<tspan class="amt" dx="6">{r.per}¢</tspan></text>
+								</g>
+							{/each}
+							<rect x={BAR.x0} y={TOP} width={BAR.x1 - BAR.x0} height={FH} rx="6" fill="#1f2a37" />
+							<g class="readout" aria-live="polite" transform="translate({BAR.x1 + 18} {TOP + FH / 2})">
+								<path d="M0 0 l10 -9 v18 Z" class="tip" style="--rc:{hotIn?.color ?? '#1f2a37'}" />
+								<rect x="9" y="-28" width="150" height="56" rx="12" style="--rc:{hotIn?.color ?? '#1f2a37'}" />
+								<text x="84" y="-3" class="big" text-anchor="middle">{money(hotIn?.v ?? tor, 'short')}</text>
+								<text x="84" y="16" class="small" text-anchor="middle">{hotIn ? `${hotIn.per}¢ of every dollar` : 'comes in each year'}</text>
+							</g>
+						</svg>
+						<ul class="flowlist">{#each flowRows as r (r.id)}<li class:hi={r.hi}><i style="background:{r.color}"></i><span>{r.label}</span><b>{r.per}¢</b></li>{/each}</ul>
+						<figcaption class="cn">Cents of every dollar. {#each flowRest as x, i (x.id)}{i ? ', ' : 'Smaller sources: '}{lc(x.label)} {Math.round((x.v / tor) * 100)}¢{/each}. Source: <a href={facts['toronto.revenue.2026.property-tax']?.primary.url} target="_blank" rel="noopener">City Budget Summary, p. 10 ↗</a></figcaption>
+					</figure>
+					<a class="next" href="#to">Next · <b>Part 2: Where it goes</b> <span aria-hidden="true">↓</span></a>
+				</section>
+
+				<section class="part cool" id="to">
+					<div class="phead">
+						<span class="chip">Part 2</span>
+						<h3>Where it goes</h3>
+						<p>For every dollar the City spends, here's where it lands.</p>
+					</div>
+					<div class="stickers sans">
+						{#each top3 as r (r.label)}
+							{@const k = `out:${r.label}`}
+							{@const n = r.node!}
+							<button class="stk" class:on={hot === k} style="--c:{r.color}" onmouseenter={() => (hot = k)} onmouseleave={() => (hot = null)} onfocus={() => (hot = k)} onblur={() => (hot = null)} onclick={() => open(n, true)}>
+								<b>{r.per}¢</b><span>{r.label}</span><small>{money(r.v, 'short')}</small><i aria-hidden="true">›</i>
+							</button>
+						{/each}
+					</div>
+					<figure class="chart" use:reveal>
+						<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+						<svg viewBox="255 0 820 {FH + TOP + 8}" role="group" aria-label="Where the City of Toronto's 2026 operating money goes" onmouseleave={() => (hot = null)}>
+							<text x={(BAR.x0 + BAR.x1) / 2} y="16" class="col strong" text-anchor="middle">The City</text>
+							<text x="712" y="16" class="col go">Spending areas · tap one</text>
+							{#each outRows as r, i (r.label)}
+								{@const k = `out:${r.label}`}
+								<path d={r.ribbon} fill={r.color} opacity={dim(k, 0.45)} class="rib out-rib" style="--i:{i}" role="presentation" onmouseenter={() => (hot = k)} />
+								{#if hot === k}<path d={r.ribbon} fill="url(#moving)" class="flowing" />{/if}
+								{#if r.node}
+									{@const n = r.node}
+									<g
+										class="out" class:on={hot === k} role="button" tabindex="0" aria-label="{r.label}, {r.per} cents of every dollar. Open it."
+										onclick={() => open(n, true)}
+										onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(n, true); } }}
+										onmouseenter={() => (hot = k)} onfocus={() => (hot = k)} onblur={() => (hot = null)}
+									>
+										<rect x="718" y={r.y + r.h / 2 - Math.min(14, r.h / 2 + 2)} width={r.label.length * 7.6 + 74} height={Math.min(28, r.h + 4)} rx={Math.min(14, r.h / 2 + 2)} class="pill" />
+										<rect x="700" y={r.y} width="12" height={r.h} rx="3" fill={r.color} />
+										<text x="730" y={r.y + r.h / 2} class="lbl" dominant-baseline="middle">{r.label}<tspan class="amt" dx="6">{r.per}¢</tspan><tspan class="arrow" dx="6">›</tspan></text>
+									</g>
+								{:else}
+									<!-- svelte-ignore a11y_no_static_element_interactions -->
+									<g class="out still" class:on={hot === k} onmouseenter={() => (hot = k)}>
+										<rect x="700" y={r.y} width="12" height={r.h} rx="3" fill={r.color} />
+										<text x="730" y={r.y + r.h / 2} class="lbl" dominant-baseline="middle">{r.label}<tspan class="amt" dx="6">{r.per}¢</tspan></text>
+									</g>
+								{/if}
+							{/each}
+							<rect x={BAR.x0} y={TOP} width={BAR.x1 - BAR.x0} height={FH} rx="6" fill="#1f2a37" />
+							<g class="readout" aria-live="polite" transform="translate({BAR.x0 - 18} {TOP + FH / 2})">
+								<path d="M0 0 l-10 -9 v18 Z" class="tip" style="--rc:{hotOut?.color ?? '#1f2a37'}" />
+								<rect x="-159" y="-28" width="150" height="56" rx="12" style="--rc:{hotOut?.color ?? '#1f2a37'}" />
+								<text x="-84" y="-3" class="big" text-anchor="middle">{money(hotOut?.v ?? tor, 'short')}</text>
+								<text x="-84" y="16" class="small" text-anchor="middle">{hotOut ? `${hotOut.per}¢ of every dollar` : 'goes out each year'}</text>
+							</g>
+						</svg>
+						<ul class="flowlist">
+							{#each outRows as r (r.label)}
+								{#if r.node}
+									{@const n = r.node}
+									<li><button class="tap" onclick={() => open(n, true)}><i style="background:{r.color}"></i><span>{r.label}</span><b>{r.per}¢ ›</b></button></li>
+								{:else}
+									<li><i style="background:{r.color}"></i><span>{r.label}</span><b>{r.per}¢</b></li>
+								{/if}
+							{/each}
+						</ul>
+						<figcaption class="cn">Cents of every dollar the City spends, by spending area.</figcaption>
+					</figure>
+					<a class="next" href="#boxes">Next · <b>Part 3: Every program, ranked</b> <span aria-hidden="true">↓</span></a>
+				</section>
+
+			</article>
+		{/if}
+
+		<section class="explore" class:part={storyOn} id="boxes">
+		{#if storyOn}
+			<div class="phead">
+				<span class="chip">Part 3</span>
+				<h3>Every program, ranked</h3>
+				<p>Biggest first. Tap a row to see the programs inside it.</p>
+			</div>
+		{/if}
+		{#if !storyOn}
+			<p class="lvlsub sans">{root.name} · {money(root.gross, 'short')} · {root.basis}{root.basis?.includes(root.year ?? '') ? '' : `, ${root.year}`}</p>
+		{/if}
+		{#if root.note}<p class="note sans">{root.note}</p>{/if}
+		<div class="ranked" bind:this={mapEl}><Ranked parent={root} {opened} /></div>
 		{#if root.source}
 			<p class="src sans">
 				Source: <a href={root.source.url} target="_blank" rel="noopener">{root.source.title}</a>{#if root.source.locator}, {root.source.locator}{/if}.
 				How we grouped lines into categories: <a href="/sources/#categories">sources and methods</a>.
 			</p>
 		{/if}
+		</section>
 	{/if}
 </div>
 
 <style>
-	.page { margin-top: 28px; }
-	.top { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px 24px; flex-wrap: wrap; border-bottom: 1px solid var(--ink); margin-bottom: 14px; }
-	h1 { font-size: clamp(28px, 4vw, 40px); margin: 6px 0 10px; }
-	.tabs { display: flex; }
-	.tabs button { font: inherit; font-size: 15px; font-weight: 600; background: none; border: 0; padding: 8px 16px; cursor: pointer; color: var(--mute); border-bottom: 3px solid transparent; margin-bottom: -1px; }
-	.tabs button[aria-selected='true'] { color: var(--ink); border-bottom-color: var(--ink); }
-	.head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
-	.crumbs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; font-size: 14px; }
-	.crumbs button { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; color: var(--ink-2); }
-	.crumbs button:disabled { cursor: default; text-decoration: none; color: var(--ink); font-weight: 700; }
-	.total { margin: 0; font-size: 13px; color: var(--mute); text-align: right; }
-	.total strong { font-size: 22px; color: var(--ink); display: block; }
-	.map { position: relative; width: 100%; background: var(--paper-2); }
-	.tile {
-		position: absolute; overflow: hidden; border: 0; padding: 6px 7px; cursor: pointer; text-align: left;
-		background: var(--c); color: var(--t); display: flex; flex-direction: column; justify-content: flex-start; gap: 2px;
-		transition: left 0.5s, top 0.5s, width 0.5s, height 0.5s, filter 0.2s;
+	.page { margin-top: 16px; }
+	.top { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; padding-bottom: 4px; margin-bottom: 14px; }
+	.top .kicker { margin: 0; }
+	h1 { font-size: clamp(24px, 3vw, 32px); margin: 4px 0 0; }
+	.tabs { display: flex; gap: 2px; background: #fff; border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); border-radius: 999px; padding: 3px; }
+	.tabs button { font: inherit; font-size: 14px; font-weight: 700; background: none; border: 0; border-radius: 999px; padding: 5px 16px; cursor: pointer; color: var(--ink-2); }
+	.tabs button[aria-selected='true'] { color: #fff; background: var(--ink); }
+	.explore.part { background: #fff; scroll-margin-top: 70px; }
+	.ranked { margin-top: 8px; }
+	.lvlsub { margin: 8px 0 0; font-size: 13.5px; color: var(--mute); }
+	.explore .phead { margin-bottom: 12px; }
+	/* The way on to the next part, at the bottom of each panel. */
+	.next { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 14px auto 0; width: fit-content; font-family: var(--sans); font-size: 14px; color: var(--ink); text-decoration: none; background: #fff; border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); border-radius: 999px; padding: 6px 16px; }
+	.next:hover { color: var(--ink); border-color: var(--ink); }
+	.next span { color: var(--red); font-weight: 800; display: inline-block; animation: nudge 1.4s ease-in-out infinite; }
+	/* The house style (see app.css): display headings, thin outlines, small hard shadows, tinted panels. */
+	.story { font-family: var(--sans); max-width: 1080px; margin: 0 auto 40px; }
+	/* The Toronto opener: the number and its sentence, sharing the top row with the tabs. */
+	.hl { display: flex; flex-direction: column; gap: 2px; }
+	.hl .kicker { margin: 0; }
+	.rest { font-size: clamp(30px, 4.2vw, 42px); line-height: 1.08; margin: 6px 0 0; }
+	.dek { color: var(--ink-2); font-size: 18px; margin: 8px 0 0; }
+	.mega { color: var(--ink); white-space: nowrap; }
+	.mega :global(.value) { color: inherit; border: 0; }
+	.part { scroll-margin-top: 80px; margin-top: 20px; padding: clamp(16px, 2.4vw, 24px); border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent); border-radius: 20px; }
+	/* The parts are stops on one line: a short red track joins each panel to the next. */
+	.story .part, .explore.part { position: relative; margin-top: 40px; }
+	.story .part::before, .explore.part::before { content: ''; position: absolute; left: 50%; top: -41px; width: 4px; height: 40px; margin-left: -2px; background: var(--red); border-radius: 2px; }
+	.story .part:first-child::before { display: none; }
+	.part.warm { background: var(--warm); }
+	.part.cool { background: var(--cool); }
+	.phead { display: flex; flex-wrap: wrap; align-items: center; column-gap: 12px; }
+	.chip { display: inline-block; font-family: var(--sans); background: var(--ink); color: #fff; border-radius: 999px; padding: 3px 12px; font-weight: 700; font-size: 13px; }
+	.phead h3 { font-size: clamp(22px, 2.6vw, 28px); margin: 0; }
+	.phead p { flex: 0 0 100%; font-family: var(--sans); font-size: 14.5px; color: var(--ink-2); margin: 4px 0 0; line-height: 1.45; }
+	/* The three biggest, as one row of chips; the chart below shows the rest. */
+	.stickers { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 10px; }
+	.stk { font: inherit; display: flex; align-items: baseline; gap: 8px; color: var(--ink); background: color-mix(in srgb, var(--c) 22%, #fff); border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); border-radius: 999px; padding: 4px 12px; text-align: left; transition: transform 0.15s, box-shadow 0.15s, background 0.15s; cursor: pointer; }
+	.stk:hover, .stk.on, .stk:focus-visible { border-color: var(--ink); background: color-mix(in srgb, var(--c) 40%, #fff); outline: none; }
+	.stk b { font-size: 17px; font-weight: 800; line-height: 1; }
+	.stk span { font-size: 13.5px; font-weight: 700; }
+	.stk small { font-family: var(--sans); font-size: 12px; color: var(--ink-2); }
+	.stk i { font-style: normal; font-weight: 700; color: var(--red); }
+	.chart { margin: 0; background: #fff; border-radius: 14px; padding: 10px 16px 8px; }
+	.chart svg { width: 100%; height: auto; display: block; max-height: 42vh; max-width: 680px; margin: 0 auto; }
+	.chart .lbl { font-size: 15px; font-weight: 600; fill: var(--ink-2); transition: opacity 0.2s; }
+	.chart .lbl.hi { fill: #b5631a; font-weight: 800; font-size: 16px; }
+	.chart .amt { font-size: 12.5px; fill: var(--mute); }
+	.chart .col { font-size: 11.5px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; fill: var(--mute); }
+	.chart .col.strong { fill: var(--ink); font-size: 13px; }
+	.chart .col.go { fill: #da251d; }
+	.chart svg:has(.on) .src:not(.on) .lbl, .chart svg:has(.on) .out:not(.on) .lbl { opacity: 0.4; }
+	.chart .src, .chart .out { cursor: pointer; }
+	.chart .out.still { cursor: default; }
+	.chart .pill { fill: #f4f1ea; stroke: #e2ddd2; transition: fill 0.15s; }
+	.chart .out.on .pill { fill: #1f2a37; stroke: #1f2a37; }
+	.chart .out.on .lbl, .chart .out.on .amt, .chart .out.on .arrow { fill: #fff; }
+	.chart .out.still.on .lbl, .chart .out.still.on .amt { fill: var(--ink); }
+	.chart .out:focus { outline: none; }
+	.chart .out:focus-visible .pill { stroke: #da251d; stroke-width: 2.5; }
+	.chart .arrow { font-size: 16px; font-weight: 700; fill: var(--ink-2); }
+	.chart .rib { transition: opacity 0.2s; }
+	.chart .flowing, .readout { pointer-events: none; }
+	.readout rect { fill: #1f2a37; stroke: var(--rc); stroke-width: 2; transition: stroke 0.2s; }
+	.readout .tip { fill: var(--rc); transition: fill 0.2s; }
+	.readout .big { fill: #fff; font-size: 21px; font-weight: 800; font-variant-numeric: tabular-nums; }
+	.readout .small { fill: #c9d1da; font-size: 12px; font-weight: 600; }
+	/* Each chart's streams pour out from the City side the first time you scroll to it. */
+	@media (prefers-reduced-motion: no-preference) {
+		.chart .rib { transform-box: view-box; }
+		.chart .rib.in { transform-origin: 272px 0; }
+		.chart .out-rib { transform-origin: 500px 0; }
+		.chart:not(:global(.seen)) .rib { transform: scaleX(0); }
+		.chart:global(.seen) .rib { animation: pour 0.8s cubic-bezier(0.3, 0.7, 0.3, 1) both; animation-delay: calc(var(--i) * 80ms); }
+		.chart:not(:global(.seen)) .readout { opacity: 0; }
+		.chart:global(.seen) .readout { animation: pop 0.4s 0.5s both; }
 	}
-	.tile.leaf { cursor: help; }
-	.flow { margin: 0 0 22px; background: #fff; border: 1px solid var(--rule); border-radius: 16px; padding: 18px 22px 14px; }
-	.flow figcaption { font-weight: 700; font-size: 16px; margin-bottom: 12px; }
-	.flow svg { width: 100%; height: auto; display: block; }
-	.flow .lbl { font-size: 15px; font-weight: 600; fill: var(--ink-2); }
-	.flow .lbl.hi { fill: #b5631a; font-weight: 800; font-size: 17px; }
-	.flow .amt { font-size: 12.5px; fill: var(--mute); }
-	.flow .col { font-size: 13px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; fill: var(--ink-2); }
-	.flow .col.strong { fill: var(--ink); font-size: 15px; }
-	.flow .out { cursor: pointer; }
-	.flow .pill { fill: #f4f1ea; stroke: #e2ddd2; transition: fill 0.15s; }
-	.flow .out.on .pill { fill: #1f2a37; stroke: #1f2a37; }
-	.flow .out.on .lbl, .flow .out.on .amt, .flow .out.on .arrow { fill: #fff; }
-	.flow .arrow { font-size: 16px; font-weight: 700; fill: var(--ink-2); }
-	.flow .rib { transition: opacity 0.15s; }
-	.steps circle { fill: #1f2a37; } .steps circle.go { fill: #da251d; }
-	.steps .n { fill: #fff; font-size: 12px; font-weight: 800; }
-	.flow .col.go { fill: #da251d; }
-	.head.quiet .total { display: none; }
-	.down { display: flex; align-items: center; gap: 8px; margin: 12px auto 0; font: inherit; font-weight: 700; font-size: 15px; background: var(--ink); color: #fff; border: 0; border-radius: 999px; padding: 10px 20px; cursor: pointer; }
-	.down span { display: inline-block; animation: nudge 1.4s ease-in-out infinite; }
-	@keyframes nudge { 50% { transform: translateY(4px); } }
-	@media (prefers-reduced-motion: reduce) { .down span { animation: none; } }
-	.flow svg { max-height: calc(100vh - 330px); }
-	.map { scroll-margin-top: 90px; }
-	.flowlist .col { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--mute); margin: 8px 0 4px; }
-	.flowlist ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 5px; }
-	.flowlist { display: none; list-style: none; padding: 0; margin: 0; }
+	@keyframes pour { from { transform: scaleX(0); } }
+	@keyframes pop { from { opacity: 0; } }
 	.cn { font-size: 12.5px; color: var(--mute); margin: 8px 0 0; line-height: 1.5; }
 	.cn a { color: inherit; }
+	@keyframes nudge { 50% { transform: translateY(4px); } }
+	@media (prefers-reduced-motion: reduce) { .next span { animation: none; } }
+	.flowlist { display: none; list-style: none; padding: 0; margin: 0; gap: 6px; }
 	@media (max-width: 640px) {
-		.flow svg { display: none; }
-		.flowlist { display: block; }
+		.stickers { flex-wrap: nowrap; overflow-x: auto; margin-right: -16px; padding-right: 16px; scrollbar-width: none; }
+		.stk { flex: none; padding: 4px 11px; }
+		.stk b { font-size: 15px; } .stk span { font-size: 13px; white-space: nowrap; }
+		.chart svg { display: none; }
+		.flowlist { display: grid; }
 		.flowlist li { display: grid; grid-template-columns: 12px 1fr auto; gap: 8px; align-items: center; font-size: 14px; }
 		.flowlist li.hi { font-weight: 800; color: #b5631a; }
 		.flowlist i { width: 12px; height: 12px; border-radius: 3px; }
-		.flow { padding: 14px; }
+		.flowlist li:has(.tap) { display: block; }
+		.flowlist .tap { display: grid; grid-template-columns: 12px 1fr auto; gap: 8px; align-items: center; width: 100%; font: inherit; font-size: 14px; text-align: left; color: inherit; background: #f4f1ea; border: 1px solid #e2ddd2; border-radius: 8px; padding: 7px 10px; cursor: pointer; }
+		.chart { padding: 12px; }
 	}
-	.leafnote { margin: 10px 0 0; font-size: 14px; background: #fff; border: 1px solid var(--rule); border-left: 4px solid var(--ink); border-radius: 8px; padding: 10px 14px; }
-	.tile:hover { filter: brightness(1.1); }
-	.tname { font-size: 13px; font-weight: 600; line-height: 1.15; }
-	.tval { font-size: 12px; font-variant-numeric: tabular-nums; }
-	.note { font-size: 13px; color: var(--ink-2); background: var(--paper-2); padding: 8px 10px; margin: 10px 0 0; }
-	.listhead { font-size: 15px; margin: 28px 0 6px; }
-	.list { list-style: none; padding: 0; margin: 0; font-size: 14px; }
-	.list li { border-top: 1px solid var(--rule); padding: 8px 0 8px 12px; border-left: 4px solid var(--c); }
-	.row { display: grid; grid-template-columns: 1fr auto 44px; gap: 10px; align-items: baseline; }
-	.name { font-weight: 600; }
-	.link { font: inherit; font-weight: 600; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; color: var(--ink); }
-	.amt { font-variant-numeric: tabular-nums; font-weight: 600; }
-	.pct { color: var(--mute); text-align: right; font-variant-numeric: tabular-nums; }
-	.sub { margin: 3px 0 0; font-size: 12.5px; color: var(--ink-2); }
+	.note { font-size: 13px; color: var(--ink-2); background: var(--paper-2); border-radius: 10px; padding: 8px 12px; margin: 6px 0 0; }
+	.go { color: var(--red); font-weight: 700; }
+	.amt { grid-area: amt; text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
 	.src { font-size: 12px; color: var(--mute); margin-top: 18px; }
 </style>
