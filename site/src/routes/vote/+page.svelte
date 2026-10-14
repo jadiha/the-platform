@@ -40,6 +40,8 @@
 		{ label: 'Stop 6: before you vote', big: true }
 	];
 	let step = $state(0);
+	// Stop 1: until the quiz is finished, Next stop is a quiet 'Skip' so it isn't tapped instead of Next question.
+	let quizDone = $state(false);
 	let whyOpen = $state(false);
 	// Hop on: let the harbour slide past for a moment, then open Stop 1 (straight away with reduced motion).
 	let departing = $state(false);
@@ -175,7 +177,7 @@
 <section class="stop wide quiz">
 	<!-- Newspaper-style section flag: a rule, the section name, and room on the right for details. -->
 	<h2 class="flag">Stop 1 · Whose job is it?</h2>
-	<WhoseJob cards={data.whoseJob} />
+	<WhoseJob cards={data.whoseJob} bind:done={quizDone} />
 </section>
 {:else if step === 2}
 <section class="stop wide cityhall">
@@ -334,7 +336,9 @@
 <!-- Back and Next sit right after each stop's content; stops are kept short enough that they show without scrolling. -->
 <nav class="stepnav wide sans" aria-label="Move along the ride">
 	<button class="back" onclick={() => go(step - 1)}>‹ Back</button>
-	{#if step < stops.length - 1}
+	{#if step === 1 && !quizDone}
+		<button class="fwd skip" onclick={() => go(step + 1)}>Skip to next stop <span aria-hidden="true">→</span></button>
+	{:else if step < stops.length - 1}
 		<button class="fwd" onclick={() => go(step + 1)}>Next stop<span class="dest">: {stops[step + 1].label.split(': ')[1]}</span> <span aria-hidden="true">→</span></button>
 	{:else}
 		<button class="fwd" onclick={share}>{shared || 'Share the ride ↗'}</button>
@@ -568,6 +572,8 @@
 	.back:hover { color: var(--ink); border-color: var(--ink); }
 	.fwd { background: var(--red); color: #fff; border: 1.5px solid var(--ink); box-shadow: 2px 2px 0 var(--ink); }
 	.fwd:hover { box-shadow: var(--pop); transform: translate(-1px, -1px); }
+	.fwd.skip { background: #fff; color: var(--ink-2); border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); box-shadow: none; }
+	.fwd.skip:hover { color: var(--ink); border-color: var(--ink); box-shadow: none; transform: none; }
 	.method { font-size: 12.5px; color: var(--mute); margin-top: 24px; line-height: 1.5; }
 	@media (max-width: 600px) {
 		.screenwrap { padding-bottom: 12px; }
