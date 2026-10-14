@@ -244,6 +244,8 @@
 		.answer { margin-top: 10px; padding: 14px 16px; }
 		.explain { font-size: 15px; margin: 6px 0; }
 		.proof { margin-bottom: 10px; }
+		/* Full width on phones: easy for either thumb, and unlike the Skip pill below it. */
+		.go { display: block; width: 100%; padding: 12px 20px; }
 	}
 	@media (prefers-reduced-motion: reduce) { .card, .answer { transition: none; animation: none; } }
 </style>
