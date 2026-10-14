@@ -136,7 +136,7 @@
 	{:else}
 		<div class="results">
 			<div class="rhead">
-				<p class="scorebig">You got <b>{score}</b> of {cards.length}</p>
+				<p class="scorebig">You got <b>{score}</b> of {cards.length} <button class="again" onclick={restart}>↻ Ride again</button></p>
 				<p class="explain">Here's who decides what. <b>Everything under City Hall is what the mayor and council you elect on October 26 control.</b></p>
 			</div>
 			<div class="rcols">
@@ -152,7 +152,6 @@
 					</div>
 				{/each}
 			</div>
-			<button class="again" onclick={restart}>Ride again</button>
 		</div>
 	{/if}
 </div>
@@ -214,7 +213,9 @@
 	.rcol li { display: flex; gap: 8px; color: var(--ink-2); }
 	.mark { flex: none; width: 16px; height: 16px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 800; background: #ece8df; color: var(--mute); margin-top: 1px; }
 	.got .mark { background: #4a8c5c; color: #fff; }
-	.again { font: inherit; font-weight: 700; font-size: 14px; background: #fff; border: var(--line); border-radius: 999px; padding: 8px 18px; cursor: pointer; margin-top: 14px; box-shadow: 2px 2px 0 var(--ink); }
+	/* A quiet link beside the score, so it doesn't read as a third button next to Back and Next stop. */
+	.again { font-family: var(--sans); font-weight: 600; font-size: 14px; color: var(--mute); background: none; border: 0; padding: 4px 2px; margin-left: 8px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; vertical-align: middle; white-space: nowrap; }
+	.again:hover { color: var(--ink); }
 	.answer { margin-top: 14px; background: #fff; border-radius: 18px; padding: 18px 20px; border: var(--line); box-shadow: var(--pop); animation: pop 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
 	@keyframes pop { from { transform: translateY(12px); opacity: 0; } to { transform: none; opacity: 1; } }
 	.answer.lv-city { border-top: 7px solid #2f5d9b; }
