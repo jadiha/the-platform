@@ -91,6 +91,8 @@
 	const trustee = $derived(race?.trustees.find((t) => t.board === board));
 </script>
 
+<!-- Desktop: search and map on the left, the ward card beside them from the top. -->
+<div class="wardlayout">
 <form class="pcform sans" onsubmit={findWard}>
 	<label for="ward-pc">Find your ward by postal code</label>
 	<div class="pcrow">
@@ -121,7 +123,7 @@
 				onblur={() => (hover = null)}
 				onclick={() => (picked = s.ward)}
 				onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), (picked = s.ward))}
-			><title>Ward {s.ward} {s.name}</title></path>
+			><title>{`Ward ${s.ward}: ${s.name}`}</title></path>
 		{/each}
 		{#each shapes as s (s.ward)}<text x={s.c[0]} y={s.c[1] + 4} class:on={s.ward === (hover ?? picked)}>{s.ward}</text>{/each}
 	</svg>
@@ -155,10 +157,14 @@
 		{/if}
 	</div>
 </div>
+</div>
 
 <style>
-	.wardmap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(300px, 1fr); gap: 48px; align-items: center; margin-top: 22px; }
-	svg { width: 100%; height: auto; max-height: 46vh; }
+	.wardlayout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(300px, 1fr); grid-template-areas: 'form panel' 'map panel'; grid-template-rows: auto 1fr; column-gap: 48px; margin-top: 14px; }
+	.wardmap { display: contents; }
+	.pcform { grid-area: form; }
+	svg { grid-area: map; width: 100%; height: auto; max-height: 52vh; margin-top: 14px; }
+	.panel { grid-area: panel; align-self: start; }
 	.w { fill: #ebe7df; stroke: var(--paper); stroke-width: 2.5; stroke-linejoin: round; cursor: pointer; transition: fill 0.2s; outline: none; }
 	.w:hover, .w.on { fill: #da251d; }
 	text { font-size: 11px; font-weight: 700; fill: #8a857b; text-anchor: middle; pointer-events: none; }
@@ -182,7 +188,7 @@
 	.boards button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
 	.fine { font-size: 11px; color: var(--mute); margin: 10px 0 0; line-height: 1.45; }
 	.fine a { color: inherit; }
-	.pcform { margin: 14px 0 4px; max-width: 520px; }
+	.pcform { margin: 0 0 4px; max-width: 520px; }
 	.pcform label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
 	.pcrow { display: flex; gap: 8px; }
 	.pcrow input { flex: 1; min-width: 0; font: inherit; font-size: 16px; padding: 8px 12px; border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); border-radius: 10px; background: #fff; text-transform: uppercase; }
@@ -195,9 +201,10 @@
 	.close .back { display: inline; }
 	.panel { position: relative; }
 	@media (max-width: 700px) {
-		.wardmap { gap: 16px; margin-top: 12px; }
+		.wardlayout { display: block; margin-top: 0; }
+		.wardmap { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 12px; }
+		svg, .panel { grid-area: auto; margin-top: 0; }
 		.names.many { columns: 2; font-size: 13px; }
-		.wardmap { grid-template-columns: 1fr; }
 		.panel { min-height: 0; }
 		/* On phones the ward takes the map's place (no sheet from the bottom); 'Back to the map' brings it back. */
 		.wardmap:has(.panel.open) svg { display: none; }
