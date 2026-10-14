@@ -7,7 +7,8 @@
 	import { pdfPageLink } from './links.ts';
 	import type { WhoseJobCard } from '#lib/types.ts';
 
-	let { cards }: { cards: WhoseJobCard[] } = $props();
+	// 'done' tells the page the quiz is over, so its Next stop button can go back to red.
+	let { cards, done = $bindable(false) }: { cards: WhoseJobCard[]; done?: boolean } = $props();
 	const { facts } = siteData();
 	const LEVELS = ['city', 'province', 'federal'] as const;
 	type Level = (typeof LEVELS)[number];
@@ -24,6 +25,7 @@
 	const card = $derived(cards[idx]);
 	const pick = $derived(picks[idx]);
 	const finished = $derived(idx >= cards.length);
+	$effect(() => { done = finished; });
 	const score = $derived(picks.filter((p, i) => p === cards[i].answer).length);
 	const still = () => typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -225,8 +227,8 @@
 	.badge.federal { background: #4a8c5c; }
 	.explain { font-size: 16px; line-height: 1.5; color: var(--ink-2); margin: 8px 0; }
 	.proof { display: block; font-size: 12px; color: var(--mute); margin-bottom: 14px; }
-	/* Red is kept for the page's own "Next stop"; the quiz's step button stays quiet so the two don't compete. */
-	.go { font: inherit; font-weight: 700; font-size: 15px; background: #fff; color: var(--ink); border: var(--line); border-radius: 999px; padding: 9px 20px; cursor: pointer; box-shadow: 2px 2px 0 var(--ink); transition: transform 0.15s, box-shadow 0.15s; }
+	/* Mid-quiz this is the main button (the page's Next stop goes quiet until the score shows), so it's solid. */
+	.go { font: inherit; font-weight: 700; font-size: 15px; background: var(--ink); color: #fff; border: var(--line); border-radius: 999px; padding: 9px 20px; cursor: pointer; box-shadow: 2px 2px 0 var(--ink); transition: transform 0.15s, box-shadow 0.15s; }
 	.go:hover { transform: translate(-1px, -1px); box-shadow: var(--pop); }
 	.hint { display: none; }
 	@media (max-width: 860px) { .play { grid-template-columns: 1fr; } .waiting { display: none; } .hint { display: block; } }

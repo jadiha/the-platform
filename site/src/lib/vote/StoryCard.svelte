@@ -28,7 +28,12 @@
 	const hasNumbers = $derived(promises.length > 0);
 	const panels = $derived(['Who they are', 'What they stand for', ...(hasNumbers ? ['Their numbers'] : []), 'Links']);
 	let at = $state(0);
-	const go = (d: number) => (at = Math.max(0, Math.min(panels.length - 1, at + d)));
+	let bodyEl: HTMLDivElement;
+	// Each panel starts at its top, not wherever the last one was scrolled to.
+	function go(d: number) {
+		at = Math.max(0, Math.min(panels.length - 1, at + d));
+		bodyEl.scrollTop = 0;
+	}
 	const panel = $derived(panels[at]);
 	const name = $derived(displayName(person.ballot_name));
 	const host = (u: string) => u.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
@@ -72,7 +77,7 @@
 	<h3 class="name">{name}</h3>
 	<div class="ptitle">{panel}</div>
 
-	<div class="body">
+	<div class="body" bind:this={bodyEl}>
 		{#if panel === 'Who they are'}
 			{#if profile?.note}<p class="note">{profile.note}</p>{/if}
 			{#each profile?.record ?? [] as r (r.text)}
