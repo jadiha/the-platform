@@ -9,11 +9,12 @@
 	// svelte-ignore state_referenced_locally
 	setSiteData({ facts: data.facts, people: data.people });
 
+	// [link, full label, short label for phones so all four fit on one row]
 	const nav = [
-		['/vote/', '2026 Election'],
-		['/explore/budget/', 'Explore the budget'],
-		['/glossary/', 'Glossary'],
-		['/sources/', 'Sources']
+		['/vote/', '2026 Election', 'Election'],
+		['/explore/budget/', 'Explore the budget', 'Budget'],
+		['/glossary/', 'Glossary', 'Glossary'],
+		['/sources/', 'Sources', 'Sources']
 	];
 </script>
 
@@ -27,15 +28,18 @@
 	/>
 </svelte:head>
 
+<!-- Election day, said plainly: the date, the hours, and where to go. -->
 <div class="election sans" role="note">
-	Toronto votes <strong>Monday, Oct 26, 2026</strong>.
+	<span>Election day: <strong>Monday, October 26</strong></span>
+	<span class="hours">Polls open <strong>10 a.m. to 8 p.m.</strong></span>
+	<a href="https://www.toronto.ca/city-government/elections/" target="_blank" rel="noopener">Where to vote ↗</a>
 </div>
 
 <header class="masthead">
 	<a class="name" href="/vote/">The Platform<span class="tagline">: your vote counts</span></a>
 	<nav class="sans" aria-label="Main">
-		{#each nav as [href, label]}
-			<a {href} aria-current={page.url.pathname === href ? 'page' : undefined}>{label}</a>
+		{#each nav as [href, label, short]}
+			<a {href} aria-current={page.url.pathname === href ? 'page' : undefined}><span class="full">{label}</span><span class="short">{short}</span></a>
 		{/each}
 	</nav>
 </header>
@@ -57,7 +61,10 @@
 {/if}
 
 <style>
-	.election { background: var(--ink); color: #fff; font-size: 13px; padding: 8px 20px; text-align: center; }
+	.election { display: flex; justify-content: center; flex-wrap: wrap; gap: 2px 18px; background: var(--ink); color: #fff; font-size: 13.5px; padding: 8px 20px; text-align: center; }
+	.election strong { color: var(--lime); }
+	.election a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+	.short { display: none; }
 	.masthead {
 		display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
 		border-bottom: var(--line); padding: 14px 20px; position: sticky; top: 0; z-index: 20;
@@ -73,7 +80,9 @@
 	footer { border-top: 1px solid var(--ink); margin-top: 80px; padding: 24px 0 40px; font-size: 13px; color: var(--ink-2); }
 	.fine { color: var(--mute); }
 	@media (max-width: 640px) {
-		.election { font-size: 12px; padding: 5px 14px; }
+		.election { font-size: 12.5px; padding: 6px 14px; gap: 0 12px; }
+		.full { display: none; } .short { display: inline; }
+		nav { justify-content: space-between; overflow-x: visible; }
 		.masthead { position: static; padding: 10px 14px; gap: 6px; }
 		/* One swipeable row of links on phones instead of two wrapped lines. */
 		nav { flex-wrap: nowrap; overflow-x: auto; width: calc(100% + 28px); margin: 0 -14px; padding: 2px 14px 4px; scrollbar-width: none; }
