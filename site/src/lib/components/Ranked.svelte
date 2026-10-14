@@ -9,7 +9,10 @@
 
 	let { parent, opened, depth = 0, category }: { parent: BudgetNode; opened: SvelteSet<string>; depth?: number; category?: string } = $props();
 	// Long levels show the top few first, so an opened row doesn't push everything off screen.
-	const LIMIT = 8;
+	// Phones start with the top 5 so a level fits the screen; everything is one tap away.
+	let small = $state(false);
+	$effect(() => { const m = matchMedia('(max-width: 600px)'); small = m.matches; const f = () => (small = m.matches); m.addEventListener('change', f); return () => m.removeEventListener('change', f); });
+	const LIMIT = $derived(small ? 5 : 8);
 	let all = $state(false);
 	const rows = $derived([...(parent.children ?? [])].sort((a, b) => b.gross - a.gross));
 	const shown = $derived(all ? rows : rows.slice(0, LIMIT));
@@ -84,7 +87,7 @@
 	.all:hover { color: var(--ink); border-color: var(--ink); }
 	@keyframes open { from { opacity: 0; transform: translateY(-4px); } }
 	@media (max-width: 600px) {
-		.row { grid-template-columns: 20px 1fr auto 16px; grid-template-areas: 'rank name amt chev' '. bar pct .'; gap: 6px 10px; }
+		.row { grid-template-columns: 20px 1fr auto 16px; grid-template-areas: 'rank name amt chev' '. bar pct .'; gap: 5px 10px; padding-top: 10px; padding-bottom: 10px; }
 		.pct { line-height: 1; }
 		.pct { text-align: right; align-self: center; font-size: 12px; }
 		.inside { margin-left: 12px; padding-left: 10px; }

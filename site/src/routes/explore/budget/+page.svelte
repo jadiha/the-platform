@@ -401,6 +401,16 @@
 		.flowlist .tap { font-size: 15px; padding: 12px 14px; background: #fff; border-color: color-mix(in srgb, var(--ink) 10%, transparent); border-radius: 12px; }
 		.cn { font-size: 13px; margin-top: 14px; }
 		.next { margin-top: 20px; }
+		/* Phones: a tighter header so Part 1 starts on the first screen, and slimmer Part 2 rows. */
+		.top { margin-bottom: 4px; gap: 10px; }
+		.rest { font-size: 28px; }
+		.dek { font-size: 16px; margin-top: 4px; }
+		.tabs button { padding: 4px 14px; font-size: 13px; }
+		.story .part:first-child { margin-top: 12px; }
+		.part { padding: 18px 14px; }
+		.flowlist { gap: 6px; }
+		.flowlist .tap { padding: 9px 12px; }
+		.note { font-size: 12.5px; padding: 6px 10px; }
 	}
 	.note { font-size: 13px; color: var(--ink-2); background: var(--paper-2); border-radius: 10px; padding: 8px 12px; margin: 6px 0 0; }
 	.go { color: var(--red); font-weight: 700; }
