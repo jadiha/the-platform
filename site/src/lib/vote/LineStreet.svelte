@@ -24,6 +24,17 @@
 		return () => clearTimeout(t);
 	});
 
+	// Stick right under the masthead whatever its height (it wraps to two rows on narrow laptops).
+	// On phones the masthead scrolls away, so the bar sticks to the very top instead.
+	$effect(() => {
+		const mast = document.querySelector<HTMLElement>('.masthead');
+		if (!mast) return;
+		const fit = () => ride.style.setProperty('--mast', getComputedStyle(mast).position === 'sticky' ? `${mast.offsetHeight - 1}px` : '0px');
+		const ro = new ResizeObserver(fit);
+		ro.observe(mast);
+		return () => ro.disconnect();
+	});
+
 	// Hopping on, as one continuous motion: the header's black line drops and tightens into the track
 	// while the stops pop in left to right and the streetcar rolls in from off-screen, sparking as it
 	// arrives. Only transforms animate (smooth on slow phones), and it starts once the new stop has
@@ -66,8 +77,8 @@
 
 <style>
 	/* One line only: the masthead drops its own bottom edge, and the track is the black line under it. */
-	:global(body:has(nav.ride) .masthead) { border-bottom-color: transparent; }
-	.ride { position: sticky; top: var(--mast, 61px); z-index: 6; background: var(--paper); padding: 30px 20px 10px; overflow-x: clip; }
+	:global(body:has(nav.ride) .masthead) { border-bottom-color: transparent; padding-bottom: 6px; }
+	.ride { position: sticky; top: var(--mast, 54px); z-index: 6; background: var(--paper); padding: 24px 20px 10px; overflow-x: clip; }
 	.inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; gap: 32px; }
 	.acts { flex: none; display: flex; gap: 8px; }
 	.here { flex: none; width: 76px; font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -108,7 +119,7 @@
 	.ride.run .tram :global(svg) { animation: rock 0.4s ease-in-out 0.85s 2; }
 	.ride.run .spark { animation-delay: 1.1s; }
 	@media (max-width: 640px) {
-		.ride { --mast: 0px; padding: 26px 14px 12px; }
+		.ride { padding: 19px 14px 12px; }
 		.track { --tw: 68px; }
 		.inner { gap: 10px 16px; flex-wrap: wrap; }
 		.track { order: 3; flex-basis: 100%; margin: 6px 0 0; }
