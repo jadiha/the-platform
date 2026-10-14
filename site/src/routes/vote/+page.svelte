@@ -1,6 +1,6 @@
 <script lang="ts">
 	// The Toronto journey (spec §11): a streetcar ride with stops for "Whose job is it?",
-	// "Did it change anything?" (City Hall), every mayoral candidate in ballot order, and the exit.
+	// "What the mayor and council decide" (City Hall), every mayoral candidate in ballot order, and the exit.
 	import '#lib/vote/vote.css';
 	import Fact from '#lib/components/Fact.svelte';
 	import SourceLine from '#lib/vote/SourceLine.svelte';
@@ -165,8 +165,8 @@
 {:else if step === 2}
 <section class="stop wide cityhall">
 	<p class="flag">Stop 2 · City Hall</p>
-	<h2 class="head">Did it change anything?</h2>
-	<p class="lede">Yes. The mayor and council set your tax bill and the City's biggest budgets.</p>
+	<h2 class="head">What the mayor and council decide</h2>
+	<p class="lede">Your property tax bill, and how the City's biggest budgets are split.</p>
 	<div class="charts sans">
 		<figure class="chart">
 			<figcaption>The City tax bill on an average Toronto home</figcaption>
