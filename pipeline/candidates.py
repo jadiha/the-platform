@@ -58,7 +58,8 @@ def parse_row(row: dict) -> dict:
     links = [link for link in row["links"] if link.startswith("http")]
     return {
         "ballot_name": row["cells"][0],
-        "name": f"{first} {last}".strip(),
+        # The Clerk's list has the odd stray comma (e.g. "Nisha Kumari,"); ballot_name keeps it verbatim.
+        "name": f"{first} {last}".strip(" ,"),
         "website": next((link for link in links if not any(s in link for s in SOCIAL)), None),
         "social": [link for link in links if any(s in link for s in SOCIAL[:-1])],
         "nominated": row["cells"][-1],

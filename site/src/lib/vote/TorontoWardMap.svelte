@@ -83,7 +83,7 @@
 	</svg>
 	<div class="panel" class:open={!!(shown && race)} aria-live="polite">
 		{#if shown && race}
-			<button class="close" aria-label="Close" onclick={() => { picked = null; hover = null; }}>×</button>
+			<button class="close" aria-label="Back to the map" onclick={() => { picked = null; hover = null; }}><span class="x" aria-hidden="true">×</span><span class="back">← Back to the map</span></button>
 			<span class="num">Ward {shown.ward}</span>
 			<b>{shown.name}</b>
 			<div class="race">
@@ -139,15 +139,19 @@
 	.fine { font-size: 11px; color: var(--mute); margin: 10px 0 0; line-height: 1.45; }
 	.fine a { color: inherit; }
 	.close { display: none; }
+	.close .back { display: inline; }
 	.panel { position: relative; }
 	@media (max-width: 700px) {
 		.wardmap { gap: 16px; margin-top: 12px; }
 		.names.many { columns: 2; font-size: 13px; }
 		.wardmap { grid-template-columns: 1fr; }
 		.panel { min-height: 0; }
-		/* On phones the ward opens as a sheet over the map, so the answer is on screen without scrolling. */
-		.panel.open { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; max-height: 78vh; overflow-y: auto; border-radius: 18px 18px 0 0; box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15); padding: 18px 16px 22px; }
-		.close { display: block; position: absolute; top: 8px; right: 10px; width: 36px; height: 36px; border: 0; background: none; font-size: 26px; line-height: 1; color: var(--mute); cursor: pointer; }
+		/* On phones the ward takes the map's place (no sheet from the bottom); 'Back to the map' brings it back. */
+		.wardmap:has(.panel.open) svg { display: none; }
+		.panel.open { animation: swap 0.25s ease-out; }
+		.close { display: block; order: -1; align-self: flex-start; border: 0; background: none; padding: 0 0 8px; font: inherit; font-size: 14px; font-weight: 600; color: var(--ink-2); cursor: pointer; }
+		.close .x { display: none; }
+		@keyframes swap { from { opacity: 0; transform: translateY(6px); } }
 	}
 	@media (prefers-reduced-motion: reduce) { .w { transition: none; } }
 </style>
