@@ -166,7 +166,7 @@
 {#key step}
 <div class="screenwrap">
 {#if step === 0}
-<section class="hall wrap screen">
+<section class="hall wrap screen" class:leaving={departing}>
 	<p class="kicker">Toronto votes · Monday, October 26</p>
 	<h1>The <span><Fact id="toronto.operating.2026.gross" plain /></span> question</h1>
 	<p class="dek">
@@ -382,6 +382,9 @@
 	.screenwrap { padding-bottom: 20px; animation: slidein 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
 	@keyframes slidein { from { opacity: 0; transform: translateX(30px); } }
 	.hall { margin-top: 8vh; }
+	/* Hop on: the opening screen slides out to the left just before Stop 1 slides in from the right. */
+	.hall.leaving { animation: leave 0.4s cubic-bezier(0.5, 0, 0.9, 0.5) 1s forwards; }
+	@keyframes leave { to { opacity: 0; transform: translateX(-30px); } }
 	.hoprow { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 18px; margin-top: 22px; }
 	.hop { font-family: var(--sans); font-weight: 700; font-size: 17px; background: var(--red); color: #fff; border: var(--line); border-radius: 999px; padding: 12px 26px; cursor: pointer; box-shadow: var(--pop); transition: transform 0.15s, box-shadow 0.15s; }
 	.hop:hover { transform: translate(-2px, -2px); box-shadow: var(--pop-lg); }
