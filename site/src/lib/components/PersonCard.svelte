@@ -58,7 +58,7 @@
 	.v-no { color: #b02a37; }
 	.v-absent { color: var(--mute); }
 	.src { display: block; font-size: 11.5px; color: var(--mute); margin-top: 2px; }
-	blockquote { margin: 10px 0 0; padding-left: 10px; border-left: 3px solid var(--rule); font-family: var(--serif); font-size: 15px; font-style: italic; }
+	blockquote { margin: 10px 0 0; padding-left: 10px; border-left: 3px solid var(--rule); font-family: var(--serif); font-size: 15.5px; font-style: normal; line-height: 1.5; }
 	blockquote .src { font-family: var(--sans); font-style: normal; }
 	.official { font-size: 12px; margin-left: 6px; }
 	.none { color: var(--mute); font-size: 12.5px; margin: 8px 0 0; }

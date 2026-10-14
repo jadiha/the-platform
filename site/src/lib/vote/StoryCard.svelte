@@ -147,7 +147,7 @@
 	.name { font-family: var(--display); font-weight: 700; font-size: 30px; margin: 4px 0 0; letter-spacing: 0; }
 	.ptitle { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mute); margin: 2px 0 10px; }
 	.body { flex: 1; min-height: 0; overflow-y: auto;  flex: 1; font-size: 14px; }
-	q { display: block; font-family: var(--serif); font-style: italic; font-size: 16.5px; line-height: 1.4; margin: 6px 0; }
+	q { display: block; font-family: var(--serif); font-style: normal; font-size: 17px; line-height: 1.5; margin: 6px 0; }
 	q.small { font-size: 14px; }
 	.rec { margin: 0 0 6px; font-weight: 600; }
 	.rec a, .hl, .pri a, .small a { font-weight: 400; font-size: 11.5px; color: var(--mute); }
@@ -163,7 +163,7 @@
 	.nums li { border-left: 4px solid var(--c); background: #faf8f4; border-radius: 0 12px 12px 0; padding: 10px 14px; display: flex; flex-direction: column; gap: 4px; }
 	.tp { font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--c); }
 	.plain { font-family: var(--sans); font-size: 16px; line-height: 1.35; }
-	.nums q.small { color: var(--ink-2); font-style: italic; }
+	.nums q.small { color: var(--ink-2); font-style: normal; }
 	.fine { font-family: var(--sans); font-size: 11.5px; color: var(--mute); margin: 10px 0 0; }
 	.nav { display: flex; justify-content: space-between; margin-top: 12px; }
 	.nav button { font: inherit; font-size: 14px; font-weight: 600; border: 0; background: none; cursor: pointer; padding: 8px 4px; }
