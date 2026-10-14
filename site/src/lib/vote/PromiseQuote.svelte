@@ -34,7 +34,7 @@
 	.plaque { background: #fff; border: 1px solid var(--rule); border-left: 4px solid var(--c, var(--ink)); border-radius: 0 10px 10px 0; padding: 10px 12px; }
 	.plaque.draft { outline: 2px dashed #e0a800; }
 	.who { font-weight: 600; font-size: 13px; }
-	q { display: block; font-style: italic; font-size: 16px; margin: 4px 0; line-height: 1.45; }
+	q { display: block; font-style: normal; font-size: 16px; margin: 4px 0; line-height: 1.5; }
 	q.cost { font-size: 14px; }
 	.note { font-size: 12px; color: var(--ink-2); margin: 4px 0; }
 	.src { font-size: 11.5px; color: var(--mute); }
